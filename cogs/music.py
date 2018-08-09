@@ -9,7 +9,7 @@ from async_timeout import timeout
 from functools import partial
 from youtube_dl import YoutubeDL
 from discord import opus
-from cogs.opus_loader import load_opus_lib
+from cogs.opus_load import load_opus_lib
 
 load_opus_lib()
 
