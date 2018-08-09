@@ -8,11 +8,10 @@ import traceback
 from async_timeout import timeout
 from functools import partial
 from youtube_dl import YoutubeDL
+from discord import opus
+from .opus_loader import load_opus_lib
 
-try:
-    opus.load_opus(opus_lib)
-except Exception as error:
-    print(error)
+load_opus_lib()
 
 ytdlopts = {
     'format': 'bestaudio/best',
