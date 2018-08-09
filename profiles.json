@@ -10,7 +10,7 @@
     "diamonds": 2000,
     "roses": 23,
     "alcohol": 81,
-    "experience": 19829,
+    "experience": 19884,
     "__profile__": true
   },
   "460846291300122635": {
@@ -248,7 +248,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 19254,
+    "experience": 19305,
     "__profile__": true
   },
   "355414130267783168": {
@@ -346,7 +346,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 1267,
+    "experience": 1287,
     "__profile__": true
   },
   "218965134566096907": {
@@ -1326,7 +1326,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 4955,
+    "experience": 4962,
     "__profile__": true
   },
   "357970364304719872": {
@@ -1368,7 +1368,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 1221,
+    "experience": 1228,
     "__profile__": true
   },
   "197432639441993728": {
@@ -2801,16 +2801,16 @@
   },
   "446693771711741954": {
     "desc": ".slots 20000",
-    "bday": null,
-    "married": null,
-    "cash": null,
-    "inventory": null,
-    "picks": null,
-    "rings": null,
-    "diamonds": null,
-    "roses": null,
-    "alcohol": null,
-    "experience": null,
+    "bday": ".MONNEY",
+    "married": "nobody...",
+    "cash": 0,
+    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
+    "picks": 0,
+    "rings": 0,
+    "diamonds": 0,
+    "roses": 0,
+    "alcohol": 0,
+    "experience": 0,
     "__profile__": true
   }
 }
