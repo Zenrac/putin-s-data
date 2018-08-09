@@ -10,7 +10,7 @@
     "diamonds": 2000,
     "roses": 23,
     "alcohol": 81,
-    "experience": 19917,
+    "experience": 19952,
     "__profile__": true
   },
   "460846291300122635": {
@@ -248,7 +248,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 19347,
+    "experience": 19468,
     "__profile__": true
   },
   "355414130267783168": {
@@ -346,7 +346,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 1333,
+    "experience": 1473,
     "__profile__": true
   },
   "218965134566096907": {
@@ -486,7 +486,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 950,
+    "experience": 953,
     "__profile__": true
   },
   "209479806620925955": {
@@ -1410,21 +1410,21 @@
     "diamonds": 4,
     "roses": 3,
     "alcohol": 0,
-    "experience": 8346,
+    "experience": 8359,
     "__profile__": true
   },
   "463661426406457344": {
     "desc": "\u05d0\u05d5\u05d4\u05d1 \u05ea\u05de\u05d9\u05e7\u05de\u05e7<:Topkek:463004853694627860>",
     "bday": "08-12-2005",
     "married": "LI3AD",
-    "cash": 3.021659832005123e+16,
+    "cash": 3.0257148317250976e+16,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 998,
     "diamonds": 1,
     "roses": 10000100496,
     "alcohol": 100995,
-    "experience": 11175,
+    "experience": 11192,
     "__profile__": true
   },
   "277785837381615616": {
@@ -1683,7 +1683,7 @@
     "desc": ".balance",
     "bday": "\u05d9\u05e9 \u05e1\u05d9\u05db\u05d5\u05d9 \u05e9\u05de\u05e9\u05d4\u05d5 \u05de\u05d1\u05d9\u05d0 \u05dc\u05d9 1000 \u05e9\u05e7\u05dc PLS",
     "married": "Eyal",
-    "cash": 2.5579874085637248e+17,
+    "cash": 2.5579799460637248e+17,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 1,
@@ -2187,7 +2187,7 @@
     "desc": "In love with <@456395319328899072>",
     "bday": "29/04/2004",
     "married": "CocaCola",
-    "cash": 1.2860186745636667e+19,
+    "cash": 1.3535186745636667e+19,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 1,
