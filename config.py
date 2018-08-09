@@ -1,0 +1,1 @@
+postgresql = 'postgresql://postgres:postgres@localhost/putin' # your postgresql info from above

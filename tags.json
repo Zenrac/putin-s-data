@@ -1,0 +1,4908 @@
+{
+  "generic": {
+    "weetibot": {
+      "name": "weetibot",
+      "content": "A useful bot made by @\u0e56\u0336\u0336\u0336\u03b6\u035c\u0361iWeeti\u00ae#4990",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "voi vittu": {
+      "name": "voi vittu",
+      "content": "``Voi vittu! Voi vitun, vitun, vittu...``",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "fuck": {
+      "name": "fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "ffs": {
+      "name": "ffs",
+      "content": "for fuck sakes",
+      "owner_id": "282515230595219456",
+      "uses": 11,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lmao": {
+      "name": "lmao",
+      "content": "Laughing My Ass Off",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lol": {
+      "name": "lol",
+      "content": "laughing out loud",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 17,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonkku": {
+      "name": "thonkku",
+      "content": "<:thonkku:356833797804916737>",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "mmlol": {
+      "name": "mmlol",
+      "content": "<:mmLol:356831697385422848>",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "!witchhunt": {
+      "name": "!witchhunt",
+      "content": "!help",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "photoblobs": {
+      "name": "photoblobs",
+      "content": "<:photoblobs:318013782662053888>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "tickyes": {
+      "name": "tickyes",
+      "content": "<:tickYes:315009125694177281>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "dblspin": {
+      "name": "dblspin",
+      "content": "<a:dblspin:393548363879940108>",
+      "owner_id": "320067006521147393",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thinkingwithblobs": {
+      "name": "thinkingwithblobs",
+      "content": "<a:athinkingwithblobs:396521772838682626>",
+      "owner_id": "300088143422685185",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lenny": {
+      "name": "lenny",
+      "content": "\u239d\u2022\u25be\u2022\u23a0",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thinkball": {
+      "name": "thinkball",
+      "content": "https://cdn.discordapp.com/emojis/458890557645783040.gif",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "test": {
+      "name": "test",
+      "content": "test",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "bmusic": {
+      "name": "bmusic",
+      "content": "\ud83c\udfb6 \ud83d\udc93 __***Best Music***__",
+      "owner_id": "282515230595219456",
+      "uses": 67,
+      "location": "generic",
+      "__tag__": true
+    },
+    "tias": {
+      "name": "tias",
+      "content": "http://i.imgur.com/6A6tcD0.png",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "generic",
+      "__tag__": true
+    },
+    "gmusic": {
+      "name": "gmusic",
+      "content": "\ud83c\udfb6 \ud83d\udc4c __***Good Music***__",
+      "owner_id": "282515230595219456",
+      "uses": 12,
+      "location": "generic",
+      "__tag__": true
+    },
+    "roblox": {
+      "name": "roblox",
+      "content": "Roblox is going to destroy human kind some day.",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "generic",
+      "__tag__": true
+    },
+    "fu": {
+      "name": "fu",
+      "content": "\ud83d\udd95",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "ditto": {
+      "name": "ditto",
+      "content": "<:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492>",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonkthonk": {
+      "name": "thonkthonk",
+      "content": "<:thonkthonk:473933717556035605>",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "blobthinking": {
+      "name": "blobthinking",
+      "content": "<:blobthinking:473933698090139678>",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "blobthonk": {
+      "name": "blobthonk",
+      "content": "<:blobthonk:473933748434632740>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "blobfu": {
+      "name": "blobfu",
+      "content": "<:blobfu:473933680398696458>",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonking": {
+      "name": "thonking",
+      "content": "<:thonking:473928738946547732>",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonkk": {
+      "name": "thonkk",
+      "content": "<:thonkk:473929088852033538>",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "yes": {
+      "name": "yes",
+      "content": "<:yes:473934790962446346>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "no": {
+      "name": "no",
+      "content": "<:no:473934822868254741>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "perfectplaylist": {
+      "name": "perfectplaylist",
+      "content": "https://i.redd.it/wouu7s797ld11.jpg",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "blob": {
+      "name": "blob",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/475643858928009236/image.gif",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "generic",
+      "__tag__": true
+    },
+    "whatwentwrong": {
+      "name": "whatwentwrong",
+      "content": "https://cdn.discordapp.com/attachments/290395754126770186/475978072408064026/U77eIPN.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "kaanplaylist": {
+      "name": "kaanplaylist",
+      "content": "https://www.youtube.com/playlist?list=PLrNlvJl75Lw2VNSHYaex0j-S4Z9ZqLUWc",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    }
+  },
+  "329993146651901952": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    ".tag": {
+      "name": ".tag",
+      "content": "hi",
+      "owner_id": "429118689367949322",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "hi": {
+      "name": "hi",
+      "content": ".tag tag.",
+      "owner_id": "429118689367949322",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "playlist": {
+      "name": "Playlist",
+      "content": "https://www.playlistbuddy.com/",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "hastebin": {
+      "name": "hastebin",
+      "content": "https://hastebin.com",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "putin",
+      "content": "i will take over the whole world",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "lenny": {
+      "name": "lenny",
+      "content": "\u239d\u2022\u25be\u2022\u23a0",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "test": {
+      "name": "test",
+      "content": "tset",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "weird thing": {
+      "name": "weird thing",
+      "content": "https://cdn.discordapp.com/attachments/337968532388184066/474327332887330826/05Z76mv.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    }
+  },
+  "Autisti": {},
+  "```py\nfrom discord.ext import commands\n```": {},
+  "290395754126770186": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "appelsiini kuuluu kanakastikkeeseen": {
+      "name": "appelsiini kuuluu kanakastikkeeseen",
+      "content": "voi vittu voi vitun vitun vittu",
+      "owner_id": "280760163730980864",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "teepannu": {
+      "name": "teepannu",
+      "content": "https://www.youtube.com/watch?v=NUY-rLH0xiI",
+      "owner_id": "280760163730980864",
+      "uses": 5,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 7,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "orangejustice": {
+      "name": "orangejustice",
+      "content": "https://cdn.discordapp.com/attachments/463788484931354645/465827029414182922/orangejusticeroblox.gif",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "neekeri\u00e4itin kumibanaani": {
+      "name": "neekeri\u00e4itin kumibanaani",
+      "content": "https://www.youtube.com/watch?v=-oBUuAIFceI",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 14,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "fuck": {
+      "name": "Fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "jere": {
+      "name": "jere",
+      "content": "nigger",
+      "owner_id": "282915402177314816",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "marko": {
+      "name": "Marko",
+      "content": "https://cdn.discordapp.com/attachments/290395754126770186/473842936853954588/15251629_1179782968735697_529449466210549760_n.png",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "use marko": {
+      "name": "use marko",
+      "content": "Marko has been used. 1000 damage dealt!",
+      "owner_id": "282915402177314816",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    }
+  },
+  "go": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    ".tag": {
+      "name": ".tag",
+      "content": "hi",
+      "owner_id": "429118689367949322",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "hi": {
+      "name": "hi",
+      "content": ".tag tag.",
+      "owner_id": "429118689367949322",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    }
+  },
+  "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "appelsiini kuuluu kanakastikkeeseen": {
+      "name": "appelsiini kuuluu kanakastikkeeseen",
+      "content": "voi vittu voi vitun vitun vittu",
+      "owner_id": "280760163730980864",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "teepannu": {
+      "name": "teepannu",
+      "content": "https://www.youtube.com/watch?v=NUY-rLH0xiI",
+      "owner_id": "280760163730980864",
+      "uses": 3,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "orangejustice": {
+      "name": "orangejustice",
+      "content": "https://cdn.discordapp.com/attachments/463788484931354645/465827029414182922/orangejusticeroblox.gif",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    }
+  },
+  "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif \ud83c\uddf0\ud83c\uddea\ud83c\uddea\ud83c\uddf2\ud83c\uddf8\ud83c\uddf9\ud83c\udde6\ud83c\uddf7": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "appelsiini kuuluu kanakastikkeeseen": {
+      "name": "appelsiini kuuluu kanakastikkeeseen",
+      "content": "voi vittu voi vitun vitun vittu",
+      "owner_id": "280760163730980864",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "teepannu": {
+      "name": "teepannu",
+      "content": "https://www.youtube.com/watch?v=NUY-rLH0xiI",
+      "owner_id": "280760163730980864",
+      "uses": 3,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "orangejustice": {
+      "name": "orangejustice",
+      "content": "https://cdn.discordapp.com/attachments/463788484931354645/465827029414182922/orangejusticeroblox.gif",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    }
+  },
+  "467294603003822093": {
+    "fuck": {
+      "name": "Fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 8,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "putin",
+      "content": "I will rule over the world and destroy that duck fuck of america",
+      "owner_id": "352494762357555200",
+      "uses": 3,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "holy fan": {
+      "name": "Holy fan",
+      "content": "https://cdn.discordapp.com/attachments/467374456466178057/468080067009052672/JPEG_20180715_184221.jpg",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "re\u03b2el": {
+      "name": "re\u03b2el",
+      "content": "wonderful wonderful very wonderful",
+      "owner_id": "229280831934431234",
+      "uses": 4,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "amy is a goddess": {
+      "name": "Amy is a goddess",
+      "content": "Amy is a goddess and however doesn't obey will get nuked",
+      "owner_id": "229280831934431234",
+      "uses": 6,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "bitch": {
+      "name": "bitch",
+      "content": "you called me?",
+      "owner_id": "352494762357555200",
+      "uses": 2,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "hot boy": {
+      "name": "hot boy",
+      "content": ".tag",
+      "owner_id": "352494762357555200",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "lol": {
+      "name": "lol",
+      "content": "laughing out loud",
+      "owner_id": "352494762357555200",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "best music",
+      "content": "\ud83c\udfb5 \u2764",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "chris": {
+      "name": "chris",
+      "content": "chris is a queen and whoever doesn't obey will get nuked by Amy personally",
+      "owner_id": "352494762357555200",
+      "uses": 1,
+      "location": "467294603003822093",
+      "__tag__": true
+    }
+  },
+  "i will rule over the world and destroy that duck fuck of americ": {
+    "fuck": {
+      "name": "Fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "putin",
+      "content": "I will rule over the world and destroy that duck fuck of america",
+      "owner_id": "352494762357555200",
+      "uses": 2,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "holy fan": {
+      "name": "Holy fan",
+      "content": "https://cdn.discordapp.com/attachments/467374456466178057/468080067009052672/JPEG_20180715_184221.jpg",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "re\u03b2el": {
+      "name": "re\u03b2el",
+      "content": "wonderful wonderful very wonderful",
+      "owner_id": "229280831934431234",
+      "uses": 1,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "amy is a goddess": {
+      "name": "Amy is a goddess",
+      "content": "Amy is a goddess and however doesn't obey will get nuked",
+      "owner_id": "229280831934431234",
+      "uses": 2,
+      "location": "467294603003822093",
+      "__tag__": true
+    }
+  },
+  "467491450616283166": {
+    "cruzalex1208": {
+      "name": "cruzalex1208",
+      "content": "cool guy",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "467491450616283166",
+      "__tag__": true
+    }
+  },
+  "264445053596991498": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 13,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best song": {
+      "name": "best song",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "token format": {
+      "name": "token format",
+      "content": "https://i.imgur.com/7WdehGn.png",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "e": {
+      "name": "e",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474607836983197697/replace.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "widget format": {
+      "name": "widget format",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474714467259645975/unknown.png",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "music": {
+      "name": "Music",
+      "content": "Need to make autopause and more error handling and limitations",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eh": {
+      "name": "Eh",
+      "content": "I need Error Handling!",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eggsys": {
+      "name": "Eggsys",
+      "content": "This at least was the biggest turkish bot",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gayegg": {
+      "name": "gayegg",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474904514294710275/gay.png",
+      "owner_id": "162969778699501569",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "copypasta": {
+      "name": "copypasta",
+      "content": "http://i.imgur.com/iVlASYc.png",
+      "owner_id": "273216249021071360",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "test": {
+      "name": "test",
+      "content": "test",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "reddit api": {
+      "name": "Reddit api",
+      "content": "https://api.reddit.com/r/${choice}/random;\nwhere choice is the name of the subreddit where it's without the r/",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "369542671536226315": {
+    ".tag amit": {
+      "name": ".tag Amit",
+      "content": ".mute <@183531016311406592>",
+      "owner_id": "183530953329737728",
+      "uses": 0,
+      "location": "369542671536226315",
+      "__tag__": true
+    }
+  },
+  "lmao": {
+    "fuck": {
+      "name": "Fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 8,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "putin",
+      "content": "I will rule over the world and destroy that duck fuck of america",
+      "owner_id": "352494762357555200",
+      "uses": 2,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "holy fan": {
+      "name": "Holy fan",
+      "content": "https://cdn.discordapp.com/attachments/467374456466178057/468080067009052672/JPEG_20180715_184221.jpg",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "re\u03b2el": {
+      "name": "re\u03b2el",
+      "content": "wonderful wonderful very wonderful",
+      "owner_id": "229280831934431234",
+      "uses": 3,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "amy is a goddess": {
+      "name": "Amy is a goddess",
+      "content": "Amy is a goddess and however doesn't obey will get nuked",
+      "owner_id": "229280831934431234",
+      "uses": 4,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "bitch": {
+      "name": "bitch",
+      "content": "you called me?",
+      "owner_id": "352494762357555200",
+      "uses": 2,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "hot boy": {
+      "name": "hot boy",
+      "content": ".tag",
+      "owner_id": "352494762357555200",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "lol": {
+      "name": "lol",
+      "content": "laughing out loud",
+      "owner_id": "352494762357555200",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    }
+  },
+  "\\:dblspin:": {
+    "weetibot": {
+      "name": "weetibot",
+      "content": "A useful bot made by @\u0e56\u0336\u0336\u0336\u03b6\u035c\u0361iWeeti\u00ae#4990",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "voi vittu": {
+      "name": "voi vittu",
+      "content": "``Voi vittu! Voi vitun, vitun, vittu...``",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "fuck": {
+      "name": "fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "generic",
+      "__tag__": true
+    },
+    "ffs": {
+      "name": "ffs",
+      "content": "for fuck sakes",
+      "owner_id": "282515230595219456",
+      "uses": 9,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lmao": {
+      "name": "lmao",
+      "content": "Laughing My Ass Off",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lol": {
+      "name": "lol",
+      "content": "laughing out loud",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonkku": {
+      "name": "thonkku",
+      "content": "<:thonkku:356833797804916737>",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "mmlol": {
+      "name": "mmlol",
+      "content": "<:mmLol:356831697385422848>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "generic",
+      "__tag__": true
+    },
+    "!witchhunt": {
+      "name": "!witchhunt",
+      "content": "!help",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "photoblobs": {
+      "name": "photoblobs",
+      "content": "<:photoblobs:318013782662053888>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    }
+  },
+  "hello": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "reddit api": {
+      "name": "Reddit api",
+      "content": "https://api.reddit.com/r/${choice}/random;\nwhere choice is the name of the subreddit where it's without the r/",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "dbl": {
+      "name": "Dbl",
+      "content": "https://discordbots.org/api/widget/460846291300122635.png",
+      "owner_id": "282515230595219456",
+      "uses": 9,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "best music",
+      "content": "\ud83c\udfb5 \u2764",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "what": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "reddit api": {
+      "name": "Reddit api",
+      "content": "https://api.reddit.com/r/${choice}/random;\nwhere choice is the name of the subreddit where it's without the r/",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "dbl": {
+      "name": "Dbl",
+      "content": "https://discordbots.org/api/widget/460846291300122635.png",
+      "owner_id": "282515230595219456",
+      "uses": 9,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "best music",
+      "content": "\ud83c\udfb5 \u2764",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "eris": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "reddit api": {
+      "name": "Reddit api",
+      "content": "https://api.reddit.com/r/${choice}/random;\nwhere choice is the name of the subreddit where it's without the r/",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "dbl": {
+      "name": "Dbl",
+      "content": "https://discordbots.org/api/widget/460846291300122635.png",
+      "owner_id": "282515230595219456",
+      "uses": 9,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "best music",
+      "content": "\ud83c\udfb5 \u2764",
+      "owner_id": "282515230595219456",
+      "uses": 7,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "https://discordbots.org/api/widget/460846291300122635.png": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "reddit api": {
+      "name": "Reddit api",
+      "content": "https://api.reddit.com/r/${choice}/random;\nwhere choice is the name of the subreddit where it's without the r/",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "best music",
+      "content": "\ud83c\udfb5 \u2764",
+      "owner_id": "282515230595219456",
+      "uses": 9,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "\\<a:dblspin:393548363879940108>": {
+    "weetibot": {
+      "name": "weetibot",
+      "content": "A useful bot made by @\u0e56\u0336\u0336\u0336\u03b6\u035c\u0361iWeeti\u00ae#4990",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "voi vittu": {
+      "name": "voi vittu",
+      "content": "``Voi vittu! Voi vitun, vitun, vittu...``",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "fuck": {
+      "name": "fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "ffs": {
+      "name": "ffs",
+      "content": "for fuck sakes",
+      "owner_id": "282515230595219456",
+      "uses": 10,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lmao": {
+      "name": "lmao",
+      "content": "Laughing My Ass Off",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lol": {
+      "name": "lol",
+      "content": "laughing out loud",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonkku": {
+      "name": "thonkku",
+      "content": "<:thonkku:356833797804916737>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "generic",
+      "__tag__": true
+    },
+    "mmlol": {
+      "name": "mmlol",
+      "content": "<:mmLol:356831697385422848>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "generic",
+      "__tag__": true
+    },
+    "!witchhunt": {
+      "name": "!witchhunt",
+      "content": "!help",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "photoblobs": {
+      "name": "photoblobs",
+      "content": "<:photoblobs:318013782662053888>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "tickyes": {
+      "name": "tickyes",
+      "content": "<:tickYes:315009125694177281>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "dblspin": {
+      "name": "dblspin",
+      "content": "<a:dblspin:393548363879940108>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thinkingwithblobs": {
+      "name": "thinkingwithblobs",
+      "content": "<a:athinkingwithblobs:396521772838682626>",
+      "owner_id": "300088143422685185",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    }
+  },
+  "449571753962897418": {
+    "best music": {
+      "name": "best music",
+      "content": "\u2764 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "449571753962897418",
+      "__tag__": true
+    }
+  },
+  "\ud83c\udfb5 \u2764": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "reddit api": {
+      "name": "Reddit api",
+      "content": "https://api.reddit.com/r/${choice}/random;\nwhere choice is the name of the subreddit where it's without the r/",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "https://api.reddit.com/r/${choice}/random;\nwhere choice is the name of the subreddit where it's without the r/": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 10,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "test": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 13,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best song": {
+      "name": "best song",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "token format": {
+      "name": "token format",
+      "content": "https://i.imgur.com/7WdehGn.png",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "e": {
+      "name": "e",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474607836983197697/replace.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "widget format": {
+      "name": "widget format",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474714467259645975/unknown.png",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "idea": {
+      "name": "Idea",
+      "content": "Making custom commands",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "idea2": {
+      "name": "Idea2",
+      "content": "Make lyrics get the song that's playing automatically",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "music": {
+      "name": "Music",
+      "content": "Need to make autopause and more error handling and limitations",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eh": {
+      "name": "Eh",
+      "content": "I need Error Handling!",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eggsys": {
+      "name": "Eggsys",
+      "content": "This at least was the biggest turkish bot",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gayegg": {
+      "name": "gayegg",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474904514294710275/gay.png",
+      "owner_id": "162969778699501569",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "a weird saying": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    ".tag": {
+      "name": ".tag",
+      "content": "hi",
+      "owner_id": "429118689367949322",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "hi": {
+      "name": "hi",
+      "content": ".tag tag.",
+      "owner_id": "429118689367949322",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "playlist": {
+      "name": "Playlist",
+      "content": "https://www.playlistbuddy.com/",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "hastebin": {
+      "name": "hastebin",
+      "content": "https://hastebin.com",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "putin",
+      "content": "i will take over the whole world",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "lenny": {
+      "name": "lenny",
+      "content": "\u239d\u2022\u25be\u2022\u23a0",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "test": {
+      "name": "test",
+      "content": "tset",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    }
+  },
+  "Good Game": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    ".tag": {
+      "name": ".tag",
+      "content": "hi",
+      "owner_id": "429118689367949322",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "hi": {
+      "name": "hi",
+      "content": ".tag tag.",
+      "owner_id": "429118689367949322",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "playlist": {
+      "name": "Playlist",
+      "content": "https://www.playlistbuddy.com/",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "hastebin": {
+      "name": "hastebin",
+      "content": "https://hastebin.com",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "putin",
+      "content": "i will take over the whole world",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "lenny": {
+      "name": "lenny",
+      "content": "\u239d\u2022\u25be\u2022\u23a0",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__tag__": true
+    },
+    "test": {
+      "name": "test",
+      "content": "tset",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "329993146651901952",
+      "__tag__": true
+    }
+  },
+  ".tag": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "appelsiini kuuluu kanakastikkeeseen": {
+      "name": "appelsiini kuuluu kanakastikkeeseen",
+      "content": "voi vittu voi vitun vitun vittu",
+      "owner_id": "280760163730980864",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "teepannu": {
+      "name": "teepannu",
+      "content": "https://www.youtube.com/watch?v=NUY-rLH0xiI",
+      "owner_id": "280760163730980864",
+      "uses": 4,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "orangejustice": {
+      "name": "orangejustice",
+      "content": "https://cdn.discordapp.com/attachments/463788484931354645/465827029414182922/orangejusticeroblox.gif",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "neekeri\u00e4itin kumibanaani": {
+      "name": "neekeri\u00e4itin kumibanaani",
+      "content": "https://www.youtube.com/watch?v=-oBUuAIFceI",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 8,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "fuck": {
+      "name": "Fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "jere": {
+      "name": "jere",
+      "content": "nigger",
+      "owner_id": "282915402177314816",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "marko": {
+      "name": "Marko",
+      "content": "https://cdn.discordapp.com/attachments/290395754126770186/473842936853954588/15251629_1179782968735697_529449466210549760_n.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "use marko": {
+      "name": "use marko",
+      "content": "Marko has been used. 1000 damage dealt!",
+      "owner_id": "282915402177314816",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    }
+  },
+  "": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "appelsiini kuuluu kanakastikkeeseen": {
+      "name": "appelsiini kuuluu kanakastikkeeseen",
+      "content": "voi vittu voi vitun vitun vittu",
+      "owner_id": "280760163730980864",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "teepannu": {
+      "name": "teepannu",
+      "content": "https://www.youtube.com/watch?v=NUY-rLH0xiI",
+      "owner_id": "280760163730980864",
+      "uses": 4,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "orangejustice": {
+      "name": "orangejustice",
+      "content": "https://cdn.discordapp.com/attachments/463788484931354645/465827029414182922/orangejusticeroblox.gif",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "neekeri\u00e4itin kumibanaani": {
+      "name": "neekeri\u00e4itin kumibanaani",
+      "content": "https://www.youtube.com/watch?v=-oBUuAIFceI",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 8,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "fuck": {
+      "name": "Fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "jere": {
+      "name": "jere",
+      "content": "nigger",
+      "owner_id": "282915402177314816",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "marko": {
+      "name": "Marko",
+      "content": "https://cdn.discordapp.com/attachments/290395754126770186/473842936853954588/15251629_1179782968735697_529449466210549760_n.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "use marko": {
+      "name": "use marko",
+      "content": "Marko has been used. 1000 damage dealt!",
+      "owner_id": "282915402177314816",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    }
+  },
+  "<:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492>": {
+    "weetibot": {
+      "name": "weetibot",
+      "content": "A useful bot made by @\u0e56\u0336\u0336\u0336\u03b6\u035c\u0361iWeeti\u00ae#4990",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "voi vittu": {
+      "name": "voi vittu",
+      "content": "``Voi vittu! Voi vitun, vitun, vittu...``",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "fuck": {
+      "name": "fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "ffs": {
+      "name": "ffs",
+      "content": "for fuck sakes",
+      "owner_id": "282515230595219456",
+      "uses": 11,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lmao": {
+      "name": "lmao",
+      "content": "Laughing My Ass Off",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lol": {
+      "name": "lol",
+      "content": "laughing out loud",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 16,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thonkku": {
+      "name": "thonkku",
+      "content": "<:thonkku:356833797804916737>",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "mmlol": {
+      "name": "mmlol",
+      "content": "<:mmLol:356831697385422848>",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "!witchhunt": {
+      "name": "!witchhunt",
+      "content": "!help",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "photoblobs": {
+      "name": "photoblobs",
+      "content": "<:photoblobs:318013782662053888>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "tickyes": {
+      "name": "tickyes",
+      "content": "<:tickYes:315009125694177281>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "dblspin": {
+      "name": "dblspin",
+      "content": "<a:dblspin:393548363879940108>",
+      "owner_id": "320067006521147393",
+      "uses": 3,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thinkingwithblobs": {
+      "name": "thinkingwithblobs",
+      "content": "<a:athinkingwithblobs:396521772838682626>",
+      "owner_id": "300088143422685185",
+      "uses": 2,
+      "location": "generic",
+      "__tag__": true
+    },
+    "lenny": {
+      "name": "lenny",
+      "content": "\u239d\u2022\u25be\u2022\u23a0",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "thinkball": {
+      "name": "thinkball",
+      "content": "https://cdn.discordapp.com/emojis/458890557645783040.gif",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "test": {
+      "name": "test",
+      "content": "test",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "bmusic": {
+      "name": "bmusic",
+      "content": "\ud83c\udfb6 \ud83d\udc93 __***Best Music***__",
+      "owner_id": "282515230595219456",
+      "uses": 48,
+      "location": "generic",
+      "__tag__": true
+    },
+    "tias": {
+      "name": "tias",
+      "content": "http://i.imgur.com/6A6tcD0.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "gmusic": {
+      "name": "gmusic",
+      "content": "\ud83c\udfb6 \ud83d\udc4c __***Good Music***__",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "generic",
+      "__tag__": true
+    },
+    "roblox": {
+      "name": "roblox",
+      "content": "Roblox is going to destroy human kind some day.",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "fu": {
+      "name": "fu",
+      "content": "\ud83d\udd95",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    },
+    "ditto": {
+      "name": "ditto",
+      "content": "<:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492> <:ditto:473929284134633492>",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "generic",
+      "__tag__": true
+    }
+  },
+  "shit": {
+    "fuck": {
+      "name": "Fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 8,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "putin",
+      "content": "I will rule over the world and destroy that duck fuck of america",
+      "owner_id": "352494762357555200",
+      "uses": 3,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "holy fan": {
+      "name": "Holy fan",
+      "content": "https://cdn.discordapp.com/attachments/467374456466178057/468080067009052672/JPEG_20180715_184221.jpg",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "re\u03b2el": {
+      "name": "re\u03b2el",
+      "content": "wonderful wonderful very wonderful",
+      "owner_id": "229280831934431234",
+      "uses": 4,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "amy is a goddess": {
+      "name": "Amy is a goddess",
+      "content": "Amy is a goddess and however doesn't obey will get nuked",
+      "owner_id": "229280831934431234",
+      "uses": 6,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "bitch": {
+      "name": "bitch",
+      "content": "you called me?",
+      "owner_id": "352494762357555200",
+      "uses": 2,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "hot boy": {
+      "name": "hot boy",
+      "content": ".tag",
+      "owner_id": "352494762357555200",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "lol": {
+      "name": "lol",
+      "content": "laughing out loud",
+      "owner_id": "352494762357555200",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "best music",
+      "content": "\ud83c\udfb5 \u2764",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "chris": {
+      "name": "chris",
+      "content": "chris is a queen and whoever doesn't obey will get nuked by Amy personally",
+      "owner_id": "352494762357555200",
+      "uses": 1,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "thonkthonk": {
+      "name": "thonkthonk",
+      "content": "<:thonkthonk:473933717556035605>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "blobthinking": {
+      "name": "blobthinking",
+      "content": "<:blobthinking:473933698090139678>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "blobthonk": {
+      "name": "blobthonk",
+      "content": "<:blobthonk:473933748434632740>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "blobfu": {
+      "name": "blobfu",
+      "content": "<:blobfu:473933680398696458>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "thonking": {
+      "name": "thonking",
+      "content": "<:thonking:473928738946547732>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "thonkk": {
+      "name": "thonkk",
+      "content": "<:thonkk:473929088852033538>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "yes": {
+      "name": "yes",
+      "content": "<:yes:473934790962446346>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    },
+    "no": {
+      "name": "no",
+      "content": "<:no:473934822868254741>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "467294603003822093",
+      "__tag__": true
+    }
+  },
+  "<@439373663905513473>  gay furry": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 13,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best song": {
+      "name": "best song",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "gayegg": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 13,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best song": {
+      "name": "best song",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "token format": {
+      "name": "token format",
+      "content": "https://i.imgur.com/7WdehGn.png",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "e": {
+      "name": "e",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474607836983197697/replace.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "widget format": {
+      "name": "widget format",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474714467259645975/unknown.png",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "idea": {
+      "name": "Idea",
+      "content": "Making custom commands",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "idea2": {
+      "name": "Idea2",
+      "content": "Make lyrics get the song that's playing automatically",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "music": {
+      "name": "Music",
+      "content": "Need to make autopause and more error handling and limitations",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eh": {
+      "name": "Eh",
+      "content": "I need Error Handling!",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eggsys": {
+      "name": "Eggsys",
+      "content": "This at least was the biggest turkish bot",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gayegg": {
+      "name": "gayegg",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474904514294710275/gay.png",
+      "owner_id": "162969778699501569",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "a": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 13,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best song": {
+      "name": "best song",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "token format": {
+      "name": "token format",
+      "content": "https://i.imgur.com/7WdehGn.png",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "e": {
+      "name": "e",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474607836983197697/replace.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "widget format": {
+      "name": "widget format",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474714467259645975/unknown.png",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "idea": {
+      "name": "Idea",
+      "content": "Making custom commands",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "idea2": {
+      "name": "Idea2",
+      "content": "Make lyrics get the song that's playing automatically",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "music": {
+      "name": "Music",
+      "content": "Need to make autopause and more error handling and limitations",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eh": {
+      "name": "Eh",
+      "content": "I need Error Handling!",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eggsys": {
+      "name": "Eggsys",
+      "content": "This at least was the biggest turkish bot",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gayegg": {
+      "name": "gayegg",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474904514294710275/gay.png",
+      "owner_id": "162969778699501569",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "copypasta": {
+      "name": "copypasta",
+      "content": "http://i.imgur.com/iVlASYc.png",
+      "owner_id": "273216249021071360",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "blobwakethink": {
+      "name": "blobwakethink",
+      "content": "https://media.discordapp.net/attachments/321845546534830085/387714326284206090/image.gif",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "Making custom commands": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 13,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best song": {
+      "name": "best song",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "token format": {
+      "name": "token format",
+      "content": "https://i.imgur.com/7WdehGn.png",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "e": {
+      "name": "e",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474607836983197697/replace.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "widget format": {
+      "name": "widget format",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474714467259645975/unknown.png",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "idea2": {
+      "name": "Idea2",
+      "content": "Make lyrics get the song that's playing automatically",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "music": {
+      "name": "Music",
+      "content": "Need to make autopause and more error handling and limitations",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eh": {
+      "name": "Eh",
+      "content": "I need Error Handling!",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eggsys": {
+      "name": "Eggsys",
+      "content": "This at least was the biggest turkish bot",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gayegg": {
+      "name": "gayegg",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474904514294710275/gay.png",
+      "owner_id": "162969778699501569",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "copypasta": {
+      "name": "copypasta",
+      "content": "http://i.imgur.com/iVlASYc.png",
+      "owner_id": "273216249021071360",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "blobwakethink": {
+      "name": "blobwakethink",
+      "content": "https://media.discordapp.net/attachments/321845546534830085/387714326284206090/image.gif",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "test": {
+      "name": "test",
+      "content": "test",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "https://cdn.discordapp.com/attachments/290395754126770186/475260876434309120/en_huomaa_eroa.jpg": {
+    "ffs": {
+      "name": "ffs",
+      "content": "FFS = For Fuck Sakes",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "appelsiini kuuluu kanakastikkeeseen": {
+      "name": "appelsiini kuuluu kanakastikkeeseen",
+      "content": "voi vittu voi vitun vitun vittu",
+      "owner_id": "280760163730980864",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "teepannu": {
+      "name": "teepannu",
+      "content": "https://www.youtube.com/watch?v=NUY-rLH0xiI",
+      "owner_id": "280760163730980864",
+      "uses": 4,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "keemstar": {
+      "name": "keemstar",
+      "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
+      "owner_id": "282515230595219456",
+      "uses": 6,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "orangejustice": {
+      "name": "orangejustice",
+      "content": "https://cdn.discordapp.com/attachments/463788484931354645/465827029414182922/orangejusticeroblox.gif",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "neekeri\u00e4itin kumibanaani": {
+      "name": "neekeri\u00e4itin kumibanaani",
+      "content": "https://www.youtube.com/watch?v=-oBUuAIFceI",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 10,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "fuck": {
+      "name": "Fuck",
+      "content": "\ud83d\udc49 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "jere": {
+      "name": "jere",
+      "content": "nigger",
+      "owner_id": "282915402177314816",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "marko": {
+      "name": "Marko",
+      "content": "https://cdn.discordapp.com/attachments/290395754126770186/473842936853954588/15251629_1179782968735697_529449466210549760_n.png",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "use marko": {
+      "name": "use marko",
+      "content": "Marko has been used. 1000 damage dealt!",
+      "owner_id": "282915402177314816",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    }
+  },
+  "Make lyrics get the song that's playing automatically": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 4,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 13,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best song": {
+      "name": "best song",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "token format": {
+      "name": "token format",
+      "content": "https://i.imgur.com/7WdehGn.png",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "e": {
+      "name": "e",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474607836983197697/replace.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "widget format": {
+      "name": "widget format",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474714467259645975/unknown.png",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "music": {
+      "name": "Music",
+      "content": "Need to make autopause and more error handling and limitations",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eh": {
+      "name": "Eh",
+      "content": "I need Error Handling!",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eggsys": {
+      "name": "Eggsys",
+      "content": "This at least was the biggest turkish bot",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gayegg": {
+      "name": "gayegg",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474904514294710275/gay.png",
+      "owner_id": "162969778699501569",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "copypasta": {
+      "name": "copypasta",
+      "content": "http://i.imgur.com/iVlASYc.png",
+      "owner_id": "273216249021071360",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "blobwakethink": {
+      "name": "blobwakethink",
+      "content": "https://media.discordapp.net/attachments/321845546534830085/387714326284206090/image.gif",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "test": {
+      "name": "test",
+      "content": "test",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  },
+  "https://media.discordapp.net/attachments/321845546534830085/387714326284206090/image.gif": {
+    "argue": {
+      "name": "argue",
+      "content": "Several people are typing...",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "testrrekgiore": {
+      "name": "testrrekgiore",
+      "content": "test",
+      "owner_id": "292043731237076992",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "skullbite": {
+      "name": "skullbite",
+      "content": "YIFFS > FOOD",
+      "owner_id": "396153668820402197",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "lyrics api": {
+      "name": "Lyrics api",
+      "content": "well you just need to request the lyrics from https://some-random-api.ml/lyrics?title=title-right-here\nAnd spaces are %20",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mummotanssi": {
+      "name": "mummotanssi",
+      "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cooldown error": {
+      "name": "Cooldown error",
+      "content": "```py\nasync def on_command_error(error, ctx):\n    if isinstance(error, commands.CommandOnCooldown):\n           await client.send_message(ctx.message.channel, \"This command is on cooldown for another {} seconds\".format(error.retry_after))```",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "thonk": {
+      "name": "thonk",
+      "content": "<:Thonk:356771720863940608>",
+      "owner_id": "282515230595219456",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "vlebrix": {
+      "name": "Vlebrix",
+      "content": "<@469182026059087893>",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "bloblul": {
+      "name": "Bloblul",
+      "content": "<:bloblul:356789385875816448>",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "discord.js shards": {
+      "name": "Discord.js shards",
+      "content": "```js\nconst { ShardingManager } = require('discord.js');\nconst Manager = new ShardingManager(`${__dirname}/main.js`, { token: process.env.GLOBALBANZTOKEN });\n\nManager.spawn();\n\nManager.on('launch', shard => {\n  console.log(`Launching Shard ${shard.id} [ ${shard.id + 1} of ${Manager.totalShards} ]`);\n});```",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yeet": {
+      "name": "yeet",
+      "content": "<:GWpingKanyeLUL:395627394876178453>",
+      "owner_id": "249521750465970177",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "anime wolf": {
+      "name": "anime wolf",
+      "content": "lol https://tenor.com/view/wolf-anime-gif-9007334",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "-.putin did 9/11": {
+      "name": "-.putin did 9/11",
+      "content": "it's tru",
+      "owner_id": "172788621869318144",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "waifu": {
+      "name": "waifu",
+      "content": "<@405208699313848330>",
+      "owner_id": "320067006521147393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best lib": {
+      "name": "best lib",
+      "content": "python",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gay": {
+      "name": "Gay",
+      "content": "https://www.instagram.com/p/BjfOtZEjplj/?utm_source=ig_share_sheet&igshid=1n8m6itndgj1z",
+      "owner_id": "282515230595219456",
+      "uses": 5,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "putin": {
+      "name": "Putin",
+      "content": "Is gay",
+      "owner_id": "396153668820402197",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "cancel": {
+      "name": "cancel",
+      "content": "STAPH",
+      "owner_id": "158750488563679232",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "twaddle": {
+      "name": "Twaddle",
+      "content": "Please invite my bot Twaddle",
+      "owner_id": "469158879029100565",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "weebs": {
+      "name": "weebs",
+      "content": "<@243568038543228928> , <@145557815287611393> and @auguwu are weebs.",
+      "owner_id": "145557815287611393",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good song": {
+      "name": "Good song",
+      "content": "Maroon 5 this love",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best music": {
+      "name": "Best music",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 13,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "tag": {
+      "name": "tag",
+      "content": "Tag",
+      "owner_id": "469158879029100565",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "good music": {
+      "name": "Good music",
+      "content": "\ud83c\udfb5 \ud83d\udc4c",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "best song": {
+      "name": "best song",
+      "content": "\ud83c\udfb5 \ud83d\udc93 \ud83c\udfb5",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "token format": {
+      "name": "token format",
+      "content": "https://i.imgur.com/7WdehGn.png",
+      "owner_id": "282515230595219456",
+      "uses": 2,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "e": {
+      "name": "e",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474607836983197697/replace.png",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "widget format": {
+      "name": "widget format",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474714467259645975/unknown.png",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "music": {
+      "name": "Music",
+      "content": "Need to make autopause and more error handling and limitations",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eh": {
+      "name": "Eh",
+      "content": "I need Error Handling!",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "eggsys": {
+      "name": "Eggsys",
+      "content": "This at least was the biggest turkish bot",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "gayegg": {
+      "name": "gayegg",
+      "content": "https://cdn.discordapp.com/attachments/265156286406983680/474904514294710275/gay.png",
+      "owner_id": "162969778699501569",
+      "uses": 3,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "copypasta": {
+      "name": "copypasta",
+      "content": "http://i.imgur.com/iVlASYc.png",
+      "owner_id": "273216249021071360",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "test": {
+      "name": "test",
+      "content": "test",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    }
+  }
+}

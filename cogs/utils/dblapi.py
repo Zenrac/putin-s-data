@@ -1,0 +1,2 @@
+base_url = 'https://discordbots.org/api'
+api_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2MDg0NjI5MTMwMDEyMjYzNSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTMyMDQ5NzA0fQ.TrMrJSEfbCGou1h9vB9UHnEyCrOM3NjH3H8vWnivz9A'
