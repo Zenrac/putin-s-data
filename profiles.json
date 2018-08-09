@@ -10,7 +10,7 @@
     "diamonds": 2000,
     "roses": 23,
     "alcohol": 81,
-    "experience": 19787,
+    "experience": 19829,
     "__profile__": true
   },
   "460846291300122635": {
@@ -248,7 +248,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 19245,
+    "experience": 19254,
     "__profile__": true
   },
   "355414130267783168": {
@@ -346,7 +346,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 1253,
+    "experience": 1267,
     "__profile__": true
   },
   "218965134566096907": {
@@ -416,7 +416,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 7035,
+    "experience": 7051,
     "__profile__": true
   },
   "258966632527822850": {
@@ -1753,7 +1753,7 @@
     "desc": ".balance",
     "bday": "\u05d7\u05d7\u05d7",
     "married": "yaniv",
-    "cash": 10531186955.0,
+    "cash": 16297306267.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 0,
@@ -2187,7 +2187,7 @@
     "desc": "In love with <@456395319328899072>",
     "bday": "29/04/2004",
     "married": "CocaCola",
-    "cash": 1.2785186745636667e+19,
+    "cash": 1.2860186745636667e+19,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 1,
