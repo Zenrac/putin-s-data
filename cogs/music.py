@@ -9,6 +9,10 @@ from async_timeout import timeout
 from functools import partial
 from youtube_dl import YoutubeDL
 
+try:
+    opus.load_opus(opus_lib)
+except Exception as error:
+    print(error)
 
 ytdlopts = {
     'format': 'bestaudio/best',
