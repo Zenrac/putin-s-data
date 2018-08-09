@@ -42,7 +42,7 @@ lyricsgenius==0.7.0
 mathparse==0.1.1
 mccabe==0.6.1
 multidict==4.3.1
-git+https://github.com/Nekos-life/nekos.py/archive/master.zip
+https://github.com/Nekos-life/nekos.py/archive/master.zip
 nltk==3.3
 oauthlib==2.1.0
 opuslib==3.0.1
