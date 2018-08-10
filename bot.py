@@ -86,6 +86,7 @@ async def run_cmd(cmd: str) -> str:
 @bot.command(hidden=True)
 @commands.is_owner()
 async def shell(ctx, code: str):
+    print('{} has been invoked.'.format(ctx.command))
     console = await run_cmd(code)
     await ctx.send('```shell\n{}```'.format(console))
 
