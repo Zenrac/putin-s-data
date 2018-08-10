@@ -85,7 +85,7 @@ async def run_cmd(cmd: str) -> str:
 
 @bot.command(hidden=True)
 @commands.is_owner()
-async def shell(self, ctx, code: str):
+async def shell(ctx, code: str):
     console = await run_cmd(code)
     await ctx.send('```shell\n{}```'.format(console))
 
