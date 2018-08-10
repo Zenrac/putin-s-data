@@ -8,6 +8,7 @@ import copy
 import logging
 import sys
 import ast
+import asyncio
 print ("[INFO] Discord version: " + discord.__version__)
 description = """
 Hello I am Putin. I hope to see you soon at Russia.
@@ -73,6 +74,21 @@ async def change_status():
         game = discord.Game(current_status)
         await bot.change_presence(status=discord.Status.online, activity=game)
         await asyncio.sleep(5)
+
+async def run_cmd(cmd: str) -> str:
+    """Runs a subprocess and returns the output."""
+    process =\
+        await asyncio.create_subprocess_shell(
+        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+    results = await process.communicate()
+    return "".join(x.decode("utf-8") for x in results)
+
+@bot.command(hidden=True)
+@commands.is_owner()
+async def pull(self, ctx):
+    console = await run_cmd('git pull')
+    e = discord.Embed(title="Pulling data.", description="Console:", color=discord.Color.blue())
+    e.add_field(name="Console:", value="```bash\n{}```".format(console), inline=True)
 
 @bot.command(hidden=True)
 @commands.is_owner()

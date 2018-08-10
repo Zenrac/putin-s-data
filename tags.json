@@ -156,7 +156,7 @@
       "name": "bmusic",
       "content": "\ud83c\udfb6 \ud83d\udc93 __***Best Music***__",
       "owner_id": "282515230595219456",
-      "uses": 67,
+      "uses": 68,
       "location": "generic",
       "__tag__": true
     },
@@ -228,7 +228,7 @@
       "name": "blobfu",
       "content": "<:blobfu:473933680398696458>",
       "owner_id": "282515230595219456",
-      "uses": 5,
+      "uses": 6,
       "location": "generic",
       "__tag__": true
     },
@@ -268,7 +268,7 @@
       "name": "perfectplaylist",
       "content": "https://i.redd.it/wouu7s797ld11.jpg",
       "owner_id": "282515230595219456",
-      "uses": 2,
+      "uses": 3,
       "location": "generic",
       "__tag__": true
     },
@@ -292,7 +292,31 @@
       "name": "kaanplaylist",
       "content": "https://www.youtube.com/playlist?list=PLrNlvJl75Lw2VNSHYaex0j-S4Z9ZqLUWc",
       "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "generic",
+      "__tag__": true
+    },
+    "goodboy": {
+      "name": "goodboy",
+      "content": "https://cdn.discordapp.com/attachments/337968532388184066/477163131588706314/tenor.png",
+      "owner_id": "282515230595219456",
       "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "gooddog": {
+      "name": "gooddog",
+      "content": "https://media1.tenor.com/images/6ea6b181500935b3c70baf1748d2ecd4/tenor.gif?itemid=5478023",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "generic",
+      "__tag__": true
+    },
+    "sendfile": {
+      "name": "sendfile",
+      "content": ".ev ctx.author.send(file=discord.File(\"profiles.json\"))",
+      "owner_id": "282515230595219456",
+      "uses": 2,
       "location": "generic",
       "__tag__": true
     }
@@ -394,7 +418,7 @@
       "name": "teepannu",
       "content": "https://www.youtube.com/watch?v=NUY-rLH0xiI",
       "owner_id": "280760163730980864",
-      "uses": 5,
+      "uses": 6,
       "location": "290395754126770186",
       "__tag__": true
     },
@@ -402,7 +426,7 @@
       "name": "keemstar",
       "content": "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif\n\ud83c\uddf0 \ud83c\uddea \ud83c\uddea \ud83c\uddf2 \ud83c\uddf8 \ud83c\uddf9 \ud83c\udde6 \ud83c\uddf7",
       "owner_id": "282515230595219456",
-      "uses": 7,
+      "uses": 9,
       "location": "290395754126770186",
       "__tag__": true
     },
@@ -426,7 +450,7 @@
       "name": "mummotanssi",
       "content": "https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif",
       "owner_id": "282515230595219456",
-      "uses": 14,
+      "uses": 17,
       "location": "290395754126770186",
       "__tag__": true
     },
@@ -450,7 +474,7 @@
       "name": "Marko",
       "content": "https://cdn.discordapp.com/attachments/290395754126770186/473842936853954588/15251629_1179782968735697_529449466210549760_n.png",
       "owner_id": "282515230595219456",
-      "uses": 3,
+      "uses": 4,
       "location": "290395754126770186",
       "__tag__": true
     },
@@ -458,6 +482,14 @@
       "name": "use marko",
       "content": "Marko has been used. 1000 damage dealt!",
       "owner_id": "282915402177314816",
+      "uses": 1,
+      "location": "290395754126770186",
+      "__tag__": true
+    },
+    "eeppisin biisi koskaan": {
+      "name": "Eeppisin biisi koskaan",
+      "content": "https://youtu.be/Q59MuVW003c",
+      "owner_id": "477070525533782036",
       "uses": 1,
       "location": "290395754126770186",
       "__tag__": true
@@ -975,6 +1007,38 @@
     "test": {
       "name": "test",
       "content": "test",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "sendfile": {
+      "name": "sendfile",
+      "content": ".ev ctx.author.send(file=discord.File(\"profiles.json\"))",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "pull": {
+      "name": "pull",
+      "content": "```py\nimport subprocess\nimport asyncio\n\nasync def run_cmd(cmd: str) -> str:\n    \"\"\"Runs a subprocess and returns the output.\"\"\"\n    process =\\\n        await asyncio.create_subprocess_shell(\n        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)\n    results = await process.communicate()\n    return \"\".join(x.decode(\"utf-8\") for x in results)```",
+      "owner_id": "282515230595219456",
+      "uses": 1,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "mur": {
+      "name": "mur",
+      "content": "https://sheri.fun/api/v1/mur",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__tag__": true
+    },
+    "yiff": {
+      "name": "yiff",
+      "content": "https://sheri.fun/api/v1/yiff",
       "owner_id": "282515230595219456",
       "uses": 0,
       "location": "264445053596991498",
