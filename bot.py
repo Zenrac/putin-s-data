@@ -85,10 +85,9 @@ async def run_cmd(cmd: str) -> str:
 
 @bot.command(hidden=True)
 @commands.is_owner()
-async def pull(self, ctx):
-    console = await run_cmd('git pull')
-    e = discord.Embed(title="Pulling data.", description="Console:", color=discord.Color.blue())
-    e.add_field(name="Console:", value="```bash\n{}```".format(console), inline=True)
+async def shell(self, ctx, code: str):
+    console = await run_cmd(code)
+    await ctx.send('```shell\n{}```'.format(console))
 
 @bot.command(hidden=True)
 @commands.is_owner()
