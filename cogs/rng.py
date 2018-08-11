@@ -10,6 +10,19 @@ class Random:
         self.bot = bot
 
     @commands.command()
+    async def mur(self, ctx):
+        """Gives you a mur image."""
+        e = discord.Embed(title="Here is a neko gif for you {}.".format(ctx.author.name), color=discord.Color.magenta())
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get('https://sheri.fun/api/v1/mur') as res:
+                r = await res.json()
+
+        yiff_url = r['url']
+
+        e.set_image(url=yiff_url)
+        await ctx.send(embed=e)
+
+    @commands.command()
     async def number(self, ctx, minimum = 0, maximum = 100):
         """Displays a random number with optional min. and max."""
         maximum = min(maximum, 1000)
