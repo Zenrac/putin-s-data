@@ -14,7 +14,7 @@ class NSFW():
         """Gives you a yiff image."""
         if not ctx.channel.is_nsfw():
             return await ctx.send(':warning: These commands can only be used at nsfw marked channels. Silly :smile:')
-        e = discord.Embed(title="Here is a neko gif for you {}.".format(ctx.author.name), color=discord.Color.magenta())
+        e = discord.Embed(title="Here is a yiff image for you {}.".format(ctx.author.name), color=discord.Color.magenta())
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://sheri.fun/api/v1/yiff') as res:
                 r = await res.json()
