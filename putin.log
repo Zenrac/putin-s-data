@@ -1,0 +1,44 @@
+2018-08-11 16:19:58.589000: Eyal in #farm (Ṽat): .profile
+2018-08-11 16:22:05.487000: [Ṽat] Coca in #farm (Ṽat): .slap <@307457749049016321>
+2018-08-11 16:28:24.227000: [Ṽat] Coca in #music-commands (uFG_Family): .p שסוס מכניס לך גזר בפה
+2018-08-11 16:28:53.761000: [Ṽat] Coca in #music-commands (uFG_Family): .stop
+Task exception was never retrieved
+future: <Task finished coro=<MusicPlayer.player_loop() done, defined at C:\Users\Veeti\Desktop\putin_rewrite\cogs\music.py:160> exception=AttributeError("'NoneType' object has no attribute 'is_playing'",)>
+Traceback (most recent call last):
+  File "C:\Users\Veeti\Desktop\putin_rewrite\cogs\music.py", line 200, in player_loop
+    if self._guild.voice_client.is_playing():
+AttributeError: 'NoneType' object has no attribute 'is_playing'
+2018-08-11 16:29:00.386000: Eyal in #farm (Ṽat): .money
+2018-08-11 16:29:04.828000: _Yoav_ in #music-commands (uFG_Family): .stop
+2018-08-11 16:29:40.748000: [Ṽat] Coca in #music-commands (uFG_Family): .p .p שסוס מכניס לך גזר בפה
+2018-08-11 16:30:12.116000: [Ṽat] Coca in #music-commands (uFG_Family): .stop
+Task exception was never retrieved
+future: <Task finished coro=<MusicPlayer.player_loop() done, defined at C:\Users\Veeti\Desktop\putin_rewrite\cogs\music.py:160> exception=AttributeError("'NoneType' object has no attribute 'is_playing'",)>
+Traceback (most recent call last):
+  File "C:\Users\Veeti\Desktop\putin_rewrite\cogs\music.py", line 200, in player_loop
+    if self._guild.voice_client.is_playing():
+AttributeError: 'NoneType' object has no attribute 'is_playing'
+2018-08-11 16:31:26.217000: [Ṽat] Coca in #music-commands (uFG_Family): .p סטטיק ובן אל תבורי - גומיגם
+2018-08-11 16:31:47.674000: _Yoav_ in #music-commands (uFG_Family): .stop
+Task exception was never retrieved
+future: <Task finished coro=<MusicPlayer.player_loop() done, defined at C:\Users\Veeti\Desktop\putin_rewrite\cogs\music.py:160> exception=AttributeError("'NoneType' object has no attribute 'is_playing'",)>
+Traceback (most recent call last):
+  File "C:\Users\Veeti\Desktop\putin_rewrite\cogs\music.py", line 200, in player_loop
+    if self._guild.voice_client.is_playing():
+AttributeError: 'NoneType' object has no attribute 'is_playing'
+2018-08-11 16:32:44.620000: [Ṽat] Coca in #music-commands (uFG_Family): .p סטטיק ובן אל תבורי - גומיגם
+2018-08-11 16:33:18.289000: _Yoav_ in #music-commands (uFG_Family): .stop
+Task exception was never retrieved
+future: <Task finished coro=<MusicPlayer.player_loop() done, defined at C:\Users\Veeti\Desktop\putin_rewrite\cogs\music.py:160> exception=AttributeError("'NoneType' object has no attribute 'is_playing'",)>
+Traceback (most recent call last):
+  File "C:\Users\Veeti\Desktop\putin_rewrite\cogs\music.py", line 200, in player_loop
+    if self._guild.voice_client.is_playing():
+AttributeError: 'NoneType' object has no attribute 'is_playing'
+2018-08-11 16:34:23.841000: iWeeti in #chit-chat-🤣 (Putin - Support Server): .r 5
+2018-08-11 16:34:39.259000: [Ṽat] Coca in #music-commands (uFG_Family): .p Banana Song (I'm A Banana)
+2018-08-11 16:34:50.757000: Eyal in #music-commands (uFG_Family): .p https://www.youtube.com/watch?v=pgN-vvVVxMA
+2018-08-11 16:35:13.977000: [Ṽat] Coca in #music-commands (uFG_Family): .skip
+2018-08-11 16:35:36.735000: iWeeti in #chit-chat-🤣 (Putin - Support Server): .vol 7
+2018-08-11 16:35:54.616000: [Ṽat] Coca in #music-commands (uFG_Family): .p XXXTENTACION - Fuck Love (Audio) (feat. Trippie Redd)
+2018-08-11 16:36:02.700000: Eyal in #music-commands (uFG_Family): .p look at me
+2018-08-11 16:37:10.045000: iWeeti in #chit-chat-🤣 (Putin - Support Server): .stop

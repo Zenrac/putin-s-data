@@ -190,7 +190,7 @@ class MusicPlayer:
 
             self._guild.voice_client.play(source, after=lambda _: self.bot.loop.call_soon_threadsafe(self.next.set))
             e = discord.Embed(title="Now playing:", description=source.title, color=discord.Color.magenta())
-            e.add_field(name="Duration:", value="``[{}]``".format(source.duration), inline=True)
+            e.add_field(name="Duration:", value="``[{}]``".format(_duration), inline=True)
             e.set_footer(text="Views {}, Likes {}, Dis-Likes {}".format(source.view_count, source.like_count, source.dislike_count))
             e.set_thumbnail(url=source.thumbnail)
             self.np = await self._channel.send(embed=e)
