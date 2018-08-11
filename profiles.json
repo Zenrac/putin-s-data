@@ -3,32 +3,18 @@
     "desc": "I am the loving father of the bot Putin.",
     "bday": "19-03-2004",
     "married": "nobody...",
-    "cash": 3.399172564371077e+17,
+    "cash": 1000000,
     "inventory": ":pick:0x",
-    "picks": 0,
-    "rings": 4,
-    "diamonds": 2001,
-    "roses": 23,
-    "alcohol": 80,
-    "experience": 24264,
-    "__profile__": true
-  },
-  "460846291300122635": {
-    "desc": "iWeeti made me.",
-    "bday": "I don't have a birthday",
-    "married": "I cannot be married, I am a bot.",
-    "cash": 5765920332283417,
-    "inventory": ":pick:0x",
-    "picks": 1000000,
-    "rings": 1000000,
-    "diamonds": 1000000,
-    "roses": 1,
-    "alcohol": 0,
-    "experience": 98,
+    "picks": 10,
+    "rings": 10,
+    "diamonds": 10,
+    "roses": 10,
+    "alcohol": 10,
+    "experience": 24048,
     "__profile__": true
   },
   "229280831934431234": {
-    "desc": "Amy is a goddess. Change my mind or I'll nuke you",
+    "desc": "Amy is a goddess. Change my mind or I will nuke you",
     "bday": "26-09-2003",
     "married": "nobody...",
     "cash": 111351,
@@ -52,7 +38,7 @@
     "diamonds": 999,
     "roses": 999,
     "alcohol": 999,
-    "experience": 2112,
+    "experience": 2718,
     "__profile__": true
   },
   "352494762357555200": {
@@ -192,7 +178,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 2273,
+    "experience": 2285,
     "__profile__": true
   },
   "429196710770638849": {
@@ -262,7 +248,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 224,
+    "experience": 255,
     "__profile__": true
   },
   "419243569820336130": {
@@ -276,7 +262,7 @@
     "diamonds": 1,
     "roses": 0,
     "alcohol": 0,
-    "experience": 5787,
+    "experience": 7178,
     "__profile__": true
   },
   "325069210516717568": {
@@ -307,20 +293,6 @@
     "experience": 0,
     "__profile__": true
   },
-  "201734228768063488": {
-    "desc": ".softban",
-    "bday": ".SOFTBAN <@183531016311406592>",
-    "married": "nobody...",
-    "cash": 0,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 403,
-    "__profile__": true
-  },
   "231805309264461824": {
     "desc": "I love my self",
     "bday": "05-06-2002",
@@ -346,7 +318,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 1915,
+    "experience": 2401,
     "__profile__": true
   },
   "218965134566096907": {
@@ -416,7 +388,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 7277,
+    "experience": 7535,
     "__profile__": true
   },
   "258966632527822850": {
@@ -500,7 +472,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 5678,
+    "experience": 5893,
     "__profile__": true
   },
   "431237956171202560": {
@@ -588,7 +560,7 @@
     "__profile__": true
   },
   "469158879029100565": {
-    "desc": "I'm a bot developer!",
+    "desc": "I am a bot developer!",
     "bday": "17-09-2004",
     "married": "nobody...",
     "cash": 700,
@@ -598,7 +570,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 1,
-    "experience": 396,
+    "experience": 464,
     "__profile__": true
   },
   "280158289667555328": {
@@ -654,12 +626,12 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 659,
+    "experience": 811,
     "__profile__": true
   },
   "231733082804322304": {
-    "desc": "https://mrsheldon.me/fbi.gif <@145557815287611393>",
-    "bday": "FBI GOGOGOGOGOGOG",
+    "desc": "https://mrsheldon.me/fbi.gif",
+    "bday": "FBI GOGOGO",
     "married": "nobody...",
     "cash": 1000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -668,7 +640,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 2602,
+    "experience": 2622,
     "__profile__": true
   },
   "249521750465970177": {
@@ -727,20 +699,6 @@
     "experience": 0,
     "__profile__": true
   },
-  "281029217649688578": {
-    "desc": 0,
-    "bday": 0,
-    "married": 0,
-    "cash": 0,
-    "inventory": 0,
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
   "441419173411815424": {
     "desc": ".daily",
     "bday": ".BAL",
@@ -752,7 +710,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 42395,
+    "experience": 42405,
     "__profile__": true
   },
   "416388889570181150": {
@@ -780,11 +738,11 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 7350,
+    "experience": 7405,
     "__profile__": true
   },
   "284470013082075139": {
-    "desc": "i'm somebody but nobody",
+    "desc": "I am somebody but nobody",
     "bday": "17/11/2004",
     "married": "nobody...",
     "cash": 1000.0,
@@ -798,8 +756,8 @@
     "__profile__": true
   },
   "433445465707773963": {
-    "desc": ".start",
-    "bday": ".SETBIO HEYA! I'M A 15-YEAR-OLD PROGRAMMER FROM AMERICA WHO HAS ALSO CREATED SOME MUSIC.",
+    "desc": "HEYA! I AM A 15-YEAR-OLD PROGRAMMER FROM AMERICA WHO HAS ALSO CREATED SOME MUSIC.",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -822,7 +780,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 2299,
+    "experience": 2333,
     "__profile__": true
   },
   "280760163730980864": {
@@ -864,7 +822,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 762,
+    "experience": 772,
     "__profile__": true
   },
   "321306759392133131": {
@@ -948,7 +906,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 2964,
+    "experience": 2983,
     "__profile__": true
   },
   "221307534797963264": {
@@ -962,7 +920,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 1895,
+    "experience": 1921,
     "__profile__": true
   },
   "470171089541005312": {
@@ -1004,7 +962,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 4134,
+    "experience": 4214,
     "__profile__": true
   },
   "435668093725835274": {
@@ -1018,12 +976,12 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 957,
+    "experience": 1153,
     "__profile__": true
   },
   "250041658408697886": {
     "desc": "A failure",
-    "bday": "I WAS AN ACCIDENT",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 27,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1032,12 +990,12 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 6593,
+    "experience": 6771,
     "__profile__": true
   },
   "250411588408967169": {
     "desc": ".profile boss ass bitch",
-    "bday": ".PROFILE NONE",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1046,7 +1004,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 2486,
+    "experience": 2494,
     "__profile__": true
   },
   "213396745231532032": {
@@ -1232,8 +1190,8 @@
     "__profile__": true
   },
   "116515396198072322": {
-    "desc": "<@381468795782430730>",
-    "bday": "TA VU CE QUA CA FAIT LE .DAILY REGARDE LE MESSAGE QUE CA MET",
+    "desc": "(empty)",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1247,7 +1205,7 @@
   },
   "381468795782430730": {
     "desc": "xd les snowcoin",
-    "bday": 0,
+    "bday": "NONE",
     "married": 0,
     "cash": 0,
     "inventory": 0,
@@ -1260,7 +1218,7 @@
     "__profile__": true
   },
   "366283647587713034": {
-    "desc": "Please invite <@471052035047948289> to your discord server",
+    "desc": "Please invite censored to your discord server",
     "bday": "05-07-2003",
     "married": "nobody...",
     "cash": 1055,
@@ -1274,8 +1232,8 @@
     "__profile__": true
   },
   "389216573648404481": {
-    "desc": ".divorce <@!389216573648404481> <@!228126136192860160>",
-    "bday": ".DIVORCE @KILLUADOIDAO @JAP\u00c3O 01/01/2000",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1317,7 +1275,7 @@
   },
   "273149409288519721": {
     "desc": "quesque",
-    "bday": "PUTIN?",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1326,11 +1284,11 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 4996,
+    "experience": 6527,
     "__profile__": true
   },
   "357970364304719872": {
-    "desc": "I'm a mysterious person yes but i'm aslo a good person",
+    "desc": "I am a mysterious person yes but I am aslo a good person",
     "bday": "27-10-2003",
     "married": "nobody...",
     "cash": 0,
@@ -1340,7 +1298,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 3634,
+    "experience": 3827,
     "__profile__": true
   },
   "285053790166450176": {
@@ -1368,68 +1326,68 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 1307,
+    "experience": 1320,
     "__profile__": true
   },
   "197432639441993728": {
     "desc": "Uchiha \ud83d\udc4c\ud83c\udffb",
     "bday": "26-6-2002",
     "married": "SparK3y",
-    "cash": 1.1000099647816154e+16,
+    "cash": 11000099647816154,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 2,
     "diamonds": 1,
     "roses": 1,
     "alcohol": 5,
-    "experience": 1433,
+    "experience": 1472,
     "__profile__": true
   },
   "241946588652503041": {
     "desc": "\u05d0\u05d5\u05d4\u05d1 \u05dc\u05d7\u05d9\u05d5\u05ea \u05d0\u05ea \u05d4\u05d7\u05d9\u05d9\u05dd",
-    "bday": "-17.1.2005",
+    "bday": "17.1.2005",
     "married": "\ud83d\udda4UchihaOri^^",
-    "cash": 3.2653958742999163e+18,
+    "cash": 32653958742999163,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 2,
     "diamonds": 0,
     "roses": 2,
     "alcohol": 0,
-    "experience": 4208,
+    "experience": 4239,
     "__profile__": true
   },
   "241793558737190913": {
-    "desc": "\u05d9\u05e9 \u05dc\u05d9 \u05d0\u05ea \u05d4\u05de\u05e9\u05ea\u05de\u05e9 \u05de\u05d9\u05e7\u05de\u05e7 \u05d4\u05db\u05d9 \u05e0\u05d3\u05d9\u05e8 \u05d1\u05d0\u05e8\u05e5 \u05d5\u05d4\u05db\u05d9 \u05d8\u05d5\u05d1 \u05d1\u05e2\u05d5\u05dc\u05dd\u05dd\u05dd\u05dd\u05dd\u05dd\u05dd!",
+    "desc": "Sorry this is cleaned cause it was too long.",
     "bday": "08.08.2002",
     "married": "666vip",
-    "cash": 9.388389333742987e+19,
+    "cash": 9000000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 199,
     "diamonds": 4,
     "roses": 3,
     "alcohol": 0,
-    "experience": 8820,
+    "experience": 8918,
     "__profile__": true
   },
   "463661426406457344": {
-    "desc": "\u05d0\u05d5\u05d4\u05d1 \u05ea\u05de\u05d9\u05e7\u05de\u05e7<:Topkek:463004853694627860>",
+    "desc": "\u05d0\u05d5\u05d4\u05d1 \u05ea\u05de\u05d9\u05e7\u05de\u05e7",
     "bday": "08-12-2005",
     "married": "LI3AD",
-    "cash": 4.573179928880729e+16,
+    "cash": 4000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 998,
     "diamonds": 1,
-    "roses": 10000100496,
+    "roses": 1000010,
     "alcohol": 100995,
     "experience": 12441,
     "__profile__": true
   },
   "277785837381615616": {
-    "desc": ".slots 40",
-    "bday": ".SLOTS",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "Tai",
     "cash": 17087530418354.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1438,11 +1396,11 @@
     "diamonds": 0,
     "roses": 2,
     "alcohol": 0,
-    "experience": 2702,
+    "experience": 2721,
     "__profile__": true
   },
   "342237426913378306": {
-    "desc": "putin4ever  \u0433\u043e\u0431\u043d\u0438\u043a4ever (\u05e9\u05d7\u05e7\u05df \u05e7\u05dc\u05d0\u05d1 \u05e4\u05d9\u05e0\u05d2\u05d5\u05d9\u05d9\u05df \u05de\u05e7\u05e6\u05d5\u05e2\u05d9)",
+    "desc": "putin4ever (cleaned: too long)",
     "bday": "11.8.2002",
     "married": "putin is the best",
     "cash": 450037943556922.5,
@@ -1452,26 +1410,26 @@
     "diamonds": 20000157951533606,
     "roses": 101347624276520002,
     "alcohol": 100001521547189126,
-    "experience": 23624,
+    "experience": 23810,
     "__profile__": true
   },
   "188418994527535104": {
     "desc": "StaffBot",
     "bday": "25-2-2004",
     "married": "nobody...",
-    "cash": 1.0875000693858989e+18,
+    "cash": 10000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 2,
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 14608,
+    "experience": 15028,
     "__profile__": true
   },
   "386575716889657345": {
     "desc": "\u05de\u05d4 \u05d4\u05d0\u05d1\u05d3\u05dc \u05d1\u05d9\u05df \u05e8\u05d0\u05e0\u05e7 \u05dcLVEL",
-    "bday": "\u05d0\u05d9\u05da",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1487,14 +1445,14 @@
     "desc": "Yeet",
     "bday": "03-08-1967",
     "married": "\u0131ll\u0131ll\u0131\ud83c\udd77\ud83c\udd70\ud83c\udd82\ud83c\udd82\ud83c\udd7e\ud83c\udd7d\u0131ll\u0131ll\u0131",
-    "cash": 1.49765206020352e+18,
+    "cash": 1000000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 101030198,
     "diamonds": 0,
     "roses": 1,
     "alcohol": 100000000,
-    "experience": 3158,
+    "experience": 3238,
     "__profile__": true
   },
   "302904462123466752": {
@@ -1508,7 +1466,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 1160,
+    "experience": 1200,
     "__profile__": true
   },
   "462923538362531841": {
@@ -1526,10 +1484,10 @@
     "__profile__": true
   },
   "367310890128769025": {
-    "desc": "\u05d0\u05e0\u05d9 \u05d0\u05d5\u05d4\u05d1 \u05d0\u05ea \u05de\u05e7\u05d5\u05e4\u05dc\u05ea \u05d7\u05d9\u05d9\u05dd \u05e9\u05dc\u05d9  \u05d0\u05d9\u05e9\u05ea\u05d9 \u05d4\u05db\u05d9 \u05d9\u05e4\u05d4 \u05d1\u05e2\u05d5\u05dc\u05dd",
+    "desc": "too long",
     "bday": "26.7",
     "married": "MekoPelet(=",
-    "cash": 5.350140749221574e+19,
+    "cash": 5.00005e+16,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 1,
     "rings": 145158587401,
@@ -1540,8 +1498,8 @@
     "__profile__": true
   },
   "391545561049858048": {
-    "desc": ".slots 50",
-    "bday": ".SLOTS 50",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1554,8 +1512,8 @@
     "__profile__": true
   },
   "463466927763882005": {
-    "desc": "<@!168090696840904704>",
-    "bday": "\u05db\u05de\u05d4 \u05e1\u05d0\u05d1\u05d9\u05dd \u05dc\u05d9\u05d5\u05d8\u05d5\u05d1\u05e8",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 701.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1569,7 +1527,7 @@
   },
   "309403208990588928": {
     "desc": ".hey",
-    "bday": ".NO",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1585,7 +1543,7 @@
     "desc": "\u05d0\u05d9\u05da \u05d0\u05e0\u05d9 \u05de\u05e4\u05e2\u05d9\u05dc \u05d0\u05ea \u05d4\u05e4\u05e8\u05d5\u05e4\u05d9\u05dc \u05d0\u05e0\u05d9 \u05dc\u05d0 \u05de\u05d1\u05d9\u05df",
     "bday": "11/12/2005",
     "married": "CrZ pardox",
-    "cash": 4.053258081985689e+16,
+    "cash": 400000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 0,
@@ -1597,7 +1555,7 @@
   },
   "426283531040325633": {
     "desc": "\u05d9\u05e9 \u05db\u05d0\u05df \u05de\u05e9\u05d4\u05d5 ?",
-    "bday": "...",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 941869.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1610,10 +1568,10 @@
     "__profile__": true
   },
   "218346419239518211": {
-    "desc": ".profile",
-    "bday": ".PROFILE",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
-    "cash": 98594986603113.0,
+    "cash": 312.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 200000000,
@@ -1624,10 +1582,10 @@
     "__profile__": true
   },
   "238737379156951042": {
-    "desc": ".profile",
-    "bday": ".HELP",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "[qLs] A1moG\u30c4",
-    "cash": 9281742006.0,
+    "cash": 9438689372.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 5001,
@@ -1638,7 +1596,7 @@
     "__profile__": true
   },
   "448028214003236864": {
-    "desc": ".slot 6000",
+    "desc": "CLEANED",
     "bday": "15.1.2000",
     "married": "nobody...",
     "cash": 50010691357963.0,
@@ -1653,9 +1611,9 @@
   },
   "288389196580651012": {
     "desc": "im a fruit noder",
-    "bday": "NICE",
+    "bday": "NONE",
     "married": "nobody...",
-    "cash": 5.612042249470181e+18,
+    "cash": 50000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 1,
     "rings": 204,
@@ -1666,8 +1624,8 @@
     "__profile__": true
   },
   "351520566156591114": {
-    "desc": ".slots 100",
-    "bday": ".SLOTS 10000000000",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1680,10 +1638,10 @@
     "__profile__": true
   },
   "456395319328899072": {
-    "desc": ".balance",
-    "bday": "\u05d9\u05e9 \u05e1\u05d9\u05db\u05d5\u05d9 \u05e9\u05de\u05e9\u05d4\u05d5 \u05de\u05d1\u05d9\u05d0 \u05dc\u05d9 1000 \u05e9\u05e7\u05dc PLS",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "Eyal",
-    "cash": 6.07883315457617e+17,
+    "cash": 5.1760928890618624e+17,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 1,
@@ -1694,10 +1652,10 @@
     "__profile__": true
   },
   "242246847303778304": {
-    "desc": ".slots12",
-    "bday": ".SLOTS 3",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "\u03a7_YounGBlooD_\u03a7",
-    "cash": 1.1213516172868256e+16,
+    "cash": 10000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 1000001,
@@ -1750,8 +1708,8 @@
     "__profile__": true
   },
   "463781249799028736": {
-    "desc": ".balance",
-    "bday": "\u05d7\u05d7\u05d7",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "yaniv",
     "cash": 16449321870.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1765,7 +1723,7 @@
   },
   "311839389254680576": {
     "desc": ".1",
-    "bday": ".NONE",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1779,7 +1737,7 @@
   },
   "253152329929457664": {
     "desc": "\u05de\u05d4",
-    "bday": "\u05d0\u05d9\u05da \u05de\u05e7\u05d1\u05dc\u05d9\u05dd",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 1711380241.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1792,8 +1750,8 @@
     "__profile__": true
   },
   "404985052796026880": {
-    "desc": ".money",
-    "bday": ".SLOTS",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1820,7 +1778,7 @@
     "__profile__": true
   },
   "300662622431477760": {
-    "desc": ".balance",
+    "desc": "CLEANED",
     "bday": "18.3.1998",
     "married": "nobody...",
     "cash": 9.0,
@@ -1862,8 +1820,8 @@
     "__profile__": true
   },
   "237544079964110849": {
-    "desc": ".slots 1",
-    "bday": ".SLOTS 100",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1905,7 +1863,7 @@
   },
   "340489684776124416": {
     "desc": "halas",
-    "bday": "\u05db\u05d5\u05e1 \u05d0\u05de\u05d0 \u05e9\u05dc\u05da \u05d1\u05d5\u05dc\u05d1\u05d5\u05dc\u05d9\u05e0\u05d9\u05d4",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1932,8 +1890,8 @@
     "__profile__": true
   },
   "441603542248062997": {
-    "desc": ".profile",
-    "bday": "\u05dc\u05de\u05d4 \u05d6\u05d4 \u05dc\u05d0 \u05e0\u05d5\u05ea\u05df",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 47.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1949,7 +1907,7 @@
     "desc": "\u05d0\u05d5\u05d4\u05d1 \u05d0\u05ea \u05de\u05e8 \u05d3\u05d5\u05d1",
     "bday": "2006",
     "married": "mr \u0295\u2022\u1d25\u2022\u0294",
-    "cash": 1.3359536092309016e+20,
+    "cash": 10000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 16,
@@ -1960,8 +1918,8 @@
     "__profile__": true
   },
   "454580272219029504": {
-    "desc": ".claim 300 86477779717066752",
-    "bday": ".CLAIM 300 139191103625625600",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1974,8 +1932,8 @@
     "__profile__": true
   },
   "396403741760290828": {
-    "desc": ".slots 200",
-    "bday": ".SLOTS 57",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -1988,10 +1946,10 @@
     "__profile__": true
   },
   "393066252748193793": {
-    "desc": ".kiss <@367310890128769025>",
-    "bday": ".KISS @\u05d9\u05dc\u05d3 \u05de\u05e1\u05db\u05df \u05e9\u05e1\u05dc\u05e8\u05d9 \u05e7\u05d8\u05dc",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "ANIME{-}GIRL{-}",
-    "cash": 3.0895722820083085e+17,
+    "cash": 3000000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 2,
@@ -2002,8 +1960,8 @@
     "__profile__": true
   },
   "412115587469148160": {
-    "desc": ".loot",
-    "bday": ".SLOTS 10",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 549999875215867.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2016,8 +1974,8 @@
     "__profile__": true
   },
   "311881237939748867": {
-    "desc": ".slots 1",
-    "bday": ".SLOTS 123",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2030,8 +1988,8 @@
     "__profile__": true
   },
   "349305436932931585": {
-    "desc": ".profile",
-    "bday": ".BALANCE",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 53780052325079.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2059,7 +2017,7 @@
   },
   "471997608089616384": {
     "desc": "\u05dc\u05d0 \u05d4\u05d1\u05e0\u05ea\u05d9",
-    "bday": "\u05d0\u05d9\u05da",
+    "bday": "NONE",
     "married": "ori y2006",
     "cash": 8775959786990091.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2072,8 +2030,8 @@
     "__profile__": true
   },
   "389426285484703746": {
-    "desc": ".money",
-    "bday": "\u05d0\u05e0\u05d9",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 9999999999,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2100,8 +2058,8 @@
     "__profile__": true
   },
   "420899532918751236": {
-    "desc": ".slots 99999999999999",
-    "bday": ".SLOTS 9999999999999",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2142,8 +2100,8 @@
     "__profile__": true
   },
   "265588829832871936": {
-    "desc": ";help",
-    "bday": "=HELP",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2157,7 +2115,7 @@
   },
   "424927970533048321": {
     "desc": "\ud83d\ude2b",
-    "bday": "\u05d9\u05e9 \u05dc\u05d9 \u05e8\u05e7 \u05de\u05d9\u05dc\u05d9\u05d5\u05df \u05d1\u05d1\u05e0\u05e7 \u05d5\u05d0\u05e0\u05d9 \u05dc\u05d0 \u05e6\u05d5\u05d7\u05e7 \u05db\u05d9 \u05e2\u05e9\u05d9\u05ea\u05d9 \u05e9\u05d9\u05e4\u05d5\u05e5 \u05d1\u05d7\u05de\u05d9\u05e9\u05d9\u05dd \u05d0\u05dc\u05e3 \u05d5\u05d0\u05e0\u05d9 \u05e7\u05d5\u05e0\u05d4 \u05de\u05e8\u05e6\u05d3\u05e1",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 703736375.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2170,8 +2128,8 @@
     "__profile__": true
   },
   "430721020069019649": {
-    "desc": ".slots 236823673",
-    "bday": ".SLOTS 8327987",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2184,10 +2142,10 @@
     "__profile__": true
   },
   "307457749049016321": {
-    "desc": "In love with <@456395319328899072>",
+    "desc": "In love with (do not use mention or your profile may corrupt)",
     "bday": "29/04/2004",
     "married": "CocaCola",
-    "cash": 7.932044431282985e+19,
+    "cash": 10800000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 1,
@@ -2213,7 +2171,7 @@
   },
   "457536008192262144": {
     "desc": ".",
-    "bday": "LOOT",
+    "bday": "NONE",
     "married": "M1LLY",
     "cash": 1552692457021.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2226,7 +2184,7 @@
     "__profile__": true
   },
   "422791329777713155": {
-    "desc": ".slots 100009",
+    "desc": "CLEANED",
     "bday": "NONE",
     "married": "nobody...",
     "cash": 1000996719.0,
@@ -2240,8 +2198,8 @@
     "__profile__": true
   },
   "400293483316772864": {
-    "desc": ".money",
-    "bday": ".SLOT 5",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 400082722306309.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2282,8 +2240,8 @@
     "__profile__": true
   },
   "358102701445218315": {
-    "desc": ".slots 8565767658665",
-    "bday": ".SLOTS 5854767568687",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2297,7 +2255,7 @@
   },
   "474629441163624490": {
     "desc": "\u05d7\u05d7\u05d7\u05d7\u05d7\u05d7",
-    "bday": "\u05d5\u05d5\u05d0\u05d5 \u05d4\u05d7\u05d3\u05e8 \u05de\u05d5\u05d6\u05d9\u05e7\u05d4 \u05d4\u05ea\u05de\u05dc\u05d0",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2324,8 +2282,8 @@
     "__profile__": true
   },
   "368494491658878977": {
-    "desc": ".loot",
-    "bday": ".05-06-2005",
+    "desc": "CLEANED",
+    "bday": "05-06-2005",
     "married": "nobody...",
     "cash": 20000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2338,10 +2296,10 @@
     "__profile__": true
   },
   "355367267258859520": {
-    "desc": ".slots 100000000000000",
-    "bday": ".PROFILE",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
-    "cash": 0,
+    "cash": 38,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 0,
@@ -2353,7 +2311,7 @@
   },
   "315542946873212928": {
     "desc": "\u05d8\u05dc \u05d1\u05d2\u05d3",
-    "bday": "\u05d8\u05dc \u05d1\u05d2\u05d3",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2380,8 +2338,8 @@
     "__profile__": true
   },
   "467285506217082880": {
-    "desc": ".money",
-    "bday": "\u05de\u05d9\u05e9\u05d4\u05d5 \u05d9\u05d5\u05d3\u05e2 \u05d0\u05d9\u05da \u05e2\u05d5\u05e9\u05d9\u05dd \u05db\u05e1\u05e3",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 115045110794559.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2394,8 +2352,8 @@
     "__profile__": true
   },
   "292369890000764930": {
-    "desc": ".money",
-    "bday": "WAT",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 109,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2408,10 +2366,10 @@
     "__profile__": true
   },
   "293810642475810819": {
-    "desc": ".money",
-    "bday": ".PROFILLE",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "Fanta",
-    "cash": 1.541714373497369e+18,
+    "cash": 1000000000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 1000098,
@@ -2422,8 +2380,8 @@
     "__profile__": true
   },
   "474948291747119134": {
-    "desc": ".money",
-    "bday": "\u05d0\u05d9\u05da \u05d0\u05e0\u05d9 \u05e8\u05d5\u05d0\u05d4 \u05d0\u05d9\u05e4\u05d4 \u05d4\u05db\u05e1\u05e3 \u05e9\u05dc\u05d9?",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 300.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2436,8 +2394,8 @@
     "__profile__": true
   },
   "476875101321822210": {
-    "desc": ".loot",
-    "bday": ".LOOT",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 10150147.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2450,10 +2408,10 @@
     "__profile__": true
   },
   "279929373736566785": {
-    "desc": ".slots1",
-    "bday": ".SLOTS 1000000",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "yarin",
-    "cash": 0.0,
+    "cash": 799999050140.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 3,
@@ -2465,7 +2423,7 @@
   },
   "468881444488347654": {
     "desc": "\u05d0\u05d5\u05ea\u05d9 \u05d2\u05dd",
-    "bday": "\u05d1\u05d1\u05e7\u05e9\u05d4",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2478,8 +2436,8 @@
     "__profile__": true
   },
   "218100283820081155": {
-    "desc": ".money",
-    "bday": "THHF",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 1001009887529352.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2492,7 +2450,7 @@
     "__profile__": true
   },
   "446921516257509388": {
-    "desc": ".profile",
+    "desc": "CLEANED",
     "bday": "10/08/2018",
     "married": "nobody...",
     "cash": 61049277392.5,
@@ -2507,7 +2465,7 @@
   },
   "153489325915373568": {
     "desc": "U GAY",
-    "bday": "00-0000-000",
+    "bday": "00-00-0000",
     "married": "nobody...",
     "cash": 91499700.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2534,8 +2492,8 @@
     "__profile__": true
   },
   "320211488159694858": {
-    "desc": ".profil",
-    "bday": ".PROFILE",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 10105100.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2562,10 +2520,10 @@
     "__profile__": true
   },
   "461190774743367690": {
-    "desc": ".slot 4738463q47829147326823",
-    "bday": ".SLOT 96749394083",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
-    "cash": 1.12607585001e+17,
+    "cash": 19827498237495,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 0,
@@ -2590,8 +2548,8 @@
     "__profile__": true
   },
   "298387903644565506": {
-    "desc": ".hi",
-    "bday": ".IDK",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2604,8 +2562,8 @@
     "__profile__": true
   },
   "476993782785507338": {
-    "desc": ".loot",
-    "bday": ".SLOTS 10",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 999999999999,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2632,8 +2590,8 @@
     "__profile__": true
   },
   "415216193117356034": {
-    "desc": ".slots 9999999999999999\n\n\n\nPutinBOTToday at 11:45 AM",
-    "bday": ".SLOTS 9999999999999999",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2646,10 +2604,10 @@
     "__profile__": true
   },
   "449870265510264833": {
-    "desc": ".money",
-    "bday": ".SLOTS  5",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "mimo12321",
-    "cash": 2.678449063127373e+16,
+    "cash": 2678449063127373,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 0,
@@ -2660,8 +2618,8 @@
     "__profile__": true
   },
   "421703267333046274": {
-    "desc": ".slots 5000000000000000.slots 5000000000",
-    "bday": "!RANK",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 220000000005.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2674,8 +2632,8 @@
     "__profile__": true
   },
   "277917944866930689": {
-    "desc": "[Gamer](https://discord.gg/37ERYdD) is the best bot you will ever come across! [Gamer](https://discord.gg/37ERYdD) has: `24/7 Uptime | Great Quality Music | Amazing APIs | More to come!` Be sure to check [Gamer](https://discord.gg/37ERYdD) also feel free to Upvote Gamer. [Click here to do so!](https://discordbots.org/bot/463384270887452673/vote)\n\n**[Support](https://discord.gg/37ERYdD)** | **[Invite](https://discordapp.com/oauth2/authorize?client_id=463384270887452673&scope=bot&permissions=2146958591)**",
-    "bday": "UH NO",
+    "desc": "[Gamer](https://discord.gg/37ERYdD) is the best bot you will ever come across! [Gamer](https://discord.gg/37ERYdD) has: `24/7 Uptime | Great Quality Music | Amazing APIs | More to come!`",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 999749900,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2716,8 +2674,8 @@
     "__profile__": true
   },
   "467380185914933259": {
-    "desc": ".solts 111111111111111111111111111111111111111111111111111111111111111111",
-    "bday": ".SOLTS 11111111111111111111111",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2731,7 +2689,7 @@
   },
   "270903346234130445": {
     "desc": "ma",
-    "bday": "01 / 07 2004",
+    "bday": "01-07-2004",
     "married": "nobody...",
     "cash": 105938104170.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2744,8 +2702,8 @@
     "__profile__": true
   },
   "366262876035612674": {
-    "desc": ".loot",
-    "bday": ".LOOT",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 27,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2758,8 +2716,8 @@
     "__profile__": true
   },
   "477121701356765184": {
-    "desc": ".money",
-    "bday": ".MONEY",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 1,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2773,7 +2731,7 @@
   },
   "452151177916710932": {
     "desc": "1",
-    "bday": ".SLOTS",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 1008200.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2786,8 +2744,8 @@
     "__profile__": true
   },
   "208948873433972737": {
-    "desc": "Kprofile",
-    "bday": "?",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2800,8 +2758,8 @@
     "__profile__": true
   },
   "446693771711741954": {
-    "desc": ".slots 20000",
-    "bday": ".MONNEY",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2814,8 +2772,8 @@
     "__profile__": true
   },
   "477168490663378945": {
-    "desc": ".money",
-    "bday": ".SLOTS 10",
+    "desc": "CLEANED",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 10000000207499.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
@@ -2827,219 +2785,9 @@
     "experience": 0,
     "__profile__": true
   },
-  "294830682629341185": {
-    "desc": ".slots 1000000039",
-    "bday": null,
-    "married": null,
-    "cash": null,
-    "inventory": null,
-    "picks": null,
-    "rings": null,
-    "diamonds": null,
-    "roses": null,
-    "alcohol": null,
-    "experience": null,
-    "__profile__": true
-  },
-  "438356757509832724": {
-    "desc": ".slots 100000000000000000",
-    "bday": ".SLOTS 10000000000",
-    "married": "nobody...",
-    "cash": 0.0,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "302837352567668736": {
-    "desc": "fwef",
-    "bday": "10/8/2018",
-    "married": "nobody...",
-    "cash": 149800059999,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "362232648241774594": {
-    "desc": ".slots 3000",
-    "bday": ".SLOTS 30000",
-    "married": "nobody...",
-    "cash": 9.512349918744072e+18,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "466515242550034434": {
-    "desc": ".profil",
-    "bday": "HJH,F, GAH=R",
-    "married": "nobody...",
-    "cash": 1915000.0,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "177107071152422912": {
-    "desc": ".profile",
-    "bday": "16-1-1999",
-    "married": "nobody...",
-    "cash": 1009999999999.0,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "423019838651367424": {
-    "desc": "\ud83d\ude03",
-    "bday": null,
-    "married": null,
-    "cash": null,
-    "inventory": null,
-    "picks": null,
-    "rings": null,
-    "diamonds": null,
-    "roses": null,
-    "alcohol": null,
-    "experience": null,
-    "__profile__": true
-  },
-  "312225994713071617": {
-    "desc": "yay!!",
-    "bday": ".SLOTS 10000000000000000000000",
-    "married": "nobody...",
-    "cash": 0,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "303185289826795522": {
-    "desc": ".slots 75000000000000000",
-    "bday": null,
-    "married": null,
-    "cash": null,
-    "inventory": null,
-    "picks": null,
-    "rings": null,
-    "diamonds": null,
-    "roses": null,
-    "alcohol": null,
-    "experience": null,
-    "__profile__": true
-  },
-  "477070525533782036": {
-    "desc": "Sugma dick",
-    "bday": "NON",
-    "married": "nobody...",
-    "cash": 1013.5,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "247754720968572928": {
-    "desc": ".slots all",
-    "bday": ".G",
-    "married": "nobody...",
-    "cash": 0,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "300534543343943681": {
-    "desc": "Hate kids",
-    "bday": "11-11-2000",
-    "married": "nobody...",
-    "cash": 0,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "232092790690021377": {
-    "desc": ".slots cancel",
-    "bday": null,
-    "married": null,
-    "cash": null,
-    "inventory": null,
-    "picks": null,
-    "rings": null,
-    "diamonds": null,
-    "roses": null,
-    "alcohol": null,
-    "experience": null,
-    "__profile__": true
-  },
-  "452423748671373312": {
-    "desc": ".MONEY",
-    "bday": ".MONEY",
-    "married": "nobody...",
-    "cash": 0,
-    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
-    "picks": 0,
-    "rings": 0,
-    "diamonds": 0,
-    "roses": 0,
-    "alcohol": 0,
-    "experience": 0,
-    "__profile__": true
-  },
-  "237574861973618689": {
-    "desc": ".loot",
-    "bday": null,
-    "married": null,
-    "cash": null,
-    "inventory": null,
-    "picks": null,
-    "rings": null,
-    "diamonds": null,
-    "roses": null,
-    "alcohol": null,
-    "experience": null,
-    "__profile__": true
-  },
-  "345552556606357504": {
-    "desc": "i love your mom",
-    "bday": "07.09.2000",
+  "257420102692110336": {
+    "desc": "uwu lemme cronch cronch cronch on those vertesticles yes yes yes",
+    "bday": "NONE",
     "married": "nobody...",
     "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",

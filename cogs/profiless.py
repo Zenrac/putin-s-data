@@ -1,6 +1,6 @@
 from discord.ext import commands
 import discord.utils
-from .utils import config, formats
+from .utils import dbconfig, formats
 import json, re
 from collections import Counter
 import asyncio
@@ -105,7 +105,7 @@ class Profile:
 
     def __init__(self, bot):
         self.bot = bot
-        self.config = config.Config('profiles.json', encoder=ProfileEncoder, object_hook=profile_decoder)
+        self.config = dbconfig.Config('profiles')
 
     async def on_command_error(self, ctx, error):
         if hasattr(ctx.command, 'on_error'):
@@ -138,67 +138,71 @@ class Profile:
             await ctx.send('Member not found. Note that this is case sensitive. You can use a mention instead.')
             return
 
-        profile = self.config.get(str(member.id))
-        if profile is None:
+        profile = self.config.get('id', str(member.id))
+        print(profile[0])
+        if profile[0] == '[':
             if parser is not MyOwnProfile:
                 await ctx.send('This member did not set up a profile.')
             else:
                 await ctx.send('You did not set up a profile. One is being created for you.')
-                await self.config.put(str(member.id), ProfileInfo())
+                await self.config.make(member.id)
                 await ctx.invoke(self.make)
         else:
-            if ctx.guild.id == 418801915162263574:
+            # if ctx.guild.id == 418801915162263574:
+            #     # if not profile.alcohol in profile:
+            #     #     profile = self.config.get(member.id)
+            #     #     setattr(profile, 'alcohol', 0)
+            #     #     await self.config.put(member.id, profile)
+            #     embed = discord.Embed(title="**{0.name}#{0.discriminator}**:פרופיל על".format(member), description="", color=discord.Color.magenta())
+            #     embed.add_field(name=":writing_hand: תיאור:", value="{}".format(profile.desc), inline=False)
+            #     embed.add_field(name=":birthday: יום הולדת:", value="{}".format(profile.bday), inline=True)
+            #     embed.add_field(name=":heart: התחתן עם:", value="{}".format(profile.married), inline=True)
+            #     embed.add_field(name=":moneybag: כסף:", value="${}".format(profile.cash), inline=True)
+            #     embed.add_field(name=":zap: פרופיל על:", value="{}".format(profile.experience), inline=True)
+            #     embed.add_field(name=":medal: רמה:", value="{}".format(int(profile.experience / 1000)), inline=True)
+            #     embed.add_field(name=":handbag: מלאי:", value=":pick:{}x :ring:{}x :diamond_shape_with_a_dot_inside:{}x :rose:{}x :champagne:{}x".format(profile.picks, profile.rings, profile.diamonds, profile.roses, profile.alcohol), inline=True)
+            #     # embed.add_field(name="", value=":pick:{}x".format(profile.picks), inline=Falses)
+            #     embed.set_thumbnail(url=member.avatar_url)
+            #     profile_menu = await ctx.send(embed=embed)
+            #     await profile_menu.add_reaction('❌')
+            #     def check(reaction, user):
+            #         return user == ctx.message.author and reaction.emoji in '❌'
+            #     try:
+            #         reaction, user = await self.bot.wait_for('reaction_add', check=check)
+            #     except:
+            #         pass
+            #     if reaction:
+            #         await profile_menu.delete()
+            #         await ctx.message.delete()
+            # else:
                 # if not profile.alcohol in profile:
                 #     profile = self.config.get(member.id)
                 #     setattr(profile, 'alcohol', 0)
                 #     await self.config.put(member.id, profile)
-                embed = discord.Embed(title="**{0.name}#{0.discriminator}**:פרופיל על".format(member), description="", color=discord.Color.magenta())
-                embed.add_field(name=":writing_hand: תיאור:", value="{}".format(profile.desc), inline=False)
-                embed.add_field(name=":birthday: יום הולדת:", value="{}".format(profile.bday), inline=True)
-                embed.add_field(name=":heart: התחתן עם:", value="{}".format(profile.married), inline=True)
-                embed.add_field(name=":moneybag: כסף:", value="${}".format(profile.cash), inline=True)
-                embed.add_field(name=":zap: פרופיל על:", value="{}".format(profile.experience), inline=True)
-                embed.add_field(name=":medal: רמה:", value="{}".format(int(profile.experience / 1000)), inline=True)
-                embed.add_field(name=":handbag: מלאי:", value=":pick:{}x :ring:{}x :diamond_shape_with_a_dot_inside:{}x :rose:{}x :champagne:{}x".format(profile.picks, profile.rings, profile.diamonds, profile.roses, profile.alcohol), inline=True)
-                # embed.add_field(name="", value=":pick:{}x".format(profile.picks), inline=Falses)
-                embed.set_thumbnail(url=member.avatar_url)
-                profile_menu = await ctx.send(embed=embed)
-                await profile_menu.add_reaction('❌')
-                def check(reaction, user):
-                    return user == ctx.message.author and reaction.emoji in '❌'
-                try:
-                    reaction, user = await self.bot.wait_for('reaction_add', check=check)
-                except:
-                    pass
-                if reaction:
-                    await profile_menu.delete()
-                    await ctx.message.delete()
-            else:
-                # if not profile.alcohol in profile:
-                #     profile = self.config.get(member.id)
-                #     setattr(profile, 'alcohol', 0)
-                #     await self.config.put(member.id, profile)
-                embed = discord.Embed(title="Profile of **{0.name}#{0.discriminator}**:".format(member), description="", color=discord.Color.magenta())
-                embed.add_field(name=":writing_hand: Description:", value="{}".format(profile.desc), inline=False)
-                embed.add_field(name=":birthday: Birthday:", value="{}".format(profile.bday), inline=True)
-                embed.add_field(name=":heart: Married with:", value="{}".format(profile.married), inline=True)
-                embed.add_field(name=":moneybag: Cash:", value="${}".format(profile.cash), inline=True)
-                embed.add_field(name=":zap: Experience:", value="{}".format(profile.experience), inline=True)
-                embed.add_field(name=":medal: Level:", value="{}".format(int(profile.experience / 1000)), inline=True)
-                embed.add_field(name=":handbag: Inventory:", value=":pick:{}x :ring:{}x :diamond_shape_with_a_dot_inside:{}x :rose:{}x :champagne:{}x".format(profile.picks, profile.rings, profile.diamonds, profile.roses, profile.alcohol), inline=True)
-                # embed.add_field(name="", value=":pick:{}x".format(profile.picks), inline=Falses)
-                embed.set_thumbnail(url=member.avatar_url)
-                profile_menu = await ctx.send(embed=embed)
-                await profile_menu.add_reaction('❌')
-                def check(reaction, user):
-                    return user == ctx.message.author and reaction.emoji in '❌'
-                try:
-                    reaction, user = await self.bot.wait_for('reaction_add', check=check)
-                except:
-                    pass
-                if reaction:
-                    await profile_menu.delete()
-                    await ctx.message.delete()
+            descccc = self.config.get(self, 'id', str(member.id), "'desc'")
+            desccc = descccc.replace('(', '')
+            descc = desccc.replace(',)', '')
+            embed = discord.Embed(title="Profile of **{0.name}#{0.discriminator}**:".format(member), description="", color=discord.Color.magenta())
+            embed.add_field(name=":writing_hand: Description:", value="{}".format(descc), inline=False)
+            # embed.add_field(name=":birthday: Birthday:", value="{}".format(profile.bday), inline=True)
+            # embed.add_field(name=":heart: Married with:", value="{}".format(profile.married), inline=True)
+            # embed.add_field(name=":moneybag: Cash:", value="${}".format(profile.cash), inline=True)
+            # embed.add_field(name=":zap: Experience:", value="{}".format(profile.experience), inline=True)
+            # embed.add_field(name=":medal: Level:", value="{}".format(int(profile.experience / 1000)), inline=True)
+            # embed.add_field(name=":handbag: Inventory:", value=":pick:{}x :ring:{}x :diamond_shape_with_a_dot_inside:{}x :rose:{}x :champagne:{}x".format(profile.picks, profile.rings, profile.diamonds, profile.roses, profile.alcohol), inline=True)
+            # embed.add_field(name="", value=":pick:{}x".format(profile.picks), inline=Falses)
+            embed.set_thumbnail(url=member.avatar_url)
+            profile_menu = await ctx.send(embed=embed)
+            await profile_menu.add_reaction('❌')
+            def check(reaction, user):
+                return user == ctx.message.author and reaction.emoji in '❌'
+            try:
+                reaction, user = await self.bot.wait_for('reaction_add', check=check)
+            except:
+                pass
+            if reaction:
+                await profile_menu.delete()
+                await ctx.message.delete()
 
     @commands.group(invoke_without_command=True, aliases=['פרופיל'])
     async def profile(self, ctx, *, member : MemberParser = MyOwnProfile):
@@ -210,24 +214,25 @@ class Profile:
         """Gets a profile of another member."""
         await self.get_profile(ctx, member)
 
-    async def edit_field(self, attr, ctx, data):
-        user_id = str(ctx.message.author.id)
-        profile = self.config.get(user_id, ProfileInfo())
-        setattr(profile, attr, data)
-        await self.config.put(user_id, profile)
+    def edit_field(self, attr, ctx, data):
+        user_id = ctx.message.author.id
+        key_name = "'{}'".format(attr)
+        print(key_name)
+        print(user_id)
+        print(data)
+        self.config.put('id', user_id, key_name, data)
         # await ctx.send('Field {} set to {}.'.format(attr, data))
 
     async def edit_user_field(self, member, attr, ctx, data):
         user_id = str(member.id)
-        profile = self.config.get(user_id, ProfileInfo())
-        setattr(profile, attr, data)
-        await self.config.put(user_id, profile)
+        key_name = "'{}'".format(attr)
+        await self.config.put('id', user_id, key_name, data)
 
 
     @profile.command(aliases=['תיאור'])
     async def description(self, ctx, *, DESC : str):
         """Sets a profile description."""
-        await self.edit_field('desc', ctx, DESC.strip('"'))
+        self.edit_field('desc', ctx, DESC.strip('"'))
         await ctx.send('Description edited.')
 
     @profile.command(aliases=['יום הולדת'])
@@ -1035,21 +1040,21 @@ class Profile:
             conn.commit()
             print(str(profile) + ' has been inserted.')
 
-    async def on_message(self, message):
-        if message.author.bot: return
-        profile = self.config.get(str(message.author.id))
-        if not profile:
-            return
-        if not profile.experience:
-        #     profile = self.config.get(str(message.author.id))
-        #     setattr(profile, 'experience', 0)
-        #     await self.config.put(str(message.author.id), profile)
-            return
-        exp = profile.experience
-        add = random.randint(1, 10)
-        exp += add
-        ctx = await self.bot.get_context(message)
-        await self.edit_field('experience', ctx, exp)
+    # async def on_message(self, message):
+    #     if message.author.bot: return
+    #     profile = self.config.get(str(message.author.id))
+    #     if not profile:
+    #         return
+    #     if not profile.experience:
+    #     #     profile = self.config.get(str(message.author.id))
+    #     #     setattr(profile, 'experience', 0)
+    #     #     await self.config.put(str(message.author.id), profile)
+    #         return
+    #     exp = profile.experience
+    #     add = random.randint(1, 10)
+    #     exp += add
+    #     ctx = await self.bot.get_context(message)
+    #     await self.edit_field('experience', ctx, exp)
 
     # @slots.error
     async def on_command_error(self, ctx, error):

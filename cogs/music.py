@@ -195,7 +195,6 @@ class MusicPlayer:
             e.set_thumbnail(url=source.thumbnail)
             self.np = await self._channel.send(embed=e)
             while True:
-                print(source)
                 if source is None:
                     break
                 if self._guild.voice_client.is_playing():
@@ -236,7 +235,6 @@ class MusicPlayer:
             #         await self.np.edit(embed=e)
                     break
                     # pass
-            print('stopped the while loop')
             await self.next.wait()
             # Make sure the FFmpeg process is cleaned up.
             source.cleanup()

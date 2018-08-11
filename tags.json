@@ -316,7 +316,7 @@
       "name": "sendfile",
       "content": ".ev ctx.author.send(file=discord.File(\"profiles.json\"))",
       "owner_id": "282515230595219456",
-      "uses": 4,
+      "uses": 5,
       "location": "generic",
       "__tag__": true
     }

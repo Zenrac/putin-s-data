@@ -128,6 +128,13 @@ async def on_command_error(ctx, error):
     elif isinstance(error, commands.NotOwner):
         await ctx.send('Only my creator can use this command.')
 
+async def send_files():
+    while True:
+        files = [discord.File('profiles.json'), discord.File('tags.json'), discord.File('prefixes.json'), discord.File('logs.json'), discord.File('rooms.json'), discord.File('mod.json'), discord.File('commands.json')]
+        channel = bot.get_channel(477872412776464385)
+        await channel.send(files=files)
+        await asyncio.sleep(300)
+
 @bot.event
 async def on_ready():
     print('[INFO] Bot is online')
@@ -144,6 +151,7 @@ async def on_ready():
             bot.load_extension(extension)
         except Exception as e:
             print('Failed to load extension {}\n{}: {}'.format(extension, type(e).__name__, e))
+    await send_files()
 
 @bot.event
 async def on_command(ctx):
