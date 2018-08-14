@@ -1,1 +1,0 @@
-conn = psycopg2.connect("dbname='d717kim0ajf12q' user='wntfvyqqnannze' host='ec2-79-125-127-60.eu-west-1.compute.amazonaws.com' password='5079bf0dcfd0273fd49b3d6737c2d7a3238c7f507883eac68b210b9b22944a33'")
