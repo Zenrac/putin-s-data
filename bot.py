@@ -9,6 +9,10 @@ import logging
 import sys
 import ast
 import asyncio
+import asyncpg
+import traceback
+import aiohttp
+from collections import Counter, deque
 print ("[INFO] Discord version: " + discord.__version__)
 description = """
 Hello I am Putin. I hope to see you soon at Russia.
@@ -38,12 +42,7 @@ initial_extensions = [
     'cogs.osu'
 ]
 
-discord_logger = logging.getLogger('discord')
-discord_logger.setLevel(logging.CRITICAL)
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler(filename='putin.log', encoding='utf-8', mode='w')
-logger.addHandler(handler)
+log = logging.getLogger(__name__)
 
 async def get_pre(bot, message):
     prefixes = []
@@ -60,240 +59,245 @@ async def get_pre(bot, message):
     prefixes.append('<@460846291300122635> ')
     return prefixes
 
-# help_attrs = dict(hidden=True)
-status = ['Hello there.', 'Cya at Russia.']
-bot = commands.Bot(command_prefix=get_pre, description=description)
-bot.remove_command('help')
+class Putin(commands.Bot):
+    def __init__(self):
+        super().__init__(command_prefix=get_pre, description=description, fetch_offline_members=False)
 
-async def change_status():
-    await bot.wait_until_ready()
-    msgs = cycle(status)
-
-    while not bot.is_closed:
-        current_status = next(msgs)
-        game = discord.Game(current_status)
-        await bot.change_presence(status=discord.Status.online, activity=game)
-        await asyncio.sleep(5)
-
-async def run_cmd(cmd: str) -> str:
-    """Runs a subprocess and returns the output."""
-    process =\
-        await asyncio.create_subprocess_shell(
-        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
-    results = await process.communicate()
-    return "".join(x.decode("utf-8") for x in results)
-
-@bot.command(hidden=True)
-@commands.is_owner()
-async def shell(ctx, code: str):
-    print('{} has been invoked.'.format(ctx.command))
-    console = await run_cmd(code)
-    await ctx.send('```shell\n{}```'.format(console))
-
-@bot.command(hidden=True)
-@commands.is_owner()
-async def presence(self, ctx, *, text: str=None):
-    game = discord.Game(text)
-    await bot.change_presence(activity=game)
-
-@bot.event
-async def on_guild_join(guild):
-    print("Joined guild: {}.".format(guild.name))
-    await guild.owner.send("```Hey nice to see that you invited me!\nIf you need any help use \".help\" anywhere on the guild.\nJoin the bot\'s support guildat here: https://discord.gg/GJvq24V.```")
-    general=bot.get_channel(337968532388184066)
-    await general.send('The bot just joined a new guild called ``{}``.'.format(guild.name))
-
-@bot.event
-async def on_member_join(member):
-    guild = member.guild
-    if guild.id == 329993146651901952:
-            role = discord.utils.get(member.guild.roles, name='Member')
+        self.session = aiohttp.ClientSession(loop=self.loop)
+        self._prev_events = deque(maxlen=10)
+        self.add_command(self.do)
+        self.remove_command('help')
+        for extension in initial_extensions:
             try:
-                await member.add_roles(role)
-            except discord.Forbidden:
-                member.guild.send('I do not have proper permissions or high enough rank to give roles.')
-    else:
-        return
+                self.load_extension(extension)
+            except Exception as e:
+                print(f'failed to load extension {extension}.', file=sys.stderr)
+                traceback.print_exc()
 
-@bot.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.NoPrivateMessage):
-        await ctx.send(ctx.message.author, 'This command cannot be used in private messages.')
-    elif isinstance(error, commands.DisabledCommand):
-        await ctx.send(ctx.message.author, 'Sorry. This command is disabled and cannot be used.')
-    elif isinstance(error, commands.BadArgument):
-        await ctx.send('Something went wrong with the arguments you passed in.\nAn argument can be e.g. a member/user or a channel etc. Please note that this is case-sensitive.')
-    elif isinstance(error, commands.MissingPermissions):
-        await ctx.send('You do not have **{}** permissions. You need them to use this command.'.format(error.missing_perms[0]))
-    elif isinstance(error, commands.NotOwner):
-        await ctx.send('Only my creator can use this command.')
 
-async def send_files():
-    while True:
-        files = [discord.File('profiles.json'), discord.File('tags.json'), discord.File('prefixes.json'), discord.File('logs.json'), discord.File('rooms.json'), discord.File('mod.json'), discord.File('commands.json')]
-        channel = bot.get_channel(477872412776464385)
-        await channel.send(files=files)
-        await asyncio.sleep(300)
 
-@bot.event
-async def on_ready():
-    print('[INFO] Bot is online')
-    print('[NAME] ' + bot.user.name)
-    print('[ ID ] ' + str(bot.user.id))
-    print('[]---------------------------[]')
-    general = bot.get_channel(337968532388184066)
-    await general.send("Ayy, feels good to be back :relaxed:")
-    bot.uptime = datetime.datetime.utcnow()
-    bot.commands_executed = 0
+# bot = commands.Bot(command_prefix=get_pre, description=description)
+# bot.remove_command('help')
+    async def run_cmd(self, cmd: str) -> str:
+        """Runs a subprocess and returns the output."""
+        process =\
+            await asyncio.create_subprocess_shell(
+            cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+        results = await process.communicate()
+        return "".join(x.decode("utf-8") for x in results)
 
-    for extension in initial_extensions:
+    @commands.command(hidden=True)
+    @commands.is_owner()
+    async def shell(self, ctx, code: str):
+        print('{} has been invoked.'.format(ctx.command))
+        console = await run_cmd(code)
+        await ctx.send('```shell\n{}```'.format(console))
+
+    async def on_guild_join(self, guild):
+        print("Joined guild: {}.".format(guild.name))
+        await guild.owner.send("```Hey nice to see that you invited me!\nIf you need any help use \".help\" anywhere on the guild.\nJoin the bot\'s support guildat here: https://discord.gg/GJvq24V.```")
+        general=bot.get_channel(478265028185948162)
+        await general.send('I just joined a new guild called ``{}``.'.format(guild.name))
+
+    async def on_member_join(self, member):
+        guild = member.guild
+        if guild.id == 329993146651901952:
+                role = discord.utils.get(member.guild.roles, name='Member')
+                try:
+                    await member.add_roles(role)
+                except discord.Forbidden:
+                    member.guild.send('I do not have proper permissions or high enough rank to give roles.')
+        else:
+            return
+
+    async def on_command_error(self, ctx, error):
+        if isinstance(error, commands.NoPrivateMessage):
+            await ctx.send(ctx.message.author, 'This command cannot be used in private messages.')
+        elif isinstance(error, commands.DisabledCommand):
+            await ctx.send(ctx.message.author, 'Sorry. This command is disabled and cannot be used.')
+        elif isinstance(error, commands.BadArgument):
+            await ctx.send('Something went wrong with the arguments you passed in.\nAn argument can be e.g. a member/user or a channel etc. Please note that this is case-sensitive.')
+        elif isinstance(error, commands.MissingPermissions):
+            await ctx.send('You do not have **{}** permissions. You need them to use this command.'.format(error.missing_perms[0]))
+        elif isinstance(error, commands.NotOwner):
+            await ctx.send('Only my creator can use this command.')
+
+
+
+    async def on_ready(self):
+        print('[INFO] Bot is online')
+        print('[NAME] ' + self.user.name)
+        print('[ ID ] ' + str(self.user.id))
+        print('[]---------------------------[]')
+        # general = bot.get_channel(337968532388184066)
+        # await general.send("Ayy, feels good to be back :relaxed:")
+        self.uptime = datetime.datetime.utcnow()
+        self.commands_executed = 0
+        async def send_files():
+            while True:
+                files = [discord.File('profiles.json'), discord.File('tags.json'), discord.File('prefixes.json'), discord.File('logs.json'), discord.File('rooms.json'), discord.File('mod.json'), discord.File('commands.json')]
+                channel = self.get_channel(478363328448823317)
+                await channel.send(files=files)
+                await asyncio.sleep(300)
+        await send_files()
+
+    async def on_command(self, ctx):
+        bot.commands_executed += 1
+        message = ctx.message
+        destination = '#{0.channel.name} ({0.guild.name})'.format(message)
+
+        logger.info('{0.created_at}: {0.author.name} in {1}: {0.content}'.format(message, destination))
+
+    async def on_message(self, message):
+        if not message.author.bot:
+            mod = self.get_cog('Mod')
+
+            if mod is not None and not message.author.id == 282515230595219456:
+                perms = message.channel.permissions_for(message.author)
+                bypass_ignore = perms.manage_roles
+
+                if not bypass_ignore:
+                    if message.channel.id in mod.config.get('ignored', []):
+                        return
+            await self.process_commands(message)
+
+    @commands.command(hidden=True)
+    async def shutdown(self, ctx):
+        await ctx.send(':wave: Cya!')
+        await self.logout()
+
+    @commands.command(hidden=True)
+    @commands.is_owner()
+    async def load(self, ctx, *, module : str):
+        """Loads a module."""
+        module = module.strip()
+        if 'cogs.' not in module:
+            module = 'cogs.' +  module
         try:
-            bot.load_extension(extension)
+            self.load_extension(module)
         except Exception as e:
-            print('Failed to load extension {}\n{}: {}'.format(extension, type(e).__name__, e))
-    await send_files()
+            await ctx.send('\U0001f52b')
+            await ctx.send('{}: {}'.format(type(e).__name__, e))
+        else:
+            await ctx.send('\U0001f44c')
 
-@bot.event
-async def on_command(ctx):
-    bot.commands_executed += 1
-    message = ctx.message
-    destination = '#{0.channel.name} ({0.guild.name})'.format(message)
+    @commands.command(hidden=True)
+    @commands.is_owner()
+    async def unload(self, ctx, *, module : str):
+        """Unloads a module."""
+        module = module.strip()
+        if 'cogs.' not in module:
+            module = 'cogs.' +  module
+        try:
+            self.unload_extension(module)
+        except Exception as e:
+            await ctx.send('\U0001f52b')
+            await ctx.send('{}: {}'.format(type(e).__name__, e))
+        else:
+            await ctx.send('\U0001f44c')
 
-    logger.info('{0.created_at}: {0.author.name} in {1}: {0.content}'.format(message, destination))
+    @commands.command(hidden=True)
+    @commands.is_owner()
+    async def reload(self, ctx, *, module : str):
+        module = module.strip()
+        if 'cogs.' not in module:
+            module = 'cogs.' +  module
+        try:
+            self.unload_extension(module)
+            self.load_extension(module)
+        except Exception as e:
+            await ctx.send('\U0001f52b')
+            await ctx.send('{}: {}'.format(type(e).__name__, e))
+        else:
+            await ctx.send('\U0001f44c')
 
-@bot.event
-async def on_message(message):
-    if not message.author.bot:
-        mod = bot.get_cog('Mod')
+    @commands.command(hidden=True)
+    @commands.is_owner()
+    async def ev(self, ctx, *, code : str):
+        if not ctx.message.author.id  == 282515230595219456: return
+        """Evaluates code."""
+        code = code.strip('` ')
+        python = '```py\n{}\n```'
+        result = None
 
-        if mod is not None and not message.author.id == 282515230595219456:
-            perms = message.channel.permissions_for(message.author)
-            bypass_ignore = perms.manage_roles
+        try:
+            result = eval(code)
+        except Exception as e:
+            await ctx.send(python.format(type(e).__name__ + ': ' + str(e)))
+            return
 
-            if not bypass_ignore:
-                if message.channel.id in mod.config.get('ignored', []):
-                    return
-        await bot.process_commands(message)
+        if asyncio.iscoroutine(result):
+            result = await result
 
-@bot.command(hidden=True)
-async def shutdown(ctx):
-    await ctx.send(':wave: Cya!')
-    await bot.logout()
-
-@bot.command(hidden=True)
-@commands.is_owner()
-async def load(ctx, *, module : str):
-    """Loads a module."""
-    module = module.strip()
-    if 'cogs.' not in module:
-        module = 'cogs.' +  module
-    try:
-        bot.load_extension(module)
-    except Exception as e:
-        await ctx.send('\U0001f52b')
-        await ctx.send('{}: {}'.format(type(e).__name__, e))
-    else:
-        await ctx.send('\U0001f44c')
-
-@bot.command(hidden=True)
-@commands.is_owner()
-async def unload(ctx, *, module : str):
-    """Unloads a module."""
-    module = module.strip()
-    if 'cogs.' not in module:
-        module = 'cogs.' +  module
-    try:
-        bot.unload_extension(module)
-    except Exception as e:
-        await ctx.send('\U0001f52b')
-        await ctx.send('{}: {}'.format(type(e).__name__, e))
-    else:
-        await ctx.send('\U0001f44c')
-
-@bot.command(hidden=True)
-@commands.is_owner()
-async def reload(ctx, *, module : str):
-    module = module.strip()
-    if 'cogs.' not in module:
-        module = 'cogs.' +  module
-    try:
-        bot.unload_extension(module)
-        bot.load_extension(module)
-    except Exception as e:
-        await ctx.send('\U0001f52b')
-        await ctx.send('{}: {}'.format(type(e).__name__, e))
-    else:
-        await ctx.send('\U0001f44c')
-
-@bot.command(hidden=True)
-@commands.is_owner()
-async def ev(ctx, *, code : str):
-    if not ctx.message.author.id  == 282515230595219456: return
-    """Evaluates code."""
-    code = code.strip('` ')
-    python = '```py\n{}\n```'
-    result = None
-
-    try:
-        result = eval(code)
-    except Exception as e:
-        await ctx.send(python.format(type(e).__name__ + ': ' + str(e)))
-        return
-
-    if asyncio.iscoroutine(result):
-        result = await result
-
-    await ctx.send(python.format(result))
-
-@bot.command(hidden=True)
-@commands.is_owner()
-async def guilds(ctx):
-    guilds = list(bot.guilds)
-    await ctx.send("Connected to " + str(len(bot.guilds)) + " guilds:")
-    print("Connected to " + str(len(bot.guilds)) + " guilds:")
-    for x in range(len(guilds)):
-        await ctx.send(" {}".format(guilds[x-1].name))
-        print(" {}".format(guilds[x-1].name))
+        await ctx.send(python.format(result))
 
 # @bot.command(hidden=True)
 # @commands.is_owner()
 # async def announcement(ctx, *, message : str):
-#     # we copy the list over so it doesn't change while we're iterating over it
+# #     # we copy the list over so it doesn't change while we're iterating over it
 #     guilds = list(bot.guilds)
 #     for guild in guilds:
 #         try:
-#             await ctx.send(guild, message)
+#             await guild.send(message)
 #         except discord.Forbidden:
 #             # we can't send a message for some reason in this
 #             # channel, so try to look for another one.
 #             me = guild.me
 #             def predicate(ch):
-#                 text = ch.type == discord.ChannelType.text
+#                 text = ch.type == discord.TextChannel
 #                 return text and ch.permissions_for(me).send_messages
-
+#
 #             channel = discord.utils.find(predicate, guild.channels)
 #             if channel is not None:
-#                 await ctx.send(channel, message)
+#                 await channel.send(message)
 #         finally:
 #             print('Sent message to {}'.format(guild.name.encode('utf-8')))
-#             # to make sure we don't hit the rate limit, we send one
-#             # announcement message every 5 seconds.
+# #             # to make sure we don't hit the rate limit, we send one
+# #             # announcement message every 5 seconds.
 #             await asyncio.sleep(5)
 
-@bot.command(hidden=True)
-@commands.is_owner()
-async def do(ctx, times : int, *, command):
-    """Repeats a command a specified number of times."""
-    msg = copy.copy(ctx.message)
-    msg.content = command
-    for i in range(times):
-        await bot.process_commands(msg)
+    @commands.command(hidden=True)
+    @commands.is_owner()
+    async def do(self, ctx, times : int, *, command):
+        """Repeats a command a specified number of times."""
+        msg = copy.copy(ctx.message)
+        msg.content = command
+        for i in range(times):
+            await self.process_commands(msg)
 
-if __name__ == '__main__':
-    bot.loop.create_task(change_status())
-    bot.run('NDYwODQ2MjkxMzAwMTIyNjM1.Djnshw.d1T4A4GsvirNk1Lt2QH09givOns')
-    # bot.run('NDYyMDIwMTUxODY5NTcxMDky.DjnaLw.MADh6nQZwdC8QLTWZNR4bc4G9A0')
-    handlers = logger.handlers[:]
-    for hdlr in handlers:
-        hdlr.close()
-        logger.removeHandler(hdlr)
+    async def on_resumed(self):
+        print('resumed...')
+
+    async def process_commands(self, message):
+        ctx = await self.get_context(message)
+
+        if ctx.command is None:
+            return
+
+        # async with ctx.acquire():
+        await self.invoke(ctx)
+
+    async def close(self):
+        await super().close()
+        await self.session.close()
+
+    def run(self):
+        try:
+            super().run({['token goes here']}, reconnect=True)
+        finally:
+            with open('prev_events.log', 'w', encoding='utf-8') as fp:
+                for data in self._prev_events:
+                    try:
+                        x = json.dumps(data, ensure_ascii=True, indent=4)
+                    except:
+                        fp.write(f'{data}\n')
+                    else:
+                        fp.write(f'{x}\n')
+
+# if __name__ == '__main__':
+#     bot.run('NDYwODQ2MjkxMzAwMTIyNjM1.DlIJQw.HZ8z8bJRaaTdfJ_DVayZi6_SCQw')
+#     # bot.run('NDYyMDIwMTUxODY5NTcxMDky.DjnaLw.MADh6nQZwdC8QLTWZNR4bc4G9A0')
+#     handlers = logger.handlers[:]
+#     for hdlr in handlers:
+#         hdlr.close()
+#         logger.removeHandler(hdlr)

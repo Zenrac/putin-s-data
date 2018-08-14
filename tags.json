@@ -268,7 +268,7 @@
       "name": "perfectplaylist",
       "content": "https://i.redd.it/wouu7s797ld11.jpg",
       "owner_id": "282515230595219456",
-      "uses": 3,
+      "uses": 4,
       "location": "generic",
       "__tag__": true
     },
@@ -317,6 +317,14 @@
       "content": ".ev ctx.author.send(file=discord.File(\"profiles.json\"))",
       "owner_id": "282515230595219456",
       "uses": 5,
+      "location": "generic",
+      "__tag__": true
+    },
+    "tias2": {
+      "name": "tias2",
+      "content": "https://i.imgur.com/lMlFpsA.png",
+      "owner_id": "282515230595219456",
+      "uses": 0,
       "location": "generic",
       "__tag__": true
     }

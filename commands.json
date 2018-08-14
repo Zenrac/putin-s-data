@@ -103,6 +103,14 @@
       "uses": 0,
       "location": "264445053596991498",
       "__command__": true
+    },
+    "discord": {
+      "invoke": "discord",
+      "reply": "is still dying...",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "264445053596991498",
+      "__command__": true
     }
   },
   "{user}": {
