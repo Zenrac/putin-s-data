@@ -41,3 +41,6 @@
 [2018-08-17 12:55:28] [WARNING] discord.state: GUILD_ROLE_DELETE referencing an unknown guild ID: 345511302329925643. Discarding.
 [2018-08-17 12:55:28] [WARNING] discord.state: GUILD_MEMBER_REMOVE referencing an unknown guild ID: 345511302329925643. Discarding.
 [2018-08-17 13:04:43] [WARNING] discord.gateway: Unknown event GUILD_INTEGRATIONS_UPDATE.
+[2018-08-17 13:52:29] [WARNING] discord.state: GUILD_ROLE_DELETE referencing an unknown guild ID: 474251702158229514. Discarding.
+[2018-08-17 13:52:29] [WARNING] discord.state: GUILD_MEMBER_REMOVE referencing an unknown guild ID: 474251702158229514. Discarding.
+[2018-08-17 14:04:42] [WARNING] discord.gateway: Unknown event GUILD_INTEGRATIONS_UPDATE.
