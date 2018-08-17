@@ -30,7 +30,7 @@ initial_extensions = [
     'cogs.nekos',
     'cogs.prefix',
     'cogs.nsfw',
-    'cogs.dbl',
+    # 'cogs.dbl',
     'cogs.lyrics',
     'cogs.search',
     'cogs.dislogs',
@@ -59,13 +59,18 @@ async def get_pre(bot, message):
     prefixes.append('<@460846291300122635> ')
     return prefixes
 
-class Putin(commands.Bot):
+class Putin(commands.AutoShardedBot):
     def __init__(self):
         super().__init__(command_prefix=get_pre, description=description, fetch_offline_members=False)
 
         self.session = aiohttp.ClientSession(loop=self.loop)
         self._prev_events = deque(maxlen=10)
         self.add_command(self.do)
+        self.add_command(self.load)
+        self.add_command(self.unload)
+        self.add_command(self.reload)
+        self.add_command(self.shell)
+        self.add_command(self.ev)
         self.remove_command('help')
         for extension in initial_extensions:
             try:
@@ -142,11 +147,11 @@ class Putin(commands.Bot):
         await send_files()
 
     async def on_command(self, ctx):
-        bot.commands_executed += 1
+        self.commands_executed += 1
         message = ctx.message
         destination = '#{0.channel.name} ({0.guild.name})'.format(message)
-
-        logger.info('{0.created_at}: {0.author.name} in {1}: {0.content}'.format(message, destination))
+        # logger = logging.getLogger(__main__)
+        # logger.info('{0.created_at}: {0.author.name} in {1}: {0.content}'.format(message, destination))
 
     async def on_message(self, message):
         if not message.author.bot:
@@ -283,7 +288,7 @@ class Putin(commands.Bot):
 
     def run(self):
         try:
-            super().run('token', reconnect=True)
+            super().run('NDYwODQ2MjkxMzAwMTIyNjM1.DlWvow.TsYH-ohaoLg5FUyccBgjpBZ5p4I', reconnect=True)
         finally:
             with open('prev_events.log', 'w', encoding='utf-8') as fp:
                 for data in self._prev_events:

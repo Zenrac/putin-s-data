@@ -578,5 +578,23 @@
       "location": "418801915162263574",
       "__command__": true
     }
+  },
+  "469437276414541824": {
+    "wat": {
+      "invoke": "wat",
+      "reply": "wat",
+      "owner_id": "327422384523182080",
+      "uses": 0,
+      "location": "469437276414541824",
+      "__command__": true
+    },
+    "rob": {
+      "invoke": "rob",
+      "reply": "U WOT M8",
+      "owner_id": "327422384523182080",
+      "uses": 0,
+      "location": "469437276414541824",
+      "__command__": true
+    }
   }
 }
