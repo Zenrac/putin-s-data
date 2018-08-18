@@ -288,7 +288,7 @@ class Putin(commands.AutoShardedBot):
 
     def run(self):
         try:
-            super().run('bot token here', reconnect=True)
+            super().run('NDYwODQ2MjkxMzAwMTIyNjM1.DlWvow.TsYH-ohaoLg5FUyccBgjpBZ5p4I', reconnect=True)
         finally:
             with open('prev_events.log', 'w', encoding='utf-8') as fp:
                 for data in self._prev_events:
