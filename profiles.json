@@ -10,7 +10,7 @@
     "diamonds": 10,
     "roses": 10,
     "alcohol": 9,
-    "experience": 27888,
+    "experience": 28262,
     "__profile__": true
   },
   "229280831934431234": {
@@ -38,7 +38,7 @@
     "diamonds": 999,
     "roses": 999,
     "alcohol": 999,
-    "experience": 4752,
+    "experience": 4838,
     "__profile__": true
   },
   "352494762357555200": {
@@ -52,7 +52,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 265,
+    "experience": 266,
     "__profile__": true
   },
   "395896043788697600": {
@@ -780,7 +780,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 2529,
+    "experience": 2695,
     "__profile__": true
   },
   "280760163730980864": {
@@ -1256,7 +1256,7 @@
     "diamonds": 0,
     "roses": 0,
     "alcohol": 0,
-    "experience": 399,
+    "experience": 418,
     "__profile__": true
   },
   "361951318929309707": {
@@ -1410,7 +1410,7 @@
     "diamonds": 20000157951533606,
     "roses": 101347624276520002,
     "alcohol": 100001521547189126,
-    "experience": 24031,
+    "experience": 24036,
     "__profile__": true
   },
   "188418994527535104": {
@@ -1795,7 +1795,7 @@
     "desc": ".slots 400000",
     "bday": "FG",
     "married": "KOSTA",
-    "cash": 34258788.0,
+    "cash": 603006886021614.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 0,
@@ -2369,7 +2369,7 @@
     "desc": "CLEANED",
     "bday": "NONE",
     "married": "Fanta",
-    "cash": 999999000000000,
+    "cash": 1099999000000000,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 1000098,
@@ -2621,7 +2621,7 @@
     "desc": "CLEANED",
     "bday": "NONE",
     "married": "nobody...",
-    "cash": 1.9378896974293744e+16,
+    "cash": 1.8775890122530944e+16,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 1,
@@ -2915,7 +2915,7 @@
     "desc": "I love you adrician give me robux",
     "bday": "DD-MM-YY",
     "married": "nobody...",
-    "cash": 222613975250751.5,
+    "cash": 322613975250751.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 1040993,
     "rings": 100000,
@@ -3531,7 +3531,7 @@
     "desc": "how",
     "bday": "THIS WORK",
     "married": "nobody...",
-    "cash": 400000000224.5,
+    "cash": 600000000489.5,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 0,
@@ -3601,10 +3601,10 @@
     "desc": "i like guys",
     "bday": "1 APRIL 2018",
     "married": "Andrijana",
-    "cash": 100001044825.0,
+    "cash": 99782623025.0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
-    "rings": 0,
+    "rings": 1092109,
     "diamonds": 0,
     "roses": 1,
     "alcohol": 94,
@@ -3714,6 +3714,20 @@
     "bday": "19-8-2001",
     "married": "nobody...",
     "cash": 0.5,
+    "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
+    "picks": 0,
+    "rings": 0,
+    "diamonds": 0,
+    "roses": 0,
+    "alcohol": 0,
+    "experience": 0,
+    "__profile__": true
+  },
+  "441233755223621642": {
+    "desc": "give me money",
+    "bday": "!RANK",
+    "married": "nobody...",
+    "cash": 0,
     "inventory": ":pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x",
     "picks": 0,
     "rings": 0,

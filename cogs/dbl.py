@@ -8,7 +8,7 @@ import discord
 class DBL():
     def __init__(self, bot):
         self.bot = bot
-        self.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2MDg0NjI5MTMwMDEyMjYzNSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTMyMDQ5NzA0fQ.TrMrJSEfbCGou1h9vB9UHnEyCrOM3NjH3H8vWnivz9A'
+        self.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2MDg0NjI5MTMwMDEyMjYzNSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTM0NTUzMTc4fQ.Nr9X-STxM9DfJFqqCEMQyfN1FNJsIK-1NS0_ejKoPJQ'
         self.dblpy = dbl.Client(self.bot, self.token)
         self.bot.loop.create_task(self.update_stats())
 
