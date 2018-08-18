@@ -101,7 +101,7 @@ class Putin(commands.AutoShardedBot):
     async def on_guild_join(self, guild):
         print("Joined guild: {}.".format(guild.name))
         await guild.owner.send("```Hey nice to see that you invited me!\nIf you need any help use \".help\" anywhere on the guild.\nJoin the bot\'s support guildat here: https://discord.gg/GJvq24V.```")
-        general=bot.get_channel(478265028185948162)
+        general=self.get_channel(478265028185948162)
         await general.send('I just joined a new guild called ``{}``.'.format(guild.name))
 
     async def on_member_join(self, member):
