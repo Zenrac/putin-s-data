@@ -83,7 +83,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
         # await ctx.send(data)
         e = discord.Embed(title="Song added.", description=data['title'], color=discord.Color.magenta())
         e.add_field(name="Duration:", value=data['duration'], inline=True)
-        e.set_footer(text="Views: {}, Likes: {}, Dis-Likes {}".format(data['view_count'], data['like_count'], data['dislike_count']))
+        e.set_footer(text="👀 {}, 👍 {}, 👎 {}".format(data['view_count'], data['like_count'], data['dislike_count']))
         e.set_thumbnail(url=data['thumbnail'])
         await ctx.send(embed=e, delete_after=15)
 
@@ -191,7 +191,7 @@ class MusicPlayer:
             self._guild.voice_client.play(source, after=lambda _: self.bot.loop.call_soon_threadsafe(self.next.set))
             e = discord.Embed(title="Now playing:", description=source.title, color=discord.Color.magenta())
             e.add_field(name="Duration:", value="``[{}]``".format(_duration), inline=True)
-            e.set_footer(text="Views {}, Likes {}, Dis-Likes {}".format(source.view_count, source.like_count, source.dislike_count))
+            e.set_footer(text="👀 {}, 👍 {}, 👎 {}".format(source.view_count, source.like_count, source.dislike_count))
             e.set_thumbnail(url=source.thumbnail)
             self.np = await self._channel.send(embed=e)
             while True:
@@ -567,7 +567,7 @@ class Music:
         e = discord.Embed(title="Now playing:", description=vc.source.title, color=discord.Color.magenta())
         e.add_field(name="Progress:", value="`[{}/{}]`{}".format(player.progress, _duration, prog_bar_str), inline=True)
         e.add_field(name="Requested by:", value=vc.source.requester, inline=True)
-        e.set_footer(text="Views {}, Likes {}, Dis-Likes {}".format(vc.source.view_count, vc.source.like_count, vc.source.dislike_count))
+        e.set_footer(text="👀 {}, 👍 {}, 👎 {}".format(vc.source.view_count, vc.source.like_count, vc.source.dislike_count))
         e.set_thumbnail(url=vc.source.thumbnail)
         # player.np = await ctx.send(f'**Now Playing:** `{vc.source.title}` '
         #                            f'requested by `{vc.source.requester}` duration `{_duration}`\n👉`{vc.source.web_url}`')
