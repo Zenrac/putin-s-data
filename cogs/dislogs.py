@@ -52,29 +52,36 @@ class DisLogs:
     async def on_message_delete(self, message):
         with open('logs.json') as file:
             data = json.load(file)
+        # print(data)
+        if message.author.bot: return
         try:
             async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
-                if entry.user.id is 462020151869571092 or 460846291300122635:
+                if entry.user.bot:
                     return
         except discord.Forbidden:
             pass
+        except Exception as e:
+            print(e)
         if str(message.guild.id) in data:
             data_channel = data[str(message.guild.id)]
             send_channel = self.bot.get_channel(int(data_channel))
-            e = discord.Embed(title='A message has been deleted.', description='A message has been deleted at ``{}``.'.format(message.channel), color=discord.Color.red())
-            # e.add_field(name='Content:', value='{}'.format(message.clean_content), inline=False)
-            # e.add_field(name="Sent by:", value='{}'.format(message.author), inline=False)
-            # e.add_field(name="Sent at:", value='{}'.format(message.created_at), inline=False)
-            # if message.edited_at is not None:
-            #     e.add_field(name="Edited at:", value='{}'.format(message.edited_at), inline=False)
-            # try:
-            #     async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
-            #         if entry.user.id == message.user.id:
-            #             e.add_field(title="Action by:", value="{}".format(entry.user), inline=False)
-            # except discord.Forbidden:
-            #     e.set_footer(text="If you want to see who did this enable audits logs.")
+            e = discord.Embed(title='A message has been deleted.', color=discord.Color.red())
+            e.add_field(name='Content:', value='{}'.format(message.clean_content), inline=False)
+            e.add_field(name="Sent by:", value='{}'.format(message.author), inline=False)
+            e.add_field(name="Sent at:", value='{}'.format(message.created_at), inline=False)
+            if message.edited_at is not None:
+                e.add_field(name="Edited at:", value='{}'.format(message.edited_at), inline=False)
+            try:
+                async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
+                    if entry.user.id == message.author.id:
+                        e.add_field(name="Action by:", value="{}".format(entry.user), inline=False)
+            except discord.Forbidden:
+                e.set_footer(text="If you want to see who did this enable audits logs.")
             # await channel.send('``{}`` deleted a message, it was sent to ``{}`` and it\'s content was:\n```{}```'.format(message.author.name, message.channel, message.content))
-            await send_channel.send(embed=e)
+            try:
+                await send_channel.send(embed=e)
+            except:
+                pass
         else:
             return
 
@@ -93,7 +100,10 @@ class DisLogs:
                 e.add_field(name="Edited at:", value='{}'.format(after.edited_at), inline=False)
 
                 # await channel.send('``{}`` edited a message, it was sent to ``{}`` and it\'s content before editing was:\n```{}```And after editing it is:\n```{}```'.format(before.author.name, before.channel, before.content, after.content))
-                await send_channel.send(embed=e)
+                try:
+                    await send_channel.send(embed=e)
+                except:
+                    pass
 
     async def on_guild_channel_create(self, channel):
         with open('logs.json') as file:
@@ -119,7 +129,10 @@ class DisLogs:
                         e.add_field(name="Reason:", value=entry.reason, inline=False)
                 except discord.Forbidden:
                     e.set_footer(text="If you want to see who did this enable audits logs.")
-                await send_channel.send(embed=e)
+                try:
+                    await send_channel.send(embed=e)
+                except:
+                    pass
             else:
                 return
 
@@ -147,7 +160,10 @@ class DisLogs:
                         e.add_field(name="Reason:", value=entry.reason, inline=False)
                 except discord.Forbidden:
                     e.set_footer(text="If you want to see who did this enable audits logs.")
-                await send_channel.send(embed=e)
+                try:
+                    await send_channel.send(embed=e)
+                except:
+                    pass
             else:
                 return
 
@@ -177,7 +193,10 @@ class DisLogs:
                         e.add_field(name="Reason:", value=entry.reason, inline=False)
                 except discord.Forbidden:
                     e.set_footer(text="If you want to see who did this enable audits logs.")
-                await send_channel.send(embed=e)
+                try:
+                    await send_channel.send(embed=e)
+                except:
+                    pass
             else:
                 return
 
@@ -194,11 +213,14 @@ class DisLogs:
                 e.add_field(name="Members now:", value='{}'.format(len(member.guild.members)), inline=False)
                 try:
                     async for entry in member.guild.audit_logs(limit=1, action=discord.AuditLogAction.invite_update):
-                        e.add_field(title="Inviter:", value=entry.inviter, inline=False)
-                        e.add_field(title="Invite uses:", value=entry.uses, inline=False)
+                        e.add_field(name="Inviter:", value=entry.inviter, inline=False)
+                        e.add_field(name="Invite uses:", value=entry.uses, inline=False)
                 except discord.Forbidden:
                     e.set_footer(text="If you want to see who ivnited him/her enable audits logs.")
-                await send_channel.send(embed=e)
+                try:
+                    await send_channel.send(embed=e)
+                except:
+                    pass
 
     async def on_member_remove(self, member):
         with open('logs.json') as file:
@@ -222,7 +244,10 @@ class DisLogs:
                         e.add_field(name="Reason:", value=entry.reason, inline=False)
                 except discord.Forbidden:
                     e.set_footer(text="If you want to see who did this enable audits logs.")
-                await send_channel.send(embed=e)
+                try:
+                    await send_channel.send(embed=e)
+                except:
+                    pass
 
     async def on_member_ban(self, guild, member):
         with open('logs.json') as file:
@@ -240,7 +265,10 @@ class DisLogs:
                         e.add_field(name="Reason:", value=entry.reason, inline=False)
                 except discord.Forbidden:
                     e.set_footer(text="If you want to see who did this enable audits logs.")
-                await send_channel.send(embed=e)
+                try:
+                    await send_channel.send(embed=e)
+                except:
+                    pass
 
     async def on_member_unban(self, guild, user):
         with open('logs.json') as file:
@@ -257,7 +285,10 @@ class DisLogs:
                         e.add_field(name="Reason:", value=entry.reason, inline=False)
                 except discord.Forbidden:
                     e.set_footer(text="If you want to see who did this enable audits logs.")
-                await send_channel.send(embed=e)
+                try:
+                    await send_channel.send(embed=e)
+                except:
+                    pass
 
 def setup(bot):
     bot.add_cog(DisLogs(bot))

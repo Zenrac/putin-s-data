@@ -596,5 +596,23 @@
       "location": "469437276414541824",
       "__command__": true
     }
+  },
+  "are you a pedofile {user}?": {
+    "hello": {
+      "invoke": "Hello",
+      "reply": "Hello there {user}.",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__command__": true
+    },
+    "bmusic": {
+      "invoke": "bmusic",
+      "reply": "\ud83c\udfb6 \ud83d\udc93  __***Best Music***__",
+      "owner_id": "282515230595219456",
+      "uses": 0,
+      "location": "329993146651901952",
+      "__command__": true
+    }
   }
 }

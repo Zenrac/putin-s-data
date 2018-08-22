@@ -151,7 +151,6 @@ class Fun():
 
             try:
                 reaction, user = await self.bot.wait_for('reaction_add', check=check)
-                print(reaction)
                 if reaction.emoji == '✅':
                     with open('rr.txt', 'a+') as f:
                         f.write('\n' + text)
@@ -339,7 +338,6 @@ class Fun():
         message = await ctx.say("Pong!")
         ping = (time.monotonic() - before) * 1000
         await self.bot.edit_message(message, f"Pong!  `{int(ping)}ms`")
-        print(f'Ping {int(ping)}ms')
 
     @commands.command()
     async def party(self, ctx):

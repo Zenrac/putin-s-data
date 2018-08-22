@@ -1,245 +1,134 @@
 from discord.ext import commands
-import discord.utils
-from .utils import dbconfig, formats
-import json, re
-from collections import Counter
-import asyncio
+from .utils import db
+import discord
 import random
-import json
-import psycopg2
+import re
+import asyncio
 
-class DefaultProfileType:
-    def __str__(self):
-        return 'me'
+class Profiles(db.Table):
+    id = db.Column(db.Integer(big=True))
+    description = db.Column(db.String)
+    cash = db.Column(db.Numeric)
 
-MyOwnProfile = DefaultProfileType()
+class DisambiguateMember(commands.IDConverter):
+    async def convert(self, ctx, argument):
+        # check if it's a user ID or mention
+        match = self._get_id_match(argument) or re.match(r'<@!?([0-9]+)>$', argument)
 
-class MemberParser:
-    """
-    Lazily fetches an argument and then when asked attempts to get the data.
-    """
+        if match is not None:
+            # exact matches, like user ID + mention should search
+            # for every member we can see rather than just this guild.
+            user_id = int(match.group(1))
+            result = ctx.bot.get_user(user_id)
+            if result is None:
+                raise commands.BadArgument("Could not find this member.")
+            return result
 
-    def __init__(self, argument):
-        self.argument = argument.strip()
-        self.regex = re.compile(r'<@([0-9]+)>')
+        # check if we have a discriminator:
+        if len(argument) > 5 and argument[-5] == '#':
+            # note: the above is true for name#discrim as well
+            name, _, discriminator = argument.rpartition('#')
+            pred = lambda u: u.name == name and u.discriminator == discriminator
+            result = discord.utils.find(pred, ctx.bot.users)
+        else:
+            # disambiguate I guess
+            if ctx.guild is None:
+                matches = [
+                    user for user in ctx.bot.users
+                    if user.name == argument
+                ]
+                entry = str
+            else:
+                matches = [
+                    member for member in ctx.guild.members
+                    if member.name == argument
+                    or (member.nick and member.nick == argument)
+                ]
 
-    def member_entry(self, tup):
-        index = tup[0]
-        member = tup[1]
-        return '{0}. {1.name}#{1.discriminator} from {1.guild.name}'.format(index, member)
+                def to_str(m):
+                    if m.nick:
+                        return f'{m} (a.k.a {m.nick})'
+                    else:
+                        return str(m)
 
-    async def get(self, ctx):
-        """Given an invocation context, gets a user."""
-        guild = ctx.guild
-        bot = ctx.me
-        members = guild.members if guild is not None else bot.get_all_members()
-        # check if the argument is a mention
-        m = self.regex.match(self.argument)
-        if m:
-            user_id = m.group(1)
-            await ctx.send(user_id)
-            return discord.utils.get(members, id=user_id)
+                entry = to_str
 
-        # it isn't, so search by name
-        results = {m for m in members if m.name == self.argument}
-        results = list(results)
-        if len(results) == 0:
-            # we have no matches... so we must return None
-            return None
+            try:
+                result = await ctx.disambiguate(matches, entry)
+            except Exception as e:
+                raise commands.BadArgument(f'Could not find this member. {e}') from None
 
+        if result is None:
+            raise commands.BadArgument("Could not found this member. Note this is case sensitive.")
+        return result
 
-        if len(results) == 1:
-            # we have an exact match.
-            return results[0]
-
-        # no exact match
-        msg = ctx.message
-        member = await formats.too_many_matches(bot, msg, results, self.member_entry)
-        return member
-
-class ProfileInfo:
-    def __init__(self, **kwargs):
-        self.desc = kwargs.get('desc')
-        self.bday = kwargs.get('bday')
-        self.married = kwargs.get('married')
-        self.cash = kwargs.get('cash')
-        self.inventory = kwargs.get('inventory')
-        self.picks = kwargs.get('picks')
-        self.rings = kwargs.get('rings')
-        self.diamonds = kwargs.get('diamonds')
-        self.roses = kwargs.get('roses')
-        self.alcohol = kwargs.get('alcohol')
-        self.experience = kwargs.get('experience')
-
-    def __str__(self):
-        output = []
-        output.append('Description: {0.desc}'.format(self))
-        output.append('Birthday: {0.bday}'.format(self))
-        output.append('Married with: {0.married}'.format(self))
-        output.append('Cash: {0.cash}'.format(self))
-        output.append('Inventory: {o.inventory}'.format(self))
-        output.append('Picks: {0.picks}'.format(self))
-        output.append('Rings: {0.rings}'.format(self))
-        output.append('Diamonds: {0.diamonds}'.format(self))
-        output.append('Roses: {0.roses}'.format(self))
-        output.append('Alcohol: {0.alcohol}'.format(self))
-        output.append('Experience: {0.experience}'.format(self))
-        return '\n'.join(output)
-
-
-class ProfileEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, ProfileInfo):
-            payload = obj.__dict__.copy()
-            payload['__profile__'] = True
-            return payload
-        return json.JSONEncoder.default(self, obj)
-
-def profile_decoder(obj):
-    if '__profile__' in obj:
-        return ProfileInfo(**obj)
-    return obj
-
-class Profile:
-    """Profile related commands."""
-
+class Profiless():
     def __init__(self, bot):
         self.bot = bot
-        self.config = dbconfig.Config('profiles')
 
-    async def on_command_error(self, ctx, error):
-        if hasattr(ctx.command, 'on_error'):
-            return
+    @commands.group(invoke_without_command=True)
+    async def profile(self, ctx, *, member: DisambiguateMember = None):
+        member = member or ctx.author
 
-        ignored = (commands.CommandNotFound, commands.UserInputError)
-        error = getattr(error, 'original', error)
+        query = """select * from profiles where id=$1"""
+        record = await self.bot.pool.fetchrow(query, member.id)
 
-        if isinstance(error, ignored):
-            return
-
-        elif isinstance(error, commands.BadArgument):
-            if ctx.command.qualified_name == 'tag list':
-                return await ctx.send('I could not find that member. Please try again.')
-
-    async def get_profile(self, ctx, parser):
-        try:
-            if parser is MyOwnProfile:
-                member = ctx.message.author
-            else:
-                member = await parser.get(ctx)
-        except commands.CommandError as e:
-            await ctx.send(e)
-            return
-        if member.bot:
-            await ctx.send('Bots can\'t have profiles.')
-            return
-
-        if member is None:
-            await ctx.send('Member not found. Note that this is case sensitive. You can use a mention instead.')
-            return
-
-        profile = self.config.get('id', str(member.id))
-        print(profile[0])
-        if profile[0] == '[':
-            if parser is not MyOwnProfile:
-                await ctx.send('This member did not set up a profile.')
-            else:
-                await ctx.send('You did not set up a profile. One is being created for you.')
-                await self.config.make(member.id)
+        if record is None:
+            if member == ctx.author:
+                await ctx.send('You didnt set up a profile yet.')
                 await ctx.invoke(self.make)
-        else:
-            # if ctx.guild.id == 418801915162263574:
-            #     # if not profile.alcohol in profile:
-            #     #     profile = self.config.get(member.id)
-            #     #     setattr(profile, 'alcohol', 0)
-            #     #     await self.config.put(member.id, profile)
-            #     embed = discord.Embed(title="**{0.name}#{0.discriminator}**:פרופיל על".format(member), description="", color=discord.Color.magenta())
-            #     embed.add_field(name=":writing_hand: תיאור:", value="{}".format(profile.desc), inline=False)
-            #     embed.add_field(name=":birthday: יום הולדת:", value="{}".format(profile.bday), inline=True)
-            #     embed.add_field(name=":heart: התחתן עם:", value="{}".format(profile.married), inline=True)
-            #     embed.add_field(name=":moneybag: כסף:", value="${}".format(profile.cash), inline=True)
-            #     embed.add_field(name=":zap: פרופיל על:", value="{}".format(profile.experience), inline=True)
-            #     embed.add_field(name=":medal: רמה:", value="{}".format(int(profile.experience / 1000)), inline=True)
-            #     embed.add_field(name=":handbag: מלאי:", value=":pick:{}x :ring:{}x :diamond_shape_with_a_dot_inside:{}x :rose:{}x :champagne:{}x".format(profile.picks, profile.rings, profile.diamonds, profile.roses, profile.alcohol), inline=True)
-            #     # embed.add_field(name="", value=":pick:{}x".format(profile.picks), inline=Falses)
-            #     embed.set_thumbnail(url=member.avatar_url)
-            #     profile_menu = await ctx.send(embed=embed)
-            #     await profile_menu.add_reaction('❌')
-            #     def check(reaction, user):
-            #         return user == ctx.message.author and reaction.emoji in '❌'
-            #     try:
-            #         reaction, user = await self.bot.wait_for('reaction_add', check=check)
-            #     except:
-            #         pass
-            #     if reaction:
-            #         await profile_menu.delete()
-            #         await ctx.message.delete()
-            # else:
-                # if not profile.alcohol in profile:
-                #     profile = self.config.get(member.id)
-                #     setattr(profile, 'alcohol', 0)
-                #     await self.config.put(member.id, profile)
-            descccc = self.config.get(self, 'id', str(member.id), "'desc'")
-            desccc = descccc.replace('(', '')
-            descc = desccc.replace(',)', '')
-            embed = discord.Embed(title="Profile of **{0.name}#{0.discriminator}**:".format(member), description="", color=discord.Color.magenta())
-            embed.add_field(name=":writing_hand: Description:", value="{}".format(descc), inline=False)
-            # embed.add_field(name=":birthday: Birthday:", value="{}".format(profile.bday), inline=True)
-            # embed.add_field(name=":heart: Married with:", value="{}".format(profile.married), inline=True)
-            # embed.add_field(name=":moneybag: Cash:", value="${}".format(profile.cash), inline=True)
-            # embed.add_field(name=":zap: Experience:", value="{}".format(profile.experience), inline=True)
-            # embed.add_field(name=":medal: Level:", value="{}".format(int(profile.experience / 1000)), inline=True)
-            # embed.add_field(name=":handbag: Inventory:", value=":pick:{}x :ring:{}x :diamond_shape_with_a_dot_inside:{}x :rose:{}x :champagne:{}x".format(profile.picks, profile.rings, profile.diamonds, profile.roses, profile.alcohol), inline=True)
-            # embed.add_field(name="", value=":pick:{}x".format(profile.picks), inline=Falses)
-            embed.set_thumbnail(url=member.avatar_url)
-            profile_menu = await ctx.send(embed=embed)
-            await profile_menu.add_reaction('❌')
-            def check(reaction, user):
-                return user == ctx.message.author and reaction.emoji in '❌'
-            try:
-                reaction, user = await self.bot.wait_for('reaction_add', check=check)
-            except:
-                pass
-            if reaction:
-                await profile_menu.delete()
-                await ctx.message.delete()
+            else:
+                await ctx.send('this member did not set up a profile yet')
+            return
 
-    @commands.group(invoke_without_command=True, aliases=['פרופיל'])
-    async def profile(self, ctx, *, member : MemberParser = MyOwnProfile):
-        """Shows your or another member's profile."""
-        await self.get_profile(ctx, member)
 
-    @profile.command()
-    async def get(self, ctx, *, member : MemberParser):
-        """Gets a profile of another member."""
-        await self.get_profile(ctx, member)
+        e = discord.Embed(title="Profile of {}".format(member.nick if member.nick else member.name),color=0x19D719)
+        e.set_thumbnail(url=member.avatar_url)
+        keys = {
+            ':writing_hand: Description': 'description',
+            ':birthday: Birthday': 'bday',
+            ':heart: Married with': "married",
+            ':moneybag: Cash': 'cash',
+            ':zap: Experience': 'experience'
+        }
+        for key, value in keys.items():
+            e.add_field(name=key, value=str(record[value]) or 'N/A', inline=True)
+        e.add_field(name=':handbag: Inventory', value=":pick:{}x :ring:{}x :diamond_shape_with_a_dot_inside:{}x :rose:{}x :champagne:{}x".format(record['picks'], record['rings'], record['diamonds'], record['roses'], record['alcohol']), inline=True)
+        await ctx.send(embed=e)
 
-    def edit_field(self, attr, ctx, data):
-        user_id = ctx.message.author.id
-        key_name = "'{}'".format(attr)
-        print(key_name)
-        print(user_id)
-        print(data)
-        self.config.put('id', user_id, key_name, data)
-        # await ctx.send('Field {} set to {}.'.format(attr, data))
+    async def edit_field(self, ctx, **fields):
+        keys = ', '.join(fields)
+        values = ', '.join(f'${2 + i}' for i in range(len(fields)))
 
-    async def edit_user_field(self, member, attr, ctx, data):
-        user_id = str(member.id)
-        key_name = "'{}'".format(attr)
-        await self.config.put('id', user_id, key_name, data)
+        query = f"""update profiles
+                    SET {keys} = {values}
+                    where id=$1;
+                 """
 
+        await self.bot.pool.execute(query, ctx.author.id, *fields.values())
+
+    async def edit_user_field(self, member, ctx, **fields):
+        keys = ', '.join(fields)
+        values = ', '.join(f'${2 + i}' for i in range(len(fields)))
+
+        query = f"""update profiles
+                    SET {keys} = {values}
+                    where id=$1;
+                 """
+
+        await self.bot.pool.fetchrow(query, member.id, *fields.values())
 
     @profile.command(aliases=['תיאור'])
     async def description(self, ctx, *, DESC : str):
         """Sets a profile description."""
-        self.edit_field('desc', ctx, DESC.strip('"'))
+        await self.edit_field(ctx, description=DESC.strip('"'))
         await ctx.send('Description edited.')
 
-    @profile.command(aliases=['יום הולדת'])
+    @profile.command(aliases=['יום הולדת', 'bday'])
     async def birthday(self, ctx, BDAY : str):
         """Sets a birthday to your profile."""
         bday = BDAY.upper()
-        await self.edit_field('bday', ctx, bday)
+        await self.edit_field(ctx, bday=bday)
         await ctx.send('Birthday edited.')
 
 
@@ -279,12 +168,12 @@ class Profile:
         This command will walk you through the steps required to create
         a profile. Note that it only goes through the basics of a profile.
         """
-
+    
         message = ctx.message
         await ctx.send('Hello. Let\'s walk you through making a profile!\nWhat do you want your description to be?\nSay ``cancel`` to cancel.')
         def pred(m):
             return m.author == ctx.message.author and m.channel == ctx.message.channel
-
+    
         desc = await self.bot.wait_for('message', check=pred)
         if desc.content.lower() == 'cancel':
             return await ctx.send('Cancelled profile creation.')
@@ -294,35 +183,35 @@ class Profile:
         await ctx.send('Now tell me, what is your birthday? Format is DD-MM-YYYY.\nYou can also say none if you don\'t want to expose your birthday.\nSay ``cancel`` to cancel.')
         def pred(m):
             return m.author == ctx.message.author and m.channel == ctx.message.channel
-
+    
         bday = await self.bot.wait_for('message', check=pred)
         if bday.content.lower() == 'cancel':
             return await ctx.send('Cancelled profile creation.')
         if desc is None:
             return
-
-        await self.edit_field('bday', ctx, bday.clean_content.upper())
-        await self.edit_field('cash', ctx, int(0))
-        await self.edit_field('picks', ctx, int(0))
-        await self.edit_field('married', ctx, 'nobody...')
-        await self.edit_field('inventory', ctx, ':pick:0x :ring:0x :diamond_shape_with_a_dot_inside:0x')
-        await self.edit_field('rings', ctx, int(0))
-        await self.edit_field('diamonds', ctx, int(0))
-        await self.edit_field('roses', ctx, int(0))
-        await self.edit_field('alcohol', ctx, int(0))
-        await self.edit_field('experience', ctx, int(0))
+    
+        await self.edit_field(ctx, bday=bday.clean_content.upper())
+        await self.edit_field(ctx, cash=int(0))
+        await self.edit_field(ctx, picks=int(0))
+        await self.edit_field(ctx, married='nobody...')
+        await self.edit_field(ctx, rings=int(0))
+        await self.edit_field(ctx, diamonds=int(0))
+        await self.edit_field(ctx, roses=int(0))
+        await self.edit_field(ctx, alcohol=int(0))
+        await self.edit_field(ctx, experience=int(0))
         await ctx.send('Alright! Your profile is all ready now.')
 
     @commands.command()
     @commands.cooldown(1, 300, commands.BucketType.user)
     async def mine(self, ctx):
         """Mines with a chance of getting money and or diamond."""
-        profile = self.config.get(str(ctx.message.author.id))
-        if profile is None:
-            await ctx.invoke(self.make)
-        picks = profile.picks
-        cash = profile.cash
-        diamonds = profile.diamonds
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        # if profile is None:
+        #     await ctx.invoke(self.make)
+        picks = profile['picks']
+        cash = profile['cash']
+        diamonds = profile['diamonds']
         if picks == 0:
             mine_cmd = self.bot.get_command('mine')
             mine_cmd.reset_cooldown(ctx)
@@ -341,7 +230,7 @@ class Profile:
                 await ctx.send('You don\'t have any pickaxes.')
         else:
             picks -= 1
-            await self.edit_field('picks', ctx, picks)
+            await self.edit_field(ctx, picks=picks)
             mining_chance = random.randint(1, 3)
             diamond_chance = random.randint(1, 25)
             if mining_chance == 1:
@@ -349,17 +238,17 @@ class Profile:
                 if diamond_chance == 1:
                     await ctx.send('But you found a diamond lying on the ground.')
                     diamonds += 1
-                    await self.edit_field('diamonds', ctx, diamonds)
+                    await self.edit_field(ctx, diamonds=diamonds)
             else:
                 found = random.randint(40, 200)
                 cash += found
-                await self.edit_field('cash', ctx, cash)
-                await self.edit_field('picks', ctx, picks)
+                await self.edit_field(ctx, cash=cash)
+                await self.edit_field(ctx, picks=picks)
                 await ctx.send('{} found ${} and has now ${}\n**You can mine again in 5 minutes!**'.format(ctx.message.author.name, found, cash))
                 if diamond_chance == 1:
                     await ctx.send('You lucky, you found a diamond.')
                     diamonds += 1
-                    await self.edit_field('diamonds', ctx, diamonds)
+                    await self.edit_field(ctx, diamonds=diamonds)
     @mine.error
     async def mine_handler(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
@@ -369,35 +258,38 @@ class Profile:
     @commands.cooldown(1, 86400, commands.BucketType.user)
     async def daily(self, ctx):
         """Gets your daily money."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        cash = profile.cash
+        cash = profile['cash']
         found = random.randint(100,150)
         cash += found
-        await self.edit_field('cash', ctx, cash)
+        await self.edit_field(ctx, cash=cash)
         await ctx.send('You got ${} from daily and you have ${} in total.\n**Come get your daily again after 24h.**'.format(found, cash))
 
     @commands.command(aliases=['balance', 'כסף', 'בנק'])
     async def money(self, ctx):
         """Shows your money amount."""
-        profile = self.config.get(str(ctx.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        cash = profile.cash
+        cash = profile['cash']
         await ctx.send('You have ${}'.format(cash))
 
     @commands.command()
     @commands.cooldown(1, 180, commands.BucketType.user)
     async def loot(self, ctx):
         """Loots money from messages."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        cash = profile.cash
+        cash = profile['cash']
         found = random.randint(20,50)
         cash = cash + found
-        await self.edit_field('cash', ctx, cash)
+        await self.edit_field(ctx, cash=cash)
         await ctx.send('{} found ${}, and has now ${}\n**You can loot again in 3 minutes!**'.format(ctx.message.author.name, found, cash))
 
     @commands.command(invoke_without_command = True)
@@ -414,15 +306,17 @@ class Profile:
     @commands.group(invoke_without_command=True)
     async def sell(self, ctx):
         """Use ``(prefix)help sell`` for more information."""
+        await ctx.send('Use ``{}help sell`` for more information.'.format(ctx.prefix))
 
     @sell.command(name='pick')
     async def pic(self, ctx, amount : int = None):
         """Sells a pickaxe."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        cash = profile.cash
-        picks = profile.picks
+        cash = profile['cash']
+        picks = profile['picks']
         if amount is None:
             amount = 1
         if picks == 0:
@@ -433,17 +327,18 @@ class Profile:
                 return
             cash += amount * 75
             picks -= amount
-            await self.edit_field('cash', ctx, cash)
-            await self.edit_field('picks', ctx, picks)
+            await self.edit_field(ctx, cash=cash)
+            await self.edit_field(ctx, picks=picks)
             await ctx.send('Sold {}x :pick:'.format(amount))
 
     @sell.command(name='ring')
     async def rin(self, ctx, amount : int = None):
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        cash = profile.cash
-        rings = profile.rings
+        cash = profile['cash']
+        rings = profile['rings']
         if amount is None:
             amout = 1
         if rings == 0:
@@ -454,18 +349,19 @@ class Profile:
                 return
             cash += amount * 150
             rings -= amount
-            await self.edit_field('cash', ctx, cash)
-            await self.edit_field('rings', ctx, rings)
+            await self.edit_field(ctx, cash=cash)
+            await self.edit_field(ctx, rings=rings)
             await ctx.send('Sold {}x :ring:'.format(amount))
 
     @sell.command(name='diamond')
     async def diamon(self, ctx, amount : int = None):
         """Sells a diamond."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        diamonds = profile.diamonds
-        cash = profile.cash
+        diamonds = profile['diamonds']
+        cash = profile['cash']
         if amount is None:
             amount = 1
         if diamonds == 0:
@@ -476,18 +372,19 @@ class Profile:
                 return
             cash += amount * 1500
             diamonds -= amount
-            await self.edit_field('diamonds', ctx, diamonds)
-            await self.edit_field('cash', ctx, cash)
+            await self.edit_field(ctx, diamonds=diamonds)
+            await self.edit_field(ctx, cash=cash)
             await ctx.send('Sold {}x :diamond_shape_with_a_dot_inside:'.format(amount))
 
     @sell.command(name='rose')
     async def ros(self, ctx, amount : int = None):
         """Sells a rose."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        roses = profile.roses
-        cash = profile.cash
+        roses = profile['roses']
+        cash = profile['cash']
         if amount is None:
             amount = 1
         if roses == 0:
@@ -498,18 +395,19 @@ class Profile:
                 return
             cash += amount * 19
             roses -= amount
-            await self.edit_field('roses', ctx, roses)
-            await self.edit_field('cash', ctx, cash)
+            await self.edit_field(ctx, roses=roses)
+            await self.edit_field(ctx, cash=cash)
             await ctx.send('Sold {}x :rose:'.format(amount))
 
     @sell.command(name='alcohol')
     async def alcoho(self, ctx, amount : int = None):
         """Sells alcohol."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        alcohol = profile.alcohol
-        cash = profile.cash
+        alcohol = profile['alcohol']
+        cash = profile['cash']
         if amount is None:
             amount = 1
         if alcohol == 0:
@@ -520,23 +418,24 @@ class Profile:
                 return
             cash += amount * 38
             alcohol -= amount
-            await self.edit_field('alcohol', ctx, alcohol)
-            await self.edit_field('cash', ctx, cash)
+            await self.edit_field(ctx, alcohol=alcohol)
+            await self.edit_field(ctx, cash=cash)
             await ctx.send('Sold {}x :champagne:'.format(amount))
 
     @commands.command()
     async def drink(self, ctx):
         """Drinks alcohol."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
             return
-        alcohol = profile.alcohol
+        alcohol = profile['alcohol']
         if alcohol == 0:
             await ctx.send('You don\'t have any alcohol.')
         else:
             alcohol -= 1
-            await self.edit_field('alcohol', ctx, alcohol)
+            await self.edit_field(ctx, alcohol=alcohol)
             await ctx.send('You drank :champagne: and got drunk.')
 
     @commands.group(invoke_without_command=True)
@@ -547,13 +446,14 @@ class Profile:
     @buy.command()
     async def pick(self, ctx, amount : int = None):
         """Buys a pickaxe."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
         if amount is None:
             amount =1
-        cash = profile.cash
-        picks = profile.picks
+        cash = profile['cash']
+        picks = profile['picks']
         if amount*100 > cash:
             await ctx.send('You don\'t have enough money.')
             return
@@ -563,19 +463,20 @@ class Profile:
             if amount is None:
                 amount = 1
             await ctx.send('Bought {}x :pick:'.format(amount))
-            await self.edit_field('cash', ctx, cash)
-            await self.edit_field('picks', ctx, picks)
+            await self.edit_field(ctx, cash=cash)
+            await self.edit_field(ctx, picks=picks)
         else:
             await ctx.send('You don\'t have enough cash.')
 
     @buy.command()
     async def ring(self, ctx, amount : int = None):
         """Buys a ring."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        rings = profile.rings
-        cash = profile.cash
+        rings = profile['rings']
+        cash = profile['cash']
         if amount is None:
             amount = 1
         if amount*200 > cash:
@@ -585,19 +486,20 @@ class Profile:
             cash -= amount * 200
             rings += amount
             await ctx.send('Bought {}x :ring:'.format(amount))
-            await self.edit_field('cash', ctx, cash)
-            await self.edit_field('rings', ctx, rings)
+            await self.edit_field(ctx, cash=cash)
+            await self.edit_field(ctx, rings=rings)
         else:
             await ctx.send('You don\'t have enough cash.')
 
     @buy.command()
     async def diamond(self, ctx, amount : int = None):
         """Buys a diamond."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        cash = profile.cash
-        diamonds = profile.diamonds
+        cash = profile['cash']
+        diamonds = profile['diamonds']
         if amount is None:
             amount = 1
         if amount*2000 > cash:
@@ -606,8 +508,8 @@ class Profile:
         if cash >= amount*2000:
             cash -= amount * 2000
             diamonds += amount
-            await self.edit_field('cash', ctx, cash)
-            await self.edit_field('diamonds', ctx, diamonds)
+            await self.edit_field(ctx, cash=cash)
+            await self.edit_field(ctx, diamonds=diamonds)
             await ctx.send('Bought {}x :diamond_shape_with_a_dot_inside:'.format(amount))
         else:
             await ctx.send('You don\'t have enough cash.')
@@ -615,11 +517,12 @@ class Profile:
     @buy.command()
     async def rose(self, ctx, amount : int = None):
         """Buys a rose."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        cash = profile.cash
-        roses = profile.roses
+        cash = profile['cash']
+        roses = profile['roses']
         if amount is None:
             amount = 1
         if amount*25 > cash:
@@ -628,8 +531,8 @@ class Profile:
         if cash >= 25:
             cash -= amount * 25
             roses += amount
-            await self.edit_field('cash', ctx, cash)
-            await self.edit_field('roses', ctx, roses)
+            await self.edit_field(ctx, cash=cash)
+            await self.edit_field(ctx, roses=roses)
             await ctx.send('Bought {}x :rose:'.format(amount))
         else:
             await ctx.send('You don\'t have enough cash.')
@@ -637,11 +540,12 @@ class Profile:
     @buy.command()
     async def alcohol(self, ctx, amount : int = None):
         """Buys alcohol."""
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        cash = profile.cash
-        alcohol = profile.alcohol
+        cash = profile['cash']
+        alcohol = profile['alcohol']
         if amount is None:
             amount = 1
         if amount*50 > cash:
@@ -650,8 +554,8 @@ class Profile:
         if cash >= 50:
             cash -= amount * 50
             alcohol += amount
-            await self.edit_field('cash', ctx, cash)
-            await self.edit_field('alcohol', ctx, alcohol)
+            await self.edit_field(ctx, cash=cash)
+            await self.edit_field(ctx, alcohol=alcohol)
             await ctx.send('Bought {}x :champagne:'.format(amount))
         else:
             await ctx.send('You don\'t have enough cash.')
@@ -673,20 +577,22 @@ class Profile:
                 await ctx.send('You can\'t marry a bot.')
                 return
             else:
-                profile = self.config.get(str(ctx.message.author.id))
+                query = """select * from profiles where id=$1"""
+                profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if profile is None:
                     await ctx.invoke(self.make)
-                rings = profile.rings
-                married = profile.married
+                rings = profile['rings']
+                married = profile['married']
                 if married in 'nobody...':
                     married = None
                 if married is not None:
                     await ctx.send('You are already married with {}.'.format(married))
                     return
-                member_profile = self.config.get(str(member.id))
+                query = """select * from profiles where id=$1"""
+                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if member_profile is None:
                     await ctx.send('That user does not have a profile.')
-                member_married = member_profile.married
+                member_married = member_profile['married']
                 if member_married in 'nobody...':
                     member_married = None
                 if member_married is not None:
@@ -700,9 +606,9 @@ class Profile:
 
                     answer = await self.bot.wait_for('message', timeout=60, check=pred)
                     if answer.content.lower() in 'yes':
-                        await self.edit_field('rings', ctx, rings)
-                        await self.edit_user_field(member, 'married', ctx, ctx.message.author.name)
-                        await self.edit_field('married', ctx, member.name)
+                        await self.edit_field(ctx, rings=rings)
+                        await self.edit_user_field(member, ctx, married=ctx.message.author.name)
+                        await self.edit_field(ctx, married=member.name)
                         await ctx.send(':heart: | {} is now married with {}'.format(ctx.message.author.name, member.name))
                     elif answer.content.lower() in 'no':
                         await ctx.send('Proposing denied..')
@@ -719,30 +625,32 @@ class Profile:
         if member is None:
             return await ctx.send('You didn\'t tell me who you want to divorce with.')
         else:
-            profile = self.config.get(str(ctx.message.author.id))
+            query = """select * from profiles where id=$1"""
+            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
                 await ctx.invoke(self.make)
-            married = profile.married
+            married = profile['married']
             if married in 'nobody...':
                 await ctx.send('You weren\'t married in the first place.')
                 return
-            m_profile = self.config.get(str(member.id))
+            query = """select * from profiles where id=$1"""
+            m_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
 
             if m_profile is None:
                 await self.bot.delete_message(ctx.message)
                 msg = await ctx.send('That user does not have a profle.')
                 await asyncio.sleep(10)
                 await self.bot.delete_message(msg)
-            m_married = m_profile.married
-            if member.name in married:
+            m_married = m_profile['married']
+            if member['name'] in married:
                 await ctx.send('{} would like to get divorced with {}.\n{} type yes in 60 seconds if you want to get divorced.'.format(ctx.message.author.name, member.name, member.mention))
                 def pred(m):
                     return m.author == member and m.channel == ctx.message.channel
 
                 answer = await self.bot.wait_for('message', check=pred)
                 if answer.content in 'yes':
-                    await self.edit_user_field(member, 'married', ctx, 'nobody...')
-                    await self.edit_field('married', ctx, 'nobody...')
+                    await self.edit_user_field(member, ctx, married='nobody...')
+                    await self.edit_field(ctx, married='nobody...')
                     await ctx.send(':broken_heart: | {} got divorced with {}.'.format(ctx.message.author.name, member.name))
                 else:
                     await ctx.send('I\'ll take that as no.')
@@ -766,20 +674,22 @@ class Profile:
             await asyncio.sleep(10)
             await self.bot.delete_message(msg)
         else:
-            profile = self.config.get(str(ctx.message.author.id))
+            query = """select * from profiles where id=$1"""
+            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
                 await ctx.invoke(self.make)
-            picks = profile.picks
+            picks = profile['picks']
             if picks == 0:
                 await ctx.send('You don\'t have any pickaxes.')
             else:
                 picks -= 1
-                member_profile = self.config.get(str(member.id))
+                query = """select * from profiles where id=$1"""
+                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if member_profile is None:
                     await ctx.send('That user does not have a profile.')
-                member_picks = member_profile.picks + 1
-                await self.edit_field('picks', ctx, picks)
-                await self.edit_user_field(member, 'picks', ctx, member_picks)
+                member_picks = member_profile['picks'] + 1
+                await self.edit_field(ctx, picks=picks)
+                await self.edit_user_field(member, ctx, picks=member_picks)
                 await ctx.send('Gave :pick: to {}.'.format(member.name))
 
     @itemtransfer.command(name='ring')
@@ -794,22 +704,24 @@ class Profile:
             await asyncio.sleep(10)
             await self.bot.delete_message(msg)
         else:
-            profile = self.config.get(str(ctx.message.author.id))
+            query = """select * from profiles where id=$1"""
+            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
                 await ctx.invoke(self.make)
-            rings = profile.rings
+            rings = profile['rings']
             if rings == 0:
                 msg = await ctx.send('You don\'t have any rings.')
                 await asyncio.sleep(10)
                 await self.bot.delete_message(msg)
             else:
                 rings -= 1
-                member_profile = self.config.get(str(member.id))
+                query = """select * from profiles where id=$1"""
+                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if member_profile is None:
                     await ctx.send('That user does not have a profile.')
-                member_rings = member_profile.rings + 1
-                await self.edit_field('rings', ctx, rings)
-                await self.edit_user_field(member, 'rings', ctx, member_rings)
+                member_rings = member_profile['rings'] + 1
+                await self.edit_field(ctx, rings=rings)
+                await self.edit_user_field(member, ctx, rings=member_rings)
                 await ctx.send('Gave :ring: to {}.'.format(member.name))
 
     @itemtransfer.command(name='diamond')
@@ -824,22 +736,24 @@ class Profile:
             await asyncio.sleep(10)
             await self.bot.delete_message(msg)
         else:
-            profile = self.config.get(str(ctx.message.author.id))
+            query = """select * from profiles where id=$1"""
+            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
                 await ctx.invoke(self.make)
-            diamonds = profile.diamonds
+            diamonds = profile['diamonds']
             if diamonds == 0:
                 msg = await ctx.send('You don\'t have any diamonds.')
                 await asyncio.sleep(10)
                 await self.bot.delete_message(msg)
             else:
                 diamonds -=1
-                member_profile = self.config.get(str(member.id))
+                query = """select * from profiles where id=$1"""
+                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if member_profile is None:
                     await ctx.send('That user does not have a profile.')
-                member_diamonds = member_profile.diamonds + 1
-                await self.edit_field('diamonds', ctx, diamonds)
-                await self.edit_user_field(member, 'diamonds', ctx, member_diamonds)
+                member_diamonds = member_profile['diamonds'] + 1
+                await self.edit_field(ctx, diamonds=diamonds)
+                await self.edit_user_field(member, ctx, diamonds=member_diamonds)
                 await ctx.send('Gave :diamond_shape_with_a_dot_inside: to {}.'.format(member.name))
 
     @itemtransfer.command(name='rose')
@@ -854,22 +768,24 @@ class Profile:
             await asyncio.sleep(10)
             await self.bot.delete_message(msg)
         else:
-            profile = self.config.get(str(ctx.message.author.id))
+            query = """select * from profiles where id=$1"""
+            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
                 await ctx.invoke(self.make)
-            roses = profile.roses
+            roses = profile['roses']
             if roses == 0:
                 msg = await ctx.send('You don\'t have any roses.')
                 await asyncio.sleep(10)
                 await self.bot.delete_message(msg)
             else:
                 roses -=1
-                member_profile = self.config.get(str(member.id))
+                query = """select * from profiles where id=$1"""
+                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if member_profile is None:
                     await ctx.send('That user does not have a profile.')
-                member_roses = member_profile.roses + 1
-                await self.edit_field('roses', ctx, roses)
-                await self.edit_user_field(member, 'roses', ctx, member_roses)
+                member_roses = member_profile['roses'] + 1
+                await self.edit_field(ctx, roses=roses)
+                await self.edit_user_field(member, ctx, roses=member_roses)
                 await ctx.send('Gave :rose: to {}.'.format(member.name))
 
     @itemtransfer.command(name='alcohol')
@@ -884,22 +800,24 @@ class Profile:
             await asyncio.sleep(10)
             await self.bot.delete_message(msg)
         else:
-            profile = self.config.get(str(ctx.message.author.id))
+            query = """select * from profiles where id=$1"""
+            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
                 await ctx.invoke(self.make)
-            alcohol = profile.alcohol
+            alcohol = profile['alcohol']
             if alcohol == 0:
                 msg = await ctx.send('You don\'t have any alcohol.')
                 await asyncio.sleep(10)
                 await self.bot.delete_message(msg)
             else:
                 alcohol -=1
-                member_profile = self.config.get(str(member.id))
+                query = """select * from profiles where id=$1"""
+                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if member_profile is None:
                     await ctx.send('That user does not have a profile.')
-                member_alcohol = member_profile.alcohol + 1
-                await self.edit_field('alcohol', ctx, alcohol)
-                await self.edit_user_field(member, 'alcohol', ctx, member_alcohol)
+                member_alcohol = member_profile['alcohol'] + 1
+                await self.edit_field(ctx, alcohol=alcohol)
+                await self.edit_user_field(member, ctx, alcohol=alcohol)
                 await ctx.send('Gave :champagne: to {}.'.format(member.name))
 
     @commands.command(aliases=['givemoney'])
@@ -919,37 +837,40 @@ class Profile:
             await asyncio.sleep(10)
             await self.bot.delete_message(msg)
         else:
-            profile = self.config.get(str(ctx.message.author.id))
+            query = """select * from profiles where id=$1"""
+            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
                 await ctx.invoke(self.make)
-            cash = profile.cash
+            cash = profile['cash']
             if cash <= amount:
                 msg = await ctx.send('You don\'t have enough money to give.')
                 await asyncio.sleep(10)
                 await self.bot.delete_message(msg)
             else:
                 cash -= amount
-                member_profile = self.config.get(str(member.id))
+                query = """select * from profiles where id=$1"""
+                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if member_profile is None:
                     await ctx.send('That user does not have a profile.')
-                member_cash = member_profile.cash
+                member_cash = member_profile['cash']
                 member_cash += amount
-                await self.edit_field('cash', ctx, cash)
-                await self.edit_user_field(member, 'cash', ctx, member_cash)
+                await self.edit_field(ctx, cash=cash)
+                await self.edit_user_field(member, ctx, cash=cash)
                 await ctx.send('Gave ${} to {}.'.format(amount, member.name))
 
     @commands.group(aliases=['סלוט'])
     @commands.cooldown(1, 4, commands.BucketType.user)
     async def slots(self, ctx, amount: int = 10):
-        """Plays slots default bet is 10$"""
+        """Plays slots default bet is $10"""
         # if ctx.subcommand_invoked is None:
         if amount < 10:
-            await ctx.send('You can\'t bet less than 10$.')
+            await ctx.send('You can\'t bet less than $10.')
             return
-        profile = self.config.get(str(ctx.message.author.id))
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
             await ctx.invoke(self.make)
-        cash = profile.cash
+        cash = int(profile['cash'])
         if cash < amount:
             await ctx.send('You don\'t have enough cash.')
         else:
@@ -976,85 +897,51 @@ class Profile:
 
 
             await msg.edit(content=slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot))+'\n**{}** bet ${} {}'.format(ctx.message.author.name,amount, winning))
-            await self.edit_field('cash', ctx, cash)
+            await self.edit_field(ctx, cash=cash)
 
-    @slots.command()
-    async def all(self, ctx):
-        profile = self.config.get(str(ctx.message.author.id))
-        if profile is None:
-            await ctx.invoke(self.make)
-        bet = profile.cash
-        cash = profile.cash
-        if cash < 1:
-            await ctx.send('You don\'t have any cash.')
-        else:
-            cash = 0
-            slot = [':four_leaf_clover:', ':moneybag:', ':cherries:', ':lemon:', ':grapes:', ':poop:', ':diamond_shape_with_a_dot_inside:', ':dollar:', ':money_with_wings:', ':slot_machine:', ':strawberry:']
-            slot_machine = '╔════[SLOTS]════╗\n║  {}   ║  {}   ║  {}  ║\n>   {}   ║  {}   ║  {}  <\n║  {}   ║   {}  ║  {}  ║\n╚════[SLOTS]════╝'
-            msg = await ctx.send(slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot)))
-            await asyncio.sleep(1)
-            await msg.edit(content=slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot)))
-            await asyncio.sleep(1)
-            await msg.edit(content=slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot)))
-            await asyncio.sleep(1)
-            rand = random.randint(1,3)
-            if rand == 1:
-                winning = 'and lost everything.'
-            elif rand == 2:
-                win_amount = bet * 1.5
-                winning = 'and won ${}'.format(win_amount)
-                cash += bet
-            else:
-                win_amount = bet * 2
-                winning = 'and won ${}'.format(win_amount)
-                cash += bet
+    # @commands.command()
+    # @commands.is_owner()
+    # async def convert(self, ctx):
+    #     conn = psycopg2.connect("dbname='postgres' user='postgres' host='localhost' password='postgres'")
+    #     cur = conn.cursor()
+    #     with open('profiles.json') as f:
+    #         data = json.load(f)
+    #     # print(data)
+    #     for profile in data:
+    #         profilee = self.config.get(profile)
+    #         desc = str(profilee.desc.replace("'", '\''))
+    #         bday = str(profilee.bday)
+    #         married = str(profilee.married)
+    #         picks = str(profilee.picks)
+    #         rings = str(profilee.rings)
+    #         diamonds = str(profilee.diamonds)
+    #         roses = str(profilee.roses)
+    #         alcohol = str(profilee.alcohol)
+    #         exp = str(profilee.experience)
+    #         cash = str(profilee.cash)
+    #         print(diamonds)
+    #         print('got the vars')
+    #         print('insert into profiles values ({}, \'{}\', \'{}\', \'{}\', {}, {}, {}, {}, {}, {}, {})'.format(profile, desc, bday, married, picks, rings, diamonds, roses, alcohol, exp, cash))
+    #         cur.execute('insert into profiles values ({}, \'{}\', \'{}\', \'{}\', {}, {}, {}, {}, {}, {}, {})'.format(profile, desc, bday, married, picks, rings, diamonds, roses, alcohol, exp, cash))
+    #         conn.commit()
+    #         print(str(profile) + ' has been inserted.')
 
-
-            await msg.edit(content=slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot))+'\n**{}** bet ${} {}'.format(ctx.message.author.name, bet, winning))
-            await self.edit_field('cash', ctx, cash)
-
-    @commands.command()
-    @commands.is_owner()
-    async def convert(self, ctx):
-        conn = psycopg2.connect("dbname='postgres' user='postgres' host='localhost' password='postgres'")
-        cur = conn.cursor()
-        with open('profiles.json') as f:
-            data = json.load(f)
-        # print(data)
-        for profile in data:
-            profilee = self.config.get(profile)
-            desc = str(profilee.desc.replace("'", '\''))
-            bday = str(profilee.bday)
-            married = str(profilee.married)
-            picks = str(profilee.picks)
-            rings = str(profilee.rings)
-            diamonds = str(profilee.diamonds)
-            roses = str(profilee.roses)
-            alcohol = str(profilee.alcohol)
-            exp = str(profilee.experience)
-            cash = str(profilee.cash)
-            print(diamonds)
-            print('got the vars')
-            print('insert into profiles values ({}, \'{}\', \'{}\', \'{}\', {}, {}, {}, {}, {}, {}, {})'.format(profile, desc, bday, married, picks, rings, diamonds, roses, alcohol, exp, cash))
-            cur.execute('insert into profiles values ({}, \'{}\', \'{}\', \'{}\', {}, {}, {}, {}, {}, {}, {})'.format(profile, desc, bday, married, picks, rings, diamonds, roses, alcohol, exp, cash))
-            conn.commit()
-            print(str(profile) + ' has been inserted.')
-
-    # async def on_message(self, message):
-    #     if message.author.bot: return
-    #     profile = self.config.get(str(message.author.id))
-    #     if not profile:
-    #         return
-    #     if not profile.experience:
-    #     #     profile = self.config.get(str(message.author.id))
-    #     #     setattr(profile, 'experience', 0)
-    #     #     await self.config.put(str(message.author.id), profile)
-    #         return
-    #     exp = profile.experience
-    #     add = random.randint(1, 10)
-    #     exp += add
-    #     ctx = await self.bot.get_context(message)
-    #     await self.edit_field('experience', ctx, exp)
+    async def on_message(self, message):
+        if message.author.bot: return
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, message.author.id)
+        if not profile:
+            return
+        if not profile['experience']:
+        #     profile = self.config.get(str(message.author.id))
+        #     setattr(profile, 'experience', 0)
+        #     await self.config.put(str(message.author.id), profile)
+            return
+        exp = profile['experience']
+        add = random.randint(1, 10)
+        exp += add
+        ctx = await self.bot.get_context(message)
+        await self.edit_field(ctx, experience=exp)
 
     # @slots.error
     async def on_command_error(self, ctx, error):
@@ -1063,5 +950,6 @@ class Profile:
             h, m = divmod(m, 60)
             await ctx.send("This command is on cooldown for another {}.".format("%d hour(s) %02d minute(s) %02d second(s)" % (h, m, s)), delete_after=10.0)
 
+
 def setup(bot):
-    bot.add_cog(Profile(bot))
+    bot.add_cog(Profiless(bot))

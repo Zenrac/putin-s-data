@@ -12,7 +12,10 @@ import asyncio
 import asyncpg
 import traceback
 import aiohttp
+from cogs.utils import context, db
+from cogs.utils.config import Config
 from collections import Counter, deque
+import config
 print ("[INFO] Discord version: " + discord.__version__)
 description = """
 Hello I am Putin. I hope to see you soon at Russia.
@@ -26,7 +29,7 @@ initial_extensions = [
     'cogs.fun',
     'cogs.help2',
     'cogs.image',
-    'cogs.profiles',
+    'cogs.profiless',
     'cogs.nekos',
     'cogs.prefix',
     'cogs.nsfw',
@@ -37,31 +40,31 @@ initial_extensions = [
     'cogs.link',
     'cogs.anime',
     'cogs.music',
-    'cogs.custom',
+    # 'cogs.custom',
+    'cogs.stars',
+    'cogs.rtfm',
+    'cogs.poll',
     'cogs.chat',
-    'cogs.osu'
+    'cogs.osu',
+    'cogs.emoji',
+    'cogs.reminder'
 ]
 
 log = logging.getLogger(__name__)
 
-async def get_pre(bot, message):
-    prefixes = []
-    with open('prefixes.json') as file:
-        data = json.load(file)
-    if str(message.guild.id) in data:
-        prefix = data[str(message.guild.id)]
+def _prefix_callable(bot, msg):
+    user_id = bot.user.id
+    base = [f'<@!{user_id}> ', f'<@{user_id}> ']
+    if msg.guild is None:
+        base.append('.')
     else:
-        prefix = None
-
-    if prefix is not None:
-        prefixes.append(prefix)
-    prefixes.append('.')
-    prefixes.append('<@460846291300122635> ')
-    return prefixes
+        base.extend(bot.prefixes.get(msg.guild.id, ['.']))
+        # base.append('.')
+    return base
 
 class Putin(commands.AutoShardedBot):
     def __init__(self):
-        super().__init__(command_prefix=get_pre, description=description, fetch_offline_members=False)
+        super().__init__(command_prefix=_prefix_callable, description=description, fetch_offline_members=False)
 
         self.session = aiohttp.ClientSession(loop=self.loop)
         self._prev_events = deque(maxlen=10)
@@ -72,6 +75,9 @@ class Putin(commands.AutoShardedBot):
         self.add_command(self.shell)
         self.add_command(self.ev)
         self.remove_command('help')
+
+        self.prefixes = Config('prefixes.json')
+
         for extension in initial_extensions:
             try:
                 self.load_extension(extension)
@@ -79,23 +85,42 @@ class Putin(commands.AutoShardedBot):
                 print(f'failed to load extension {extension}.', file=sys.stderr)
                 traceback.print_exc()
 
+    def get_guild_prefixes(self, guild, *, local_inject=_prefix_callable):
+        proxy_msg = discord.Object(id=None)
+        proxy_msg.guild = guild
+        return local_inject(self, proxy_msg)
 
+    def get_raw_guild_prefixes(self, guild_id):
+        return self.prefixes.get(guild_id, ['.'])
+
+    async def set_guild_prefixes(self, guild, prefixes):
+        if len(prefixes) == 0:
+            await self.prefixes.put(guild.id, [])
+        elif len(prefixes) > 10:
+            raise RuntimeError('Cannot have more than 10 custom prefixes.')
+        else:
+            await self.prefixes.put(guild.id, sorted(set(prefixes), reverse=True))
 
 # bot = commands.Bot(command_prefix=get_pre, description=description)
 # bot.remove_command('help')
-    async def run_cmd(self, cmd: str) -> str:
-        """Runs a subprocess and returns the output."""
-        process =\
-            await asyncio.create_subprocess_shell(
-            cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
-        results = await process.communicate()
-        return "".join(x.decode("utf-8") for x in results)
+    
+
+    @property
+    def config(self):
+        return __import__('config')
 
     @commands.command(hidden=True)
     @commands.is_owner()
-    async def shell(self, ctx, code: str):
-        print('{} has been invoked.'.format(ctx.command))
-        console = await run_cmd(code)
+    async def shell(self, ctx, *, _code: str):
+        async def run_cmd(self, cmd: str) -> str:
+            """Runs a subprocess and returns the output."""
+            process =\
+                await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+            results = await process.communicate()
+            return "".join(x.decode("utf-8") for x in results)
+        print(_code)
+        console = await run_cmd(self, _code)
+        print(console)
         await ctx.send('```shell\n{}```'.format(console))
 
     async def on_guild_join(self, guild):
@@ -150,8 +175,10 @@ class Putin(commands.AutoShardedBot):
         self.commands_executed += 1
         message = ctx.message
         destination = '#{0.channel.name} ({0.guild.name})'.format(message)
-        # logger = logging.getLogger(__main__)
-        # logger.info('{0.created_at}: {0.author.name} in {1}: {0.content}'.format(message, destination))
+        if isinstance(message.channel, discord.DMChannel):
+            destination = '{}\'s dmchannel'
+        logger = logging.getLogger('__main__')
+        logger.info('{0.created_at}: {0.author.name} in {1}: {0.content}'.format(message, destination))
 
     async def on_message(self, message):
         if not message.author.bot:
@@ -262,19 +289,59 @@ class Putin(commands.AutoShardedBot):
 #             await asyncio.sleep(5)
 
     @commands.command(hidden=True)
+    async def convertjson(ctx, cogs):
+        """This migrates our older JSON files to PostgreSQL
+        Note, this deletes all previous entries in the table
+        so you can consider this to be a destructive decision.
+        Do not pass in cog names with "cogs." as a prefix.
+        This also connects us to Discord itself so we can
+        use the cache for our migrations.
+        The point of this is just to do some migration of the
+        data from v3 -> v4 once and call it a day.
+        """
+
+        import data_migrators
+
+        run = asyncio.get_event_loop().run_until_complete
+
+        if not cogs:
+            to_run = [(getattr(data_migrators, attr), attr.replace('migrate_', ''))
+                      for attr in dir(data_migrators) if attr.startswith('migrate_')]
+        else:
+            to_run = []
+            for cog in cogs:
+                try:
+                    elem = getattr(data_migrators, 'migrate_' + cog)
+                except AttributeError:
+                    click.echo(f'invalid cog name given, {cog}.', err=True)
+                    return
+
+                to_run.append((elem, cog))
+
+        async def make_pool():
+            return await asyncpg.create_pool(config.postgresql)
+
+        try:
+            pool = run(make_pool())
+        except Exception:
+            click.echo(f'Could not create PostgreSQL connection pool.\n{traceback.format_exc()}', err=True)
+            return
+
+    @commands.command(hidden=True)
     @commands.is_owner()
-    async def do(self, ctx, times : int, *, command):
+    async def do(self, ctx, times: int, *, command):
         """Repeats a command a specified number of times."""
         msg = copy.copy(ctx.message)
         msg.content = command
-        for i in range(times):
-            await self.process_commands(msg)
+
+        new_ctx = await self.get_context(msg, cls=context.Context)
+        new_ctx.db = ctx.db
 
     async def on_resumed(self):
         print('resumed...')
 
     async def process_commands(self, message):
-        ctx = await self.get_context(message)
+        ctx = await self.get_context(message, cls=context.Context)
 
         if ctx.command is None:
             return
@@ -288,7 +355,7 @@ class Putin(commands.AutoShardedBot):
 
     def run(self):
         try:
-            super().run('NDYwODQ2MjkxMzAwMTIyNjM1.DlWvow.TsYH-ohaoLg5FUyccBgjpBZ5p4I', reconnect=True)
+            super().run(config.token, reconnect=True)
         finally:
             with open('prev_events.log', 'w', encoding='utf-8') as fp:
                 for data in self._prev_events:

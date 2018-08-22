@@ -1,15 +1,105 @@
 from discord.ext import commands
 from .utils import checks, formats
 import discord
+
 from collections import OrderedDict, deque, Counter
 import os, datetime
+import io
 import re, asyncio
+
 import base64
+
 import psutil
+import inspect
+import copy
+import unicodedata
 from googletrans import Translator
+
 from fortnite_python import Fortnite
 from fortnite_python.domain import Mode, Platform
+
+from lxml import etree
+from lru import LRU
 translator = Translator()
+
+def can_use_spoiler():
+    def predicate(ctx):
+        if ctx.guild is None:
+            raise commands.BadArgument('Cannot be used in private messages.')
+
+        my_permissions = ctx.channel.permissions_for(ctx.guild.me)
+        if not (my_permissions.read_message_history and my_permissions.manage_messages and my_permissions.add_reactions):
+            raise commands.BadArgument('Need Read Message History, Add Reactions and Manage Messages ' \
+                                       'to permission to use this. Sorry if I spoiled you.')
+        return True
+    return commands.check(predicate)
+
+SPOILER_EMOJI_ID = 463782668774146048
+
+class SpoilerCache:
+    __slots__ = ('author_id', 'channel_id', 'title', 'text', 'attachments')
+
+    def __init__(self, data):
+        self.author_id = data['author_id']
+        self.channel_id = data['channel_id']
+        self.title = data['title']
+        self.text = data['text']
+        self.attachments = data['attachments']
+
+    def has_single_image(self):
+        return self.attachments and self.attachments[0].filename.lower().endswith(('.gif', '.png', '.jpg', '.jpeg'))
+
+    def to_embed(self, bot):
+        embed = discord.Embed(title=f'{self.title} Spoiler', colour=0x01AEEE)
+        if self.text:
+            embed.description = self.text
+
+        if self.has_single_image():
+            if self.text is None:
+                embed.title = f'{self.title} Spoiler Image'
+            embed.set_image(url=self.attachments[0].url)
+            attachments = self.attachments[1:]
+        else:
+            attachments = self.attachments
+
+        if attachments:
+            value = '\n'.join(f'[{a.filename}]({a.url})' for a in attachments)
+            embed.add_field(name='Attachments', value=value, inline=False)
+
+        user = bot.get_user(self.author_id)
+        if user:
+            embed.set_author(name=str(user), icon_url=user.avatar_url_as(format='png'))
+
+        return embed
+
+    def to_spoiler_embed(self, ctx, storage_message):
+        description = 'React with <:hack_done:463782668774146048> to reveal the spoiler.'
+        embed = discord.Embed(title=f'{self.title} Spoiler', description=description)
+        if self.has_single_image() and self.text is None:
+            embed.title = f'{self.title} Spoiler Image'
+
+        embed.set_footer(text=storage_message.id)
+        embed.colour = 0x01AEEE
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url_as(format='png'))
+        return embed
+
+class SpoilerCooldown(commands.CooldownMapping):
+    def __init__(self):
+        super().__init__(commands.Cooldown(1, 10.0, commands.BucketType.user))
+
+    def _bucket_key(self, tup):
+        return tup
+
+    def is_rate_limited(self, message_id, user_id):
+        bucket = self.get_bucket((message_id, user_id))
+        return bucket.update_rate_limit() is not None
+
+class Prefix(commands.Converter):
+    async def convert(self, ctx, argument):
+        user_id = ctx.bot.user.id
+        if argument.startswith((f'<@{user_id}>', f'<@!{user_id}>')):
+            raise commands.BadArgument('That is a reserved prefix already in use.')
+        return argument
 
 class TimeParser:
     def __init__(self, argument):
@@ -39,6 +129,233 @@ class Meta:
     def __init__(self, bot):
         self.bot = bot
         self.fortnite = Fortnite('274e0176-875b-400a-a7b4-fa2567990fda')
+        self._spoiler_cache = LRU(128)
+        self._spoiler_cooldown = SpoilerCooldown()
+
+    @commands.command()
+    async def charinfo(self, ctx, *, characters: str):
+        """Shows you information about a number of characters.
+        Only up to 25 characters at a time.
+        """
+
+        def to_string(c):
+            digit = f'{ord(c):x}'
+            name = unicodedata.name(c, 'Name not found.')
+            return f'`\\U{digit:>08}`: {name} - {c} \N{EM DASH} <http://www.fileformat.info/info/unicode/char/{digit}>'
+        msg = '\n'.join(map(to_string, characters))
+        if len(msg) > 2000:
+            return await ctx.send('Output too long to display.')
+        await ctx.send(msg)
+
+    @commands.group(name='prefix', invoke_without_command=True)
+    async def prefix(self, ctx):
+        """Manages the server's custom prefixes.
+        If called without a subcommand, this will list the currently set
+        prefixes.
+        """
+
+        prefixes = self.bot.get_guild_prefixes(ctx.guild)
+
+        # we want to remove prefix #2, because it's the 2nd form of the mention
+        # and to the end user, this would end up making them confused why the
+        # mention is there twice
+        del prefixes[1]
+
+        e = discord.Embed(title='Prefixes:', colour=discord.Colour.blurple())
+        e.set_footer(text=f'{len(prefixes)} prefixes on this server.')
+        e.description = '\n'.join(f'{index}. {elem}' for index, elem in enumerate(prefixes, 1))
+        await ctx.send(embed=e)
+
+    @prefix.command(name='add', ignore_extra=False)
+    @checks.is_mod()
+    async def prefix_add(self, ctx, prefix: Prefix):
+        """Appends a prefix to the list of custom prefixes.
+        Previously set prefixes are not overridden.
+        To have a word prefix, you should quote it and end it with
+        a space, e.g. "hello " to set the prefix to "hello ". This
+        is because Discord removes spaces when sending messages so
+        the spaces are not preserved.
+        Multi-word prefixes must be quoted also.
+        You must have Manage Server permission to use this command.
+        """
+
+        current_prefixes = self.bot.get_raw_guild_prefixes(ctx.guild.id)
+        current_prefixes.append(prefix)
+        try:
+            await self.bot.set_guild_prefixes(ctx.guild, current_prefixes)
+        except Exception as e:
+            await ctx.send(f'{ctx.tick(False)} {e}')
+        else:
+            await ctx.send(ctx.tick(True))
+
+    @prefix_add.error
+    async def prefix_add_error(self, ctx, error):
+        if isinstance(error, commands.TooManyArguments):
+            await ctx.send("You've given too many prefixes. Either quote it or only do it one by one.")
+
+    @prefix.command(name='remove', aliases=['delete'], ignore_extra=False)
+    @checks.is_mod()
+    async def prefix_remove(self, ctx, prefix: Prefix):
+        """Removes a prefix from the list of custom prefixes.
+        This is the inverse of the 'prefix add' command. You can
+        use this to remove prefixes from the default set as well.
+        You must have Manage Server permission to use this command.
+        """
+
+        current_prefixes = self.bot.get_raw_guild_prefixes(ctx.guild.id)
+
+        try:
+            current_prefixes.remove(prefix)
+        except ValueError:
+            return await ctx.send('I do not have this prefix registered.')
+
+        try:
+            await self.bot.set_guild_prefixes(ctx.guild, current_prefixes)
+        except Exception as e:
+            await ctx.send(f'{ctx.tick(False)} {e}')
+        else:
+            await ctx.send(ctx.tick(True))
+
+    async def redirect_post(self, ctx, title, text):
+        storage = self.bot.get_guild(329993146651901952).get_channel(480429414166036500)
+
+        supported_attachments = ('.png', '.jpg', '.jpeg', '.webm', '.gif', '.mp4', '.txt')
+        if not all(attach.filename.lower().endswith(supported_attachments) for attach in ctx.message.attachments):
+            raise RuntimeError(f'Unsupported file in attachments. Only {", ".join(supported_attachments)} supported.')
+
+        files = []
+        total_bytes = 0
+        eight_mib = 8 * 1024 * 1024
+        for attach in ctx.message.attachments:
+            async with ctx.session.get(attach.url) as resp:
+                if resp.status != 200:
+                    continue
+
+                content_length = int(resp.headers.get('Content-Length'))
+
+                # file too big, skip it
+                if (total_bytes + content_length) > eight_mib:
+                    continue
+
+                total_bytes += content_length
+                fp = io.BytesIO(await resp.read())
+                files.append(discord.File(fp, filename=attach.filename))
+
+            if total_bytes >= eight_mib:
+                break
+
+        await ctx.message.delete()
+        data = discord.Embed(title=title)
+        if text:
+            data.description = text
+
+        data.set_author(name=ctx.author.id)
+        data.set_footer(text=ctx.channel.id)
+
+        try:
+            message = await storage.send(embed=data, files=files)
+        except discord.HTTPException as e:
+            raise RuntimeError(f'Sorry. Could not store message due to {e.__class__.__name__}: {e}.') from e
+
+        to_dict = {
+            'author_id': ctx.author.id,
+            'channel_id': ctx.channel.id,
+            'attachments': message.attachments,
+            'title': title,
+            'text': text
+        }
+
+        cache = SpoilerCache(to_dict)
+        return message, cache
+
+    async def get_spoiler_cache(self, channel_id, message_id):
+        try:
+            return self._spoiler_cache[message_id]
+        except KeyError:
+            pass
+
+        storage = self.bot.get_guild(329993146651901952).get_channel(480429414166036500)
+
+        # slow path requires 2 lookups
+        # first is looking up the message_id of the original post
+        # to get the embed footer information which points to the storage message ID
+        # the second is getting the storage message ID and extracting the information from it
+        channel = self.bot.get_channel(channel_id)
+        if not channel:
+            return None
+
+        try:
+            original_message = await channel.get_message(message_id)
+            storage_message_id = int(original_message.embeds[0].footer.text)
+            message = await storage.get_message(storage_message_id)
+        except:
+            # this message is probably not the proper format or the storage died
+            return None
+
+        data = message.embeds[0]
+        to_dict = {
+            'author_id': int(data.author.name),
+            'channel_id': int(data.footer.text),
+            'attachments': message.attachments,
+            'title': data.title,
+            'text': None if not data.description else data.description
+        }
+        cache = SpoilerCache(to_dict)
+        self._spoiler_cache[message_id] = cache
+        return cache
+
+    async def on_raw_reaction_add(self, payload):
+        if payload.emoji.id != SPOILER_EMOJI_ID:
+            return
+
+        user = self.bot.get_user(payload.user_id)
+        if not user or user.bot:
+            return
+
+        if self._spoiler_cooldown.is_rate_limited(payload.message_id, payload.user_id):
+            return
+
+        cache = await self.get_spoiler_cache(payload.channel_id, payload.message_id)
+        embed = cache.to_embed(self.bot)
+        await user.send(embed=embed)
+
+    @commands.command()
+    @can_use_spoiler()
+    async def spoiler(self, ctx, title, *, text=None):
+        """Marks your post a spoiler with a title.
+        Once your post is marked as a spoiler it will be
+        automatically deleted and the bot will DM those who
+        opt-in to view the spoiler.
+        The only media types supported are png, gif, jpeg, mp4,
+        and webm.
+        Only 8MiB of total media can be uploaded at once.
+        Sorry, Discord limitation.
+        To opt-in to a post's spoiler you must click the reaction.
+        """
+
+        if len(title) > 100:
+            return await ctx.send('Sorry. Title has to be shorter than 100 characters.')
+
+        try:
+            storage_message, cache = await self.redirect_post(ctx, title, text)
+        except Exception as e:
+            return await ctx.send(str(e))
+
+        spoiler_message = await ctx.send(embed=cache.to_spoiler_embed(ctx, storage_message))
+        self._spoiler_cache[spoiler_message.id] = cache
+        await spoiler_message.add_reaction(':hack_done:463782668774146048')
+
+
+    @prefix.command(name='clear')
+    @checks.is_mod()
+    async def prefix_clear(self, ctx):
+        """Removes all custom prefixes.
+        After this, the bot will listen to only mention prefixes.
+        You must have Manage Server permission to use this command.
+        """
+
+        await self.bot.set_guild_prefixes(ctx.guild, [])
+        await ctx.send(ctx.tick(True))
 
     @commands.group(aliases=['fortnite'])
     async def fn(self, ctx):
@@ -438,8 +755,10 @@ class Meta:
         else:
             def stringToBase64(s):
                 return base64.b64encode(s.encode('utf-8'))
-            encoded = stringToBase64(text)
-            await ctx.send(':closed_lock_with_key: Here is you encoded data:\n```{}```\nIf you want to convert it back remove the ``b\'`` and ``\'``.'.format(encoded))
+            encodeddd = str(stringToBase64(text))
+            encodedd = encodeddd.replace('b\'', '')
+            encoded = encodedd.replace('\'', '')
+            await ctx.send(':closed_lock_with_key: Here is you encoded data:\n```{}```'.format(encoded))
 
     @commands.command()
     async def decode(self, ctx, *, text):
@@ -449,7 +768,7 @@ class Meta:
         else:
             def base64ToString(b):
                 return base64.b64decode(b).decode('utf-8')
-            decoded = base64ToString(text)
+            decoded = str(base64ToString(text))
             await ctx.send(':lock: :key: Here is your decoded data:\n```{}```'.format(decoded))
 
     @commands.command(hidden=True)
@@ -458,109 +777,107 @@ class Meta:
         if ctx.message.author.bot: return
         await ctx.message.add_reaction('👍')
 
-    @commands.group()
-    async def poll(self, ctx,*, poll : str):
-        """Makes a poll from what you say."""
-        if ctx.message.author.bot: return
-        try:
-            await ctx.message.delete()
-        except:
-            pass
-        message = await ctx.send('{} asked you about:\n```{}```\n**Add your reactions.**'.format(ctx.message.author.nick, poll))
-        await message.add_reaction('👍')
-        await message.add_reaction('👎')
-        await message.add_reaction('✅')
-        await message.add_reaction('❌')
-
-    @commands.command()
-    async def rate(self, ctx, amount: int = None, *,poll: str = None):
-        """Makes a rate poll from what you say with the reaction amount you provide."""
-        if ctx.message.author.bot: return
-        if str(amount) not in '123456789':
-            amount = 5
-        if amount is None:
-            amount = 5
-        if amount == 0:
-            await ctx.send('The amont of reactions can\'t be 0.')
-            return
-        if amount > 9:
-            await ctx.send('The amount of reactions can\'t be more than 9')
-            return
-        if poll is None:
-            await ctx.send('You forgot to add a thing to rate. Or it is not a valid one.')
-            return
-        try:
-            await ctx.message.delete()
-        except:
-            pass
-        msg = await ctx.send('{} asked you to rate about:\n```{}```\n**Rate it**'.format(ctx.message.author.name, poll))
-        for number in range(amount):
-            emoji= str(number + 1) + '⃣'
-            await msg.add_reaction(emoji)
-        # await self.bot.add_reaction(msg, emoji)
-
-    @commands.command()
-    async def remind(self, ctx, time : TimeParser, *, message=''):
-        """Reminds you of something after a certain amount of time.
-
-        The time can optionally be specified with units such as 'h'
-        for hours, 'm' for minutes and 's' for seconds. If no unit
-        is given then it is assumed to be seconds. You can also combine
-        multiple units together, e.g. 3h2m1s.
-        """
-
-        author = ctx.message.author
-        reminder = None
-        completed = None
-
-        if not message:
-            reminder = 'Okay {0.mention}, I\'ll remind you in {1.seconds} seconds.'
-            completed = 'Time is up {0.mention}! You asked to be reminded about something.'
-        else:
-            reminder = 'Okay {0.mention}, I\'ll remind you about "{2}" in {1.seconds} seconds.'
-            completed = 'Time is up {0.mention}! You asked to be reminded about "{1}".'
-
-        await ctx.send(reminder.format(author, time, message))
-        await asyncio.sleep(time.seconds)
-        await ctx.send(completed.format(author, message))
-
-
-    @commands.command()
-    async def info(self, ctx, *, member : discord.Member = None):
-        if ctx.message.author.bot: return
+    @commands.group(invoke_without_command=True)
+    @commands.guild_only()
+    async def info(self, ctx, *, member: discord.Member = None):
         """Shows info about a member.
-
         This cannot be used in private messages. If you don't specify
-        a member then info returned will be yours.
+        a member then the info returned will be yours.
         """
-        channel = ctx.message.channel
-        if channel.is_private:
-            await ctx.send('You cannot use this in PMs.')
-            return
 
         if member is None:
-            member = ctx.message.author
+            member = ctx.author
 
+        e = discord.Embed()
         roles = [role.name.replace('@', '@\u200b') for role in member.roles]
         shared = sum(1 for m in self.bot.get_all_members() if m.id == member.id)
-        voice = member.voice_channel
+        voice = member.voice
         if voice is not None:
-            voice = '{} with {} people'.format(voice, len(voice.voice_members))
+            vc = voice.channel
+            other_people = len(vc.members) - 1
+            voice = f'{vc.name} with {other_people} others' if other_people else f'{vc.name} by themselves'
         else:
             voice = 'Not connected.'
 
-        entries = [
-            ('Name', member.name),
-            ('User ID', member.id),
-            ('Joined', member.joined_at),
-            ('Roles', ', '.join(roles)),
-            ('guilds', '{} shared'.format(shared)),
-            ('Channel', channel.name),
-            ('Voice Channel', voice),
-            ('Channel ID', channel.id)
-        ]
+        e.set_author(name=str(member))
+        e.set_footer(text='Member since').timestamp = member.joined_at
+        e.add_field(name='ID', value=member.id)
+        e.add_field(name='Servers', value=f'{shared} shared')
+        e.add_field(name='Created', value=member.created_at)
+        e.add_field(name='Voice', value=voice)
+        e.add_field(name='Roles', value=', '.join(roles) if len(roles) < 10 else f'{len(roles)} roles')
+        e.colour = member.colour
 
-        await formats.entry_to_code(self.bot, entries)
+        if member.avatar:
+            e.set_thumbnail(url=member.avatar_url)
+
+        await ctx.send(embed=e)
+
+    @info.command(name='server', aliases=['guild'])
+    @commands.guild_only()
+    async def server_info(self, ctx):
+        """Shows info about the current server."""
+
+        guild = ctx.guild
+        roles = [role.name.replace('@', '@\u200b') for role in guild.roles]
+
+        # we're going to duck type our way here
+        class Secret:
+            pass
+
+        secret_member = Secret()
+        secret_member.id = 0
+        secret_member.roles = [guild.default_role]
+
+        # figure out what channels are 'secret'
+        secret_channels = 0
+        secret_voice = 0
+        text_channels = 0
+        for channel in guild.channels:
+            perms = channel.permissions_for(secret_member)
+            is_text = isinstance(channel, discord.TextChannel)
+            text_channels += is_text
+            if is_text and not perms.read_messages:
+                secret_channels += 1
+            elif not is_text and (not perms.connect or not perms.speak):
+                secret_voice += 1
+
+        regular_channels = len(guild.channels) - secret_channels
+        voice_channels = len(guild.channels) - text_channels
+        member_by_status = Counter(str(m.status) for m in guild.members)
+
+        e = discord.Embed()
+        e.title = 'Info for ' + guild.name
+        e.add_field(name='ID', value=guild.id)
+        e.add_field(name='Owner', value=guild.owner)
+        if guild.icon:
+            e.set_thumbnail(url=guild.icon_url)
+
+        if guild.splash:
+            e.set_image(url=guild.splash_url)
+
+        info = []
+        info.append(ctx.tick(len(guild.features) >= 3, 'Partnered'))
+
+        sfw = guild.explicit_content_filter is not discord.ContentFilter.disabled
+        info.append(ctx.tick(sfw, 'Scanning Images'))
+        info.append(ctx.tick(guild.member_count > 100, 'Large'))
+
+        e.add_field(name='Info', value='\n'.join(map(str, info)))
+
+        fmt = f'Text {text_channels} ({secret_channels} secret)\nVoice {voice_channels} ({secret_voice} locked)'
+        e.add_field(name='Channels', value=fmt)
+
+        fmt = f'<:online:316856575413321728> {member_by_status["online"]} ' \
+              f'<:idle:316856575098880002> {member_by_status["idle"]} ' \
+              f'<:dnd:316856574868193281> {member_by_status["dnd"]} ' \
+              f'<:offline:316856575501402112> {member_by_status["offline"]}\n' \
+              f'Total: {guild.member_count}'
+
+        e.add_field(name='Members', value=fmt)
+        e.add_field(name='Roles', value=', '.join(roles) if len(roles) < 10 else f'{len(roles)} roles')
+        e.set_footer(text='Created').timestamp = guild.created_at
+        await ctx.send(embed=e)
 
     async def say_permissions(self, member, channel):
         permissions = channel.permissions_for(member)
@@ -598,19 +915,6 @@ class Meta:
         member = ctx.message.guild.me
         await self.say_permissions(member, channel)
 
-    def get_bot_uptime(self):
-        now = datetime.datetime.utcnow()
-        delta = now - self.bot.uptime
-        hours, remainder = divmod(int(delta.total_seconds()), 3600)
-        minutes, seconds = divmod(remainder, 60)
-        days, hours = divmod(hours, 24)
-        if days:
-            fmt = '{d} days, {h} hours, {m} minutes, and {s} seconds'
-        else:
-            fmt = '{h} hours, {m} minutes, and {s} seconds'
-
-        return fmt.format(d=days, h=hours, m=minutes, s=seconds)
-
     @commands.command()
     async def invite(self, ctx):
         if ctx.message.author.bot: return
@@ -638,11 +942,6 @@ class Meta:
         except:
             await ctx.send(':exclamation:{} I could not leave...'.format(ctx.message.author.mention))
 
-    @commands.command()
-    async def uptime(self, ctx):
-        """Tells you how long the bot has been online."""
-        await ctx.send('Uptime: **{}**'.format(self.get_bot_uptime()))
-
     def format_message(self, message):
         return 'On {0.timestamp}, {0.author} said {0.content}'.format(message)
 
@@ -669,27 +968,6 @@ class Meta:
                     await self.bot.whisper('\n'.join(map(self.format_message, previous)))
                 except discord.HTTPException:
                     await self.bot.whisper('An error happened while fetching mentions.')
-
-    @commands.command()
-    async def about(self, ctx):
-        """Tells you information about the bot itself."""
-        e = discord.Embed(title="About Me:", color=discord.Color.dark_green())
-        e.add_field(name="Creator:", value="iWeeti#4990 (Discord ID: 282515230595219456)", inline=False)
-        e.add_field(name="Library:", value="discord.py rewrite (Python)", inline=False)
-        e.add_field(name="Uptime:", value=self.get_bot_uptime(), inline=False)
-        e.add_field(name="Guilds:", value=len(self.bot.guilds), inline=False)
-        e.add_field(name="Commands Run:", value=self.bot.commands_executed, inline=False)
-        # # statistics
-        total_members = sum(len(s.members) for s in self.bot.guilds)
-        total_online  = sum(1 for m in self.bot.get_all_members() if m.status != discord.Status.offline)
-        # unique_members = set(self.bot.get_all_members())
-        # unique_online = sum(1 for m in unique_members if m.status != discord.Status.offline)
-        # # channel_types = Counter(c.type for c in self.bot.get_all_channels())
-        # # voice = channel_types[discord.VoiceChannel]
-        # # text = channel_types[discord.TextChannel]
-        e.add_field(name="Total Members / Online:", value="{} / {}".format(total_members, total_online), inline=False)
-        e.set_thumbnail(url=ctx.me.avatar_url)
-        await ctx.send(embed=e)
 
     @commands.command(rest_is_raw=True, hidden=True)
     @commands.is_owner()

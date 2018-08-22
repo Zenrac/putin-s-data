@@ -111,16 +111,6 @@ class Link:
     async def on_message(self, message):
         if message.author.bot: return
         if isinstance(message.channel, discord.DMChannel): return
-        with open('prefixes.json') as file:
-            data = json.load(file)
-        if str(message.guild.id) in data:
-            prefix = data[str(message.guild.id)]
-        else:
-            prefix = None
-        if prefix is not None:
-            if message.content.startswith(prefix): return
-        if message.content.startswith('.'): return
-        if message.content.startswith('<@460846291300122635> '): return
         with open('rooms.json') as f:
             data = json.load(f)
         if str(message.channel.id) in data:
@@ -129,7 +119,6 @@ class Link:
                 e.add_field(name="Message:", value="{}".format(message.content), inline=True)
                 data_channel = data[str(message.channel.id)]
                 channel = self.bot.get_channel(int(data_channel))
-                print(channel)
                 await channel.send(embed=e)
 
     async def on_message_edit(self, before, after):

@@ -8,9 +8,11 @@ import re
 import os
 import io
 import aiohttp
+import asyncio
 import tempfile
 import unidecode
 import random
+import sys
 
 COLORS = ['rgb(225,205,102)', 'rgb(144,238,144)' ,'rgb(173,216,230)','rgb(32,178,170)','rgb(255,20,147)','rgb(128,128,128)']
 
@@ -288,6 +290,67 @@ class Images():
             draw.text((x,y), text, fill=color, font=font)
             image.save('hanging.png', optimize=True, quality=85)
             await ctx.channel.send(file=discord.File('hanging.png'))
+
+    # @commands.command()
+    # async def test(self, ctx, *, member: discord.Member = None):
+    #     await ctx.trigger_typing()
+    #     member = member or ctx.author
+    #     if member.is_avatar_animated():
+    #         avatar_url = member.avatar_url_as(format='gif', size=1024)
+    #         avatar_url_format = 'gif'
+    #     else:
+    #         avatar_url = member.avatar_url_as(format='png', size=1024)
+    #         avatar_url_format = 'png'
+    #     async with aiohttp.ClientSession() as client_session:
+    #         async with client_session.get(avatar_url) as response:
+    #             avatar_bytes = await response.read()
+                
+    #     with Image.open(BytesIO(avatar_bytes)) as my_image:
+    #         output_buffer = BytesIO()
+    #         my_image.save(output_buffer, avatar_url_format)
+    #         output_buffer.seek(0)
+
+    #     await ctx.send(file=discord.File(fp=output_buffer, filename="my_file."+avatar_url_format))
+
+    # @commands.command()
+    # async def ship(self, ctx, member: discord.Member, second_member: discord.Member=None):
+    #     await ctx.trigger_typing()
+    #     async with aiohttp.ClientSession() as client_session:
+    #         async with client_session.get(member.avatar_url_as(format='png', size=1024)) as response:
+    #             avatar_bytes = await response.read()
+
+    #     with Image.open(BytesIO(avatar_bytes)) as img:
+    #         avatar_buffer = BytesIO()
+    #         img.save(avatar_buffer, 'png')
+    #         avatar_buffer.seek(0)
+
+    #     async with aiohttp.ClientSession() as client_session:
+    #         async with client_session.get(member.avatar_url_as(format='png', size=1024)) as response:
+    #             avatar2_bytes = await response.read()
+
+    #     with Image.open(BytesIO(avatar2_bytes)) as img:
+    #         avatar2_buffer = BytesIO()
+    #         img.save(avatar2_buffer, 'png')
+    #         avatar2_buffer.seek(0)
+
+    #     with Image.open('heart.png') as img:
+    #         heart_buffer = BytesIO()
+    #         img.save(heart_buffer, 'png')
+    #         heart_buffer.seek(0)
+
+    #     try:
+    #         new_im = Image.new('RGB', (2304, 768))
+    #         images = [avatar_buffer, heart_buffer, avatar2_buffer]
+    #         x_offset = 0
+    #         for im in images:
+    #             new_im.paste(im, (x_offset,0))
+    #             x_offset += 768
+
+    #         new_im.save('ship.png')
+    #     except Exception as e:
+    #         await ctx.send('```py\n{}```'.format(e))
+
+    #     await ctx.send(file=discord.File('ship.png'))
 
 
 def setup(bot):

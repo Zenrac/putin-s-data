@@ -1035,6 +1035,16 @@ class Profile:
             conn.commit()
             print(str(profile) + ' has been inserted.')
 
+    @commands.command()
+    async def leaderboard(self, ctx):
+        profiles = self.bot.pool.fetch('select (id, experience) from profiles')
+        profiles_list = list()
+        for profile in profiles:
+            prof = self.bot.get_user_info(profile[0])
+            setattr(prof, 'xp', profile[1])
+            profiles_list.append(prof)
+        print(profiles_list)
+
     async def on_message(self, message):
         if message.author.bot: return
         profile = self.config.get(str(message.author.id))

@@ -102,14 +102,11 @@ class Lyrics():
         async def scrap_song_url(url):
             async with aiohttp.ClientSession() as cs:
                 async with cs.get(url) as res:
-                    print(res)
                     page = await res.text()
-                    print(page)
             html = BeautifulSoup(page, 'html.parser')
             lyrics = html.find('div', class_='lyrics').get_text()
 
             return lyrics
-        print(song_url)
         lyrics = await scrap_song_url(song_url)
         e = discord.Embed(title='Lyrics', color=discord.Color.blue())
         def split_str_into_len(s, l=1000):
@@ -118,7 +115,6 @@ class Lyrics():
         lyrics = split_str_into_len(lyrics)
         gg = 0
         for item in lyrics:
-            print(item)
             gg += 1
             e.add_field(name=str(gg), value=item, inline=True)
         await ctx.send(embed=e)

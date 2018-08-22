@@ -583,12 +583,12 @@ class Mod():
         await self.do_removal(ctx, args.search, predicate, before=args.before, after=args.after)
     @commands.command(no_pm = True)
     @commands.has_permissions(manage_nicknames=True)
-    async def setnickname(self, ctx, user : discord.Member = None, *, nick = None):
+    async def setnickname(self, ctx, user : discord.Member = None, *, nick: str = None):
 
         """Changes the nickname of a user
 
-        To use this command you must have the Managae Nicknames permissions or
-        have the Bot Admin role. The bot must also have a Manage Roles permissions.
+        To use this command you must have the Managae Nicknames permissions.
+        The bot must also have a Manage Roles permissions.
 
         This command cannot be used in a private message."""
 
@@ -600,12 +600,13 @@ class Mod():
             await ctx.send(':exclamation: | {} you did not tell me what to change the {}\'s nickname.'.format(ctx.message.author.mention, user.name))
 
         try:
-            await self.bot.change_nickname(user, nick)
-            await ctx.send(":ballot_box_with_check: | {} changed ``{}``\'s username.".format(ctx.message.author.mention, user.nick))
+            await user.edit(nick=nick)
+            await ctx.send(":ballot_box_with_check: | {} changed ``{}``\'s username.".format(ctx.message.author.mention, user.nick if user.nick else user.name))
         except discord.Forbidden:
             await ctx.send(':exclamation: | The bot does not have permissions to change nicknames.')
         except discord.HTTPException:
             await ctx.send(':exclamation: | Changing nickname failed.')
+            
 def setup(bot):
     m = Mod(bot)
     bot.add_cog(m)
