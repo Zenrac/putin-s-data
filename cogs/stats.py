@@ -494,7 +494,7 @@ class Stats:
 
     async def on_command_error(self, ctx, error):
         ignored = (commands.NoPrivateMessage, commands.DisabledCommand, commands.CheckFailure,
-                   commands.CommandNotFound, commands.UserInputError, discord.Forbidden)
+                   commands.CommandNotFound, commands.UserInputError, discord.Forbidden, commands.CommandOnCooldown)
         error = getattr(error, 'original', error)
 
         if isinstance(error, ignored):
@@ -513,7 +513,7 @@ class Stats:
         exc = ''.join(traceback.format_exception(type(error), error, error.__traceback__, chain=False))
         e.description = f'```py\n{exc}\n```'
         e.timestamp = datetime.datetime.utcnow()
-        await self.webhook.send(embed=e)
+        await ctx.send(embed=e)
 
 old_on_error = commands.Bot.on_error
 

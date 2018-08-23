@@ -292,11 +292,12 @@ class Emoji:
                    FROM emoji_stats
                    WHERE guild_id=$1
                    ORDER BY total ASC
-                   LIMIT 10;
+                   LIMIT 5;
                 """
         bottom = await self.bot.pool.fetch(query, ctx.guild.id)
         value = '\n'.join(f'{i}. {to_string(emoji, total)}' for i, (emoji, total) in enumerate(bottom, 1))
-        e.add_field(name='Least 10 used emojis', value=value)
+        print(value)
+        e.add_field(name='Least 5 used emojis', value=value)
         await ctx.send(embed=e)
 
     async def get_emoji_stats(self, ctx, emoji_id):

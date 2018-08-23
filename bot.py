@@ -47,7 +47,9 @@ initial_extensions = [
     'cogs.chat',
     'cogs.osu',
     'cogs.emoji',
-    'cogs.reminder'
+    'cogs.reminder',
+    'cogs.stats',
+    'cogs.admin'
 ]
 
 log = logging.getLogger(__name__)
@@ -69,11 +71,6 @@ class Putin(commands.AutoShardedBot):
         self.session = aiohttp.ClientSession(loop=self.loop)
         self._prev_events = deque(maxlen=10)
         self.add_command(self.do)
-        self.add_command(self.load)
-        self.add_command(self.unload)
-        self.add_command(self.reload)
-        self.add_command(self.shell)
-        self.add_command(self.ev)
         self.remove_command('help')
 
         self.prefixes = Config('prefixes.json')
@@ -146,7 +143,7 @@ class Putin(commands.AutoShardedBot):
         elif isinstance(error, commands.DisabledCommand):
             await ctx.send(ctx.message.author, 'Sorry. This command is disabled and cannot be used.')
         elif isinstance(error, commands.BadArgument):
-            await ctx.send('Something went wrong with the arguments you passed in.\nAn argument can be e.g. a member/user or a channel etc. Please note that this is case-sensitive.')
+            await ctx.send(error)
         elif isinstance(error, commands.MissingPermissions):
             await ctx.send('You do not have **{}** permissions. You need them to use this command.'.format(error.missing_perms[0]))
         elif isinstance(error, commands.NotOwner):
@@ -197,135 +194,6 @@ class Putin(commands.AutoShardedBot):
     async def shutdown(self, ctx):
         await ctx.send(':wave: Cya!')
         await self.logout()
-
-    @commands.command(hidden=True)
-    @commands.is_owner()
-    async def load(self, ctx, *, module : str):
-        """Loads a module."""
-        module = module.strip()
-        if 'cogs.' not in module:
-            module = 'cogs.' +  module
-        try:
-            self.load_extension(module)
-        except Exception as e:
-            await ctx.send('\U0001f52b')
-            await ctx.send('{}: {}'.format(type(e).__name__, e))
-        else:
-            await ctx.send('\U0001f44c')
-
-    @commands.command(hidden=True)
-    @commands.is_owner()
-    async def unload(self, ctx, *, module : str):
-        """Unloads a module."""
-        module = module.strip()
-        if 'cogs.' not in module:
-            module = 'cogs.' +  module
-        try:
-            self.unload_extension(module)
-        except Exception as e:
-            await ctx.send('\U0001f52b')
-            await ctx.send('{}: {}'.format(type(e).__name__, e))
-        else:
-            await ctx.send('\U0001f44c')
-
-    @commands.command(hidden=True)
-    @commands.is_owner()
-    async def reload(self, ctx, *, module : str):
-        module = module.strip()
-        if 'cogs.' not in module:
-            module = 'cogs.' +  module
-        try:
-            self.unload_extension(module)
-            self.load_extension(module)
-        except Exception as e:
-            await ctx.send('\U0001f52b')
-            await ctx.send('{}: {}'.format(type(e).__name__, e))
-        else:
-            await ctx.send('\U0001f44c')
-
-    @commands.command(hidden=True)
-    @commands.is_owner()
-    async def ev(self, ctx, *, code : str):
-        if not ctx.message.author.id  == 282515230595219456: return
-        """Evaluates code."""
-        code = code.strip('` ')
-        python = '```py\n{}\n```'
-        result = None
-
-        try:
-            result = eval(code)
-        except Exception as e:
-            await ctx.send(python.format(type(e).__name__ + ': ' + str(e)))
-            return
-
-        if asyncio.iscoroutine(result):
-            result = await result
-
-        await ctx.send(python.format(result))
-
-# @bot.command(hidden=True)
-# @commands.is_owner()
-# async def announcement(ctx, *, message : str):
-# #     # we copy the list over so it doesn't change while we're iterating over it
-#     guilds = list(bot.guilds)
-#     for guild in guilds:
-#         try:
-#             await guild.send(message)
-#         except discord.Forbidden:
-#             # we can't send a message for some reason in this
-#             # channel, so try to look for another one.
-#             me = guild.me
-#             def predicate(ch):
-#                 text = ch.type == discord.TextChannel
-#                 return text and ch.permissions_for(me).send_messages
-#
-#             channel = discord.utils.find(predicate, guild.channels)
-#             if channel is not None:
-#                 await channel.send(message)
-#         finally:
-#             print('Sent message to {}'.format(guild.name.encode('utf-8')))
-# #             # to make sure we don't hit the rate limit, we send one
-# #             # announcement message every 5 seconds.
-#             await asyncio.sleep(5)
-
-    @commands.command(hidden=True)
-    async def convertjson(ctx, cogs):
-        """This migrates our older JSON files to PostgreSQL
-        Note, this deletes all previous entries in the table
-        so you can consider this to be a destructive decision.
-        Do not pass in cog names with "cogs." as a prefix.
-        This also connects us to Discord itself so we can
-        use the cache for our migrations.
-        The point of this is just to do some migration of the
-        data from v3 -> v4 once and call it a day.
-        """
-
-        import data_migrators
-
-        run = asyncio.get_event_loop().run_until_complete
-
-        if not cogs:
-            to_run = [(getattr(data_migrators, attr), attr.replace('migrate_', ''))
-                      for attr in dir(data_migrators) if attr.startswith('migrate_')]
-        else:
-            to_run = []
-            for cog in cogs:
-                try:
-                    elem = getattr(data_migrators, 'migrate_' + cog)
-                except AttributeError:
-                    click.echo(f'invalid cog name given, {cog}.', err=True)
-                    return
-
-                to_run.append((elem, cog))
-
-        async def make_pool():
-            return await asyncpg.create_pool(config.postgresql)
-
-        try:
-            pool = run(make_pool())
-        except Exception:
-            click.echo(f'Could not create PostgreSQL connection pool.\n{traceback.format_exc()}', err=True)
-            return
 
     @commands.command(hidden=True)
     @commands.is_owner()

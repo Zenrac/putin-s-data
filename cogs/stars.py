@@ -27,7 +27,7 @@ def requires_starboard():
 
         cog = ctx.bot.get_cog('Stars')
 
-        ctx.starboard = await cog.get_starboard(ctx.guild.id, connection=ctx.db)
+        ctx.starboard = await cog.get_starboard(ctx.guild.id, connection=self.bot.pool)
         if ctx.starboard.channel is None:
             raise StarError('\N{WARNING SIGN} Starboard channel not found.')
 
@@ -133,7 +133,7 @@ class Stars:
 
     @cache.cache(strategy=cache.Strategy.raw)
     async def get_starboard(self, guild_id, *, connection=None):
-        connection = connection or self.bot.pool
+        connection = self.bot.pool
         query = "SELECT * FROM starboard WHERE id=$1;"
         record = await connection.fetchrow(query, guild_id)
         return StarboardConfig(guild_id=guild_id, bot=self.bot, record=record)
@@ -232,7 +232,7 @@ class Stars:
                     return
 
             try:
-                await method(channel, payload.message_id, payload.user_id, connection=con)
+                await method(channel, payload.message_id, payload.user_id, connection=self.bot.pool)
             except StarError:
                 pass
 
@@ -292,7 +292,7 @@ class Stars:
             return
 
         async with self.bot.pool.acquire() as con:
-            starboard = await self.get_starboard(channel.guild.id, connection=con)
+            starboard = await self.get_starboard(channel.guild.id, connection=self.bot.pool)
             if starboard.channel is None:
                 return
 
@@ -535,7 +535,7 @@ class Stars:
         # decided to use the ?star command
         self.get_starboard.invalidate(self, ctx.guild.id)
 
-        starboard = await self.get_starboard(ctx.guild.id, connection=ctx.db)
+        starboard = await self.get_starboard(ctx.guild.id, connection=self.bot.pool)
         if starboard.channel is not None:
             return await ctx.send(f'This server already has a starboard ({starboard.channel.mention}).')
 
@@ -596,7 +596,7 @@ class Stars:
         """
 
         try:
-            await self.star_message(ctx.channel, message, ctx.author.id, connection=ctx.db)
+            await self.star_message(ctx.channel, message, ctx.author.id, connection=self.bot.pool)
         except StarError as e:
             await ctx.send(e)
         else:
@@ -612,7 +612,7 @@ class Stars:
         functionality.
         """
         try:
-            await self.unstar_message(ctx.channel, message, ctx.author.id, connection=ctx.db)
+            await self.unstar_message(ctx.channel, message, ctx.author.id, connection=self.bot.pool)
         except StarError as e:
             return await ctx.send(e)
         else:

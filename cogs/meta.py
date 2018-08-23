@@ -919,8 +919,14 @@ class Meta:
     async def invite(self, ctx):
         if ctx.message.author.bot: return
         """Gives you a invite link to this guild."""
-        invite  = await guild.create_invite(ctx.guild)
-        await ctx.send(':ballot_box_with_check: | I created a invite "{}" to this guild.'.format(invite))
+        try:
+            invite  = await ctx.channel.create_invite()
+        except:
+            e = discord.Embed(title="Invite", description='I tried to create invite here but i couldn\'t,\nanyway you can invite me to your server [here](https://discordapp.com/api/oauth2/authorize?client_id=460846291300122635&permissions=8&scope=bot).')
+            await ctx.send(embed=e)
+            return
+        e = discord.Embed(title="Invite", description='Here\'s the invite to [here]({}).\nYou can invite me to your server [here](https://discordapp.com/api/oauth2/authorize?client_id=460846291300122635&permissions=8&scope=bot).'.format(invite))
+        await ctx.send(embed=e)
 
     @commands.command(hidden=True)
     async def guildjoin(self, ctx, invite : discord.Invite):
