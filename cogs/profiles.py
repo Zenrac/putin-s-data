@@ -188,7 +188,7 @@ class Profiless():
             return await ctx.send('Cancelled profile creation.')
         if desc is None:
             return
-        query = "insert into profiles values ({}, {}, 'nobody...', 0,0,0,0,0,0)".format(desc, bday)
+        query = "insert into profiles values ({}, '{}', '{}', 'nobody...', 0,0,0,0,0,0,0)".format(ctx.author.id, desc.clean_content, bday.clean_content)
         # await self.edit_field(ctx, bday=bday.clean_content.upper())
         # await self.edit_field(ctx, cash=int(0))
         # await self.edit_field(ctx, picks=int(0))
@@ -198,6 +198,8 @@ class Profiless():
         # await self.edit_field(ctx, roses=int(0))
         # await self.edit_field(ctx, alcohol=int(0))
         # await self.edit_field(ctx, experience=int(0))
+        # await ctx.send(query)
+        await self.bot.pool.execute(query)
         await ctx.send('Alright! Your profile is all ready now.')
 
     @commands.command()

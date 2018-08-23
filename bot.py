@@ -29,7 +29,7 @@ initial_extensions = [
     'cogs.fun',
     'cogs.help2',
     'cogs.image',
-    'cogs.profiless',
+    'cogs.profiles',
     'cogs.nekos',
     'cogs.prefix',
     'cogs.nsfw',
