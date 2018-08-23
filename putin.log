@@ -1284,3 +1284,8 @@ return math.sqrt(64)
 [2018-08-23 16:15:10] [INFO   ] discord.gateway: Shard ID 0 has sent the RESUME payload.
 [2018-08-23 16:15:11] [INFO   ] discord.gateway: Shard ID 0 has successfully RESUMED session c530f60fbbe7f45e9f08286caf00e038 under trace gateway-prd-main-rskw, discord-sessions-prd-1-15.
 [2018-08-23 16:15:51] [WARNING] discord.gateway: Shard ID 0 has stopped responding to the gateway. Closing and restarting.
+[2018-08-23 16:27:49] [WARNING] discord.gateway: Unknown event WEBHOOKS_UPDATE.
+[2018-08-23 16:30:43] [INFO   ] __main__: 2018-08-23 13:30:43.867000: iWeeti in #questions-or-issues (ＴＯＭＢＯＴ): -.setnickname <@282515230595219456> Creator of Putin | iWeeti
+[2018-08-23 16:30:43] [INFO   ] cogs.stats: 2018-08-23 13:30:43.867000: iWeeti#4990 in #questions-or-issues (ＴＯＭＢＯＴ): -.setnickname <@282515230595219456> Creator of Putin | iWeeti
+[2018-08-23 16:31:07] [INFO   ] __main__: 2018-08-23 13:31:07.249000: iWeeti in #commands (ＴＯＭＢＯＴ): -.setnickname <@282515230595219456> Creator of Putin | iWeeti
+[2018-08-23 16:31:07] [INFO   ] cogs.stats: 2018-08-23 13:31:07.249000: iWeeti#4990 in #commands (ＴＯＭＢＯＴ): -.setnickname <@282515230595219456> Creator of Putin | iWeeti
