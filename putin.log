@@ -1,0 +1,46 @@
+[2018-08-23 16:37:06] [INFO   ] discord.client: logging in using static token
+[2018-08-23 16:37:07] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
+[2018-08-23 16:37:08] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-04vj, discord-sessions-prd-1-30 (Session ID: 373bd02c77f462166c95bc9d202bae67).
+[2018-08-23 16:37:29] [INFO   ] __main__: 2018-08-23 13:37:29.086000: iWeeti in #bot-commands (TeGriAi): -.about
+[2018-08-23 16:37:29] [INFO   ] cogs.stats: 2018-08-23 13:37:29.086000: iWeeti#4990 in #bot-commands (TeGriAi): -.about
+[2018-08-23 16:37:44] [INFO   ] __main__: 2018-08-23 13:37:44.418000: iWeeti in #bot-commands (TeGriAi): -.about
+[2018-08-23 16:37:44] [INFO   ] cogs.stats: 2018-08-23 13:37:44.418000: iWeeti#4990 in #bot-commands (TeGriAi): -.about
+[2018-08-23 16:37:48] [INFO   ] __main__: 2018-08-23 13:37:48.697000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:37:48] [INFO   ] cogs.stats: 2018-08-23 13:37:48.697000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:38:08] [INFO   ] __main__: 2018-08-23 13:38:08.835000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:38:08] [INFO   ] cogs.stats: 2018-08-23 13:38:08.835000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:38:42] [INFO   ] __main__: 2018-08-23 13:38:42.260000: iWeeti in #bot-commands (TeGriAi): -.reload profile
+[2018-08-23 16:38:42] [INFO   ] cogs.stats: 2018-08-23 13:38:42.260000: iWeeti#4990 in #bot-commands (TeGriAi): -.reload profile
+[2018-08-23 16:38:46] [INFO   ] __main__: 2018-08-23 13:38:46.869000: iWeeti in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:38:46] [INFO   ] cogs.stats: 2018-08-23 13:38:46.869000: iWeeti#4990 in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:38:49] [INFO   ] __main__: 2018-08-23 13:38:49.326000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:38:49] [INFO   ] cogs.stats: 2018-08-23 13:38:49.326000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:40:15] [INFO   ] __main__: 2018-08-23 13:40:15.229000: iWeeti in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:40:15] [INFO   ] cogs.stats: 2018-08-23 13:40:15.229000: iWeeti#4990 in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:40:19] [INFO   ] __main__: 2018-08-23 13:40:19.139000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:40:19] [INFO   ] cogs.stats: 2018-08-23 13:40:19.139000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:40:56] [INFO   ] __main__: 2018-08-23 13:40:56.450000: iWeeti in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:40:56] [INFO   ] cogs.stats: 2018-08-23 13:40:56.450000: iWeeti#4990 in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:40:58] [INFO   ] __main__: 2018-08-23 13:40:58.637000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:40:58] [INFO   ] cogs.stats: 2018-08-23 13:40:58.637000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:41:37] [INFO   ] __main__: 2018-08-23 13:41:37.609000: iWeeti in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:41:37] [INFO   ] cogs.stats: 2018-08-23 13:41:37.609000: iWeeti#4990 in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:41:40] [INFO   ] __main__: 2018-08-23 13:41:40.933000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:41:40] [INFO   ] cogs.stats: 2018-08-23 13:41:40.933000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:42:35] [WARNING] discord.state: VOICE_STATE_UPDATE referencing an unknown member ID: 367296846294417409. Discarding.
+[2018-08-23 16:42:38] [INFO   ] __main__: 2018-08-23 13:42:38.776000: iWeeti in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:42:38] [INFO   ] cogs.stats: 2018-08-23 13:42:38.776000: iWeeti#4990 in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:42:41] [INFO   ] __main__: 2018-08-23 13:42:41.495000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:42:41] [INFO   ] cogs.stats: 2018-08-23 13:42:41.495000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:42:58] [INFO   ] __main__: 2018-08-23 13:42:58.704000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:42:58] [INFO   ] cogs.stats: 2018-08-23 13:42:58.704000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:43:24] [INFO   ] __main__: 2018-08-23 13:43:24.539000: iWeeti in #bot-commands (TeGriAi): -.sql delete from profiles where id=282515230595219456
+[2018-08-23 16:43:24] [INFO   ] cogs.stats: 2018-08-23 13:43:24.539000: iWeeti#4990 in #bot-commands (TeGriAi): -.sql delete from profiles where id=282515230595219456
+[2018-08-23 16:43:29] [INFO   ] __main__: 2018-08-23 13:43:29.779000: iWeeti in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:43:29] [INFO   ] cogs.stats: 2018-08-23 13:43:29.779000: iWeeti#4990 in #bot-commands (TeGriAi): -.reload profiles
+[2018-08-23 16:43:32] [INFO   ] __main__: 2018-08-23 13:43:32.972000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:43:32] [INFO   ] cogs.stats: 2018-08-23 13:43:32.972000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:43:49] [INFO   ] __main__: 2018-08-23 13:43:49.357000: iWeeti in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:43:49] [INFO   ] cogs.stats: 2018-08-23 13:43:49.357000: iWeeti#4990 in #bot-commands (TeGriAi): -.profile
+[2018-08-23 16:43:59] [INFO   ] __main__: 2018-08-23 13:43:59.344000: iWeeti in #bot-commands (TeGriAi): -.purge bot -.
+[2018-08-23 16:43:59] [INFO   ] cogs.stats: 2018-08-23 13:43:59.344000: iWeeti#4990 in #bot-commands (TeGriAi): -.purge bot -.
