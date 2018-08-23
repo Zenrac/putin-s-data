@@ -7,3 +7,4 @@ loader.gif
 .vscode
 migrations
 sh.exe.stackdump
+cogs/settings.py
