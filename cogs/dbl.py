@@ -10,16 +10,17 @@ class DBL():
     def __init__(self, bot):
         self.bot = bot
         self.token = config.dbl_token
-        self.dblpy = dbl.Client(self.bot, self.token)
+        self.dblpy = dbl.Client(self.bot, self.token, loop=self.bot.loop)
         self.bot.loop.create_task(self.update_stats())
 
     async def update_stats(self):
         while True:
+            await asyncio.sleep(1800)
             try:
                 await self.dblpy.post_server_count()
+                print('posted server count')
             except Exception as e:
                 print(e)
-            await asyncio.sleep(1800)
 
     @commands.command()
     async def botinfo(self, ctx, *, member: discord.Member=None):

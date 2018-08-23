@@ -643,7 +643,7 @@ class Profiless():
                 await asyncio.sleep(10)
                 await self.bot.delete_message(msg)
             m_married = m_profile['married']
-            if member['name'] in married:
+            if member.name in married:
                 await ctx.send('{} would like to get divorced with {}.\n{} type yes in 60 seconds if you want to get divorced.'.format(ctx.message.author.name, member.name, member.mention))
                 def pred(m):
                     return m.author == member and m.channel == ctx.message.channel

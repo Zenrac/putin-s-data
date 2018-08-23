@@ -33,7 +33,6 @@ initial_extensions = [
     'cogs.nekos',
     'cogs.prefix',
     'cogs.nsfw',
-    'cogs.dbl',
     'cogs.lyrics',
     'cogs.search',
     'cogs.dislogs',
@@ -166,7 +165,8 @@ class Putin(commands.AutoShardedBot):
                 channel = self.get_channel(478363328448823317)
                 await channel.send(files=files)
                 await asyncio.sleep(300)
-        await send_files()
+        # await send_files()
+        self.load_extension('cogs.dbl')
 
     async def on_command(self, ctx):
         self.commands_executed += 1
