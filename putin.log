@@ -552,3 +552,1151 @@
 [2018-08-24 22:35:11] [INFO   ] cogs.stats: 2018-08-24 19:35:12.699000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
 [2018-08-24 22:35:12] [INFO   ] __main__: 2018-08-24 19:35:13.784000: Daddy Derrick in #bot-commands (Freezer Games): .drink
 [2018-08-24 22:35:12] [INFO   ] cogs.stats: 2018-08-24 19:35:13.784000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:35:21] [INFO   ] __main__: 2018-08-24 19:35:22.498000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:21] [INFO   ] cogs.stats: 2018-08-24 19:35:22.498000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:22] [WARNING] discord.state: VOICE_STATE_UPDATE referencing an unknown member ID: 379341537638875136. Discarding.
+[2018-08-24 22:35:26] [INFO   ] __main__: 2018-08-24 19:35:27.217000: VVDGF in #bot-commands (Freezer Games): .slots 9383937397298329372928
+[2018-08-24 22:35:26] [INFO   ] cogs.stats: 2018-08-24 19:35:27.217000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 9383937397298329372928
+[2018-08-24 22:35:26] [INFO   ] __main__: 2018-08-24 19:35:27.386000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:26] [INFO   ] cogs.stats: 2018-08-24 19:35:27.386000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:29] [INFO   ] __main__: 2018-08-24 19:35:30.718000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:29] [INFO   ] cogs.stats: 2018-08-24 19:35:30.718000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:33] [INFO   ] __main__: 2018-08-24 19:35:34.651000: Multi in #bot-commands (Freezer Games): .slots 3249999999999999150863153590612736
+[2018-08-24 22:35:33] [INFO   ] cogs.stats: 2018-08-24 19:35:34.651000: Multi#5331 in #bot-commands (Freezer Games): .slots 3249999999999999150863153590612736
+[2018-08-24 22:35:35] [INFO   ] __main__: 2018-08-24 19:35:36.816000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:35] [INFO   ] cogs.stats: 2018-08-24 19:35:36.816000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:38] [INFO   ] __main__: 2018-08-24 19:35:39.357000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:38] [INFO   ] cogs.stats: 2018-08-24 19:35:39.357000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:40] [INFO   ] __main__: 2018-08-24 19:35:41.519000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:40] [INFO   ] cogs.stats: 2018-08-24 19:35:41.519000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:41] [INFO   ] __main__: 2018-08-24 19:35:42.275000: VVDGF in #bot-commands (Freezer Games): .slots 29384938492839383938
+[2018-08-24 22:35:41] [INFO   ] cogs.stats: 2018-08-24 19:35:42.275000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 29384938492839383938
+[2018-08-24 22:35:41] [INFO   ] __main__: 2018-08-24 19:35:42.710000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1000000000000000
+[2018-08-24 22:35:41] [INFO   ] cogs.stats: 2018-08-24 19:35:42.710000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1000000000000000
+[2018-08-24 22:35:43] [INFO   ] __main__: 2018-08-24 19:35:44.451000: VVDGF in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:35:43] [INFO   ] cogs.stats: 2018-08-24 19:35:44.451000: VVDGF#9180 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:35:44] [INFO   ] __main__: 2018-08-24 19:35:45.248000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:35:44] [INFO   ] cogs.stats: 2018-08-24 19:35:45.248000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:35:45] [INFO   ] __main__: 2018-08-24 19:35:46.238000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:35:45] [INFO   ] cogs.stats: 2018-08-24 19:35:46.238000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:35:46] [INFO   ] __main__: 2018-08-24 19:35:47.281000: Multi in #bot-commands (Freezer Games): .slots 5249999999999999150863153590612736
+[2018-08-24 22:35:46] [INFO   ] cogs.stats: 2018-08-24 19:35:47.281000: Multi#5331 in #bot-commands (Freezer Games): .slots 5249999999999999150863153590612736
+[2018-08-24 22:35:46] [INFO   ] __main__: 2018-08-24 19:35:47.989000: Daddy Derrick in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:35:46] [INFO   ] cogs.stats: 2018-08-24 19:35:47.989000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:35:53] [INFO   ] __main__: 2018-08-24 19:35:54.295000: Daddy Derrick in #bot-commands (Freezer Games): .stats global
+[2018-08-24 22:35:53] [INFO   ] cogs.stats: 2018-08-24 19:35:54.295000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .stats global
+[2018-08-24 22:35:53] [INFO   ] __main__: 2018-08-24 19:35:54.705000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:53] [INFO   ] cogs.stats: 2018-08-24 19:35:54.705000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:35:54] [INFO   ] __main__: 2018-08-24 19:35:55.777000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 20181718810582056960
+[2018-08-24 22:35:54] [INFO   ] cogs.stats: 2018-08-24 19:35:55.777000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 20181718810582056960
+[2018-08-24 22:35:55] [INFO   ] __main__: 2018-08-24 19:35:56.553000: VVDGF in #bot-commands (Freezer Games): .slots 29384938492839383938 .slots 29384938492839383938
+[2018-08-24 22:35:55] [INFO   ] cogs.stats: 2018-08-24 19:35:56.553000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 29384938492839383938 .slots 29384938492839383938
+[2018-08-24 22:36:01] [INFO   ] __main__: 2018-08-24 19:36:02.314000: Multi in #bot-commands (Freezer Games): .slots 2499999999999998301726307181225472
+[2018-08-24 22:36:01] [INFO   ] cogs.stats: 2018-08-24 19:36:02.314000: Multi#5331 in #bot-commands (Freezer Games): .slots 2499999999999998301726307181225472
+[2018-08-24 22:36:01] [INFO   ] __main__: 2018-08-24 19:36:02.992000: VVDGF in #bot-commands (Freezer Games): .slots 29384938492839383938
+[2018-08-24 22:36:01] [INFO   ] cogs.stats: 2018-08-24 19:36:02.992000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 29384938492839383938
+[2018-08-24 22:36:06] [INFO   ] __main__: 2018-08-24 19:36:07.536000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 20181718810582056960
+[2018-08-24 22:36:06] [INFO   ] cogs.stats: 2018-08-24 19:36:07.536000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 20181718810582056960
+[2018-08-24 22:36:10] [INFO   ] __main__: 2018-08-24 19:36:11.965000: Multi in #bot-commands (Freezer Games): .slots 2499999999999998301726307181225472
+[2018-08-24 22:36:10] [INFO   ] cogs.stats: 2018-08-24 19:36:11.965000: Multi#5331 in #bot-commands (Freezer Games): .slots 2499999999999998301726307181225472
+[2018-08-24 22:36:11] [INFO   ] __main__: 2018-08-24 19:36:13.012000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:11] [INFO   ] cogs.stats: 2018-08-24 19:36:13.012000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:13] [INFO   ] __main__: 2018-08-24 19:36:14.368000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 20181718810582056960
+[2018-08-24 22:36:13] [INFO   ] cogs.stats: 2018-08-24 19:36:14.368000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 20181718810582056960
+[2018-08-24 22:36:14] [INFO   ] __main__: 2018-08-24 19:36:15.575000: VVDGF in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:36:14] [INFO   ] cogs.stats: 2018-08-24 19:36:15.575000: VVDGF#9180 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:36:18] [INFO   ] __main__: 2018-08-24 19:36:19.356000: Multi in #bot-commands (Freezer Games): .slots 2499999999999998301726307181225472
+[2018-08-24 22:36:18] [INFO   ] cogs.stats: 2018-08-24 19:36:19.356000: Multi#5331 in #bot-commands (Freezer Games): .slots 2499999999999998301726307181225472
+[2018-08-24 22:36:18] [INFO   ] __main__: 2018-08-24 19:36:19.765000: VVDGF in #bot-commands (Freezer Games): .slots 2938493849283938393892
+[2018-08-24 22:36:18] [INFO   ] cogs.stats: 2018-08-24 19:36:19.765000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 2938493849283938393892
+[2018-08-24 22:36:20] [INFO   ] __main__: 2018-08-24 19:36:21.238000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:20] [INFO   ] cogs.stats: 2018-08-24 19:36:21.238000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:22] [INFO   ] __main__: 2018-08-24 19:36:24.093000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1000000000000000000000000000
+[2018-08-24 22:36:22] [INFO   ] cogs.stats: 2018-08-24 19:36:24.093000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1000000000000000000000000000
+[2018-08-24 22:36:25] [INFO   ] __main__: 2018-08-24 19:36:26.678000: Daddy Derrick in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:36:25] [INFO   ] cogs.stats: 2018-08-24 19:36:26.678000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:36:26] [INFO   ] __main__: 2018-08-24 19:36:27.528000: Multi in #bot-commands (Freezer Games): .slots 2499999999999998301726307181225472
+[2018-08-24 22:36:26] [INFO   ] cogs.stats: 2018-08-24 19:36:27.528000: Multi#5331 in #bot-commands (Freezer Games): .slots 2499999999999998301726307181225472
+[2018-08-24 22:36:27] [INFO   ] __main__: 2018-08-24 19:36:28.611000: Daddy Derrick in #bot-commands (Freezer Games): .mine
+[2018-08-24 22:36:27] [INFO   ] cogs.stats: 2018-08-24 19:36:28.611000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .mine
+[2018-08-24 22:36:30] [INFO   ] __main__: 2018-08-24 19:36:31.517000: VVDGF in #bot-commands (Freezer Games): .slots 293849384928393839389292
+[2018-08-24 22:36:30] [INFO   ] cogs.stats: 2018-08-24 19:36:31.517000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 293849384928393839389292
+[2018-08-24 22:36:32] [INFO   ] __main__: 2018-08-24 19:36:33.683000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:36:32] [INFO   ] cogs.stats: 2018-08-24 19:36:33.683000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:36:32] [INFO   ] __main__: 2018-08-24 19:36:33.716000: Bennygoku Roblox in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:36:32] [INFO   ] cogs.stats: 2018-08-24 19:36:33.716000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:36:33] [INFO   ] __main__: 2018-08-24 19:36:34.858000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:33] [INFO   ] cogs.stats: 2018-08-24 19:36:34.858000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:33] [INFO   ] __main__: 2018-08-24 19:36:34.774000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:33] [INFO   ] cogs.stats: 2018-08-24 19:36:34.774000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:35] [INFO   ] __main__: 2018-08-24 19:36:37.088000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1000000000000000000000000000
+[2018-08-24 22:36:35] [INFO   ] cogs.stats: 2018-08-24 19:36:37.088000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1000000000000000000000000000
+[2018-08-24 22:36:36] [INFO   ] __main__: 2018-08-24 19:36:38.143000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:36] [INFO   ] cogs.stats: 2018-08-24 19:36:38.143000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:38] [INFO   ] __main__: 2018-08-24 19:36:39.542000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:38] [INFO   ] cogs.stats: 2018-08-24 19:36:39.542000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:38] [INFO   ] __main__: 2018-08-24 19:36:39.848000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:36:38] [INFO   ] cogs.stats: 2018-08-24 19:36:39.848000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:36:42] [INFO   ] __main__: 2018-08-24 19:36:44.134000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:42] [INFO   ] cogs.stats: 2018-08-24 19:36:44.134000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:45] [INFO   ] __main__: 2018-08-24 19:36:46.365000: Multi in #bot-commands (Freezer Games): .slots 3749999999999996801701228782288896
+[2018-08-24 22:36:45] [INFO   ] cogs.stats: 2018-08-24 19:36:46.365000: Multi#5331 in #bot-commands (Freezer Games): .slots 3749999999999996801701228782288896
+[2018-08-24 22:36:45] [INFO   ] __main__: 2018-08-24 19:36:46.339000: VVDGF in #bot-commands (Freezer Games): .slots 293849384928393839389393839
+[2018-08-24 22:36:45] [INFO   ] cogs.stats: 2018-08-24 19:36:46.339000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 293849384928393839389393839
+[2018-08-24 22:36:46] [INFO   ] __main__: 2018-08-24 19:36:47.328000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:36:46] [INFO   ] cogs.stats: 2018-08-24 19:36:47.328000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:36:49] [INFO   ] __main__: 2018-08-24 19:36:50.224000: LxgaN in #testing-2 (Discord Bot List): .cat
+[2018-08-24 22:36:49] [INFO   ] cogs.stats: 2018-08-24 19:36:50.224000: LxgaN#9568 in #testing-2 (Discord Bot List): .cat
+[2018-08-24 22:36:52] [INFO   ] __main__: 2018-08-24 19:36:53.217000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:36:52] [INFO   ] cogs.stats: 2018-08-24 19:36:53.217000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:36:54] [INFO   ] __main__: 2018-08-24 19:36:55.174000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:54] [INFO   ] cogs.stats: 2018-08-24 19:36:55.174000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:54] [INFO   ] __main__: 2018-08-24 19:36:55.200000: Daddy Derrick in #bot-commands (Freezer Games): .slots 3163000999999909433753619737184886331539456
+[2018-08-24 22:36:54] [INFO   ] cogs.stats: 2018-08-24 19:36:55.200000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 3163000999999909433753619737184886331539456
+[2018-08-24 22:36:57] [INFO   ] __main__: 2018-08-24 19:36:59.073000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:57] [INFO   ] cogs.stats: 2018-08-24 19:36:59.073000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:36:59] [INFO   ] __main__: 2018-08-24 19:37:00.556000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:36:59] [INFO   ] cogs.stats: 2018-08-24 19:37:00.556000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:36:59] [INFO   ] __main__: 2018-08-24 19:37:00.659000: Daddy Derrick in #bot-commands (Freezer Games): .slots 3163000999999909433753619737184886331539456
+[2018-08-24 22:36:59] [INFO   ] cogs.stats: 2018-08-24 19:37:00.659000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 3163000999999909433753619737184886331539456
+[2018-08-24 22:37:05] [INFO   ] __main__: 2018-08-24 19:37:06.600000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:37:05] [INFO   ] cogs.stats: 2018-08-24 19:37:06.600000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:37:07] [INFO   ] __main__: 2018-08-24 19:37:09.099000: Daddy Derrick in #bot-commands (Freezer Games): .slots 100
+[2018-08-24 22:37:07] [INFO   ] cogs.stats: 2018-08-24 19:37:09.099000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 100
+[2018-08-24 22:37:12] [INFO   ] __main__: 2018-08-24 19:37:13.823000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:37:12] [INFO   ] cogs.stats: 2018-08-24 19:37:13.823000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:37:18] [INFO   ] __main__: 2018-08-24 19:37:19.453000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:37:18] [INFO   ] cogs.stats: 2018-08-24 19:37:19.453000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:37:19] [INFO   ] __main__: 2018-08-24 19:37:21.023000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:19] [INFO   ] cogs.stats: 2018-08-24 19:37:21.023000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:23] [INFO   ] __main__: 2018-08-24 19:37:24.176000: Multi in #bot-commands (Freezer Games): .slots 5499999999999993603402457564577792
+[2018-08-24 22:37:23] [INFO   ] cogs.stats: 2018-08-24 19:37:24.176000: Multi#5331 in #bot-commands (Freezer Games): .slots 5499999999999993603402457564577792
+[2018-08-24 22:37:24] [INFO   ] __main__: 2018-08-24 19:37:25.395000: Daddy Derrick in #bot-commands (Freezer Games): .slots 3163000999999909433753619737184886331539456
+[2018-08-24 22:37:24] [INFO   ] cogs.stats: 2018-08-24 19:37:25.395000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 3163000999999909433753619737184886331539456
+[2018-08-24 22:37:25] [INFO   ] __main__: 2018-08-24 19:37:26.740000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:25] [INFO   ] cogs.stats: 2018-08-24 19:37:26.740000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:26] [INFO   ] __main__: 2018-08-24 19:37:27.381000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:37:26] [INFO   ] cogs.stats: 2018-08-24 19:37:27.381000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:37:30] [INFO   ] __main__: 2018-08-24 19:37:31.544000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 99999999999999555555554444444
+[2018-08-24 22:37:30] [INFO   ] cogs.stats: 2018-08-24 19:37:31.544000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 99999999999999555555554444444
+[2018-08-24 22:37:31] [INFO   ] __main__: 2018-08-24 19:37:32.556000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 403634376211641139200
+[2018-08-24 22:37:31] [INFO   ] cogs.stats: 2018-08-24 19:37:32.556000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 403634376211641139200
+[2018-08-24 22:37:32] [INFO   ] __main__: 2018-08-24 19:37:33.334000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:32] [INFO   ] cogs.stats: 2018-08-24 19:37:33.334000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:36] [INFO   ] __main__: 2018-08-24 19:37:37.489000: Multi in #bot-commands (Freezer Games): .slots 7499999999999993603402457564577792
+[2018-08-24 22:37:36] [INFO   ] cogs.stats: 2018-08-24 19:37:37.489000: Multi#5331 in #bot-commands (Freezer Games): .slots 7499999999999993603402457564577792
+[2018-08-24 22:37:38] [INFO   ] __main__: 2018-08-24 19:37:39.342000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:38] [INFO   ] cogs.stats: 2018-08-24 19:37:39.342000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:43] [INFO   ] __main__: 2018-08-24 19:37:44.232000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:43] [INFO   ] cogs.stats: 2018-08-24 19:37:44.232000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:43] [INFO   ] __main__: 2018-08-24 19:37:44.411000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 403634376211641139200
+[2018-08-24 22:37:43] [INFO   ] cogs.stats: 2018-08-24 19:37:44.411000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 403634376211641139200
+[2018-08-24 22:37:47] [INFO   ] __main__: 2018-08-24 19:37:48.950000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:47] [INFO   ] cogs.stats: 2018-08-24 19:37:48.950000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:37:49] [INFO   ] __main__: 2018-08-24 19:37:50.818000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 403634376211641139200
+[2018-08-24 22:37:49] [INFO   ] cogs.stats: 2018-08-24 19:37:50.818000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 403634376211641139200
+[2018-08-24 22:37:53] [INFO   ] __main__: 2018-08-24 19:37:54.152000: Daddy Derrick in #bot-commands (Freezer Games): .slots 100
+[2018-08-24 22:37:53] [INFO   ] cogs.stats: 2018-08-24 19:37:54.152000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 100
+[2018-08-24 22:37:54] [INFO   ] __main__: 2018-08-24 19:37:55.488000: VVDGF in #bot-commands (Freezer Games): .slots 9393839383939383399393939393939339
+[2018-08-24 22:37:54] [INFO   ] cogs.stats: 2018-08-24 19:37:55.488000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 9393839383939383399393939393939339
+[2018-08-24 22:37:59] [INFO   ] __main__: 2018-08-24 19:38:00.983000: Daddy Derrick in #bot-commands (Freezer Games): .slots 500
+[2018-08-24 22:37:59] [INFO   ] cogs.stats: 2018-08-24 19:38:00.983000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 500
+[2018-08-24 22:38:02] [INFO   ] __main__: 2018-08-24 19:38:03.397000: VVDGF in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>
+[2018-08-24 22:38:02] [INFO   ] cogs.stats: 2018-08-24 19:38:03.397000: VVDGF#9180 in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>
+[2018-08-24 22:38:04] [INFO   ] __main__: 2018-08-24 19:38:05.376000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:38:04] [INFO   ] cogs.stats: 2018-08-24 19:38:05.376000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:38:05] [INFO   ] __main__: 2018-08-24 19:38:06.495000: Daddy Derrick in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>
+[2018-08-24 22:38:05] [INFO   ] cogs.stats: 2018-08-24 19:38:06.495000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>
+[2018-08-24 22:38:07] [INFO   ] __main__: 2018-08-24 19:38:08.216000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:38:07] [INFO   ] cogs.stats: 2018-08-24 19:38:08.216000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:38:08] [INFO   ] __main__: 2018-08-24 19:38:10.002000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 403634376211641139200
+[2018-08-24 22:38:08] [INFO   ] cogs.stats: 2018-08-24 19:38:10.002000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 403634376211641139200
+[2018-08-24 22:38:12] [INFO   ] __main__: 2018-08-24 19:38:13.915000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:38:12] [INFO   ] cogs.stats: 2018-08-24 19:38:13.915000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:38:13] [INFO   ] __main__: 2018-08-24 19:38:14.827000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:38:13] [INFO   ] cogs.stats: 2018-08-24 19:38:14.827000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:38:17] [INFO   ] __main__: 2018-08-24 19:38:19.014000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:17] [INFO   ] cogs.stats: 2018-08-24 19:38:19.014000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:24] [INFO   ] __main__: 2018-08-24 19:38:26.059000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:24] [INFO   ] cogs.stats: 2018-08-24 19:38:26.059000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:25] [INFO   ] __main__: 2018-08-24 19:38:26.518000: Daddy Derrick in #bot-commands (Freezer Games): .slots 10000000000000000
+[2018-08-24 22:38:25] [INFO   ] cogs.stats: 2018-08-24 19:38:26.518000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 10000000000000000
+[2018-08-24 22:38:25] [INFO   ] __main__: 2018-08-24 19:38:26.811000: VVDGF in #bot-commands (Freezer Games): .slots 299202383383948394758474839292844882929393933938$839929293939393839392029383393
+[2018-08-24 22:38:25] [INFO   ] cogs.stats: 2018-08-24 19:38:26.811000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 299202383383948394758474839292844882929393933938$839929293939393839392029383393
+[2018-08-24 22:38:27] [INFO   ] __main__: 2018-08-24 19:38:28.605000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots $139950495953422855130673768083105991387774976
+[2018-08-24 22:38:27] [INFO   ] cogs.stats: 2018-08-24 19:38:28.605000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots $139950495953422855130673768083105991387774976
+[2018-08-24 22:38:30] [INFO   ] __main__: 2018-08-24 19:38:31.215000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:30] [INFO   ] cogs.stats: 2018-08-24 19:38:31.215000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:32] [INFO   ] __main__: 2018-08-24 19:38:33.573000: Daddy Derrick in #bot-commands (Freezer Games): .profile
+[2018-08-24 22:38:32] [INFO   ] cogs.stats: 2018-08-24 19:38:33.573000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .profile
+[2018-08-24 22:38:35] [INFO   ] __main__: 2018-08-24 19:38:36.146000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:35] [INFO   ] cogs.stats: 2018-08-24 19:38:36.146000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:36] [INFO   ] __main__: 2018-08-24 19:38:37.829000: Bennygoku Roblox in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:38:36] [INFO   ] cogs.stats: 2018-08-24 19:38:37.829000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:38:38] [INFO   ] __main__: 2018-08-24 19:38:39.486000: VVDGF in #bot-commands (Freezer Games): .slots 38833932923937283738273
+[2018-08-24 22:38:38] [INFO   ] cogs.stats: 2018-08-24 19:38:39.486000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 38833932923937283738273
+[2018-08-24 22:38:40] [INFO   ] __main__: 2018-08-24 19:38:41.508000: Daddy Derrick in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:38:40] [INFO   ] cogs.stats: 2018-08-24 19:38:41.508000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:38:40] [INFO   ] __main__: 2018-08-24 19:38:41.697000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:40] [INFO   ] cogs.stats: 2018-08-24 19:38:41.697000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:42] [INFO   ] __main__: 2018-08-24 19:38:43.673000: VVDGF in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:38:42] [INFO   ] cogs.stats: 2018-08-24 19:38:43.673000: VVDGF#9180 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:38:43] [INFO   ] __main__: 2018-08-24 19:38:44.374000: Daddy Derrick in #bot-commands (Freezer Games): .kill <@!429034660920557579>
+[2018-08-24 22:38:43] [INFO   ] cogs.stats: 2018-08-24 19:38:44.374000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .kill <@!429034660920557579>
+[2018-08-24 22:38:44] [INFO   ] __main__: 2018-08-24 19:38:45.562000: Multi in #bot-commands (Freezer Games): .buy diamond 100000000000
+[2018-08-24 22:38:44] [INFO   ] cogs.stats: 2018-08-24 19:38:45.562000: Multi#5331 in #bot-commands (Freezer Games): .buy diamond 100000000000
+[2018-08-24 22:38:49] [INFO   ] __main__: 2018-08-24 19:38:50.395000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:38:49] [INFO   ] cogs.stats: 2018-08-24 19:38:50.395000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:38:49] [INFO   ] __main__: 2018-08-24 19:38:50.400000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:49] [INFO   ] cogs.stats: 2018-08-24 19:38:50.400000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:49] [INFO   ] __main__: 2018-08-24 19:38:51.060000: Daddy Derrick in #bot-commands (Freezer Games): .buy diamond 100000000000
+[2018-08-24 22:38:49] [INFO   ] cogs.stats: 2018-08-24 19:38:51.060000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .buy diamond 100000000000
+[2018-08-24 22:38:51] [INFO   ] __main__: 2018-08-24 19:38:52.586000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:38:51] [INFO   ] cogs.stats: 2018-08-24 19:38:52.586000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:38:53] [INFO   ] __main__: 2018-08-24 19:38:54.553000: Multi in #bot-commands (Freezer Games): .buy diamond 10000000000000000000000000
+[2018-08-24 22:38:53] [INFO   ] cogs.stats: 2018-08-24 19:38:54.553000: Multi#5331 in #bot-commands (Freezer Games): .buy diamond 10000000000000000000000000
+[2018-08-24 22:38:54] [INFO   ] __main__: 2018-08-24 19:38:55.271000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:38:54] [INFO   ] cogs.stats: 2018-08-24 19:38:55.271000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:38:55] [INFO   ] __main__: 2018-08-24 19:38:56.333000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:38:55] [INFO   ] cogs.stats: 2018-08-24 19:38:56.333000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:38:56] [INFO   ] __main__: 2018-08-24 19:38:58.019000: VVDGF in #bot-commands (Freezer Games): .buy diamond 2928389338228
+[2018-08-24 22:38:56] [INFO   ] cogs.stats: 2018-08-24 19:38:58.019000: VVDGF#9180 in #bot-commands (Freezer Games): .buy diamond 2928389338228
+[2018-08-24 22:38:57] [INFO   ] __main__: 2018-08-24 19:38:58.895000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:57] [INFO   ] cogs.stats: 2018-08-24 19:38:58.895000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:38:59] [INFO   ] __main__: 2018-08-24 19:39:00.470000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:38:59] [INFO   ] cogs.stats: 2018-08-24 19:39:00.470000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:01] [INFO   ] __main__: 2018-08-24 19:39:02.481000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:01] [INFO   ] cogs.stats: 2018-08-24 19:39:02.481000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:03] [INFO   ] __main__: 2018-08-24 19:39:04.538000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:03] [INFO   ] cogs.stats: 2018-08-24 19:39:04.538000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:07] [INFO   ] __main__: 2018-08-24 19:39:08.991000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:07] [INFO   ] cogs.stats: 2018-08-24 19:39:08.991000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:09] [INFO   ] __main__: 2018-08-24 19:39:10.180000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:09] [INFO   ] cogs.stats: 2018-08-24 19:39:10.180000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:11] [INFO   ] __main__: 2018-08-24 19:39:13.076000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots You have 139950495953422855130673768083105991387774976
+[2018-08-24 22:39:11] [INFO   ] cogs.stats: 2018-08-24 19:39:13.076000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots You have 139950495953422855130673768083105991387774976
+[2018-08-24 22:39:12] [INFO   ] __main__: 2018-08-24 19:39:13.176000: VVDGF in #bot-commands (Freezer Games): .profile
+[2018-08-24 22:39:12] [INFO   ] cogs.stats: 2018-08-24 19:39:13.176000: VVDGF#9180 in #bot-commands (Freezer Games): .profile
+[2018-08-24 22:39:12] [INFO   ] __main__: 2018-08-24 19:39:14.164000: Multi in #bot-commands (Freezer Games): .buy diamond 10000000000000000000
+[2018-08-24 22:39:12] [INFO   ] cogs.stats: 2018-08-24 19:39:14.164000: Multi#5331 in #bot-commands (Freezer Games): .buy diamond 10000000000000000000
+[2018-08-24 22:39:13] [INFO   ] __main__: 2018-08-24 19:39:14.437000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:13] [INFO   ] cogs.stats: 2018-08-24 19:39:14.437000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:16] [INFO   ] __main__: 2018-08-24 19:39:17.694000: iWeeti in #bot-commands (Freezer Games): -.reload profiles
+[2018-08-24 22:39:16] [INFO   ] cogs.stats: 2018-08-24 19:39:17.694000: iWeeti#4990 in #bot-commands (Freezer Games): -.reload profiles
+[2018-08-24 22:39:17] [INFO   ] __main__: 2018-08-24 19:39:18.567000: Daddy Derrick in #bot-commands (Freezer Games): .slots 100000000000000
+[2018-08-24 22:39:17] [INFO   ] cogs.stats: 2018-08-24 19:39:18.567000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 100000000000000
+[2018-08-24 22:39:22] [INFO   ] __main__: 2018-08-24 19:39:23.578000: Daddy Derrick in #bot-commands (Freezer Games): .slots 10000000000000000000
+[2018-08-24 22:39:22] [INFO   ] cogs.stats: 2018-08-24 19:39:23.578000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 10000000000000000000
+[2018-08-24 22:39:22] [INFO   ] __main__: 2018-08-24 19:39:24.028000: Multi in #bot-commands (Freezer Games): .buy diamond 10000000000000000
+[2018-08-24 22:39:22] [INFO   ] cogs.stats: 2018-08-24 19:39:24.028000: Multi#5331 in #bot-commands (Freezer Games): .buy diamond 10000000000000000
+[2018-08-24 22:39:24] [INFO   ] __main__: 2018-08-24 19:39:25.908000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:24] [INFO   ] cogs.stats: 2018-08-24 19:39:25.908000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:25] [INFO   ] __main__: 2018-08-24 19:39:26.285000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:25] [INFO   ] cogs.stats: 2018-08-24 19:39:26.285000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:28] [INFO   ] __main__: 2018-08-24 19:39:30.090000: Daddy Derrick in #bot-commands (Freezer Games): .slots 10000000000000000000000
+[2018-08-24 22:39:28] [INFO   ] cogs.stats: 2018-08-24 19:39:30.090000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 10000000000000000000000
+[2018-08-24 22:39:28] [INFO   ] __main__: 2018-08-24 19:39:30.033000: VVDGF in #bot-commands (Freezer Games): .slots 9292939393993
+[2018-08-24 22:39:28] [INFO   ] cogs.stats: 2018-08-24 19:39:30.033000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 9292939393993
+[2018-08-24 22:39:30] [INFO   ] __main__: 2018-08-24 19:39:31.249000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:30] [INFO   ] cogs.stats: 2018-08-24 19:39:31.249000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:32] [INFO   ] __main__: 2018-08-24 19:39:34.050000: VVDGF in #bot-commands (Freezer Games): .slots 9393993939393
+[2018-08-24 22:39:32] [INFO   ] cogs.stats: 2018-08-24 19:39:34.050000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 9393993939393
+[2018-08-24 22:39:36] [INFO   ] __main__: 2018-08-24 19:39:37.651000: VVDGF in #bot-commands (Freezer Games): .slots 3393939938383
+[2018-08-24 22:39:36] [INFO   ] cogs.stats: 2018-08-24 19:39:37.651000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 3393939938383
+[2018-08-24 22:39:36] [INFO   ] __main__: 2018-08-24 19:39:37.932000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:36] [INFO   ] cogs.stats: 2018-08-24 19:39:37.932000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:39] [INFO   ] __main__: 2018-08-24 19:39:40.901000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:39] [INFO   ] cogs.stats: 2018-08-24 19:39:40.901000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:39] [INFO   ] __main__: 2018-08-24 19:39:41.173000: VVDGF in #bot-commands (Freezer Games): .slots 39383838388438
+[2018-08-24 22:39:39] [INFO   ] cogs.stats: 2018-08-24 19:39:41.173000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 39383838388438
+[2018-08-24 22:39:41] [INFO   ] __main__: 2018-08-24 19:39:42.708000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:41] [INFO   ] cogs.stats: 2018-08-24 19:39:42.708000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:43] [INFO   ] __main__: 2018-08-24 19:39:44.876000: VVDGF in #bot-commands (Freezer Games): .slots 39393939393939
+[2018-08-24 22:39:43] [INFO   ] cogs.stats: 2018-08-24 19:39:44.876000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 39393939393939
+[2018-08-24 22:39:47] [INFO   ] __main__: 2018-08-24 19:39:48.628000: Multi in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000000000000
+[2018-08-24 22:39:47] [INFO   ] cogs.stats: 2018-08-24 19:39:48.628000: Multi#5331 in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000000000000
+[2018-08-24 22:39:47] [INFO   ] __main__: 2018-08-24 19:39:49.097000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:47] [INFO   ] cogs.stats: 2018-08-24 19:39:49.097000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:48] [INFO   ] __main__: 2018-08-24 19:39:49.608000: VVDGF in #bot-commands (Freezer Games): .slots 39294720473047037520752074
+[2018-08-24 22:39:48] [INFO   ] cogs.stats: 2018-08-24 19:39:49.608000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 39294720473047037520752074
+[2018-08-24 22:39:50] [INFO   ] __main__: 2018-08-24 19:39:51.368000: Daddy Derrick in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000000
+[2018-08-24 22:39:50] [INFO   ] cogs.stats: 2018-08-24 19:39:51.368000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000000
+[2018-08-24 22:39:50] [INFO   ] __main__: 2018-08-24 19:39:51.569000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:50] [INFO   ] cogs.stats: 2018-08-24 19:39:51.569000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:52] [INFO   ] __main__: 2018-08-24 19:39:53.731000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:52] [INFO   ] cogs.stats: 2018-08-24 19:39:53.731000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:55] [INFO   ] __main__: 2018-08-24 19:39:56.227000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:55] [INFO   ] cogs.stats: 2018-08-24 19:39:56.227000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:57] [INFO   ] __main__: 2018-08-24 19:39:58.756000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:57] [INFO   ] cogs.stats: 2018-08-24 19:39:58.756000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:39:57] [INFO   ] __main__: 2018-08-24 19:39:58.940000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:57] [INFO   ] cogs.stats: 2018-08-24 19:39:58.940000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:59] [INFO   ] __main__: 2018-08-24 19:40:01.050000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:39:59] [INFO   ] cogs.stats: 2018-08-24 19:40:01.050000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:40:00] [INFO   ] __main__: 2018-08-24 19:40:01.815000: VVDGF in #bot-commands (Freezer Games): .slots 9382938383838484848382838
+[2018-08-24 22:40:00] [INFO   ] cogs.stats: 2018-08-24 19:40:01.815000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 9382938383838484848382838
+[2018-08-24 22:40:02] [INFO   ] __main__: 2018-08-24 19:40:03.361000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:40:02] [INFO   ] cogs.stats: 2018-08-24 19:40:03.361000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 40363437621164113920
+[2018-08-24 22:40:05] [INFO   ] __main__: 2018-08-24 19:40:06.754000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:40:05] [INFO   ] cogs.stats: 2018-08-24 19:40:06.754000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:40:09] [INFO   ] __main__: 2018-08-24 19:40:11.010000: VVDGF in #bot-commands (Freezer Games): .slots 292830272074027401(402(402749274373
+[2018-08-24 22:40:09] [INFO   ] cogs.stats: 2018-08-24 19:40:11.010000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 292830272074027401(402(402749274373
+[2018-08-24 22:40:14] [INFO   ] __main__: 2018-08-24 19:40:15.872000: VVDGF in #bot-commands (Freezer Games): .slots 393838#88#828282
+[2018-08-24 22:40:14] [INFO   ] cogs.stats: 2018-08-24 19:40:15.872000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 393838#88#828282
+[2018-08-24 22:40:16] [INFO   ] __main__: 2018-08-24 19:40:17.955000: Multi in #bot-commands (Freezer Games): .slots 100000000000000000000000000000000000000000000
+[2018-08-24 22:40:16] [INFO   ] cogs.stats: 2018-08-24 19:40:17.955000: Multi#5331 in #bot-commands (Freezer Games): .slots 100000000000000000000000000000000000000000000
+[2018-08-24 22:40:18] [INFO   ] __main__: 2018-08-24 19:40:19.984000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 95049595342285513067376808310599138777497
+[2018-08-24 22:40:18] [INFO   ] cogs.stats: 2018-08-24 19:40:19.984000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 95049595342285513067376808310599138777497
+[2018-08-24 22:40:19] [INFO   ] __main__: 2018-08-24 19:40:20.905000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:19] [INFO   ] cogs.stats: 2018-08-24 19:40:20.905000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:21] [INFO   ] __main__: 2018-08-24 19:40:22.304000: VVDGF in #bot-commands (Freezer Games): .slots 3833883838383838383838383838383838838383388383
+[2018-08-24 22:40:21] [INFO   ] cogs.stats: 2018-08-24 19:40:22.304000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 3833883838383838383838383838383838838383388383
+[2018-08-24 22:40:25] [INFO   ] __main__: 2018-08-24 19:40:26.518000: Daddy Derrick in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000
+[2018-08-24 22:40:25] [INFO   ] cogs.stats: 2018-08-24 19:40:26.518000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000
+[2018-08-24 22:40:26] [INFO   ] __main__: 2018-08-24 19:40:27.336000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:26] [INFO   ] cogs.stats: 2018-08-24 19:40:27.336000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:29] [INFO   ] __main__: 2018-08-24 19:40:30.357000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:29] [INFO   ] cogs.stats: 2018-08-24 19:40:30.357000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:30] [INFO   ] __main__: 2018-08-24 19:40:31.768000: VVDGF in #bot-commands (Freezer Games): .slots 938338383883838383
+[2018-08-24 22:40:30] [INFO   ] cogs.stats: 2018-08-24 19:40:31.768000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 938338383883838383
+[2018-08-24 22:40:31] [INFO   ] __main__: 2018-08-24 19:40:32.324000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:40:31] [INFO   ] cogs.stats: 2018-08-24 19:40:32.324000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:40:33] [INFO   ] __main__: 2018-08-24 19:40:34.788000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:40:33] [INFO   ] cogs.stats: 2018-08-24 19:40:34.788000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:40:34] [INFO   ] __main__: 2018-08-24 19:40:35.642000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:34] [INFO   ] cogs.stats: 2018-08-24 19:40:35.642000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:35] [INFO   ] __main__: 2018-08-24 19:40:35.924000: iWeeti in #bot-commands (Freezer Games): -.about
+[2018-08-24 22:40:35] [INFO   ] cogs.stats: 2018-08-24 19:40:35.924000: iWeeti#4990 in #bot-commands (Freezer Games): -.about
+[2018-08-24 22:40:37] [INFO   ] __main__: 2018-08-24 19:40:38.409000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:40:37] [INFO   ] cogs.stats: 2018-08-24 19:40:38.409000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:40:41] [INFO   ] __main__: 2018-08-24 19:40:42.699000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots You have 13995049595342285513067376808310599138777497
+[2018-08-24 22:40:41] [INFO   ] cogs.stats: 2018-08-24 19:40:42.699000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots You have 13995049595342285513067376808310599138777497
+[2018-08-24 22:40:41] [INFO   ] __main__: 2018-08-24 19:40:42.784000: Daddy Derrick in #bot-commands (Freezer Games): .slots 666666666666666666666666666666
+[2018-08-24 22:40:41] [INFO   ] cogs.stats: 2018-08-24 19:40:42.784000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 666666666666666666666666666666
+[2018-08-24 22:40:41] [INFO   ] __main__: 2018-08-24 19:40:42.860000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:40:41] [INFO   ] cogs.stats: 2018-08-24 19:40:42.860000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:40:51] [INFO   ] __main__: 2018-08-24 19:40:52.958000: Daddy Derrick in #bot-commands (Freezer Games): .slots 100000000000000000000000000
+[2018-08-24 22:40:51] [INFO   ] cogs.stats: 2018-08-24 19:40:52.958000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 100000000000000000000000000
+[2018-08-24 22:40:55] [INFO   ] __main__: 2018-08-24 19:40:56.528000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:55] [INFO   ] cogs.stats: 2018-08-24 19:40:56.528000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:40:59] [INFO   ] __main__: 2018-08-24 19:41:00.405000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1000000000000000000000000000000
+[2018-08-24 22:40:59] [INFO   ] cogs.stats: 2018-08-24 19:41:00.405000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1000000000000000000000000000000
+[2018-08-24 22:41:05] [INFO   ] __main__: 2018-08-24 19:41:06.186000: Daddy Derrick in #bot-commands (Freezer Games): .slots 3163000999999909433753619737184886331
+[2018-08-24 22:41:05] [INFO   ] cogs.stats: 2018-08-24 19:41:06.186000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 3163000999999909433753619737184886331
+[2018-08-24 22:41:09] [INFO   ] __main__: 2018-08-24 19:41:10.843000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots  139950495953422855130673768083105991387774976
+[2018-08-24 22:41:09] [INFO   ] cogs.stats: 2018-08-24 19:41:10.843000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots  139950495953422855130673768083105991387774976
+[2018-08-24 22:41:10] [INFO   ] __main__: 2018-08-24 19:41:11.868000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:10] [INFO   ] cogs.stats: 2018-08-24 19:41:11.868000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:11] [INFO   ] __main__: 2018-08-24 19:41:12.940000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:11] [INFO   ] cogs.stats: 2018-08-24 19:41:12.940000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:17] [INFO   ] __main__: 2018-08-24 19:41:18.977000: Multi in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000000000000
+[2018-08-24 22:41:17] [INFO   ] cogs.stats: 2018-08-24 19:41:18.977000: Multi#5331 in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000000000000
+[2018-08-24 22:41:19] [INFO   ] __main__: 2018-08-24 19:41:20.883000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:19] [INFO   ] cogs.stats: 2018-08-24 19:41:20.883000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:20] [INFO   ] __main__: 2018-08-24 19:41:22.084000: iWeeti in #bot-commands (Freezer Games): -.slots
+[2018-08-24 22:41:20] [INFO   ] cogs.stats: 2018-08-24 19:41:22.084000: iWeeti#4990 in #bot-commands (Freezer Games): -.slots
+[2018-08-24 22:41:21] [INFO   ] __main__: 2018-08-24 19:41:22.772000: iWeeti in #bot-commands (Freezer Games): -.slots
+[2018-08-24 22:41:21] [INFO   ] cogs.stats: 2018-08-24 19:41:22.772000: iWeeti#4990 in #bot-commands (Freezer Games): -.slots
+[2018-08-24 22:41:25] [INFO   ] __main__: 2018-08-24 19:41:26.686000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:41:25] [INFO   ] cogs.stats: 2018-08-24 19:41:26.686000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:41:28] [INFO   ] __main__: 2018-08-24 19:41:29.198000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:41:28] [INFO   ] cogs.stats: 2018-08-24 19:41:29.198000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:41:29] [INFO   ] __main__: 2018-08-24 19:41:30.541000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:41:29] [INFO   ] cogs.stats: 2018-08-24 19:41:30.541000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:41:31] [INFO   ] __main__: 2018-08-24 19:41:32.842000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:41:31] [INFO   ] cogs.stats: 2018-08-24 19:41:32.842000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:41:35] [INFO   ] __main__: 2018-08-24 19:41:36.261000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:41:35] [INFO   ] cogs.stats: 2018-08-24 19:41:36.261000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:41:36] [INFO   ] __main__: 2018-08-24 19:41:37.882000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:36] [INFO   ] cogs.stats: 2018-08-24 19:41:37.882000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:37] [INFO   ] __main__: 2018-08-24 19:41:38.377000: Bennygoku Roblox in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:41:37] [INFO   ] cogs.stats: 2018-08-24 19:41:38.377000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:41:38] [INFO   ] __main__: 2018-08-24 19:41:39.984000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:41:38] [INFO   ] cogs.stats: 2018-08-24 19:41:39.984000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:41:40] [INFO   ] __main__: 2018-08-24 19:41:41.836000: VVDGF in #bot-commands (Freezer Games): .slots 98383838383838383838
+[2018-08-24 22:41:40] [INFO   ] cogs.stats: 2018-08-24 19:41:41.836000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 98383838383838383838
+[2018-08-24 22:41:41] [INFO   ] __main__: 2018-08-24 19:41:42.915000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:41:41] [INFO   ] cogs.stats: 2018-08-24 19:41:42.915000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:41:42] [INFO   ] __main__: 2018-08-24 19:41:44.161000: Multi in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000000000000
+[2018-08-24 22:41:42] [INFO   ] cogs.stats: 2018-08-24 19:41:44.161000: Multi#5331 in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000000000000
+[2018-08-24 22:41:45] [INFO   ] __main__: 2018-08-24 19:41:47.085000: Daddy Derrick in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:41:45] [INFO   ] cogs.stats: 2018-08-24 19:41:47.085000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:41:46] [INFO   ] __main__: 2018-08-24 19:41:47.257000: VVDGF in #bot-commands (Freezer Games): .slots 398383838383838
+[2018-08-24 22:41:46] [INFO   ] cogs.stats: 2018-08-24 19:41:47.257000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 398383838383838
+[2018-08-24 22:41:46] [INFO   ] __main__: 2018-08-24 19:41:47.689000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800000
+[2018-08-24 22:41:46] [INFO   ] cogs.stats: 2018-08-24 19:41:47.689000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800000
+[2018-08-24 22:41:47] [INFO   ] __main__: 2018-08-24 19:41:48.392000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:47] [INFO   ] cogs.stats: 2018-08-24 19:41:48.392000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:41:52] [INFO   ] __main__: 2018-08-24 19:41:53.860000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080000
+[2018-08-24 22:41:52] [INFO   ] cogs.stats: 2018-08-24 19:41:53.860000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080000
+[2018-08-24 22:41:55] [INFO   ] __main__: 2018-08-24 19:41:55.937000: iWeeti in #bot-commands (Freezer Games): -.about
+[2018-08-24 22:41:55] [INFO   ] cogs.stats: 2018-08-24 19:41:55.937000: iWeeti#4990 in #bot-commands (Freezer Games): -.about
+[2018-08-24 22:41:55] [INFO   ] __main__: 2018-08-24 19:41:55.979000: VVDGF in #bot-commands (Freezer Games): .slots 39383838383838#9282929
+[2018-08-24 22:41:55] [INFO   ] cogs.stats: 2018-08-24 19:41:55.979000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 39383838383838#9282929
+[2018-08-24 22:41:56] [INFO   ] __main__: 2018-08-24 19:41:58.056000: AllanWiki in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:41:56] [INFO   ] cogs.stats: 2018-08-24 19:41:58.056000: AllanWiki#4226 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:41:59] [INFO   ] __main__: 2018-08-24 19:42:01.108000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:41:59] [INFO   ] cogs.stats: 2018-08-24 19:42:01.108000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:42:02] [INFO   ] __main__: 2018-08-24 19:42:03.976000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:42:02] [INFO   ] cogs.stats: 2018-08-24 19:42:03.976000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:42:10] [INFO   ] __main__: 2018-08-24 19:42:11.208000: VVDGF in #bot-commands (Freezer Games): .slots 93292883892924829
+[2018-08-24 22:42:10] [INFO   ] cogs.stats: 2018-08-24 19:42:11.208000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 93292883892924829
+[2018-08-24 22:42:13] [INFO   ] __main__: 2018-08-24 19:42:14.533000: Multi in #bot-commands (Freezer Games): .slots 44999999999999990104684192391631109445648384
+[2018-08-24 22:42:13] [INFO   ] cogs.stats: 2018-08-24 19:42:14.533000: Multi#5331 in #bot-commands (Freezer Games): .slots 44999999999999990104684192391631109445648384
+[2018-08-24 22:42:13] [INFO   ] __main__: 2018-08-24 19:42:14.574000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:42:13] [INFO   ] cogs.stats: 2018-08-24 19:42:14.574000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:42:14] [INFO   ] __main__: 2018-08-24 19:42:15.655000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:14] [INFO   ] cogs.stats: 2018-08-24 19:42:15.655000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:20] [INFO   ] __main__: 2018-08-24 19:42:21.921000: VVDGF in #bot-commands (Freezer Games): .slots 93939393393939939393939393939
+[2018-08-24 22:42:20] [INFO   ] cogs.stats: 2018-08-24 19:42:21.921000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 93939393393939939393939393939
+[2018-08-24 22:42:24] [INFO   ] __main__: 2018-08-24 19:42:25.861000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:24] [INFO   ] cogs.stats: 2018-08-24 19:42:25.861000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:25] [INFO   ] __main__: 2018-08-24 19:42:26.888000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:25] [INFO   ] cogs.stats: 2018-08-24 19:42:26.888000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:27] [INFO   ] __main__: 2018-08-24 19:42:28.688000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:27] [INFO   ] cogs.stats: 2018-08-24 19:42:28.688000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:34] [INFO   ] __main__: 2018-08-24 19:42:35.638000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:42:34] [INFO   ] cogs.stats: 2018-08-24 19:42:35.638000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:42:38] [INFO   ] __main__: 2018-08-24 19:42:39.190000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:38] [INFO   ] cogs.stats: 2018-08-24 19:42:39.190000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:42] [INFO   ] __main__: 2018-08-24 19:42:43.970000: VVDGF in #bot-commands (Freezer Games): .slots 293838383883838384948494939393939393939
+[2018-08-24 22:42:42] [INFO   ] cogs.stats: 2018-08-24 19:42:43.970000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 293838383883838384948494939393939393939
+[2018-08-24 22:42:51] [INFO   ] __main__: 2018-08-24 19:42:52.496000: VVDGF in #bot-commands (Freezer Games): .slots 939293929294928492839283928383
+[2018-08-24 22:42:51] [INFO   ] cogs.stats: 2018-08-24 19:42:52.496000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 939293929294928492839283928383
+[2018-08-24 22:42:52] [INFO   ] __main__: 2018-08-24 19:42:53.788000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:42:52] [INFO   ] cogs.stats: 2018-08-24 19:42:53.788000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:42:53] [INFO   ] __main__: 2018-08-24 19:42:54.557000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:42:53] [INFO   ] cogs.stats: 2018-08-24 19:42:54.557000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:42:54] [INFO   ] __main__: 2018-08-24 19:42:55.481000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:54] [INFO   ] cogs.stats: 2018-08-24 19:42:55.481000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:42:55] [INFO   ] __main__: 2018-08-24 19:42:56.930000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:42:55] [INFO   ] cogs.stats: 2018-08-24 19:42:56.930000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:42:58] [INFO   ] __main__: 2018-08-24 19:42:59.151000: Multi in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>
+[2018-08-24 22:42:58] [INFO   ] cogs.stats: 2018-08-24 19:42:59.151000: Multi#5331 in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>
+[2018-08-24 22:42:58] [INFO   ] __main__: 2018-08-24 19:42:59.448000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:42:58] [INFO   ] cogs.stats: 2018-08-24 19:42:59.448000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:43:02] [INFO   ] __main__: 2018-08-24 19:43:03.210000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:43:02] [INFO   ] cogs.stats: 2018-08-24 19:43:03.210000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:43:09] [INFO   ] __main__: 2018-08-24 19:43:11.028000: VVDGF in #bot-commands (Freezer Games): .slots 3939393939399393933993939393
+[2018-08-24 22:43:09] [INFO   ] cogs.stats: 2018-08-24 19:43:11.028000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 3939393939399393933993939393
+[2018-08-24 22:43:18] [INFO   ] __main__: 2018-08-24 19:43:19.116000: VVDGF in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>
+[2018-08-24 22:43:18] [INFO   ] cogs.stats: 2018-08-24 19:43:19.116000: VVDGF#9180 in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>
+[2018-08-24 22:43:20] [INFO   ] __main__: 2018-08-24 19:43:21.761000: Multi in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>plicativeYT
+[2018-08-24 22:43:20] [INFO   ] cogs.stats: 2018-08-24 19:43:21.761000: Multi#5331 in #bot-commands (Freezer Games): .givemoney 1 <@!254701846730506242>plicativeYT
+[2018-08-24 22:43:24] [INFO   ] __main__: 2018-08-24 19:43:25.753000: VVDGF in #bot-commands (Freezer Games): .slots 929293393983939393939393
+[2018-08-24 22:43:24] [INFO   ] cogs.stats: 2018-08-24 19:43:25.753000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 929293393983939393939393
+[2018-08-24 22:43:27] [INFO   ] __main__: 2018-08-24 19:43:28.867000: Bennygoku Roblox in #bot-commands (Freezer Games): .givemoney
+[2018-08-24 22:43:27] [INFO   ] cogs.stats: 2018-08-24 19:43:28.867000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .givemoney
+[2018-08-24 22:43:30] [INFO   ] __main__: 2018-08-24 19:43:31.853000: VVDGF in #bot-commands (Freezer Games): .slots 9393939393939393929923939393
+[2018-08-24 22:43:30] [INFO   ] cogs.stats: 2018-08-24 19:43:31.853000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 9393939393939393929923939393
+[2018-08-24 22:43:34] [INFO   ] __main__: 2018-08-24 19:43:35.556000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:43:34] [INFO   ] cogs.stats: 2018-08-24 19:43:35.556000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:43:34] [INFO   ] __main__: 2018-08-24 19:43:35.635000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:43:34] [INFO   ] cogs.stats: 2018-08-24 19:43:35.635000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:43:39] [INFO   ] __main__: 2018-08-24 19:43:40.625000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:43:39] [INFO   ] cogs.stats: 2018-08-24 19:43:40.625000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:43:48] [INFO   ] __main__: 2018-08-24 19:43:49.989000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:43:48] [INFO   ] cogs.stats: 2018-08-24 19:43:49.989000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:43:53] [INFO   ] __main__: 2018-08-24 19:43:54.904000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:43:53] [INFO   ] cogs.stats: 2018-08-24 19:43:54.904000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:43:57] [INFO   ] __main__: 2018-08-24 19:43:58.760000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:43:57] [INFO   ] cogs.stats: 2018-08-24 19:43:58.760000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:44:11] [INFO   ] __main__: 2018-08-24 19:44:12.446000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:44:11] [INFO   ] cogs.stats: 2018-08-24 19:44:12.446000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:44:12] [INFO   ] __main__: 2018-08-24 19:44:13.583000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:44:12] [INFO   ] cogs.stats: 2018-08-24 19:44:13.583000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:44:13] [INFO   ] __main__: 2018-08-24 19:44:14.284000: VVDGF in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:13] [INFO   ] cogs.stats: 2018-08-24 19:44:14.284000: VVDGF#9180 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:15] [INFO   ] __main__: 2018-08-24 19:44:16.789000: VVDGF in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:15] [INFO   ] cogs.stats: 2018-08-24 19:44:16.789000: VVDGF#9180 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:17] [INFO   ] __main__: 2018-08-24 19:44:18.473000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:44:17] [INFO   ] cogs.stats: 2018-08-24 19:44:18.473000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:44:17] [INFO   ] __main__: 2018-08-24 19:44:18.564000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080000
+[2018-08-24 22:44:17] [INFO   ] cogs.stats: 2018-08-24 19:44:18.564000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080000
+[2018-08-24 22:44:17] [INFO   ] __main__: 2018-08-24 19:44:18.708000: VVDGF in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:17] [INFO   ] cogs.stats: 2018-08-24 19:44:18.708000: VVDGF#9180 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:19] [INFO   ] __main__: 2018-08-24 19:44:20.434000: VVDGF in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:19] [INFO   ] cogs.stats: 2018-08-24 19:44:20.434000: VVDGF#9180 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:24] [INFO   ] __main__: 2018-08-24 19:44:25.264000: VVDGF in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:24] [INFO   ] cogs.stats: 2018-08-24 19:44:25.264000: VVDGF#9180 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:24] [INFO   ] __main__: 2018-08-24 19:44:25.956000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:24] [INFO   ] cogs.stats: 2018-08-24 19:44:25.956000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:25] [INFO   ] __main__: 2018-08-24 19:44:26.233000: VVDGF in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:25] [INFO   ] cogs.stats: 2018-08-24 19:44:26.233000: VVDGF#9180 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:25] [INFO   ] __main__: 2018-08-24 19:44:27.050000: VVDGF in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:25] [INFO   ] cogs.stats: 2018-08-24 19:44:27.050000: VVDGF#9180 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:26] [INFO   ] __main__: 2018-08-24 19:44:27.235000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:26] [INFO   ] cogs.stats: 2018-08-24 19:44:27.235000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:26] [INFO   ] __main__: 2018-08-24 19:44:27.776000: VVDGF in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:26] [INFO   ] cogs.stats: 2018-08-24 19:44:27.776000: VVDGF#9180 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:27] [INFO   ] __main__: 2018-08-24 19:44:28.680000: VVDGF in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:27] [INFO   ] cogs.stats: 2018-08-24 19:44:28.680000: VVDGF#9180 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:44:27] [INFO   ] __main__: 2018-08-24 19:44:28.926000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:27] [INFO   ] cogs.stats: 2018-08-24 19:44:28.926000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:28] [INFO   ] __main__: 2018-08-24 19:44:29.840000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 13995049595342285513067376808310599138777497699
+[2018-08-24 22:44:28] [INFO   ] cogs.stats: 2018-08-24 19:44:29.840000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 13995049595342285513067376808310599138777497699
+[2018-08-24 22:44:28] [INFO   ] __main__: 2018-08-24 19:44:30.069000: VVDGF in #bot-commands (Freezer Games): .slots .slots
+[2018-08-24 22:44:28] [INFO   ] cogs.stats: 2018-08-24 19:44:30.069000: VVDGF#9180 in #bot-commands (Freezer Games): .slots .slots
+[2018-08-24 22:44:31] [INFO   ] __main__: 2018-08-24 19:44:32.679000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:31] [INFO   ] cogs.stats: 2018-08-24 19:44:32.679000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:33] [INFO   ] __main__: 2018-08-24 19:44:34.222000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:33] [INFO   ] cogs.stats: 2018-08-24 19:44:34.222000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:34] [INFO   ] __main__: 2018-08-24 19:44:35.491000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:44:34] [INFO   ] cogs.stats: 2018-08-24 19:44:35.491000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:44:35] [INFO   ] __main__: 2018-08-24 19:44:36.303000: VVDGF in #bot-commands (Freezer Games): .slots 038393838383838383838393939393839
+[2018-08-24 22:44:35] [INFO   ] cogs.stats: 2018-08-24 19:44:36.303000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 038393838383838383838393939393839
+[2018-08-24 22:44:35] [INFO   ] __main__: 2018-08-24 19:44:36.625000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:35] [INFO   ] cogs.stats: 2018-08-24 19:44:36.625000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:38] [INFO   ] __main__: 2018-08-24 19:44:40.088000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:38] [INFO   ] cogs.stats: 2018-08-24 19:44:40.088000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:39] [INFO   ] __main__: 2018-08-24 19:44:41.001000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:44:39] [INFO   ] cogs.stats: 2018-08-24 19:44:41.001000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:44:40] [INFO   ] __main__: 2018-08-24 19:44:41.363000: VVDGF in #bot-commands (Freezer Games): .money
+[2018-08-24 22:44:40] [INFO   ] cogs.stats: 2018-08-24 19:44:41.363000: VVDGF#9180 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:44:42] [INFO   ] __main__: 2018-08-24 19:44:43.956000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:42] [INFO   ] cogs.stats: 2018-08-24 19:44:43.956000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:44:50] [INFO   ] __main__: 2018-08-24 19:44:51.653000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:44:50] [INFO   ] cogs.stats: 2018-08-24 19:44:51.653000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:44:50] [INFO   ] __main__: 2018-08-24 19:44:51.750000: Daddy Derrick in #bot-commands (Freezer Games): .profile
+[2018-08-24 22:44:50] [INFO   ] cogs.stats: 2018-08-24 19:44:51.750000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .profile
+[2018-08-24 22:44:53] [INFO   ] __main__: 2018-08-24 19:44:54.426000: Daddy Derrick in #bot-commands (Freezer Games): .slots 183274627836
+[2018-08-24 22:44:53] [INFO   ] cogs.stats: 2018-08-24 19:44:54.426000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 183274627836
+[2018-08-24 22:44:55] [INFO   ] __main__: 2018-08-24 19:44:56.856000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:44:55] [INFO   ] cogs.stats: 2018-08-24 19:44:56.856000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:44:56] [INFO   ] __main__: 2018-08-24 19:44:57.535000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980
+[2018-08-24 22:44:56] [INFO   ] cogs.stats: 2018-08-24 19:44:57.535000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980
+[2018-08-24 22:44:59] [INFO   ] __main__: 2018-08-24 19:45:00.278000: Daddy Derrick in #bot-commands (Freezer Games): .kill <@!429034660920557579>
+[2018-08-24 22:44:59] [INFO   ] cogs.stats: 2018-08-24 19:45:00.278000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .kill <@!429034660920557579>
+[2018-08-24 22:45:00] [INFO   ] __main__: 2018-08-24 19:45:01.595000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:00] [INFO   ] cogs.stats: 2018-08-24 19:45:01.595000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:00] [INFO   ] __main__: 2018-08-24 19:45:01.753000: VVDGF in #bot-commands (Freezer Games): .slots 3938838383939393928383838383838383883
+[2018-08-24 22:45:00] [INFO   ] cogs.stats: 2018-08-24 19:45:01.753000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 3938838383939393928383838383838383883
+[2018-08-24 22:45:02] [INFO   ] __main__: 2018-08-24 19:45:03.436000: Daddy Derrick in #bot-commands (Freezer Games): .mine
+[2018-08-24 22:45:02] [INFO   ] cogs.stats: 2018-08-24 19:45:03.436000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .mine
+[2018-08-24 22:45:03] [INFO   ] __main__: 2018-08-24 19:45:04.391000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:45:03] [INFO   ] cogs.stats: 2018-08-24 19:45:04.391000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:45:03] [INFO   ] __main__: 2018-08-24 19:45:04.525000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:03] [INFO   ] cogs.stats: 2018-08-24 19:45:04.525000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:03] [INFO   ] __main__: 2018-08-24 19:45:04.698000: Daddy Derrick in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:45:03] [INFO   ] cogs.stats: 2018-08-24 19:45:04.698000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:45:06] [INFO   ] __main__: 2018-08-24 19:45:07.871000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:06] [INFO   ] cogs.stats: 2018-08-24 19:45:07.871000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:06] [INFO   ] __main__: 2018-08-24 19:45:08.093000: VVDGF in #bot-commands (Freezer Games): .slots 93838383838383838388382929393838383
+[2018-08-24 22:45:06] [INFO   ] cogs.stats: 2018-08-24 19:45:08.093000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 93838383838383838388382929393838383
+[2018-08-24 22:45:09] [INFO   ] __main__: 2018-08-24 19:45:11.067000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:09] [INFO   ] cogs.stats: 2018-08-24 19:45:11.067000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:10] [INFO   ] __main__: 2018-08-24 19:45:11.531000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:45:10] [INFO   ] cogs.stats: 2018-08-24 19:45:11.531000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 139950495953422855130673768083105991387774976
+[2018-08-24 22:45:11] [INFO   ] __main__: 2018-08-24 19:45:12.249000: Daddy Derrick in #bot-commands (Freezer Games): .slots 100000000000000000000000000000000
+[2018-08-24 22:45:11] [INFO   ] cogs.stats: 2018-08-24 19:45:12.249000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 100000000000000000000000000000000
+[2018-08-24 22:45:11] [INFO   ] __main__: 2018-08-24 19:45:12.411000: VVDGF in #bot-commands (Freezer Games): .slots 833883838383838384838292929483
+[2018-08-24 22:45:11] [INFO   ] cogs.stats: 2018-08-24 19:45:12.411000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 833883838383838384838292929483
+[2018-08-24 22:45:13] [INFO   ] __main__: 2018-08-24 19:45:14.328000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:13] [INFO   ] cogs.stats: 2018-08-24 19:45:14.328000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:14] [INFO   ] __main__: 2018-08-24 19:45:15.901000: VVDGF in #bot-commands (Freezer Games): .slots 3838383838838383838383
+[2018-08-24 22:45:14] [INFO   ] cogs.stats: 2018-08-24 19:45:15.901000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 3838383838838383838383
+[2018-08-24 22:45:15] [INFO   ] __main__: 2018-08-24 19:45:16.522000: iWeeti in #testing-1 (Discord Bot List): -.slots 119283712983719
+[2018-08-24 22:45:15] [INFO   ] cogs.stats: 2018-08-24 19:45:16.522000: iWeeti#4990 in #testing-1 (Discord Bot List): -.slots 119283712983719
+[2018-08-24 22:45:15] [INFO   ] __main__: 2018-08-24 19:45:17.142000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:45:15] [INFO   ] cogs.stats: 2018-08-24 19:45:17.142000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:45:18] [INFO   ] __main__: 2018-08-24 19:45:19.439000: VVDGF in #bot-commands (Freezer Games): .slots 38388383838383838383939399393
+[2018-08-24 22:45:18] [INFO   ] cogs.stats: 2018-08-24 19:45:19.439000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 38388383838383838383939399393
+[2018-08-24 22:45:18] [INFO   ] __main__: 2018-08-24 19:45:19.901000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:18] [INFO   ] cogs.stats: 2018-08-24 19:45:19.901000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:20] [INFO   ] __main__: 2018-08-24 19:45:21.921000: iWeeti in #testing-1 (Discord Bot List): -.slots 129837129837129837192837198
+[2018-08-24 22:45:20] [INFO   ] cogs.stats: 2018-08-24 19:45:21.921000: iWeeti#4990 in #testing-1 (Discord Bot List): -.slots 129837129837129837192837198
+[2018-08-24 22:45:21] [INFO   ] __main__: 2018-08-24 19:45:22.878000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:21] [INFO   ] cogs.stats: 2018-08-24 19:45:22.878000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:21] [INFO   ] __main__: 2018-08-24 19:45:23.088000: VVDGF in #bot-commands (Freezer Games): .slots 3839393983928492742974927492
+[2018-08-24 22:45:21] [INFO   ] cogs.stats: 2018-08-24 19:45:23.088000: VVDGF#9180 in #bot-commands (Freezer Games): .slots 3839393983928492742974927492
+[2018-08-24 22:45:22] [INFO   ] __main__: 2018-08-24 19:45:23.915000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1000000000000000000000000000000000000
+[2018-08-24 22:45:22] [INFO   ] cogs.stats: 2018-08-24 19:45:23.915000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1000000000000000000000000000000000000
+[2018-08-24 22:45:28] [INFO   ] __main__: 2018-08-24 19:45:29.665000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1934824294723472843234
+[2018-08-24 22:45:28] [INFO   ] cogs.stats: 2018-08-24 19:45:29.665000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1934824294723472843234
+[2018-08-24 22:45:29] [INFO   ] __main__: 2018-08-24 19:45:30.753000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:29] [INFO   ] cogs.stats: 2018-08-24 19:45:30.753000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:34] [INFO   ] __main__: 2018-08-24 19:45:35.620000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:45:34] [INFO   ] cogs.stats: 2018-08-24 19:45:35.620000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:45:35] [INFO   ] __main__: 2018-08-24 19:45:36.270000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:35] [INFO   ] cogs.stats: 2018-08-24 19:45:36.270000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:35] [INFO   ] __main__: 2018-08-24 19:45:36.972000: iWeeti in #testing-1 (Discord Bot List): -.slots 12345678901234567890
+[2018-08-24 22:45:35] [INFO   ] cogs.stats: 2018-08-24 19:45:36.972000: iWeeti#4990 in #testing-1 (Discord Bot List): -.slots 12345678901234567890
+[2018-08-24 22:45:36] [INFO   ] __main__: 2018-08-24 19:45:37.540000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1000000000000000000000
+[2018-08-24 22:45:36] [INFO   ] cogs.stats: 2018-08-24 19:45:37.540000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1000000000000000000000
+[2018-08-24 22:45:38] [INFO   ] __main__: 2018-08-24 19:45:39.872000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:38] [INFO   ] cogs.stats: 2018-08-24 19:45:39.872000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:45:42] [INFO   ] __main__: 2018-08-24 19:45:43.226000: LxgaN in #testing-1 (Discord Bot List): -.slots 9e+99
+[2018-08-24 22:45:42] [INFO   ] cogs.stats: 2018-08-24 19:45:43.226000: LxgaN#9568 in #testing-1 (Discord Bot List): -.slots 9e+99
+[2018-08-24 22:45:42] [INFO   ] __main__: 2018-08-24 19:45:44.036000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:45:42] [INFO   ] cogs.stats: 2018-08-24 19:45:44.036000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:45:43] [INFO   ] __main__: 2018-08-24 19:45:44.973000: Daddy Derrick in #bot-commands (Freezer Games): .slots 66666666666666666666666666
+[2018-08-24 22:45:43] [INFO   ] cogs.stats: 2018-08-24 19:45:44.973000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 66666666666666666666666666
+[2018-08-24 22:45:45] [INFO   ] __main__: 2018-08-24 19:45:46.761000: iWeeti in #testing-1 (Discord Bot List): -.slots 12345678901234567890
+[2018-08-24 22:45:45] [INFO   ] cogs.stats: 2018-08-24 19:45:46.761000: iWeeti#4990 in #testing-1 (Discord Bot List): -.slots 12345678901234567890
+[2018-08-24 22:45:45] [INFO   ] __main__: 2018-08-24 19:45:47.047000: Bakagain in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:45:45] [INFO   ] cogs.stats: 2018-08-24 19:45:47.047000: Bakagain#1844 in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:45:54] [INFO   ] __main__: 2018-08-24 19:45:55.328000: LxgaN in #testing-1 (Discord Bot List): -.slots 999999999999999999999999999999999
+[2018-08-24 22:45:54] [INFO   ] cogs.stats: 2018-08-24 19:45:55.328000: LxgaN#9568 in #testing-1 (Discord Bot List): -.slots 999999999999999999999999999999999
+[2018-08-24 22:45:55] [INFO   ] __main__: 2018-08-24 19:45:56.585000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 489921785432322272569794741466211982775549972
+[2018-08-24 22:45:55] [INFO   ] cogs.stats: 2018-08-24 19:45:56.585000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 489921785432322272569794741466211982775549972
+[2018-08-24 22:46:05] [INFO   ] __main__: 2018-08-24 19:46:06.485000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:46:05] [INFO   ] cogs.stats: 2018-08-24 19:46:06.485000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:46:11] [INFO   ] __main__: 2018-08-24 19:46:12.437000: Bakagain in #testing-1 (Discord Bot List): -.profile
+[2018-08-24 22:46:11] [INFO   ] cogs.stats: 2018-08-24 19:46:12.437000: Bakagain#1844 in #testing-1 (Discord Bot List): -.profile
+[2018-08-24 22:46:12] [INFO   ] __main__: 2018-08-24 19:46:13.516000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:46:12] [INFO   ] cogs.stats: 2018-08-24 19:46:13.516000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:46:13] [INFO   ] __main__: 2018-08-24 19:46:14.194000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:46:13] [INFO   ] cogs.stats: 2018-08-24 19:46:14.194000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:46:21] [INFO   ] __main__: 2018-08-24 19:46:22.775000: SamuraiStacks in #testing-1 (Discord Bot List): -.slots 246913578024691357802469135780246913578024691357802469135780
+[2018-08-24 22:46:21] [INFO   ] cogs.stats: 2018-08-24 19:46:22.775000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.slots 246913578024691357802469135780246913578024691357802469135780
+[2018-08-24 22:46:28] [INFO   ] __main__: 2018-08-24 19:46:29.867000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:46:28] [INFO   ] cogs.stats: 2018-08-24 19:46:29.867000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:46:29] [INFO   ] __main__: 2018-08-24 19:46:30.114000: LxgaN in #testing-1 (Discord Bot List): -.slots 999999999999
+[2018-08-24 22:46:29] [INFO   ] cogs.stats: 2018-08-24 19:46:30.114000: LxgaN#9568 in #testing-1 (Discord Bot List): -.slots 999999999999
+[2018-08-24 22:46:33] [INFO   ] __main__: 2018-08-24 19:46:34.910000: LxgaN in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:46:33] [INFO   ] cogs.stats: 2018-08-24 19:46:34.910000: LxgaN#9568 in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:46:37] [INFO   ] __main__: 2018-08-24 19:46:38.942000: Multi in #bot-commands (Freezer Games): .slots 1
+[2018-08-24 22:46:37] [INFO   ] cogs.stats: 2018-08-24 19:46:38.942000: Multi#5331 in #bot-commands (Freezer Games): .slots 1
+[2018-08-24 22:46:39] [INFO   ] __main__: 2018-08-24 19:46:40.706000: SamuraiStacks in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:46:39] [INFO   ] cogs.stats: 2018-08-24 19:46:40.706000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:46:47] [INFO   ] __main__: 2018-08-24 19:46:48.928000: Bennygoku Roblox in #bot-commands (Freezer Games): .givemoney 2 <@254701846730506242>
+[2018-08-24 22:46:47] [INFO   ] cogs.stats: 2018-08-24 19:46:48.928000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .givemoney 2 <@254701846730506242>
+[2018-08-24 22:46:48] [INFO   ] __main__: 2018-08-24 19:46:49.301000: Multi in #bot-commands (Freezer Games): .kill <@460846291300122635>
+[2018-08-24 22:46:48] [INFO   ] cogs.stats: 2018-08-24 19:46:49.301000: Multi#5331 in #bot-commands (Freezer Games): .kill <@460846291300122635>
+[2018-08-24 22:46:48] [INFO   ] __main__: 2018-08-24 19:46:49.922000: Bakagain in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:46:48] [INFO   ] cogs.stats: 2018-08-24 19:46:49.922000: Bakagain#1844 in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:46:49] [INFO   ] __main__: 2018-08-24 19:46:51.077000: SamuraiStacks in #testing-1 (Discord Bot List): -.slots 1158
+[2018-08-24 22:46:49] [INFO   ] cogs.stats: 2018-08-24 19:46:51.077000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.slots 1158
+[2018-08-24 22:46:50] [INFO   ] __main__: 2018-08-24 19:46:51.291000: Multi in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:46:50] [INFO   ] cogs.stats: 2018-08-24 19:46:51.291000: Multi#5331 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:46:52] [INFO   ] __main__: 2018-08-24 19:46:53.957000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:46:52] [INFO   ] cogs.stats: 2018-08-24 19:46:53.957000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:46:52] [INFO   ] __main__: 2018-08-24 19:46:54.006000: iWeeti in #testing-1 (Discord Bot List): -.money
+[2018-08-24 22:46:52] [INFO   ] cogs.stats: 2018-08-24 19:46:54.006000: iWeeti#4990 in #testing-1 (Discord Bot List): -.money
+[2018-08-24 22:46:58] [INFO   ] __main__: 2018-08-24 19:46:59.265000: SamuraiStacks in #testing-1 (Discord Bot List): -.slots 1158
+[2018-08-24 22:46:58] [INFO   ] cogs.stats: 2018-08-24 19:46:59.265000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.slots 1158
+[2018-08-24 22:47:03] [INFO   ] __main__: 2018-08-24 19:47:04.685000: SamuraiStacks in #testing-1 (Discord Bot List): -.slots 1158
+[2018-08-24 22:47:03] [INFO   ] cogs.stats: 2018-08-24 19:47:04.685000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.slots 1158
+[2018-08-24 22:47:10] [INFO   ] __main__: 2018-08-24 19:47:11.308000: SamuraiStacks in #testing-1 (Discord Bot List): -.slots 1150
+[2018-08-24 22:47:10] [INFO   ] cogs.stats: 2018-08-24 19:47:11.308000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.slots 1150
+[2018-08-24 22:47:13] [INFO   ] __main__: 2018-08-24 19:47:14.349000: iWeeti in #testing-1 (Discord Bot List): -.givemoney 213456719 <@342244480709296139>
+[2018-08-24 22:47:13] [INFO   ] cogs.stats: 2018-08-24 19:47:14.349000: iWeeti#4990 in #testing-1 (Discord Bot List): -.givemoney 213456719 <@342244480709296139>
+[2018-08-24 22:47:16] [INFO   ] __main__: 2018-08-24 19:47:17.591000: SamuraiStacks in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:47:16] [INFO   ] cogs.stats: 2018-08-24 19:47:17.591000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.balance
+[2018-08-24 22:47:28] [INFO   ] __main__: 2018-08-24 19:47:30.126000: LxgaN in #testing-1 (Discord Bot List): -.slots 213456719
+[2018-08-24 22:47:28] [INFO   ] cogs.stats: 2018-08-24 19:47:30.126000: LxgaN#9568 in #testing-1 (Discord Bot List): -.slots 213456719
+[2018-08-24 22:47:29] [INFO   ] __main__: 2018-08-24 19:47:30.308000: Bennygoku Roblox in #bot-commands (Freezer Games): .givemoney 33334444444  <@254701846730506242>
+[2018-08-24 22:47:29] [INFO   ] cogs.stats: 2018-08-24 19:47:30.308000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .givemoney 33334444444  <@254701846730506242>
+[2018-08-24 22:47:35] [INFO   ] __main__: 2018-08-24 19:47:36.917000: Daddy Derrick in #bot-commands (Freezer Games): .givemoney 100000000000000000000000000000000000 <@!254701846730506242>
+[2018-08-24 22:47:35] [INFO   ] cogs.stats: 2018-08-24 19:47:36.917000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .givemoney 100000000000000000000000000000000000 <@!254701846730506242>
+[2018-08-24 22:47:39] [INFO   ] __main__: 2018-08-24 19:47:40.371000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:47:39] [INFO   ] cogs.stats: 2018-08-24 19:47:40.371000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:47:39] [INFO   ] __main__: 2018-08-24 19:47:40.828000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:47:39] [INFO   ] cogs.stats: 2018-08-24 19:47:40.828000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:47:46] [INFO   ] __main__: 2018-08-24 19:47:47.487000: iWeeti in #testing-1 (Discord Bot List): -.loot
+[2018-08-24 22:47:46] [INFO   ] cogs.stats: 2018-08-24 19:47:47.487000: iWeeti#4990 in #testing-1 (Discord Bot List): -.loot
+[2018-08-24 22:47:46] [INFO   ] __main__: 2018-08-24 19:47:47.965000: Daddy Derrick in #bot-commands (Freezer Games): .slots 10000000000000000000
+[2018-08-24 22:47:46] [INFO   ] cogs.stats: 2018-08-24 19:47:47.965000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 10000000000000000000
+[2018-08-24 22:47:47] [INFO   ] __main__: 2018-08-24 19:47:48.957000: iWeeti in #testing-1 (Discord Bot List): -.daily
+[2018-08-24 22:47:47] [INFO   ] cogs.stats: 2018-08-24 19:47:48.957000: iWeeti#4990 in #testing-1 (Discord Bot List): -.daily
+[2018-08-24 22:47:51] [INFO   ] __main__: 2018-08-24 19:47:52.417000: Daddy Derrick in #bot-commands (Freezer Games): .slots 6666666666666666666666666
+[2018-08-24 22:47:51] [INFO   ] cogs.stats: 2018-08-24 19:47:52.417000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 6666666666666666666666666
+[2018-08-24 22:47:54] [INFO   ] __main__: 2018-08-24 19:47:55.602000: LxgaN in #testing-1 (Discord Bot List): -.loot
+[2018-08-24 22:47:54] [INFO   ] cogs.stats: 2018-08-24 19:47:55.602000: LxgaN#9568 in #testing-1 (Discord Bot List): -.loot
+[2018-08-24 22:48:00] [INFO   ] __main__: 2018-08-24 19:48:01.155000: LxgaN in #testing-1 (Discord Bot List): -.daily
+[2018-08-24 22:48:00] [INFO   ] cogs.stats: 2018-08-24 19:48:01.155000: LxgaN#9568 in #testing-1 (Discord Bot List): -.daily
+[2018-08-24 22:48:03] [INFO   ] __main__: 2018-08-24 19:48:04.658000: Daddy Derrick in #bot-commands (Freezer Games): .givemoney 100000000000000000000 <@!333479614686953473>
+[2018-08-24 22:48:03] [INFO   ] cogs.stats: 2018-08-24 19:48:04.658000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .givemoney 100000000000000000000 <@!333479614686953473>
+[2018-08-24 22:48:09] [INFO   ] __main__: 2018-08-24 19:48:10.196000: Multi in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000
+[2018-08-24 22:48:09] [INFO   ] cogs.stats: 2018-08-24 19:48:10.196000: Multi#5331 in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000000
+[2018-08-24 22:48:09] [INFO   ] __main__: 2018-08-24 19:48:10.663000: LxgaN in #testing-1 (Discord Bot List): -.daily
+[2018-08-24 22:48:09] [INFO   ] cogs.stats: 2018-08-24 19:48:10.663000: LxgaN#9568 in #testing-1 (Discord Bot List): -.daily
+[2018-08-24 22:48:11] [INFO   ] __main__: 2018-08-24 19:48:12.535000: Multi in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:48:11] [INFO   ] cogs.stats: 2018-08-24 19:48:12.535000: Multi#5331 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:48:11] [INFO   ] __main__: 2018-08-24 19:48:13.025000: SamuraiStacks in #testing-1 (Discord Bot List): -.daily
+[2018-08-24 22:48:11] [INFO   ] cogs.stats: 2018-08-24 19:48:13.025000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.daily
+[2018-08-24 22:48:12] [INFO   ] __main__: 2018-08-24 19:48:13.755000: Multi in #bot-commands (Freezer Games): .money
+[2018-08-24 22:48:12] [INFO   ] cogs.stats: 2018-08-24 19:48:13.755000: Multi#5331 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:48:16] [INFO   ] __main__: 2018-08-24 19:48:17.166000: SamuraiStacks in #testing-1 (Discord Bot List): -.loot
+[2018-08-24 22:48:16] [INFO   ] cogs.stats: 2018-08-24 19:48:17.166000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.loot
+[2018-08-24 22:48:20] [INFO   ] __main__: 2018-08-24 19:48:21.742000: SamuraiStacks in #testing-1 (Discord Bot List): -.mine
+[2018-08-24 22:48:20] [INFO   ] cogs.stats: 2018-08-24 19:48:21.742000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.mine
+[2018-08-24 22:48:24] [INFO   ] __main__: 2018-08-24 19:48:25.170000: Daddy Derrick in #bot-commands (Freezer Games): .slots 100000000000000000000000000000
+[2018-08-24 22:48:24] [INFO   ] cogs.stats: 2018-08-24 19:48:25.170000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 100000000000000000000000000000
+[2018-08-24 22:48:29] [INFO   ] __main__: 2018-08-24 19:48:30.258000: SamuraiStacks in #testing-1 (Discord Bot List): -.mine
+[2018-08-24 22:48:29] [INFO   ] cogs.stats: 2018-08-24 19:48:30.258000: SamuraiStacks#5873 in #testing-1 (Discord Bot List): -.mine
+[2018-08-24 22:48:29] [INFO   ] __main__: 2018-08-24 19:48:30.496000: Daddy Derrick in #bot-commands (Freezer Games): .kill <@!429034660920557579>
+[2018-08-24 22:48:29] [INFO   ] cogs.stats: 2018-08-24 19:48:30.496000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .kill <@!429034660920557579>
+[2018-08-24 22:48:34] [INFO   ] __main__: 2018-08-24 19:48:35.702000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:48:34] [INFO   ] cogs.stats: 2018-08-24 19:48:35.702000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:48:34] [INFO   ] __main__: 2018-08-24 19:48:35.743000: Daddy Derrick in #bot-commands (Freezer Games): .mine
+[2018-08-24 22:48:34] [INFO   ] cogs.stats: 2018-08-24 19:48:35.743000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .mine
+[2018-08-24 22:48:36] [INFO   ] __main__: 2018-08-24 19:48:37.707000: Daddy Derrick in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:48:36] [INFO   ] cogs.stats: 2018-08-24 19:48:37.707000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:48:37] [INFO   ] __main__: 2018-08-24 19:48:38.452000: Multi in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:48:37] [INFO   ] cogs.stats: 2018-08-24 19:48:38.452000: Multi#5331 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:48:39] [INFO   ] __main__: 2018-08-24 19:48:40.673000: Multi in #bot-commands (Freezer Games): .kill all
+[2018-08-24 22:48:39] [INFO   ] cogs.stats: 2018-08-24 19:48:40.673000: Multi#5331 in #bot-commands (Freezer Games): .kill all
+[2018-08-24 22:48:40] [INFO   ] __main__: 2018-08-24 19:48:41.943000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:48:40] [INFO   ] cogs.stats: 2018-08-24 19:48:41.943000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:48:42] [INFO   ] __main__: 2018-08-24 19:48:43.695000: Daddy Derrick in #bot-commands (Freezer Games): .buy ring 1000000000000000
+[2018-08-24 22:48:42] [INFO   ] cogs.stats: 2018-08-24 19:48:43.695000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .buy ring 1000000000000000
+[2018-08-24 22:48:43] [INFO   ] __main__: 2018-08-24 19:48:44.832000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:48:43] [INFO   ] cogs.stats: 2018-08-24 19:48:44.832000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:48:44] [INFO   ] __main__: 2018-08-24 19:48:45.973000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:48:44] [INFO   ] cogs.stats: 2018-08-24 19:48:45.973000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-24 22:48:46] [INFO   ] __main__: 2018-08-24 19:48:47.859000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:48:46] [INFO   ] cogs.stats: 2018-08-24 19:48:47.859000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:48:49] [INFO   ] __main__: 2018-08-24 19:48:50.703000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:48:49] [INFO   ] cogs.stats: 2018-08-24 19:48:50.703000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:48:52] [INFO   ] __main__: 2018-08-24 19:48:53.496000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:48:52] [INFO   ] cogs.stats: 2018-08-24 19:48:53.496000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:48:55] [INFO   ] __main__: 2018-08-24 19:48:57.015000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080000
+[2018-08-24 22:48:55] [INFO   ] cogs.stats: 2018-08-24 19:48:57.015000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080000
+[2018-08-24 22:49:00] [INFO   ] __main__: 2018-08-24 19:49:01.675000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:49:00] [INFO   ] cogs.stats: 2018-08-24 19:49:01.675000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:49:03] [INFO   ] __main__: 2018-08-24 19:49:04.355000: Daddy Derrick in #bot-commands (Freezer Games): .market
+[2018-08-24 22:49:03] [INFO   ] cogs.stats: 2018-08-24 19:49:04.355000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .market
+[2018-08-24 22:49:04] [INFO   ] __main__: 2018-08-24 19:49:05.574000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:49:04] [INFO   ] cogs.stats: 2018-08-24 19:49:05.574000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:49:12] [INFO   ] __main__: 2018-08-24 19:49:13.729000: Daddy Derrick in #bot-commands (Freezer Games): .sell diamond 100000000000000
+[2018-08-24 22:49:12] [INFO   ] cogs.stats: 2018-08-24 19:49:13.729000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .sell diamond 100000000000000
+[2018-08-24 22:49:19] [INFO   ] __main__: 2018-08-24 19:49:20.674000: Daddy Derrick in #bot-commands (Freezer Games): .sell diamond 100000
+[2018-08-24 22:49:19] [INFO   ] cogs.stats: 2018-08-24 19:49:20.674000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .sell diamond 100000
+[2018-08-24 22:49:20] [INFO   ] __main__: 2018-08-24 19:49:21.685000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:49:20] [INFO   ] cogs.stats: 2018-08-24 19:49:21.685000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:49:21] [INFO   ] __main__: 2018-08-24 19:49:22.584000: tnt nadav YT in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:49:21] [INFO   ] cogs.stats: 2018-08-24 19:49:22.584000: tnt nadav YT#2963 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:49:24] [INFO   ] __main__: 2018-08-24 19:49:25.348000: Daddy Derrick in #bot-commands (Freezer Games): .profile
+[2018-08-24 22:49:24] [INFO   ] cogs.stats: 2018-08-24 19:49:25.348000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .profile
+[2018-08-24 22:49:30] [INFO   ] __main__: 2018-08-24 19:49:31.323000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:49:30] [INFO   ] cogs.stats: 2018-08-24 19:49:31.323000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:49:33] [INFO   ] __main__: 2018-08-24 19:49:34.276000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1000000000000000000000000
+[2018-08-24 22:49:33] [INFO   ] cogs.stats: 2018-08-24 19:49:34.276000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1000000000000000000000000
+[2018-08-24 22:49:36] [INFO   ] __main__: 2018-08-24 19:49:37.853000: Daddy Derrick in #bot-commands (Freezer Games): .slots 66666666666666666666666
+[2018-08-24 22:49:36] [INFO   ] cogs.stats: 2018-08-24 19:49:37.853000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 66666666666666666666666
+[2018-08-24 22:49:40] [INFO   ] __main__: 2018-08-24 19:49:41.924000: Daddy Derrick in #bot-commands (Freezer Games): .slots 999999999999999999999999
+[2018-08-24 22:49:40] [INFO   ] cogs.stats: 2018-08-24 19:49:41.924000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 999999999999999999999999
+[2018-08-24 22:49:45] [INFO   ] __main__: 2018-08-24 19:49:46.974000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:49:45] [INFO   ] cogs.stats: 2018-08-24 19:49:46.974000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:49:46] [INFO   ] __main__: 2018-08-24 19:49:47.344000: Daddy Derrick in #bot-commands (Freezer Games): .slots 999999999999999999999999999
+[2018-08-24 22:49:46] [INFO   ] cogs.stats: 2018-08-24 19:49:47.344000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 999999999999999999999999999
+[2018-08-24 22:49:51] [INFO   ] __main__: 2018-08-24 19:49:52.624000: Daddy Derrick in #bot-commands (Freezer Games): .slots 999999999999999999999999999999
+[2018-08-24 22:49:51] [INFO   ] cogs.stats: 2018-08-24 19:49:52.624000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 999999999999999999999999999999
+[2018-08-24 22:49:55] [INFO   ] __main__: 2018-08-24 19:49:56.346000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:49:55] [INFO   ] cogs.stats: 2018-08-24 19:49:56.346000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:50:02] [INFO   ] __main__: 2018-08-24 19:50:03.462000: Bennygoku Roblox in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:50:02] [INFO   ] cogs.stats: 2018-08-24 19:50:03.462000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:50:56] [INFO   ] __main__: 2018-08-24 19:50:57.467000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1000000000000000000000000000000000
+[2018-08-24 22:50:56] [INFO   ] cogs.stats: 2018-08-24 19:50:57.467000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1000000000000000000000000000000000
+[2018-08-24 22:51:12] [INFO   ] __main__: 2018-08-24 19:51:13.924000: Daddy Derrick in #bot-commands (Freezer Games): .slots 9999999999999999999999999999999
+[2018-08-24 22:51:12] [INFO   ] cogs.stats: 2018-08-24 19:51:13.924000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 9999999999999999999999999999999
+[2018-08-24 22:51:18] [INFO   ] __main__: 2018-08-24 19:51:19.209000: Daddy Derrick in #bot-commands (Freezer Games): .slots 666666666666666666666666666666666
+[2018-08-24 22:51:18] [INFO   ] cogs.stats: 2018-08-24 19:51:19.209000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 666666666666666666666666666666666
+[2018-08-24 22:51:24] [INFO   ] __main__: 2018-08-24 19:51:25.447000: Daddy Derrick in #bot-commands (Freezer Games): .slots 8888888888888888888888888888
+[2018-08-24 22:51:24] [INFO   ] cogs.stats: 2018-08-24 19:51:25.447000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 8888888888888888888888888888
+[2018-08-24 22:51:28] [INFO   ] __main__: 2018-08-24 19:51:29.175000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:51:28] [INFO   ] cogs.stats: 2018-08-24 19:51:29.175000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:51:28] [INFO   ] __main__: 2018-08-24 19:51:29.410000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots  $489921785432322272569794741466211982775549972
+[2018-08-24 22:51:28] [INFO   ] cogs.stats: 2018-08-24 19:51:29.410000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots  $489921785432322272569794741466211982775549972
+[2018-08-24 22:51:38] [INFO   ] __main__: 2018-08-24 19:51:39.916000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:51:38] [INFO   ] cogs.stats: 2018-08-24 19:51:39.916000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:51:40] [INFO   ] __main__: 2018-08-24 19:51:41.566000: Daddy Derrick in #bot-commands (Freezer Games): .slots 6973277919098020529136013814534242304
+[2018-08-24 22:51:40] [INFO   ] cogs.stats: 2018-08-24 19:51:41.566000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 6973277919098020529136013814534242304
+[2018-08-24 22:51:42] [INFO   ] __main__: 2018-08-24 19:51:43.157000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots  489921785432322272569794741466211982775549972
+[2018-08-24 22:51:42] [INFO   ] cogs.stats: 2018-08-24 19:51:43.157000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots  489921785432322272569794741466211982775549972
+[2018-08-24 22:51:42] [INFO   ] __main__: 2018-08-24 19:51:43.422000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:51:42] [INFO   ] cogs.stats: 2018-08-24 19:51:43.422000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:51:45] [INFO   ] __main__: 2018-08-24 19:51:46.321000: Daddy Derrick in #bot-commands (Freezer Games): .slots 6973277919098020529136013814534242304
+[2018-08-24 22:51:45] [INFO   ] cogs.stats: 2018-08-24 19:51:46.321000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 6973277919098020529136013814534242304
+[2018-08-24 22:51:49] [INFO   ] __main__: 2018-08-24 19:51:50.252000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:51:49] [INFO   ] cogs.stats: 2018-08-24 19:51:50.252000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:51:51] [INFO   ] __main__: 2018-08-24 19:51:52.332000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:51:51] [INFO   ] cogs.stats: 2018-08-24 19:51:52.332000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:51:52] [INFO   ] __main__: 2018-08-24 19:51:53.337000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:51:52] [INFO   ] cogs.stats: 2018-08-24 19:51:53.337000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:51:53] [INFO   ] __main__: 2018-08-24 19:51:54.674000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:51:53] [INFO   ] cogs.stats: 2018-08-24 19:51:54.674000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:51:55] [INFO   ] __main__: 2018-08-24 19:51:57.124000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:51:55] [INFO   ] cogs.stats: 2018-08-24 19:51:57.124000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808
+[2018-08-24 22:51:56] [INFO   ] __main__: 2018-08-24 19:51:57.654000: Daddy Derrick in #bot-commands (Freezer Games): .slots 6973277919098020529136013814534242304
+[2018-08-24 22:51:56] [INFO   ] cogs.stats: 2018-08-24 19:51:57.654000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 6973277919098020529136013814534242304
+[2018-08-24 22:51:58] [INFO   ] __main__: 2018-08-24 19:51:59.972000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:51:58] [INFO   ] cogs.stats: 2018-08-24 19:51:59.972000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:52:07] [INFO   ] __main__: 2018-08-24 19:52:08.648000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:52:07] [INFO   ] cogs.stats: 2018-08-24 19:52:08.648000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:52:10] [INFO   ] __main__: 2018-08-24 19:52:11.779000: Daddy Derrick in #bot-commands (Freezer Games): .slots 6666666666666666666666666
+[2018-08-24 22:52:10] [INFO   ] cogs.stats: 2018-08-24 19:52:11.779000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 6666666666666666666666666
+[2018-08-24 22:52:14] [INFO   ] __main__: 2018-08-24 19:52:15.571000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots  489921785432322272569794741466211982775549972
+[2018-08-24 22:52:14] [INFO   ] cogs.stats: 2018-08-24 19:52:15.571000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots  489921785432322272569794741466211982775549972
+[2018-08-24 22:52:32] [INFO   ] __main__: 2018-08-24 19:52:33.205000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:52:32] [INFO   ] cogs.stats: 2018-08-24 19:52:33.205000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:52:54] [INFO   ] __main__: 2018-08-24 19:52:55.838000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:52:54] [INFO   ] cogs.stats: 2018-08-24 19:52:55.838000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:52:58] [INFO   ] __main__: 2018-08-24 19:52:59.163000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:52:58] [INFO   ] cogs.stats: 2018-08-24 19:52:59.163000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800
+[2018-08-24 22:53:02] [INFO   ] __main__: 2018-08-24 19:53:03.103000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:53:02] [INFO   ] cogs.stats: 2018-08-24 19:53:03.103000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:53:04] [INFO   ] __main__: 2018-08-24 19:53:05.810000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:53:04] [INFO   ] cogs.stats: 2018-08-24 19:53:05.810000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:53:11] [INFO   ] __main__: 2018-08-24 19:53:12.212000: Daddy Derrick in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000
+[2018-08-24 22:53:11] [INFO   ] cogs.stats: 2018-08-24 19:53:12.212000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000
+[2018-08-24 22:53:12] [INFO   ] __main__: 2018-08-24 19:53:13.799000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800000000000000000000000000000000000000000000000000000000
+[2018-08-24 22:53:12] [INFO   ] cogs.stats: 2018-08-24 19:53:13.799000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 19080475111115980800000000000000000000000000000000000000000000000000000000
+[2018-08-24 22:53:15] [INFO   ] __main__: 2018-08-24 19:53:17.044000: Daddy Derrick in #bot-commands (Freezer Games): .slots 6666666666666666666666666666666666
+[2018-08-24 22:53:15] [INFO   ] cogs.stats: 2018-08-24 19:53:17.044000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 6666666666666666666666666666666666
+[2018-08-24 22:53:15] [INFO   ] __main__: 2018-08-24 19:53:17.136000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 10000000000900
+[2018-08-24 22:53:15] [INFO   ] cogs.stats: 2018-08-24 19:53:17.136000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 10000000000900
+[2018-08-24 22:53:19] [INFO   ] __main__: 2018-08-24 19:53:20.450000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:53:19] [INFO   ] cogs.stats: 2018-08-24 19:53:20.450000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:53:22] [INFO   ] __main__: 2018-08-24 19:53:23.253000: Bennygoku Roblox in #bot-commands (Freezer Games): .money
+[2018-08-24 22:53:22] [INFO   ] cogs.stats: 2018-08-24 19:53:23.253000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:53:22] [INFO   ] __main__: 2018-08-24 19:53:23.941000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:53:22] [INFO   ] cogs.stats: 2018-08-24 19:53:23.941000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:53:23] [INFO   ] __main__: 2018-08-24 19:53:24.703000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:53:23] [INFO   ] cogs.stats: 2018-08-24 19:53:24.703000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:53:26] [INFO   ] __main__: 2018-08-24 19:53:27.535000: Daddy Derrick in #bot-commands (Freezer Games): .mine
+[2018-08-24 22:53:26] [INFO   ] cogs.stats: 2018-08-24 19:53:27.535000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .mine
+[2018-08-24 22:53:26] [INFO   ] __main__: 2018-08-24 19:53:27.806000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:53:26] [INFO   ] cogs.stats: 2018-08-24 19:53:27.806000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:53:27] [INFO   ] __main__: 2018-08-24 19:53:28.450000: Daddy Derrick in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:53:27] [INFO   ] cogs.stats: 2018-08-24 19:53:28.450000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:53:28] [INFO   ] __main__: 2018-08-24 19:53:29.440000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:53:28] [INFO   ] cogs.stats: 2018-08-24 19:53:29.440000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:53:30] [INFO   ] __main__: 2018-08-24 19:53:31.407000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:53:30] [INFO   ] cogs.stats: 2018-08-24 19:53:31.407000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:53:33] [INFO   ] __main__: 2018-08-24 19:53:34.626000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:53:33] [INFO   ] cogs.stats: 2018-08-24 19:53:34.626000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:53:35] [INFO   ] __main__: 2018-08-24 19:53:36.776000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:53:35] [INFO   ] cogs.stats: 2018-08-24 19:53:36.776000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1908047511111598080
+[2018-08-24 22:53:41] [INFO   ] __main__: 2018-08-24 19:53:43.007000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:53:41] [INFO   ] cogs.stats: 2018-08-24 19:53:43.007000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:53:44] [INFO   ] __main__: 2018-08-24 19:53:45.724000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 39992929292929299229
+[2018-08-24 22:53:44] [INFO   ] cogs.stats: 2018-08-24 19:53:45.724000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 39992929292929299229
+[2018-08-24 22:53:55] [INFO   ] __main__: 2018-08-24 19:53:56.319000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:53:55] [INFO   ] cogs.stats: 2018-08-24 19:53:56.319000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 190804751111159808000
+[2018-08-24 22:53:55] [INFO   ] __main__: 2018-08-24 19:53:56.620000: Bennygoku Roblox in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:53:55] [INFO   ] cogs.stats: 2018-08-24 19:53:56.620000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:53:58] [INFO   ] __main__: 2018-08-24 19:53:59.943000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:53:58] [INFO   ] cogs.stats: 2018-08-24 19:53:59.943000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 22:54:04] [INFO   ] __main__: 2018-08-24 19:54:05.491000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 49594949494939393993939
+[2018-08-24 22:54:04] [INFO   ] cogs.stats: 2018-08-24 19:54:05.491000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 49594949494939393993939
+[2018-08-24 22:54:07] [INFO   ] __main__: 2018-08-24 19:54:08.721000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:54:07] [INFO   ] cogs.stats: 2018-08-24 19:54:08.721000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:54:14] [INFO   ] __main__: 2018-08-24 19:54:15.215000: Daddy Derrick in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000
+[2018-08-24 22:54:14] [INFO   ] cogs.stats: 2018-08-24 19:54:15.215000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 10000000000000000000000000000000
+[2018-08-24 22:54:19] [INFO   ] __main__: 2018-08-24 19:54:20.551000: Daddy Derrick in #bot-commands (Freezer Games): .slots 666666666666666666666666666
+[2018-08-24 22:54:19] [INFO   ] cogs.stats: 2018-08-24 19:54:20.551000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 666666666666666666666666666
+[2018-08-24 22:54:24] [INFO   ] __main__: 2018-08-24 19:54:25.801000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 35555
+[2018-08-24 22:54:24] [INFO   ] cogs.stats: 2018-08-24 19:54:25.801000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 35555
+[2018-08-24 22:54:24] [INFO   ] __main__: 2018-08-24 19:54:25.824000: Daddy Derrick in #bot-commands (Freezer Games): .slots 6666666666666666666666666666666
+[2018-08-24 22:54:24] [INFO   ] cogs.stats: 2018-08-24 19:54:25.824000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 6666666666666666666666666666666
+[2018-08-24 22:54:29] [INFO   ] __main__: 2018-08-24 19:54:30.534000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:54:29] [INFO   ] cogs.stats: 2018-08-24 19:54:30.534000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:54:32] [INFO   ] __main__: 2018-08-24 19:54:33.299000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:54:32] [INFO   ] cogs.stats: 2018-08-24 19:54:33.299000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:54:36] [INFO   ] __main__: 2018-08-24 19:54:37.746000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:54:36] [INFO   ] cogs.stats: 2018-08-24 19:54:37.746000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots
+[2018-08-24 22:54:37] [INFO   ] __main__: 2018-08-24 19:54:38.508000: Daddy Derrick in #bot-commands (Freezer Games): .slots 384888888888888888888888888888
+[2018-08-24 22:54:37] [INFO   ] cogs.stats: 2018-08-24 19:54:38.508000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 384888888888888888888888888888
+[2018-08-24 22:54:41] [INFO   ] __main__: 2018-08-24 19:54:42.802000: Daddy Derrick in #bot-commands (Freezer Games): .slots 99999999999999999999999999
+[2018-08-24 22:54:41] [INFO   ] cogs.stats: 2018-08-24 19:54:42.802000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 99999999999999999999999999
+[2018-08-24 22:54:46] [INFO   ] __main__: 2018-08-24 19:54:47.732000: Daddy Derrick in #bot-commands (Freezer Games): .slots 324972432674628346827468264
+[2018-08-24 22:54:46] [INFO   ] cogs.stats: 2018-08-24 19:54:47.732000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 324972432674628346827468264
+[2018-08-24 22:54:48] [INFO   ] __main__: 2018-08-24 19:54:50.122000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots 555555555555555
+[2018-08-24 22:54:48] [INFO   ] cogs.stats: 2018-08-24 19:54:50.122000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots 555555555555555
+[2018-08-24 22:54:50] [INFO   ] __main__: 2018-08-24 19:54:51.218000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:54:50] [INFO   ] cogs.stats: 2018-08-24 19:54:51.218000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:54:56] [INFO   ] __main__: 2018-08-24 19:54:57.718000: Daddy Derrick in #bot-commands (Freezer Games): .slots 34344444444444444444444444444444444444
+[2018-08-24 22:54:56] [INFO   ] cogs.stats: 2018-08-24 19:54:57.718000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 34344444444444444444444444444444444444
+[2018-08-24 22:54:59] [INFO   ] __main__: 2018-08-24 19:55:00.705000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .givemoney 10000000 <@415199682906554368>
+[2018-08-24 22:54:59] [INFO   ] cogs.stats: 2018-08-24 19:55:00.705000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .givemoney 10000000 <@415199682906554368>
+[2018-08-24 22:55:01] [INFO   ] __main__: 2018-08-24 19:55:02.758000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:55:01] [INFO   ] cogs.stats: 2018-08-24 19:55:02.758000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:55:08] [INFO   ] __main__: 2018-08-24 19:55:09.773000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1000000000000000000000000000000000
+[2018-08-24 22:55:08] [INFO   ] cogs.stats: 2018-08-24 19:55:09.773000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1000000000000000000000000000000000
+[2018-08-24 22:55:12] [INFO   ] __main__: 2018-08-24 19:55:13.353000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:55:12] [INFO   ] cogs.stats: 2018-08-24 19:55:13.353000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:55:18] [INFO   ] __main__: 2018-08-24 19:55:19.693000: Daddy Derrick in #bot-commands (Freezer Games): .slots 1342746238462846824622384
+[2018-08-24 22:55:18] [INFO   ] cogs.stats: 2018-08-24 19:55:19.693000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 1342746238462846824622384
+[2018-08-24 22:55:23] [INFO   ] __main__: 2018-08-24 19:55:25.022000: Daddy Derrick in #bot-commands (Freezer Games): .slots 20000000000000000000000000
+[2018-08-24 22:55:23] [INFO   ] cogs.stats: 2018-08-24 19:55:25.022000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 20000000000000000000000000
+[2018-08-24 22:55:29] [INFO   ] __main__: 2018-08-24 19:55:30.737000: Daddy Derrick in #bot-commands (Freezer Games): .slots 6666666666666666666666666666
+[2018-08-24 22:55:29] [INFO   ] cogs.stats: 2018-08-24 19:55:30.737000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 6666666666666666666666666666
+[2018-08-24 22:55:33] [INFO   ] __main__: 2018-08-24 19:55:35.122000: Daddy Derrick in #bot-commands (Freezer Games): .slots 5555555555555555555555555555
+[2018-08-24 22:55:33] [INFO   ] cogs.stats: 2018-08-24 19:55:35.122000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 5555555555555555555555555555
+[2018-08-24 22:55:37] [INFO   ] __main__: 2018-08-24 19:55:38.450000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-24 22:55:37] [INFO   ] cogs.stats: 2018-08-24 19:55:38.450000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 22:55:42] [INFO   ] __main__: 2018-08-24 19:55:43.971000: Daddy Derrick in #bot-commands (Freezer Games): .slots 6666666666666666666666666666666666666
+[2018-08-24 22:55:42] [INFO   ] cogs.stats: 2018-08-24 19:55:43.971000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 6666666666666666666666666666666666666
+[2018-08-24 22:56:15] [INFO   ] __main__: 2018-08-24 19:56:16.551000: Daddy Derrick in #bot-commands (Freezer Games): .money 134237424324234
+[2018-08-24 22:56:15] [INFO   ] cogs.stats: 2018-08-24 19:56:16.551000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money 134237424324234
+[2018-08-24 22:58:55] [INFO   ] __main__: 2018-08-24 19:58:56.763000: shadat. in #main-chat (RobotValley™): .help
+[2018-08-24 22:58:55] [INFO   ] cogs.stats: 2018-08-24 19:58:56.763000: shadat.#3550 in #main-chat (RobotValley™): .help
+[2018-08-24 22:59:25] [INFO   ] __main__: 2018-08-24 19:59:26.847000: Daddy Derrick in #bot-commands (Freezer Games): .givemoney 100000000000000000000000000000 <@!283366617839304706>
+[2018-08-24 22:59:25] [INFO   ] cogs.stats: 2018-08-24 19:59:26.847000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .givemoney 100000000000000000000000000000 <@!283366617839304706>
+[2018-08-24 23:00:25] [INFO   ] __main__: 2018-08-24 20:00:26.804000: iWeeti in #main-chat (RobotValley™): -.ignore channel
+[2018-08-24 23:00:25] [INFO   ] cogs.stats: 2018-08-24 20:00:26.804000: iWeeti#4990 in #main-chat (RobotValley™): -.ignore channel
+[2018-08-24 23:00:39] [INFO   ] __main__: 2018-08-24 20:00:40.497000: shadat. in #main-chat (RobotValley™): .help
+[2018-08-24 23:00:39] [INFO   ] cogs.stats: 2018-08-24 20:00:40.497000: shadat.#3550 in #main-chat (RobotValley™): .help
+[2018-08-24 23:01:08] [INFO   ] __main__: 2018-08-24 20:01:09.901000: iWeeti in #main-chat (RobotValley™): -.eval await ctx.author.send('test')
+[2018-08-24 23:01:08] [INFO   ] cogs.stats: 2018-08-24 20:01:09.901000: iWeeti#4990 in #main-chat (RobotValley™): -.eval await ctx.author.send('test')
+[2018-08-24 23:03:37] [INFO   ] __main__: 2018-08-24 20:03:38.366000: iWeeti in #main-chat (RobotValley™): -.eval await ctx.author.send('test')
+[2018-08-24 23:03:37] [INFO   ] cogs.stats: 2018-08-24 20:03:38.366000: iWeeti#4990 in #main-chat (RobotValley™): -.eval await ctx.author.send('test')
+[2018-08-24 23:05:34] [WARNING] discord.gateway: Unknown event GUILD_INTEGRATIONS_UPDATE.
+[2018-08-24 23:09:39] [INFO   ] __main__: 2018-08-24 20:09:40.451000: iWeeti in #general (Putin support server): -.eval return len(bot.all_commands)
+[2018-08-24 23:09:39] [INFO   ] cogs.stats: 2018-08-24 20:09:40.451000: iWeeti#4990 in #general (Putin support server): -.eval return len(bot.all_commands)
+[2018-08-24 23:10:04] [INFO   ] __main__: 2018-08-24 20:10:05.249000: Wilen in #💬bate-papo💬 (Boa Sorte): .kill <@!389216573648404481>
+[2018-08-24 23:10:04] [INFO   ] cogs.stats: 2018-08-24 20:10:05.249000: Wilen#3731 in #💬bate-papo💬 (Boa Sorte): .kill <@!389216573648404481>
+[2018-08-24 23:11:10] [INFO   ] __main__: 2018-08-24 20:11:11.435000: iWeeti in #testing-1 (Discord Bot List): -.help
+[2018-08-24 23:11:10] [INFO   ] cogs.stats: 2018-08-24 20:11:11.435000: iWeeti#4990 in #testing-1 (Discord Bot List): -.help
+[2018-08-24 23:11:48] [INFO   ] __main__: 2018-08-24 20:11:49.533000: iWeeti in #testing-1 (Discord Bot List): -.realping
+[2018-08-24 23:11:48] [INFO   ] cogs.stats: 2018-08-24 20:11:49.533000: iWeeti#4990 in #testing-1 (Discord Bot List): -.realping
+[2018-08-24 23:15:49] [INFO   ] __main__: 2018-08-24 20:15:50.615000: iWeeti in #main-chat (RobotValley™): -.eval await ctx.author.send(ctx.me.created_at)
+[2018-08-24 23:15:49] [INFO   ] cogs.stats: 2018-08-24 20:15:50.615000: iWeeti#4990 in #main-chat (RobotValley™): -.eval await ctx.author.send(ctx.me.created_at)
+[2018-08-24 23:20:48] [INFO   ] __main__: 2018-08-24 20:20:49.578000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 56756756746745764568
+[2018-08-24 23:20:48] [INFO   ] cogs.stats: 2018-08-24 20:20:49.578000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 56756756746745764568
+[2018-08-24 23:20:52] [INFO   ] __main__: 2018-08-24 20:20:54.081000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 23:20:52] [INFO   ] cogs.stats: 2018-08-24 20:20:54.081000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
+[2018-08-24 23:32:03] [WARNING] discord.state: VOICE_STATE_UPDATE referencing an unknown member ID: 478660287961235461. Discarding.
+[2018-08-24 23:34:07] [INFO   ] __main__: 2018-08-24 20:34:09.003000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 6456456456
+[2018-08-24 23:34:07] [INFO   ] cogs.stats: 2018-08-24 20:34:09.003000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 6456456456
+[2018-08-24 23:34:15] [INFO   ] __main__: 2018-08-24 20:34:16.776000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 666
+[2018-08-24 23:34:15] [INFO   ] cogs.stats: 2018-08-24 20:34:16.776000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 666
+[2018-08-24 23:43:09] [INFO   ] discord.gateway: Websocket closed with 1006 (), attempting a reconnect.
+[2018-08-24 23:43:09] [INFO   ] discord.shard: Got a request to RESUME the websocket at Shard ID 0.
+[2018-08-24 23:43:09] [ERROR  ] discord.client: Attempting a reconnect in 0.28s
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 843, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 730, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\concurrent\futures\thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\client.py", line 405, in connect
+    await self._connect()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 271, in _connect
+    f.result()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 83, in poll
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\gateway.py", line 198, in from_client
+    gateway = await client.http.get_gateway()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 745, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 154, in request
+    async with self._session.request(method, url, **kwargs) as r:
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 843, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 366, in _request
+    timeout=timeout
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 445, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 757, in _create_connection
+    req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 847, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+[2018-08-24 23:43:09] [ERROR  ] discord.client: Attempting a reconnect in 3.37s
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 843, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 730, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\concurrent\futures\thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\client.py", line 405, in connect
+    await self._connect()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 264, in _connect
+    await self.launch_shards()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 246, in launch_shards
+    gateway = await self.http.get_gateway()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 745, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 154, in request
+    async with self._session.request(method, url, **kwargs) as r:
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 843, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 366, in _request
+    timeout=timeout
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 445, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 757, in _create_connection
+    req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 847, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+[2018-08-24 23:43:12] [ERROR  ] discord.client: Attempting a reconnect in 3.51s
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 843, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 730, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\concurrent\futures\thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\client.py", line 405, in connect
+    await self._connect()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 264, in _connect
+    await self.launch_shards()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 246, in launch_shards
+    gateway = await self.http.get_gateway()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 745, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 154, in request
+    async with self._session.request(method, url, **kwargs) as r:
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 843, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 366, in _request
+    timeout=timeout
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 445, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 757, in _create_connection
+    req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 847, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+[2018-08-24 23:43:16] [ERROR  ] discord.client: Attempting a reconnect in 14.30s
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 843, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 730, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\concurrent\futures\thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\client.py", line 405, in connect
+    await self._connect()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 264, in _connect
+    await self.launch_shards()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 246, in launch_shards
+    gateway = await self.http.get_gateway()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 745, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 154, in request
+    async with self._session.request(method, url, **kwargs) as r:
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 843, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 366, in _request
+    timeout=timeout
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 445, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 757, in _create_connection
+    req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 847, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+[2018-08-24 23:43:28] [WARNING] discord.gateway: Shard ID 0 has stopped responding to the gateway. Closing and restarting.
+[2018-08-24 23:43:30] [ERROR  ] discord.client: Attempting a reconnect in 25.11s
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 843, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 730, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\concurrent\futures\thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\client.py", line 405, in connect
+    await self._connect()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 264, in _connect
+    await self.launch_shards()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 246, in launch_shards
+    gateway = await self.http.get_gateway()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 745, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 154, in request
+    async with self._session.request(method, url, **kwargs) as r:
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 843, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 366, in _request
+    timeout=timeout
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 445, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 757, in _create_connection
+    req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 847, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+[2018-08-24 23:43:55] [ERROR  ] discord.client: Attempting a reconnect in 30.54s
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 843, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 730, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\concurrent\futures\thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\client.py", line 405, in connect
+    await self._connect()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 264, in _connect
+    await self.launch_shards()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\shard.py", line 246, in launch_shards
+    gateway = await self.http.get_gateway()
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 745, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "C:\Users\Veeti\AppData\Roaming\Python\Python36\site-packages\discord\http.py", line 154, in request
+    async with self._session.request(method, url, **kwargs) as r:
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 843, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\client.py", line 366, in _request
+    timeout=timeout
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 445, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 757, in _create_connection
+    req, traces, timeout)
+  File "C:\Users\Veeti\AppData\Local\Programs\Python\Python36-32\lib\site-packages\aiohttp\connector.py", line 847, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+[2018-08-24 23:44:27] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
+[2018-08-24 23:44:27] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-h4c5, discord-sessions-prd-1-27 (Session ID: b0f256f81cc1679a0fb6b833f381f91e).

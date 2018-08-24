@@ -180,15 +180,15 @@ class Putin(commands.AutoShardedBot):
 
     async def on_message(self, message):
         if not message.author.bot:
-            mod = self.get_cog('Mod')
+            # mod = self.get_cog('Mod')
 
-            if mod is not None and not message.author.id == 282515230595219456:
-                perms = message.channel.permissions_for(message.author)
-                bypass_ignore = perms.manage_roles
+            # if mod is not None and not message.author.id == 282515230595219456:
+            #     perms = message.channel.permissions_for(message.author)
+            #     bypass_ignore = perms.manage_roles
 
-                if not bypass_ignore:
-                    if message.channel.id in mod.config.get('ignored', []):
-                        return
+            #     if not bypass_ignore:
+            #         if message.channel.id in mod.config.get('ignored', []):
+            #             return
             await self.process_commands(message)
 
     @commands.command(hidden=True)
