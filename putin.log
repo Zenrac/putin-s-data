@@ -1,396 +1,57 @@
-[2018-08-24 19:17:00] [INFO   ] discord.client: logging in using static token
-[2018-08-24 19:17:01] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
-[2018-08-24 19:17:02] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-d3vr, discord-sessions-prd-1-10 (Session ID: 59396e8e20ca00f56bd63a1247f847cb).
-[2018-08-24 19:17:25] [INFO   ] __main__: 2018-08-24 16:17:26.617000: iWeeti in #bot-commands (Freezer Games): -.prefix add "putin "
-[2018-08-24 19:17:25] [INFO   ] cogs.stats: 2018-08-24 16:17:26.617000: iWeeti#4990 in #bot-commands (Freezer Games): -.prefix add "putin "
-[2018-08-24 19:17:31] [INFO   ] discord.voice_client: Connecting to voice...
-[2018-08-24 19:17:31] [INFO   ] discord.voice_client: Starting voice handshake...
-[2018-08-24 19:17:31] [INFO   ] __main__: 2018-08-24 16:17:32.915000: iWeeti in #bot-commands (Freezer Games): putin sing fireflies
-[2018-08-24 19:17:31] [INFO   ] cogs.stats: 2018-08-24 16:17:32.915000: iWeeti#4990 in #bot-commands (Freezer Games): putin sing fireflies
-[2018-08-24 19:17:32] [INFO   ] discord.voice_client: Voice handshake complete. Endpoint found us-central476.discord.gg (IP: 104.200.145.222)
-[2018-08-24 19:17:33] [INFO   ] discord.gateway: selected the voice protocol for use
-[2018-08-24 19:17:33] [INFO   ] discord.gateway: received secret key for voice connection
-[2018-08-24 19:17:55] [INFO   ] __main__: 2018-08-24 16:17:57.018000: OmqxNoah in #bot-commands (Freezer Games): .moneytransfer 315303153031530 <@!249295516742057985>
-[2018-08-24 19:17:55] [INFO   ] cogs.stats: 2018-08-24 16:17:57.018000: OmqxNoah#3952 in #bot-commands (Freezer Games): .moneytransfer 315303153031530 <@!249295516742057985>
-[2018-08-24 19:18:14] [INFO   ] __main__: 2018-08-24 16:18:15.276000: iWeeti in #bot-commands (Freezer Games): -.eval return " ".join(bot.cogs.values())
-[2018-08-24 19:18:14] [INFO   ] cogs.stats: 2018-08-24 16:18:15.276000: iWeeti#4990 in #bot-commands (Freezer Games): -.eval return " ".join(bot.cogs.values())
-[2018-08-24 19:18:29] [INFO   ] __main__: 2018-08-24 16:18:30.420000: iWeeti in #bot-commands (Freezer Games): -.eval return " ".join(bot.cogs)
-[2018-08-24 19:18:29] [INFO   ] cogs.stats: 2018-08-24 16:18:30.420000: iWeeti#4990 in #bot-commands (Freezer Games): -.eval return " ".join(bot.cogs)
-[2018-08-24 19:21:36] [INFO   ] discord.player: Preparing to terminate ffmpeg process 8600.
-[2018-08-24 19:21:36] [INFO   ] discord.player: ffmpeg process 8600 successfully terminated with return code of 0.
-[2018-08-24 19:22:58] [INFO   ] __main__: 2018-08-24 16:22:59.123000: iWeeti in #bot-commands (Freezer Games): -.sql select * from settings
-[2018-08-24 19:22:58] [INFO   ] cogs.stats: 2018-08-24 16:22:59.123000: iWeeti#4990 in #bot-commands (Freezer Games): -.sql select * from settings
-[2018-08-24 19:23:01] [INFO   ] __main__: 2018-08-24 16:23:02.576000: iWeeti in #bot-commands (Freezer Games): -.radio 10
-[2018-08-24 19:23:01] [INFO   ] cogs.stats: 2018-08-24 16:23:02.576000: iWeeti#4990 in #bot-commands (Freezer Games): -.radio 10
-[2018-08-24 19:26:53] [INFO   ] discord.player: Preparing to terminate ffmpeg process 13756.
-[2018-08-24 19:26:53] [INFO   ] discord.player: ffmpeg process 13756 successfully terminated with return code of 0.
-[2018-08-24 19:29:24] [INFO   ] discord.player: Preparing to terminate ffmpeg process 5688.
-[2018-08-24 19:29:24] [INFO   ] discord.player: ffmpeg process 5688 successfully terminated with return code of 0.
-[2018-08-24 19:31:34] [INFO   ] __main__: 2018-08-24 16:31:35.606000: iWeeti in #bot-commands (Freezer Games): -.load settings
-[2018-08-24 19:31:34] [INFO   ] cogs.stats: 2018-08-24 16:31:35.606000: iWeeti#4990 in #bot-commands (Freezer Games): -.load settings
-[2018-08-24 19:31:37] [INFO   ] __main__: 2018-08-24 16:31:38.191000: iWeeti in #bot-commands (Freezer Games): -.settings
-[2018-08-24 19:31:37] [INFO   ] cogs.stats: 2018-08-24 16:31:38.191000: iWeeti#4990 in #bot-commands (Freezer Games): -.settings
-[2018-08-24 19:31:59] [INFO   ] __main__: 2018-08-24 16:32:00.467000: iWeeti in #bot-commands (Freezer Games): -.reload settings
-[2018-08-24 19:31:59] [INFO   ] cogs.stats: 2018-08-24 16:32:00.467000: iWeeti#4990 in #bot-commands (Freezer Games): -.reload settings
-[2018-08-24 19:32:03] [INFO   ] __main__: 2018-08-24 16:32:04.269000: iWeeti in #bot-commands (Freezer Games): -.settings
-[2018-08-24 19:32:03] [INFO   ] cogs.stats: 2018-08-24 16:32:04.269000: iWeeti#4990 in #bot-commands (Freezer Games): -.settings
-[2018-08-24 19:32:10] [INFO   ] __main__: 2018-08-24 16:32:11.077000: iWeeti in #bot-commands (Freezer Games): -.runas Adrician settings
-[2018-08-24 19:32:10] [INFO   ] cogs.stats: 2018-08-24 16:32:11.077000: iWeeti#4990 in #bot-commands (Freezer Games): -.runas Adrician settings
-[2018-08-24 19:32:10] [INFO   ] __main__: 2018-08-24 16:32:11.077000: Adrician in #bot-commands (Freezer Games): -.settings
-[2018-08-24 19:32:10] [INFO   ] cogs.stats: 2018-08-24 16:32:11.077000: Adrician#0001 in #bot-commands (Freezer Games): -.settings
-[2018-08-24 19:32:12] [INFO   ] __main__: 2018-08-24 16:32:13.325000: chomper22 Therapist in #bot-commands (Freezer Games): .slots 99999999999999999
-[2018-08-24 19:32:12] [INFO   ] cogs.stats: 2018-08-24 16:32:13.325000: chomper22 Therapist#3739 in #bot-commands (Freezer Games): .slots 99999999999999999
-[2018-08-24 19:32:45] [INFO   ] __main__: 2018-08-24 16:32:46.874000: iWeeti in #putin-guild-and-error-log (Putin support server): -.reload settings
-[2018-08-24 19:32:45] [INFO   ] cogs.stats: 2018-08-24 16:32:46.874000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): -.reload settings
-[2018-08-24 19:32:52] [INFO   ] __main__: 2018-08-24 16:32:53.574000: iWeeti in #general (Putin support server): .settings
-[2018-08-24 19:32:52] [INFO   ] cogs.stats: 2018-08-24 16:32:53.574000: iWeeti#4990 in #general (Putin support server): .settings
-[2018-08-24 19:32:57] [INFO   ] discord.player: Preparing to terminate ffmpeg process 5572.
-[2018-08-24 19:32:57] [INFO   ] discord.player: ffmpeg process 5572 successfully terminated with return code of 0.
-[2018-08-24 19:33:25] [INFO   ] __main__: 2018-08-24 16:33:26.688000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:33:25] [INFO   ] cogs.stats: 2018-08-24 16:33:26.688000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:33:28] [INFO   ] __main__: 2018-08-24 16:33:29.049000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:33:28] [INFO   ] cogs.stats: 2018-08-24 16:33:29.049000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:34:04] [INFO   ] __main__: 2018-08-24 16:34:05.961000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:34:04] [INFO   ] cogs.stats: 2018-08-24 16:34:05.961000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:34:06] [INFO   ] __main__: 2018-08-24 16:34:07.752000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:34:06] [INFO   ] cogs.stats: 2018-08-24 16:34:07.752000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:34:26] [INFO   ] __main__: 2018-08-24 16:34:27.367000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:34:26] [INFO   ] cogs.stats: 2018-08-24 16:34:27.367000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:34:28] [INFO   ] __main__: 2018-08-24 16:34:29.718000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:34:28] [INFO   ] cogs.stats: 2018-08-24 16:34:29.718000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:34:57] [INFO   ] __main__: 2018-08-24 16:34:58.880000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:34:57] [INFO   ] cogs.stats: 2018-08-24 16:34:58.880000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:35:00] [INFO   ] __main__: 2018-08-24 16:35:01.198000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:35:00] [INFO   ] cogs.stats: 2018-08-24 16:35:01.198000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:36:53] [INFO   ] __main__: 2018-08-24 16:36:54.551000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:36:53] [INFO   ] cogs.stats: 2018-08-24 16:36:54.551000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:37:14] [INFO   ] __main__: 2018-08-24 16:37:15.630000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:37:14] [INFO   ] cogs.stats: 2018-08-24 16:37:15.630000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:37:17] [INFO   ] __main__: 2018-08-24 16:37:18.601000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:37:17] [INFO   ] cogs.stats: 2018-08-24 16:37:18.601000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 19:37:24] [INFO   ] __main__: 2018-08-24 16:37:25.141000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings logging logging
-[2018-08-24 19:37:24] [INFO   ] cogs.stats: 2018-08-24 16:37:25.141000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings logging logging
-[2018-08-24 19:38:00] [INFO   ] discord.player: Preparing to terminate ffmpeg process 16596.
-[2018-08-24 19:38:00] [INFO   ] discord.player: ffmpeg process 16596 successfully terminated with return code of 0.
-[2018-08-24 19:38:17] [INFO   ] __main__: 2018-08-24 16:38:18.869000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:38:17] [INFO   ] cogs.stats: 2018-08-24 16:38:18.869000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:38:22] [INFO   ] __main__: 2018-08-24 16:38:23.760000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings logging logging
-[2018-08-24 19:38:22] [INFO   ] cogs.stats: 2018-08-24 16:38:23.760000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings logging logging
-[2018-08-24 19:38:39] [INFO   ] __main__: 2018-08-24 16:38:40.839000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:38:39] [INFO   ] cogs.stats: 2018-08-24 16:38:40.839000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:38:52] [INFO   ] __main__: 2018-08-24 16:38:53.708000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings logging logging
-[2018-08-24 19:38:52] [INFO   ] cogs.stats: 2018-08-24 16:38:53.708000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings logging logging
-[2018-08-24 19:41:09] [INFO   ] discord.player: Preparing to terminate ffmpeg process 2960.
-[2018-08-24 19:41:09] [INFO   ] discord.player: ffmpeg process 2960 successfully terminated with return code of 0.
-[2018-08-24 19:41:30] [INFO   ] __main__: 2018-08-24 16:41:31.869000: iWeeti in #putin-guild-and-error-log (Putin support server): .rtfm subcommand
-[2018-08-24 19:41:30] [INFO   ] cogs.stats: 2018-08-24 16:41:31.869000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .rtfm subcommand
-[2018-08-24 19:41:38] [INFO   ] __main__: 2018-08-24 16:41:39.857000: iWeeti in #putin-guild-and-error-log (Putin support server): .rtfm rewrite subcommand
-[2018-08-24 19:41:38] [INFO   ] cogs.stats: 2018-08-24 16:41:39.857000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .rtfm rewrite subcommand
-[2018-08-24 19:42:03] [INFO   ] __main__: 2018-08-24 16:42:04.851000: iWeeti in #putin-guild-and-error-log (Putin support server): .rtfm rewrite get command
-[2018-08-24 19:42:03] [INFO   ] cogs.stats: 2018-08-24 16:42:04.851000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .rtfm rewrite get command
-[2018-08-24 19:45:06] [INFO   ] discord.player: Preparing to terminate ffmpeg process 8888.
-[2018-08-24 19:45:06] [INFO   ] discord.player: ffmpeg process 8888 successfully terminated with return code of 0.
-[2018-08-24 19:45:35] [INFO   ] __main__: 2018-08-24 16:45:36.645000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:45:35] [INFO   ] cogs.stats: 2018-08-24 16:45:36.645000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:46:00] [INFO   ] __main__: 2018-08-24 16:46:01.548000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:46:00] [INFO   ] cogs.stats: 2018-08-24 16:46:01.548000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:48:05] [INFO   ] __main__: 2018-08-24 16:48:07.048000: SamuraiStacks in #general (Putin support server): -.ping
-[2018-08-24 19:48:05] [INFO   ] cogs.stats: 2018-08-24 16:48:07.048000: SamuraiStacks#5873 in #general (Putin support server): -.ping
-[2018-08-24 19:48:09] [INFO   ] __main__: 2018-08-24 16:48:11.045000: SamuraiStacks in #general (Putin support server): -.help
-[2018-08-24 19:48:09] [INFO   ] cogs.stats: 2018-08-24 16:48:11.045000: SamuraiStacks#5873 in #general (Putin support server): -.help
-[2018-08-24 19:48:55] [INFO   ] __main__: 2018-08-24 16:48:56.611000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:48:55] [INFO   ] cogs.stats: 2018-08-24 16:48:56.611000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:49:59] [INFO   ] __main__: 2018-08-24 16:50:00.369000: iWeeti in #bot-commands (Freezer Games): .star 482592323314647087
-[2018-08-24 19:49:59] [INFO   ] cogs.stats: 2018-08-24 16:50:00.369000: iWeeti#4990 in #bot-commands (Freezer Games): .star 482592323314647087
-[2018-08-24 19:52:47] [INFO   ] __main__: 2018-08-24 16:52:48.487000: iWeeti in #general (Putin support server): -.tag box get realping
-[2018-08-24 19:52:47] [INFO   ] cogs.stats: 2018-08-24 16:52:48.487000: iWeeti#4990 in #general (Putin support server): -.tag box get realping
-[2018-08-24 19:52:52] [INFO   ] __main__: 2018-08-24 16:52:53.934000: iWeeti in #general (Putin support server): -.tag box search ping
-[2018-08-24 19:52:52] [INFO   ] cogs.stats: 2018-08-24 16:52:53.934000: iWeeti#4990 in #general (Putin support server): -.tag box search ping
-[2018-08-24 19:53:03] [INFO   ] __main__: 2018-08-24 16:53:04.179000: iWeeti in #general (Putin support server): -.tag box get ping
-[2018-08-24 19:53:03] [INFO   ] cogs.stats: 2018-08-24 16:53:04.179000: iWeeti#4990 in #general (Putin support server): -.tag box get ping
-[2018-08-24 19:53:35] [INFO   ] __main__: 2018-08-24 16:53:36.328000: iWeeti in #general (Putin support server): .reload settings
-[2018-08-24 19:53:35] [INFO   ] cogs.stats: 2018-08-24 16:53:36.328000: iWeeti#4990 in #general (Putin support server): .reload settings
-[2018-08-24 19:54:56] [INFO   ] __main__: 2018-08-24 16:54:57.365000: iWeeti in #general (Putin support server): .reload settings
-[2018-08-24 19:54:56] [INFO   ] cogs.stats: 2018-08-24 16:54:57.365000: iWeeti#4990 in #general (Putin support server): .reload settings
-[2018-08-24 19:55:24] [INFO   ] __main__: 2018-08-24 16:55:25.764000: iWeeti in #general (Putin support server): .reload settings
-[2018-08-24 19:55:24] [INFO   ] cogs.stats: 2018-08-24 16:55:25.764000: iWeeti#4990 in #general (Putin support server): .reload settings
-[2018-08-24 19:55:36] [INFO   ] discord.player: Preparing to terminate ffmpeg process 1300.
-[2018-08-24 19:55:36] [INFO   ] discord.player: ffmpeg process 1300 successfully terminated with return code of 0.
-[2018-08-24 19:55:36] [INFO   ] __main__: 2018-08-24 16:55:37.346000: iWeeti in #putin-guild-and-error-log (Putin support server): .realping
-[2018-08-24 19:55:36] [INFO   ] cogs.stats: 2018-08-24 16:55:37.346000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .realping
-[2018-08-24 19:55:52] [INFO   ] __main__: 2018-08-24 16:55:53.353000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:55:52] [INFO   ] cogs.stats: 2018-08-24 16:55:53.353000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:55:54] [INFO   ] __main__: 2018-08-24 16:55:55.464000: iWeeti in #putin-guild-and-error-log (Putin support server): .realping
-[2018-08-24 19:55:54] [INFO   ] cogs.stats: 2018-08-24 16:55:55.464000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .realping
-[2018-08-24 19:56:05] [INFO   ] __main__: 2018-08-24 16:56:06.975000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload ping
-[2018-08-24 19:56:05] [INFO   ] cogs.stats: 2018-08-24 16:56:06.975000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload ping
-[2018-08-24 19:56:11] [INFO   ] __main__: 2018-08-24 16:56:12.199000: iWeeti in #putin-guild-and-error-log (Putin support server): .realping
-[2018-08-24 19:56:11] [INFO   ] cogs.stats: 2018-08-24 16:56:12.199000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .realping
-[2018-08-24 19:57:10] [INFO   ] __main__: 2018-08-24 16:57:11.794000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:57:10] [INFO   ] cogs.stats: 2018-08-24 16:57:11.794000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:57:15] [INFO   ] __main__: 2018-08-24 16:57:16.362000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings prefix
-[2018-08-24 19:57:15] [INFO   ] cogs.stats: 2018-08-24 16:57:16.362000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings prefix
-[2018-08-24 19:57:20] [INFO   ] __main__: 2018-08-24 16:57:21.807000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings prefix add test
-[2018-08-24 19:57:20] [INFO   ] cogs.stats: 2018-08-24 16:57:21.807000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings prefix add test
-[2018-08-24 19:57:28] [INFO   ] __main__: 2018-08-24 16:57:30.059000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings prefix remove test
-[2018-08-24 19:57:28] [INFO   ] cogs.stats: 2018-08-24 16:57:30.059000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings prefix remove test
-[2018-08-24 19:57:36] [INFO   ] __main__: 2018-08-24 16:57:37.133000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings prefix add "test "
-[2018-08-24 19:57:36] [INFO   ] cogs.stats: 2018-08-24 16:57:37.133000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings prefix add "test "
-[2018-08-24 19:58:27] [INFO   ] __main__: 2018-08-24 16:58:28.350000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:58:27] [INFO   ] cogs.stats: 2018-08-24 16:58:28.350000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:58:33] [INFO   ] __main__: 2018-08-24 16:58:34.966000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 45645765474567
-[2018-08-24 19:58:33] [INFO   ] cogs.stats: 2018-08-24 16:58:34.966000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 45645765474567
-[2018-08-24 19:58:37] [INFO   ] __main__: 2018-08-24 16:58:38.241000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings prefix add "test "
-[2018-08-24 19:58:37] [INFO   ] cogs.stats: 2018-08-24 16:58:38.241000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings prefix add "test "
-[2018-08-24 19:58:44] [INFO   ] __main__: 2018-08-24 16:58:45.667000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 11111111111111111111111
-[2018-08-24 19:58:44] [INFO   ] cogs.stats: 2018-08-24 16:58:45.667000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 11111111111111111111111
-[2018-08-24 19:58:57] [INFO   ] __main__: 2018-08-24 16:58:58.839000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 99999999999999999999999999
-[2018-08-24 19:58:57] [INFO   ] cogs.stats: 2018-08-24 16:58:58.839000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 99999999999999999999999999
-[2018-08-24 19:59:04] [INFO   ] __main__: 2018-08-24 16:59:05.359000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 8888888888888888888888
-[2018-08-24 19:59:04] [INFO   ] cogs.stats: 2018-08-24 16:59:05.359000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 8888888888888888888888
-[2018-08-24 19:59:14] [INFO   ] __main__: 2018-08-24 16:59:16.068000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:59:14] [INFO   ] cogs.stats: 2018-08-24 16:59:16.068000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 19:59:24] [INFO   ] __main__: 2018-08-24 16:59:25.520000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings prefix add "testt "
-[2018-08-24 19:59:24] [INFO   ] cogs.stats: 2018-08-24 16:59:25.520000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings prefix add "testt "
-[2018-08-24 19:59:29] [INFO   ] __main__: 2018-08-24 16:59:30.191000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings prefix
-[2018-08-24 19:59:29] [INFO   ] cogs.stats: 2018-08-24 16:59:30.191000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings prefix
-[2018-08-24 19:59:29] [INFO   ] __main__: 2018-08-24 16:59:30.854000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 55555555555555555
-[2018-08-24 19:59:29] [INFO   ] cogs.stats: 2018-08-24 16:59:30.854000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 55555555555555555
-[2018-08-24 19:59:45] [INFO   ] __main__: 2018-08-24 16:59:46.263000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 1000000000000000
-[2018-08-24 19:59:45] [INFO   ] cogs.stats: 2018-08-24 16:59:46.263000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 1000000000000000
-[2018-08-24 19:59:45] [INFO   ] __main__: 2018-08-24 16:59:46.514000: iWeeti in #putin-guild-and-error-log (Putin support server): testt settings prefix
-[2018-08-24 19:59:45] [INFO   ] cogs.stats: 2018-08-24 16:59:46.514000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): testt settings prefix
-[2018-08-24 19:59:56] [INFO   ] __main__: 2018-08-24 16:59:58.037000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload prefix
-[2018-08-24 19:59:56] [INFO   ] cogs.stats: 2018-08-24 16:59:58.037000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload prefix
-[2018-08-24 20:00:13] [INFO   ] __main__: 2018-08-24 17:00:14.272000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 1333333333333
-[2018-08-24 20:00:13] [INFO   ] cogs.stats: 2018-08-24 17:00:14.272000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 1333333333333
-[2018-08-24 20:00:13] [INFO   ] __main__: 2018-08-24 17:00:14.314000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 20:00:13] [INFO   ] cogs.stats: 2018-08-24 17:00:14.314000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 20:00:15] [INFO   ] __main__: 2018-08-24 17:00:16.732000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 20:00:15] [INFO   ] cogs.stats: 2018-08-24 17:00:16.732000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 20:00:28] [INFO   ] __main__: 2018-08-24 17:00:29.606000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 333333333333
-[2018-08-24 20:00:28] [INFO   ] cogs.stats: 2018-08-24 17:00:29.606000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 333333333333
-[2018-08-24 20:00:34] [INFO   ] __main__: 2018-08-24 17:00:35.769000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings starboard starboard
-[2018-08-24 20:00:34] [INFO   ] cogs.stats: 2018-08-24 17:00:35.769000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings starboard starboard
-[2018-08-24 20:00:39] [INFO   ] __main__: 2018-08-24 17:00:40.108000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 55555555555555555555
-[2018-08-24 20:00:39] [INFO   ] cogs.stats: 2018-08-24 17:00:40.108000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 55555555555555555555
-[2018-08-24 20:00:46] [INFO   ] __main__: 2018-08-24 17:00:47.997000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .money
-[2018-08-24 20:00:46] [INFO   ] cogs.stats: 2018-08-24 17:00:47.997000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .money
-[2018-08-24 20:00:56] [INFO   ] __main__: 2018-08-24 17:00:57.610000: Bill Cipher in #bot-commands (TeGriAi): .money
-[2018-08-24 20:00:56] [INFO   ] cogs.stats: 2018-08-24 17:00:57.610000: Bill Cipher#1864 in #bot-commands (TeGriAi): .money
-[2018-08-24 20:01:04] [INFO   ] __main__: 2018-08-24 17:01:05.823000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 10000000000000000000000000
-[2018-08-24 20:01:04] [INFO   ] cogs.stats: 2018-08-24 17:01:05.823000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 10000000000000000000000000
-[2018-08-24 20:01:17] [INFO   ] __main__: 2018-08-24 17:01:19.002000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .money
-[2018-08-24 20:01:17] [INFO   ] cogs.stats: 2018-08-24 17:01:19.002000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .money
-[2018-08-24 20:01:28] [INFO   ] __main__: 2018-08-24 17:01:30.086000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 1000000000000000
-[2018-08-24 20:01:28] [INFO   ] cogs.stats: 2018-08-24 17:01:30.086000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 1000000000000000
-[2018-08-24 20:01:38] [INFO   ] __main__: 2018-08-24 17:01:39.567000: Bill Cipher in #bot-commands (TeGriAi): .money
-[2018-08-24 20:01:38] [INFO   ] cogs.stats: 2018-08-24 17:01:39.567000: Bill Cipher#1864 in #bot-commands (TeGriAi): .money
-[2018-08-24 20:02:02] [INFO   ] __main__: 2018-08-24 17:02:03.267000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .givemoney 1000000 <@365801507968253966>
-[2018-08-24 20:02:02] [INFO   ] cogs.stats: 2018-08-24 17:02:03.267000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .givemoney 1000000 <@365801507968253966>
-[2018-08-24 20:02:02] [INFO   ] __main__: 2018-08-24 17:02:03.941000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 20:02:02] [INFO   ] cogs.stats: 2018-08-24 17:02:03.941000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 20:02:11] [INFO   ] __main__: 2018-08-24 17:02:12.679000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings starboard starboard
-[2018-08-24 20:02:11] [INFO   ] cogs.stats: 2018-08-24 17:02:12.679000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings starboard starboard
-[2018-08-24 20:02:23] [INFO   ] __main__: 2018-08-24 17:02:24.477000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 10000000000
-[2018-08-24 20:02:23] [INFO   ] cogs.stats: 2018-08-24 17:02:24.477000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 10000000000
-[2018-08-24 20:02:31] [INFO   ] __main__: 2018-08-24 17:02:32.993000: iWeeti in #putin-guild-and-error-log (Putin support server): .help starboard
-[2018-08-24 20:02:31] [INFO   ] cogs.stats: 2018-08-24 17:02:32.993000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .help starboard
-[2018-08-24 20:02:39] [INFO   ] __main__: 2018-08-24 17:02:40.609000: R C N in #bot-commands (TeGriAi): .slots 10000000000
-[2018-08-24 20:02:39] [INFO   ] cogs.stats: 2018-08-24 17:02:40.609000: R C N#0001 in #bot-commands (TeGriAi): .slots 10000000000
-[2018-08-24 20:02:49] [INFO   ] __main__: 2018-08-24 17:02:50.793000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 20:02:49] [INFO   ] cogs.stats: 2018-08-24 17:02:50.793000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .reload settings
-[2018-08-24 20:02:52] [INFO   ] __main__: 2018-08-24 17:02:53.467000: R C N in #bot-commands (TeGriAi): .slots 10000000000
-[2018-08-24 20:02:52] [INFO   ] cogs.stats: 2018-08-24 17:02:53.467000: R C N#0001 in #bot-commands (TeGriAi): .slots 10000000000
-[2018-08-24 20:02:57] [INFO   ] __main__: 2018-08-24 17:02:58.779000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings starboard starboard
-[2018-08-24 20:02:57] [INFO   ] cogs.stats: 2018-08-24 17:02:58.779000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings starboard starboard
-[2018-08-24 20:03:01] [INFO   ] __main__: 2018-08-24 17:03:02.801000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 4545454545454545
-[2018-08-24 20:03:01] [INFO   ] cogs.stats: 2018-08-24 17:03:02.801000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 4545454545454545
-[2018-08-24 20:03:14] [INFO   ] __main__: 2018-08-24 17:03:15.612000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .money
-[2018-08-24 20:03:14] [INFO   ] cogs.stats: 2018-08-24 17:03:15.612000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .money
-[2018-08-24 20:03:18] [INFO   ] discord.player: Preparing to terminate ffmpeg process 8720.
-[2018-08-24 20:03:18] [INFO   ] discord.player: ffmpeg process 8720 successfully terminated with return code of 0.
-[2018-08-24 20:03:26] [INFO   ] __main__: 2018-08-24 17:03:27.228000: iWeeti in #putin-guild-and-error-log (Putin support server): -.invite
-[2018-08-24 20:03:26] [INFO   ] cogs.stats: 2018-08-24 17:03:27.228000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): -.invite
-[2018-08-24 20:03:49] [INFO   ] __main__: 2018-08-24 17:03:50.112000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 10000000000000000000
-[2018-08-24 20:03:49] [INFO   ] cogs.stats: 2018-08-24 17:03:50.112000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 10000000000000000000
-[2018-08-24 20:03:58] [INFO   ] __main__: 2018-08-24 17:03:59.614000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .money
-[2018-08-24 20:03:58] [INFO   ] cogs.stats: 2018-08-24 17:03:59.614000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .money
-[2018-08-24 20:04:01] [INFO   ] __main__: 2018-08-24 17:04:02.374000: iWeeti in #general (test): .settings starboard test
-[2018-08-24 20:04:01] [INFO   ] cogs.stats: 2018-08-24 17:04:02.374000: iWeeti#4990 in #general (test): .settings starboard test
-[2018-08-24 20:04:11] [INFO   ] __main__: 2018-08-24 17:04:12.613000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 1000000000000000000000
-[2018-08-24 20:04:11] [INFO   ] cogs.stats: 2018-08-24 17:04:12.613000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 1000000000000000000000
-[2018-08-24 20:04:21] [INFO   ] __main__: 2018-08-24 17:04:22.424000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .money
-[2018-08-24 20:04:21] [INFO   ] cogs.stats: 2018-08-24 17:04:22.424000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .money
-[2018-08-24 20:04:31] [INFO   ] __main__: 2018-08-24 17:04:32.122000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 7394857394876934879456
-[2018-08-24 20:04:31] [INFO   ] cogs.stats: 2018-08-24 17:04:32.122000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 7394857394876934879456
-[2018-08-24 20:04:41] [INFO   ] __main__: 2018-08-24 17:04:42.412000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 938476984576985698459
-[2018-08-24 20:04:41] [INFO   ] cogs.stats: 2018-08-24 17:04:42.412000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 938476984576985698459
-[2018-08-24 20:04:45] [WARNING] discord.gateway: Unknown event GUILD_INTEGRATIONS_UPDATE.
-[2018-08-24 20:04:52] [INFO   ] __main__: 2018-08-24 17:04:53.323000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 9837693476984456456
-[2018-08-24 20:04:52] [INFO   ] cogs.stats: 2018-08-24 17:04:53.323000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 9837693476984456456
-[2018-08-24 20:05:03] [INFO   ] __main__: 2018-08-24 17:05:04.369000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .money
-[2018-08-24 20:05:03] [INFO   ] cogs.stats: 2018-08-24 17:05:04.369000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .money
-[2018-08-24 20:05:10] [INFO   ] __main__: 2018-08-24 17:05:11.384000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 987694576984579684759
-[2018-08-24 20:05:10] [INFO   ] cogs.stats: 2018-08-24 17:05:11.384000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 987694576984579684759
-[2018-08-24 20:05:17] [INFO   ] __main__: 2018-08-24 17:05:18.957000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .money
-[2018-08-24 20:05:17] [INFO   ] cogs.stats: 2018-08-24 17:05:18.957000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .money
-[2018-08-24 20:05:24] [INFO   ] __main__: 2018-08-24 17:05:25.472000: חתול.מיצי.מיאו in #bot-commands (TeGriAi): .slots 97694876984569847569
-[2018-08-24 20:05:24] [INFO   ] cogs.stats: 2018-08-24 17:05:25.472000: חתול.מיצי.מיאו#7818 in #bot-commands (TeGriAi): .slots 97694876984569847569
-[2018-08-24 20:05:56] [INFO   ] discord.voice_client: Connecting to voice...
-[2018-08-24 20:05:56] [INFO   ] discord.voice_client: Starting voice handshake...
-[2018-08-24 20:05:56] [INFO   ] __main__: 2018-08-24 17:05:57.687000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .p solo
-[2018-08-24 20:05:56] [INFO   ] cogs.stats: 2018-08-24 17:05:57.687000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .p solo
-[2018-08-24 20:05:57] [INFO   ] discord.voice_client: Voice handshake complete. Endpoint found eu-central697.discord.gg (IP: 5.200.14.209)
-[2018-08-24 20:05:57] [INFO   ] discord.gateway: selected the voice protocol for use
-[2018-08-24 20:05:57] [INFO   ] discord.gateway: received secret key for voice connection
-[2018-08-24 20:06:47] [INFO   ] __main__: 2018-08-24 17:06:48.850000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 20:06:47] [INFO   ] cogs.stats: 2018-08-24 17:06:48.850000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings
-[2018-08-24 20:06:52] [INFO   ] __main__: 2018-08-24 17:06:54.097000: iWeeti in #putin-guild-and-error-log (Putin support server): .settings prefix
-[2018-08-24 20:06:52] [INFO   ] cogs.stats: 2018-08-24 17:06:54.097000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .settings prefix
-[2018-08-24 20:07:12] [INFO   ] __main__: 2018-08-24 17:07:14.025000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 467567
-[2018-08-24 20:07:12] [INFO   ] cogs.stats: 2018-08-24 17:07:14.025000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 467567
-[2018-08-24 20:07:20] [INFO   ] __main__: 2018-08-24 17:07:22.060000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:07:20] [INFO   ] cogs.stats: 2018-08-24 17:07:22.060000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:07:26] [WARNING] discord.state: GUILD_ROLE_DELETE referencing an unknown guild ID: 479069763432218627. Discarding.
-[2018-08-24 20:07:26] [WARNING] discord.state: GUILD_MEMBER_REMOVE referencing an unknown guild ID: 479069763432218627. Discarding.
-[2018-08-24 20:07:31] [INFO   ] __main__: 2018-08-24 17:07:32.485000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 37645834685763485763847568375
-[2018-08-24 20:07:31] [INFO   ] cogs.stats: 2018-08-24 17:07:32.485000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 37645834685763485763847568375
-[2018-08-24 20:07:37] [INFO   ] __main__: 2018-08-24 17:07:38.486000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 345694387694875694596
-[2018-08-24 20:07:37] [INFO   ] cogs.stats: 2018-08-24 17:07:38.486000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 345694387694875694596
-[2018-08-24 20:07:49] [INFO   ] __main__: 2018-08-24 17:07:50.928000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 9387495684756987456
-[2018-08-24 20:07:49] [INFO   ] cogs.stats: 2018-08-24 17:07:50.928000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 9387495684756987456
-[2018-08-24 20:07:58] [INFO   ] __main__: 2018-08-24 17:08:00.038000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:07:58] [INFO   ] cogs.stats: 2018-08-24 17:08:00.038000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:08:42] [INFO   ] __main__: 2018-08-24 17:08:43.931000: iWeeti in #bot-commands (TeGriAi): .stats
-[2018-08-24 20:08:42] [INFO   ] cogs.stats: 2018-08-24 17:08:43.931000: iWeeti#4990 in #bot-commands (TeGriAi): .stats
-[2018-08-24 20:08:45] [INFO   ] __main__: 2018-08-24 17:08:46.886000: iWeeti in #bot-commands (TeGriAi): .settings
-[2018-08-24 20:08:45] [INFO   ] cogs.stats: 2018-08-24 17:08:46.886000: iWeeti#4990 in #bot-commands (TeGriAi): .settings
-[2018-08-24 20:08:56] [INFO   ] __main__: 2018-08-24 17:08:57.547000: iWeeti in #bot-commands (TeGriAi): .stats global
-[2018-08-24 20:08:56] [INFO   ] cogs.stats: 2018-08-24 17:08:57.547000: iWeeti#4990 in #bot-commands (TeGriAi): .stats global
-[2018-08-24 20:09:30] [INFO   ] __main__: 2018-08-24 17:09:32.044000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 96749576948694946965656
-[2018-08-24 20:09:30] [INFO   ] cogs.stats: 2018-08-24 17:09:32.044000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 96749576948694946965656
-[2018-08-24 20:09:40] [INFO   ] __main__: 2018-08-24 17:09:41.486000: iWeeti in #testing-1 (Discord Bot List): -.stats
-[2018-08-24 20:09:40] [INFO   ] cogs.stats: 2018-08-24 17:09:41.486000: iWeeti#4990 in #testing-1 (Discord Bot List): -.stats
-[2018-08-24 20:09:47] [INFO   ] __main__: 2018-08-24 17:09:48.403000: iWeeti in #testing-1 (Discord Bot List): -.stats global
-[2018-08-24 20:09:47] [INFO   ] cogs.stats: 2018-08-24 17:09:48.403000: iWeeti#4990 in #testing-1 (Discord Bot List): -.stats global
-[2018-08-24 20:09:49] [INFO   ] __main__: 2018-08-24 17:09:50.479000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 100000000000000000
-[2018-08-24 20:09:49] [INFO   ] cogs.stats: 2018-08-24 17:09:50.479000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 100000000000000000
-[2018-08-24 20:10:06] [INFO   ] __main__: 2018-08-24 17:10:07.317000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1000000000000000
-[2018-08-24 20:10:06] [INFO   ] cogs.stats: 2018-08-24 17:10:07.317000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1000000000000000
-[2018-08-24 20:10:08] [INFO   ] __main__: 2018-08-24 17:10:09.452000: 69420 in #testing-1 (Discord Bot List): -.slots
-[2018-08-24 20:10:08] [INFO   ] cogs.stats: 2018-08-24 17:10:09.452000: 69420#9999 in #testing-1 (Discord Bot List): -.slots
-[2018-08-24 20:10:14] [INFO   ] __main__: 2018-08-24 17:10:15.306000: iWeeti in #testing-1 (Discord Bot List): -.settings
-[2018-08-24 20:10:14] [INFO   ] cogs.stats: 2018-08-24 17:10:15.306000: iWeeti#4990 in #testing-1 (Discord Bot List): -.settings
-[2018-08-24 20:10:21] [INFO   ] __main__: 2018-08-24 17:10:22.094000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1000000000000000000
-[2018-08-24 20:10:21] [INFO   ] cogs.stats: 2018-08-24 17:10:22.094000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1000000000000000000
-[2018-08-24 20:10:41] [INFO   ] __main__: 2018-08-24 17:10:42.287000: iWeeti in #testing-1 (Discord Bot List): -.emojistats
-[2018-08-24 20:10:41] [INFO   ] cogs.stats: 2018-08-24 17:10:42.287000: iWeeti#4990 in #testing-1 (Discord Bot List): -.emojistats
-[2018-08-24 20:10:53] [INFO   ] __main__: 2018-08-24 17:10:54.679000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 1000000000000
-[2018-08-24 20:10:53] [INFO   ] cogs.stats: 2018-08-24 17:10:54.679000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 1000000000000
-[2018-08-24 20:10:58] [INFO   ] discord.voice_client: The voice handshake is being terminated for Channel ID 468823738964770826 (Guild ID 418801915162263574)
-[2018-08-24 20:10:58] [INFO   ] discord.voice_client: The voice client has been removed for Channel ID 468823738964770826 (Guild ID 418801915162263574)
-[2018-08-24 20:10:58] [INFO   ] __main__: 2018-08-24 17:10:59.657000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:10:58] [INFO   ] cogs.stats: 2018-08-24 17:10:59.657000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:11:05] [INFO   ] __main__: 2018-08-24 17:11:06.914000: בייקונית in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:11:05] [INFO   ] cogs.stats: 2018-08-24 17:11:06.914000: בייקונית#2143 in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:11:44] [INFO   ] __main__: 2018-08-24 17:11:45.565000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 90909009090909090909
-[2018-08-24 20:11:44] [INFO   ] cogs.stats: 2018-08-24 17:11:45.565000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 90909009090909090909
-[2018-08-24 20:12:52] [INFO   ] __main__: 2018-08-24 17:12:53.818000: iWeeti in #testing-1 (Discord Bot List): .settings prefix
-[2018-08-24 20:12:52] [INFO   ] cogs.stats: 2018-08-24 17:12:53.818000: iWeeti#4990 in #testing-1 (Discord Bot List): .settings prefix
-[2018-08-24 20:13:07] [INFO   ] __main__: 2018-08-24 17:13:08.604000: iWeeti in #testing-1 (Discord Bot List): -.prefix
-[2018-08-24 20:13:07] [INFO   ] cogs.stats: 2018-08-24 17:13:08.604000: iWeeti#4990 in #testing-1 (Discord Bot List): -.prefix
-[2018-08-24 20:13:12] [INFO   ] __main__: 2018-08-24 17:13:13.732000: callumok2004 <BotDeveloper> in #testing-1 (Discord Bot List): -.slots
-[2018-08-24 20:13:12] [INFO   ] cogs.stats: 2018-08-24 17:13:13.732000: callumok2004 <BotDeveloper>#8093 in #testing-1 (Discord Bot List): -.slots
-[2018-08-24 20:13:56] [INFO   ] __main__: 2018-08-24 17:13:57.347000: callumok2004 <BotDeveloper> in #testing-1 (Discord Bot List): -.slots
-[2018-08-24 20:13:56] [INFO   ] cogs.stats: 2018-08-24 17:13:57.347000: callumok2004 <BotDeveloper>#8093 in #testing-1 (Discord Bot List): -.slots
-[2018-08-24 20:14:00] [INFO   ] __main__: 2018-08-24 17:14:00.889000: iWeeti in #testing-1 (Discord Bot List): -.about
-[2018-08-24 20:14:00] [INFO   ] cogs.stats: 2018-08-24 17:14:00.889000: iWeeti#4990 in #testing-1 (Discord Bot List): -.about
-[2018-08-24 20:14:12] [INFO   ] __main__: 2018-08-24 17:14:13.738000: callumok2004 <BotDeveloper> in #testing-1 (Discord Bot List): -.help
-[2018-08-24 20:14:12] [INFO   ] cogs.stats: 2018-08-24 17:14:13.738000: callumok2004 <BotDeveloper>#8093 in #testing-1 (Discord Bot List): -.help
-[2018-08-24 20:14:47] [INFO   ] __main__: 2018-08-24 17:14:48.350000: callumok2004 <BotDeveloper> in #testing-1 (Discord Bot List): -.slots
-[2018-08-24 20:14:47] [INFO   ] cogs.stats: 2018-08-24 17:14:48.350000: callumok2004 <BotDeveloper>#8093 in #testing-1 (Discord Bot List): -.slots
-[2018-08-24 20:15:28] [INFO   ] __main__: 2018-08-24 17:15:29.329000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 787878787878787878787878
-[2018-08-24 20:15:28] [INFO   ] cogs.stats: 2018-08-24 17:15:29.329000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 787878787878787878787878
-[2018-08-24 20:16:11] [INFO   ] __main__: 2018-08-24 17:16:12.129000: doggo.mp4 (noahvn) in #bot-commands (Freezer Games): .help
-[2018-08-24 20:16:11] [INFO   ] cogs.stats: 2018-08-24 17:16:12.129000: doggo.mp4 (noahvn)#4137 in #bot-commands (Freezer Games): .help
-[2018-08-24 20:16:18] [INFO   ] __main__: 2018-08-24 17:16:18.883000: nopje10 in #bot-commands (Freezer Games): .poke <@!162334674453004288>
-[2018-08-24 20:16:18] [INFO   ] cogs.stats: 2018-08-24 17:16:18.883000: nopje10#7108 in #bot-commands (Freezer Games): .poke <@!162334674453004288>
-[2018-08-24 20:16:22] [INFO   ] __main__: 2018-08-24 17:16:23.496000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 7435693487569
-[2018-08-24 20:16:22] [INFO   ] cogs.stats: 2018-08-24 17:16:23.496000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 7435693487569
-[2018-08-24 20:16:37] [INFO   ] __main__: 2018-08-24 17:16:38.848000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 58576959575896968795696
-[2018-08-24 20:16:37] [INFO   ] cogs.stats: 2018-08-24 17:16:38.848000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 58576959575896968795696
-[2018-08-24 20:16:51] [INFO   ] __main__: 2018-08-24 17:16:52.844000: doggo.mp4 (noahvn) in #bot-commands (Freezer Games): .star 482599065423708161
-[2018-08-24 20:16:51] [INFO   ] cogs.stats: 2018-08-24 17:16:52.844000: doggo.mp4 (noahvn)#4137 in #bot-commands (Freezer Games): .star 482599065423708161
-[2018-08-24 20:16:53] [INFO   ] __main__: 2018-08-24 17:16:54.778000: SamuraiStacks in #general (Putin support server): -.help meta
-[2018-08-24 20:16:53] [INFO   ] cogs.stats: 2018-08-24 17:16:54.778000: SamuraiStacks#5873 in #general (Putin support server): -.help meta
-[2018-08-24 20:16:56] [INFO   ] __main__: 2018-08-24 17:16:57.075000: nopje10 in #bot-commands (Freezer Games): .slots 200000000000
-[2018-08-24 20:16:56] [INFO   ] cogs.stats: 2018-08-24 17:16:57.075000: nopje10#7108 in #bot-commands (Freezer Games): .slots 200000000000
-[2018-08-24 20:17:03] [INFO   ] __main__: 2018-08-24 17:17:04.221000: nopje10 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:03] [INFO   ] cogs.stats: 2018-08-24 17:17:04.221000: nopje10#7108 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:08] [INFO   ] __main__: 2018-08-24 17:17:09.043000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 67598475698475698459658
-[2018-08-24 20:17:08] [INFO   ] cogs.stats: 2018-08-24 17:17:09.043000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 67598475698475698459658
-[2018-08-24 20:17:13] [INFO   ] __main__: 2018-08-24 17:17:13.690000: brqyden in #testing-1 (Discord Bot List): -.about
-[2018-08-24 20:17:13] [INFO   ] cogs.stats: 2018-08-24 17:17:13.690000: brqyden#0003 in #testing-1 (Discord Bot List): -.about
-[2018-08-24 20:17:13] [INFO   ] __main__: 2018-08-24 17:17:14.897000: doggo.mp4 (noahvn) in #bot-commands (Freezer Games): .car
-[2018-08-24 20:17:13] [INFO   ] cogs.stats: 2018-08-24 17:17:14.897000: doggo.mp4 (noahvn)#4137 in #bot-commands (Freezer Games): .car
-[2018-08-24 20:17:14] [INFO   ] __main__: 2018-08-24 17:17:15.607000: Daddy Derrick in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:14] [INFO   ] cogs.stats: 2018-08-24 17:17:15.607000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:17] [INFO   ] __main__: 2018-08-24 17:17:18.686000: SamuraiStacks in #general (Putin support server): -.help Meta
-[2018-08-24 20:17:17] [INFO   ] cogs.stats: 2018-08-24 17:17:18.686000: SamuraiStacks#5873 in #general (Putin support server): -.help Meta
-[2018-08-24 20:17:17] [INFO   ] __main__: 2018-08-24 17:17:18.941000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:17:17] [INFO   ] cogs.stats: 2018-08-24 17:17:18.941000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .money
-[2018-08-24 20:17:19] [INFO   ] __main__: 2018-08-24 17:17:20.887000: Daddy Derrick in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:19] [INFO   ] cogs.stats: 2018-08-24 17:17:20.887000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:23] [INFO   ] __main__: 2018-08-24 17:17:24.324000: nopje10 in #bot-commands (Freezer Games): .slots 1974228266193
-[2018-08-24 20:17:23] [INFO   ] cogs.stats: 2018-08-24 17:17:24.324000: nopje10#7108 in #bot-commands (Freezer Games): .slots 1974228266193
-[2018-08-24 20:17:24] [INFO   ] __main__: 2018-08-24 17:17:25.727000: doggo.mp4 (noahvn) in #bot-commands (Freezer Games): .car
-[2018-08-24 20:17:24] [INFO   ] cogs.stats: 2018-08-24 17:17:25.727000: doggo.mp4 (noahvn)#4137 in #bot-commands (Freezer Games): .car
-[2018-08-24 20:17:30] [INFO   ] __main__: 2018-08-24 17:17:31.130000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 94568795876945769837459837697
-[2018-08-24 20:17:30] [INFO   ] cogs.stats: 2018-08-24 17:17:31.130000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 94568795876945769837459837697
-[2018-08-24 20:17:31] [INFO   ] __main__: 2018-08-24 17:17:32.525000: Daddy Derrick in #bot-commands (Freezer Games): .slots 193462874
-[2018-08-24 20:17:31] [INFO   ] cogs.stats: 2018-08-24 17:17:32.525000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 193462874
-[2018-08-24 20:17:32] [INFO   ] __main__: 2018-08-24 17:17:33.729000: nopje10 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:32] [INFO   ] cogs.stats: 2018-08-24 17:17:33.729000: nopje10#7108 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:34] [INFO   ] __main__: 2018-08-24 17:17:36.095000: Daddy Derrick in #bot-commands (Freezer Games): .slots 193462874
-[2018-08-24 20:17:34] [INFO   ] cogs.stats: 2018-08-24 17:17:36.095000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 193462874
-[2018-08-24 20:17:35] [INFO   ] __main__: 2018-08-24 17:17:36.834000: doggo.mp4 (noahvn) in #bot-commands (Freezer Games): .snake
-[2018-08-24 20:17:35] [INFO   ] cogs.stats: 2018-08-24 17:17:36.834000: doggo.mp4 (noahvn)#4137 in #bot-commands (Freezer Games): .snake
-[2018-08-24 20:17:36] [INFO   ] __main__: 2018-08-24 17:17:37.024000: nopje10 in #bot-commands (Freezer Games): .daily
-[2018-08-24 20:17:36] [INFO   ] cogs.stats: 2018-08-24 17:17:37.024000: nopje10#7108 in #bot-commands (Freezer Games): .daily
-[2018-08-24 20:17:39] [INFO   ] __main__: 2018-08-24 17:17:40.652000: Daddy Derrick in #bot-commands (Freezer Games): .slots 193462874
-[2018-08-24 20:17:39] [INFO   ] cogs.stats: 2018-08-24 17:17:40.652000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 193462874
-[2018-08-24 20:17:40] [INFO   ] __main__: 2018-08-24 17:17:41.869000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 2222222222222222222222222
-[2018-08-24 20:17:40] [INFO   ] cogs.stats: 2018-08-24 17:17:41.869000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 2222222222222222222222222
-[2018-08-24 20:17:47] [INFO   ] __main__: 2018-08-24 17:17:48.897000: doggo.mp4 (noahvn) in #bot-commands (Freezer Games): .snake
-[2018-08-24 20:17:47] [INFO   ] cogs.stats: 2018-08-24 17:17:48.897000: doggo.mp4 (noahvn)#4137 in #bot-commands (Freezer Games): .snake
-[2018-08-24 20:17:48] [INFO   ] __main__: 2018-08-24 17:17:49.838000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 9476985769845769
-[2018-08-24 20:17:48] [INFO   ] cogs.stats: 2018-08-24 17:17:49.838000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 9476985769845769
-[2018-08-24 20:17:50] [INFO   ] __main__: 2018-08-24 17:17:51.769000: Daddy Derrick in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:50] [INFO   ] cogs.stats: 2018-08-24 17:17:51.769000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:17:59] [INFO   ] __main__: 2018-08-24 17:18:00.548000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 45845609407895867958
-[2018-08-24 20:17:59] [INFO   ] cogs.stats: 2018-08-24 17:18:00.548000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 45845609407895867958
-[2018-08-24 20:18:07] [INFO   ] __main__: 2018-08-24 17:18:08.959000: Daddy Derrick in #bot-commands (Freezer Games): .givemoney 1000000000000000 <@!226207751498366977>
-[2018-08-24 20:18:07] [INFO   ] cogs.stats: 2018-08-24 17:18:08.959000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .givemoney 1000000000000000 <@!226207751498366977>
-[2018-08-24 20:18:11] [INFO   ] __main__: 2018-08-24 17:18:12.811000: Daddy Derrick in #bot-commands (Freezer Games): .money
-[2018-08-24 20:18:11] [INFO   ] cogs.stats: 2018-08-24 17:18:12.811000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:18:21] [INFO   ] __main__: 2018-08-24 17:18:22.828000: nopje10 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:18:21] [INFO   ] cogs.stats: 2018-08-24 17:18:22.828000: nopje10#7108 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:18:27] [INFO   ] __main__: 2018-08-24 17:18:28.990000: Daddy Derrick in #bot-commands (Freezer Games): .money
-[2018-08-24 20:18:27] [INFO   ] cogs.stats: 2018-08-24 17:18:28.990000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:18:30] [INFO   ] __main__: 2018-08-24 17:18:31.592000: -Wolfie in #bot-commands (Freezer Games): .profile
-[2018-08-24 20:18:30] [INFO   ] cogs.stats: 2018-08-24 17:18:31.592000: -Wolfie#6959 in #bot-commands (Freezer Games): .profile
-[2018-08-24 20:18:33] [INFO   ] __main__: 2018-08-24 17:18:34.878000: nopje10 in #bot-commands (Freezer Games): .slots 100000000000000000000000
-[2018-08-24 20:18:33] [INFO   ] cogs.stats: 2018-08-24 17:18:34.878000: nopje10#7108 in #bot-commands (Freezer Games): .slots 100000000000000000000000
-[2018-08-24 20:18:38] [INFO   ] __main__: 2018-08-24 17:18:39.281000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 546894576894569874
-[2018-08-24 20:18:38] [INFO   ] cogs.stats: 2018-08-24 17:18:39.281000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 546894576894569874
-[2018-08-24 20:18:41] [INFO   ] __main__: 2018-08-24 17:18:42.766000: doggo.mp4 (noahvn) in #bot-commands (Freezer Games): .givemoney 1333333333333333333333333333333333337 <@!226207751498366977>
-[2018-08-24 20:18:41] [INFO   ] cogs.stats: 2018-08-24 17:18:42.766000: doggo.mp4 (noahvn)#4137 in #bot-commands (Freezer Games): .givemoney 1333333333333333333333333333333333337 <@!226207751498366977>
-[2018-08-24 20:18:46] [INFO   ] __main__: 2018-08-24 17:18:47.987000: nopje10 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:18:46] [INFO   ] cogs.stats: 2018-08-24 17:18:47.987000: nopje10#7108 in #bot-commands (Freezer Games): .money
-[2018-08-24 20:18:48] [INFO   ] __main__: 2018-08-24 17:18:49.534000: חתול.מיצי.מיאו in #🎵music-commands🎵 (TeGriAi): .slots 45769845769845765545
-[2018-08-24 20:18:48] [INFO   ] cogs.stats: 2018-08-24 17:18:49.534000: חתול.מיצי.מיאו#7818 in #🎵music-commands🎵 (TeGriAi): .slots 45769845769845765545
-[2018-08-24 20:18:48] [INFO   ] __main__: 2018-08-24 17:18:49.759000: doggo.mp4 (noahvn) in #bot-commands (Freezer Games): .marry <@460846291300122635>
-[2018-08-24 20:18:48] [INFO   ] cogs.stats: 2018-08-24 17:18:49.759000: doggo.mp4 (noahvn)#4137 in #bot-commands (Freezer Games): .marry <@460846291300122635>
-[2018-08-24 20:18:49] [INFO   ] __main__: 2018-08-24 17:18:50.345000: Daddy Derrick in #bot-commands (Freezer Games): .money
-[2018-08-24 20:18:49] [INFO   ] cogs.stats: 2018-08-24 17:18:50.345000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-24 21:32:07] [INFO   ] discord.client: logging in using static token
+[2018-08-24 21:32:09] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
+[2018-08-24 21:32:10] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-kb9j, discord-sessions-prd-1-15 (Session ID: 2941469d3c54d79411e156b1fcb7c972).
+[2018-08-24 21:32:34] [INFO   ] __main__: 2018-08-24 18:32:35.127000: codepupper in #nsfw-testing (RobotValley™): -.e621 male/male wolf abs
+[2018-08-24 21:32:34] [INFO   ] cogs.stats: 2018-08-24 18:32:35.127000: codepupper#3621 in #nsfw-testing (RobotValley™): -.e621 male/male wolf abs
+[2018-08-24 21:32:58] [INFO   ] __main__: 2018-08-24 18:32:59.333000: iWeeti in #nsfw-testing (RobotValley™): -.reload nsfw
+[2018-08-24 21:32:58] [INFO   ] cogs.stats: 2018-08-24 18:32:59.333000: iWeeti#4990 in #nsfw-testing (RobotValley™): -.reload nsfw
+[2018-08-24 21:33:05] [INFO   ] __main__: 2018-08-24 18:33:06.500000: codepupper in #nsfw-testing (RobotValley™): -.e621 male/male wolf abs
+[2018-08-24 21:33:05] [INFO   ] cogs.stats: 2018-08-24 18:33:06.500000: codepupper#3621 in #nsfw-testing (RobotValley™): -.e621 male/male wolf abs
+[2018-08-24 21:34:13] [INFO   ] __main__: 2018-08-24 18:34:14.242000: iWeeti in #yifflaari (Autismin aarrearkku): .e621 gay
+[2018-08-24 21:34:13] [INFO   ] cogs.stats: 2018-08-24 18:34:14.242000: iWeeti#4990 in #yifflaari (Autismin aarrearkku): .e621 gay
+[2018-08-24 21:35:25] [INFO   ] __main__: 2018-08-24 18:35:26.528000: iWeeti in #yifflaari (Autismin aarrearkku): .e621 male muscle gay
+[2018-08-24 21:35:25] [INFO   ] cogs.stats: 2018-08-24 18:35:26.528000: iWeeti#4990 in #yifflaari (Autismin aarrearkku): .e621 male muscle gay
+[2018-08-24 21:35:34] [INFO   ] __main__: 2018-08-24 18:35:35.875000: Ceciel in #yifflaari (Autismin aarrearkku): .e621 Sergal
+[2018-08-24 21:35:34] [INFO   ] cogs.stats: 2018-08-24 18:35:35.875000: Ceciel#5140 in #yifflaari (Autismin aarrearkku): .e621 Sergal
+[2018-08-24 21:35:54] [INFO   ] __main__: 2018-08-24 18:35:55.470000: Edison_Madness in #bot-commands (Freezer Games): .slots 1000000
+[2018-08-24 21:35:54] [INFO   ] cogs.stats: 2018-08-24 18:35:55.470000: Edison_Madness#6460 in #bot-commands (Freezer Games): .slots 1000000
+[2018-08-24 21:36:09] [INFO   ] __main__: 2018-08-24 18:36:10.697000: Edison_Madness in #bot-commands (Freezer Games): .money
+[2018-08-24 21:36:09] [INFO   ] cogs.stats: 2018-08-24 18:36:10.697000: Edison_Madness#6460 in #bot-commands (Freezer Games): .money
+[2018-08-24 21:36:27] [INFO   ] __main__: 2018-08-24 18:36:28.182000: Ceciel in #yifflaari (Autismin aarrearkku): .e621 Sergal gay
+[2018-08-24 21:36:27] [INFO   ] cogs.stats: 2018-08-24 18:36:28.182000: Ceciel#5140 in #yifflaari (Autismin aarrearkku): .e621 Sergal gay
+[2018-08-24 21:36:53] [INFO   ] __main__: 2018-08-24 18:36:54.744000: iWeeti in #nsfw-testing (RobotValley™): -.commandstats
+[2018-08-24 21:36:53] [INFO   ] cogs.stats: 2018-08-24 18:36:54.744000: iWeeti#4990 in #nsfw-testing (RobotValley™): -.commandstats
+[2018-08-24 21:37:11] [INFO   ] __main__: 2018-08-24 18:37:12.556000: iWeeti in #nsfw-testing (RobotValley™): -.stats global
+[2018-08-24 21:37:11] [INFO   ] cogs.stats: 2018-08-24 18:37:12.556000: iWeeti#4990 in #nsfw-testing (RobotValley™): -.stats global
+[2018-08-24 21:37:33] [INFO   ] __main__: 2018-08-24 18:37:34.560000: iWeeti in #bot-commands (Freezer Games): -.stats global
+[2018-08-24 21:37:33] [INFO   ] cogs.stats: 2018-08-24 18:37:34.560000: iWeeti#4990 in #bot-commands (Freezer Games): -.stats global
+[2018-08-24 21:38:15] [INFO   ] __main__: 2018-08-24 18:38:16.656000: iWeeti in #bot-commands (Freezer Games): -.stats
+[2018-08-24 21:38:15] [INFO   ] cogs.stats: 2018-08-24 18:38:16.656000: iWeeti#4990 in #bot-commands (Freezer Games): -.stats
+[2018-08-24 21:42:16] [INFO   ] __main__: 2018-08-24 18:42:17.013000: Bennygoku Roblox in #bot-commands (Freezer Games): .slots
+[2018-08-24 21:42:16] [INFO   ] cogs.stats: 2018-08-24 18:42:17.013000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .slots
+[2018-08-24 21:42:27] [INFO   ] __main__: 2018-08-24 18:42:28.170000: Bennygoku Roblox in #bot-commands (Freezer Games): .loot
+[2018-08-24 21:42:27] [INFO   ] cogs.stats: 2018-08-24 18:42:28.170000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .loot
+[2018-08-24 21:56:06] [INFO   ] __main__: 2018-08-24 18:56:07.313000: iWeeti in #robot-hell (RobotValley™): -.echo tes
+[2018-08-24 21:56:06] [INFO   ] cogs.stats: 2018-08-24 18:56:07.313000: iWeeti#4990 in #robot-hell (RobotValley™): -.echo tes
+[2018-08-24 22:00:25] [INFO   ] __main__: 2018-08-24 19:00:26.432000: iWeeti in #robot-hell (RobotValley™): .reload nsfw
+[2018-08-24 22:00:25] [INFO   ] cogs.stats: 2018-08-24 19:00:26.432000: iWeeti#4990 in #robot-hell (RobotValley™): .reload nsfw
+[2018-08-24 22:00:31] [INFO   ] __main__: 2018-08-24 19:00:32.974000: iWeeti in #nsfw-testing (RobotValley™): .randompick
+[2018-08-24 22:00:31] [INFO   ] cogs.stats: 2018-08-24 19:00:32.974000: iWeeti#4990 in #nsfw-testing (RobotValley™): .randompick
+[2018-08-24 22:01:11] [INFO   ] __main__: 2018-08-24 19:01:12.716000: iWeeti in #cmd-testing (RobotValley™): .randompick
+[2018-08-24 22:01:11] [INFO   ] cogs.stats: 2018-08-24 19:01:12.716000: iWeeti#4990 in #cmd-testing (RobotValley™): .randompick
+[2018-08-24 22:01:28] [INFO   ] __main__: 2018-08-24 19:01:29.666000: iWeeti in #cmd-testing (RobotValley™): .reload nsfw
+[2018-08-24 22:01:28] [INFO   ] cogs.stats: 2018-08-24 19:01:29.666000: iWeeti#4990 in #cmd-testing (RobotValley™): .reload nsfw
+[2018-08-24 22:02:01] [INFO   ] __main__: 2018-08-24 19:02:02.628000: Bennygoku Roblox in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:02:01] [INFO   ] cogs.stats: 2018-08-24 19:02:02.628000: Bennygoku Roblox#4708 in #bot-commands (Freezer Games): .loot
+[2018-08-24 22:02:02] [INFO   ] __main__: 2018-08-24 19:02:03.070000: iWeeti in #cmd-testing (RobotValley™): .reload nsfw
+[2018-08-24 22:02:02] [INFO   ] cogs.stats: 2018-08-24 19:02:03.070000: iWeeti#4990 in #cmd-testing (RobotValley™): .reload nsfw
+[2018-08-24 22:02:05] [INFO   ] __main__: 2018-08-24 19:02:06.783000: iWeeti in #cmd-testing (RobotValley™): .randompick
+[2018-08-24 22:02:05] [INFO   ] cogs.stats: 2018-08-24 19:02:06.783000: iWeeti#4990 in #cmd-testing (RobotValley™): .randompick
+[2018-08-24 22:02:23] [INFO   ] __main__: 2018-08-24 19:02:24.601000: iWeeti in #nsfw-testing (RobotValley™): .randompick
+[2018-08-24 22:02:23] [INFO   ] cogs.stats: 2018-08-24 19:02:24.601000: iWeeti#4990 in #nsfw-testing (RobotValley™): .randompick
+[2018-08-24 22:03:40] [INFO   ] __main__: 2018-08-24 19:03:41.701000: iWeeti in #yifflaari (Autismin aarrearkku): .randompick
+[2018-08-24 22:03:40] [INFO   ] cogs.stats: 2018-08-24 19:03:41.701000: iWeeti#4990 in #yifflaari (Autismin aarrearkku): .randompick
+[2018-08-24 22:04:01] [INFO   ] __main__: 2018-08-24 19:04:02.991000: iWeeti in #paskalaari (Autismin aarrearkku): .randompick
+[2018-08-24 22:04:01] [INFO   ] cogs.stats: 2018-08-24 19:04:02.991000: iWeeti#4990 in #paskalaari (Autismin aarrearkku): .randompick
+[2018-08-24 22:05:21] [INFO   ] __main__: 2018-08-24 19:05:22.585000: iWeeti in #paskalaari (Autismin aarrearkku): .prefix add -.
+[2018-08-24 22:05:21] [INFO   ] cogs.stats: 2018-08-24 19:05:22.585000: iWeeti#4990 in #paskalaari (Autismin aarrearkku): .prefix add -.

@@ -3,11 +3,132 @@ from discord.ext import commands
 import nekos
 import asyncio
 import aiohttp
+import random, cogs.utils.eapi, cogs.utils.sfapi, os
 
+processapi = cogs.utils.eapi.processapi
+processshowapi = cogs.utils.eapi.processshowapi
+search = cogs.utils.sfapi.search
+
+class ResultNotFound(Exception):
+    """Used if ResultNotFound is triggered by e* API."""
+    pass
+
+class InvalidHTTPResponse(Exception):
+    """Used if non-200 HTTP Response got from server."""
+    pass
 class NSFW():
     """These commands work with nekos.life api."""
     def __init__(self, bot):
         self.bot = bot
+
+    @commands.command(pass_context=True)
+    async def e621(self, ctx, *args):
+        """Searches e621 with given queries.
+        Arguments:
+        `*args` : list  
+        The quer(y/ies)"""
+        if not ctx.channel.is_nsfw():
+            return await ctx.send(':warning: These commands can only be used at nsfw marked channels. Silly :smile:')
+        await ctx.trigger_typing()
+        if not isinstance(ctx.channel, discord.DMChannel):
+            if not isinstance(ctx.channel, discord.GroupChannel):
+                if not ctx.channel.is_nsfw():
+                    await ctx.send("Cannot be used in non-NSFW channels!")
+                    return
+        args = ' '.join(args)
+        args = str(args)
+        netloc = "e621"
+        if "order:score_asc" in args:
+            await ctx.send("I'm not going to fall into that one, silly~")
+            return
+        if "score:" in args:
+            apilink = 'https://e621.net/post/index.json?tags=' + args + '&limit=320'
+        else:
+            apilink = 'https://e621.net/post/index.json?tags=' + args + ' score:>25&limit=320'
+        try:
+            await processapi(apilink)
+        except ResultNotFound:
+            await ctx.send("Result not found!")
+            return
+        except InvalidHTTPResponse:
+            await ctx.send("We're getting invalid response from the API, please try again later!")
+            return
+        embed = discord.Embed(title="E621 Search")
+        embed.set_image(url=processapi.file_link)
+        await ctx.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def e926(self, ctx, *args):
+        """Searches e926 with given queries.
+        Arguments:
+        `*args` : list  
+        The quer(y/ies)"""
+        await ctx.trigger_typing()
+        args = ' '.join(args)
+        args = str(args)
+        netloc = "e926"
+        if "order:score_asc" in args:
+            await ctx.send("I'm not going to fall into that one, silly~")
+            return
+        if "score:" in args:
+            apilink = 'https://e926.net/post/index.json?tags=' + args + '&limit=320'
+        else:
+            apilink = 'https://e926.net/post/index.json?tags=' + args + ' score:>25&limit=320'
+        try:
+            await processapi(apilink)
+        except ResultNotFound:
+            await ctx.send("Result not found!")
+            return
+        except InvalidHTTPResponse:
+            await ctx.send("We're getting invalid response from the API, please try again later!")
+            return
+        embed = discord.Embed(title="E621 Search")
+        embed.set_image(url=processapi.file_link)
+        await ctx.send(embed=embed)
+
+    @commands.command(pass_context=True)
+    async def show(self, ctx, arg):
+        """Show a post from e621/e926 with given post ID
+        Arguments:
+        `arg` : int  
+        The post ID"""
+        await ctx.trigger_typing()
+        arg = str(arg)
+        apilink = 'https://e621.net/post/show.json?id=' + arg
+        try:
+            await processshowapi(apilink)
+        except ResultNotFound:
+            await ctx.send("Result not found!")
+            return
+        except InvalidHTTPResponse:
+            await ctx.send("We're getting invalid response from the API, please try again later!")
+            return
+        await ctx.send("""Artist: """ + processshowapi.imgartist + """\r\nSource: `""" + processshowapi.imgsource + """`\r\nRating: """ + processshowapi.imgrating + """\r\nTags: `""" + processshowapi.imgtags + """` ...and more\r\nImage link: """ + processshowapi.file_link)
+
+    @commands.command(pass_context=True)
+    async def randompick(self, ctx, *args, description="Output random result"):
+        """Output random result from e621/e926.  
+        If channel is NSFW, use e621, if not, then use e926."""
+        await ctx.trigger_typing()
+        if not isinstance(ctx.channel, discord.DMChannel):
+            if not ctx.channel.is_nsfw():
+                netloc = "e926"
+            else:
+                netloc = "e621"
+        else:
+            netloc = "e621"
+        apilink = 'https://' + netloc + '.net/post/index.json?tags=score:>25&limit=320&page=' + str(random.randint(1,51))
+        try:
+            await processapi(apilink)
+        except ResultNotFound:
+            await ctx.send("Result not found!")
+            return
+        except InvalidHTTPResponse:
+            await ctx.send("We're getting invalid response from the API, please try again later!")
+            return
+        embed = discord.Embed(title=f"{netloc.upper()} Search")
+        embed.set_image(url=processapi.file_link)
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def yiff(self, ctx):
@@ -15,21 +136,6 @@ class NSFW():
         if not ctx.channel.is_nsfw():
             return await ctx.send(':warning: These commands can only be used at nsfw marked channels. Silly :smile:')
         e = discord.Embed(title="Here is a yiff image for you {}.".format(ctx.author.name), color=discord.Color.magenta())
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://sheri.fun/api/v1/yiff') as res:
-                r = await res.json()
-
-        yiff_url = r['url']
-
-        e.set_image(url=yiff_url)
-        await ctx.send(embed=e)
-
-    @commands.command()
-    async def yiff(self, ctx):
-        """Gives you a yiff image."""
-        if not ctx.channel.is_nsfw():
-            return await ctx.send(':warning: These commands can only be used at nsfw marked channels. Silly :smile:')
-        e = discord.Embed(title="Here is a neko gif for you {}.".format(ctx.author.name), color=discord.Color.magenta())
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://sheri.fun/api/v1/yiff') as res:
                 r = await res.json()
