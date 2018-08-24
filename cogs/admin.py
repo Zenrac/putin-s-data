@@ -76,6 +76,7 @@ class Admin:
             await ctx.send('\N{OK HAND SIGN}')
 
     @commands.command(pass_context=True, hidden=True, name='eval')
+    @commands.is_owner()
     async def _eval(self, ctx, *, body: str):
         """Evaluates a code"""
 
@@ -123,6 +124,7 @@ class Admin:
                 await ctx.send(f'```py\n{value}{ret}\n```')
 
     @commands.command(pass_context=True, hidden=True)
+    @commands.is_owner()
     async def repl(self, ctx):
         """Launches an interactive REPL session."""
         variables = {
@@ -213,6 +215,7 @@ class Admin:
 
 
     @commands.command(hidden=True)
+    @commands.is_owner()
     async def sql(self, ctx, *, query: str):
         """Run some SQL."""
         # the imports are here because I imagine some people would want to use
@@ -256,6 +259,7 @@ class Admin:
             await ctx.send(fmt)
 
     @commands.command(name='runas', hidden=True)
+    @commands.is_owner()
     async def _run_as(self, ctx, who: Union[discord.Member, discord.User], *, command: str):
         """Run a command as another user."""
         msg = copy.copy(ctx.message)
