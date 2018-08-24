@@ -48,7 +48,8 @@ initial_extensions = [
     'cogs.emoji',
     'cogs.reminder',
     'cogs.stats',
-    'cogs.admin'
+    'cogs.admin',
+    'cogs.settings'
 ]
 
 log = logging.getLogger(__name__)

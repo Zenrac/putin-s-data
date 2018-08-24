@@ -82,7 +82,7 @@ class NSFW():
         except InvalidHTTPResponse:
             await ctx.send("We're getting invalid response from the API, please try again later!")
             return
-        embed = discord.Embed(title="E621 Search")
+        embed = discord.Embed(title="E926 Search")
         embed.set_image(url=processapi.file_link)
         await ctx.send(embed=embed)
 

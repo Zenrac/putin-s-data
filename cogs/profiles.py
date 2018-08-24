@@ -76,7 +76,7 @@ class Profiless():
         if record is None:
             if member == ctx.author:
                 await ctx.send('You didnt set up a profile yet.')
-                await ctx.invoke(self.make)
+                return await ctx.invoke(self.make)
             else:
                 await ctx.send('this member did not set up a profile yet')
             return
@@ -209,7 +209,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         # if profile is None:
-        #     await ctx.invoke(self.make)
+        #     return await ctx.invoke(self.make)
         picks = profile['picks']
         cash = profile['cash']
         diamonds = profile['diamonds']
@@ -262,7 +262,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         cash = profile['cash']
         found = random.randint(100,150)
         cash += found
@@ -275,7 +275,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         cash = profile['cash']
         await ctx.send('You have ${}'.format(cash))
 
@@ -286,7 +286,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         cash = profile['cash']
         found = random.randint(20,50)
         cash = cash + found
@@ -315,7 +315,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         cash = profile['cash']
         picks = profile['picks']
         if amount is None:
@@ -337,7 +337,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         cash = profile['cash']
         rings = profile['rings']
         if amount is None:
@@ -360,7 +360,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         diamonds = profile['diamonds']
         cash = profile['cash']
         if amount is None:
@@ -383,7 +383,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         roses = profile['roses']
         cash = profile['cash']
         if amount is None:
@@ -406,7 +406,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         alcohol = profile['alcohol']
         cash = profile['cash']
         if amount is None:
@@ -429,7 +429,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
             return
         alcohol = profile['alcohol']
         if alcohol == 0:
@@ -450,7 +450,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         if amount is None:
             amount =1
         cash = profile['cash']
@@ -475,7 +475,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         rings = profile['rings']
         cash = profile['cash']
         if amount is None:
@@ -498,7 +498,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         cash = profile['cash']
         diamonds = profile['diamonds']
         if amount is None:
@@ -521,7 +521,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         cash = profile['cash']
         roses = profile['roses']
         if amount is None:
@@ -544,7 +544,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         cash = profile['cash']
         alcohol = profile['alcohol']
         if amount is None:
@@ -581,7 +581,7 @@ class Profiless():
                 query = """select * from profiles where id=$1"""
                 profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if profile is None:
-                    await ctx.invoke(self.make)
+                    return await ctx.invoke(self.make)
                 rings = profile['rings']
                 married = profile['married']
                 if married in 'nobody...':
@@ -629,7 +629,7 @@ class Profiless():
             query = """select * from profiles where id=$1"""
             profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
-                await ctx.invoke(self.make)
+                return await ctx.invoke(self.make)
             married = profile['married']
             if married in 'nobody...':
                 await ctx.send('You weren\'t married in the first place.')
@@ -661,7 +661,6 @@ class Profiless():
     @commands.group(aliases=['giveitem'])
     async def itemtransfer(self, ctx):
         """Use ``(prefix)help itemtransfer`` for more information."""
-        print("it")
 
     @itemtransfer.command(name='pick')
     async def ppick(self, ctx, member : discord.Member = None):
@@ -678,7 +677,7 @@ class Profiless():
             query = """select * from profiles where id=$1"""
             profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
-                await ctx.invoke(self.make)
+                return await ctx.invoke(self.make)
             picks = profile['picks']
             if picks == 0:
                 await ctx.send('You don\'t have any pickaxes.')
@@ -708,7 +707,7 @@ class Profiless():
             query = """select * from profiles where id=$1"""
             profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
-                await ctx.invoke(self.make)
+                return await ctx.invoke(self.make)
             rings = profile['rings']
             if rings == 0:
                 msg = await ctx.send('You don\'t have any rings.')
@@ -740,7 +739,7 @@ class Profiless():
             query = """select * from profiles where id=$1"""
             profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
-                await ctx.invoke(self.make)
+                return await ctx.invoke(self.make)
             diamonds = profile['diamonds']
             if diamonds == 0:
                 msg = await ctx.send('You don\'t have any diamonds.')
@@ -772,7 +771,7 @@ class Profiless():
             query = """select * from profiles where id=$1"""
             profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
-                await ctx.invoke(self.make)
+                return await ctx.invoke(self.make)
             roses = profile['roses']
             if roses == 0:
                 msg = await ctx.send('You don\'t have any roses.')
@@ -804,7 +803,7 @@ class Profiless():
             query = """select * from profiles where id=$1"""
             profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
-                await ctx.invoke(self.make)
+                return await ctx.invoke(self.make)
             alcohol = profile['alcohol']
             if alcohol == 0:
                 msg = await ctx.send('You don\'t have any alcohol.')
@@ -841,7 +840,7 @@ class Profiless():
             query = """select * from profiles where id=$1"""
             profile = await self.bot.pool.fetchrow(query, ctx.author.id)
             if profile is None:
-                await ctx.invoke(self.make)
+                return await ctx.invoke(self.make)
             cash = profile['cash']
             if cash <= amount:
                 msg = await ctx.send('You don\'t have enough money to give.')
@@ -856,11 +855,11 @@ class Profiless():
                 member_cash = member_profile['cash']
                 member_cash += amount
                 await self.edit_field(ctx, cash=cash)
-                await self.edit_user_field(member, ctx, cash=cash)
+                await self.edit_user_field(member, ctx, cash=amount)
                 await ctx.send('Gave ${} to {}.'.format(amount, member.name))
 
     @commands.group(aliases=['סלוט'])
-    @commands.cooldown(1, 4, commands.BucketType.user)
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def slots(self, ctx, amount: int = 10):
         """Plays slots default bet is $10"""
         # if ctx.subcommand_invoked is None:
@@ -870,7 +869,7 @@ class Profiless():
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
-            await ctx.invoke(self.make)
+            return await ctx.invoke(self.make)
         cash = int(profile['cash'])
         if cash < amount:
             await ctx.send('You don\'t have enough cash.')
@@ -878,12 +877,6 @@ class Profiless():
             cash -= amount
             slot = [':four_leaf_clover:', ':moneybag:', ':cherries:', ':lemon:', ':grapes:', ':poop:', ':diamond_shape_with_a_dot_inside:', ':dollar:', ':money_with_wings:', ':slot_machine:', ':strawberry:']
             slot_machine = '╔════[SLOTS]════╗\n║  {}   ║  {}   ║  {}  ║\n>   {}   ║  {}   ║  {}  <\n║  {}   ║   {}  ║  {}  ║\n╚════[SLOTS]════╝'
-            msg = await ctx.send(slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot)))
-            await asyncio.sleep(1)
-            await msg.edit(content=slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot)))
-            await asyncio.sleep(1)
-            await msg.edit(content=slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot)))
-            await asyncio.sleep(1)
             rand = random.randint(1,3)
             if rand == 1:
                 winning = 'and lost everything.'
@@ -897,7 +890,7 @@ class Profiless():
                 cash += win_amount
 
 
-            await msg.edit(content=slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot))+'\n**{}** bet ${} {}'.format(ctx.message.author.name,amount, winning))
+            await ctx.send(slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot))+'\n**{}** bet ${} {}'.format(ctx.message.author.name,amount, winning))
             await self.edit_field(ctx, cash=cash)
 
     # @commands.command()

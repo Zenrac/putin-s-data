@@ -251,7 +251,6 @@ class Tags:
 
         # tr = ctx.db.transaction()
         # await tr.start()
-        print('tr started')
 
         try:
             await self.bot.pool.execute(query, name, content, ctx.author.id, ctx.guild.id)
