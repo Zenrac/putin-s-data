@@ -133,6 +133,18 @@ class Meta:
         self._spoiler_cooldown = SpoilerCooldown()
 
     @commands.command()
+    async def role(self, ctx, *, role: discord.Role):
+        m = []
+        for member in ctx.guild.members:
+            if role in member.roles:
+                m.append(member)
+        if len(", ".join(_.display_name for _ in m)) >= 1025:
+            return await ctx.send(f'There is {len(m)} members with that role, because there is too many I can\'t display their names.')
+        e = discord.Embed(title=f"{len(m)} members have the role {role.name}.", description=", ".join(_.display_name for _ in m))
+        await ctx.send(embed=e)
+
+
+    @commands.command()
     async def lyrics(self, ctx):
         """Gives you lyrics for a song from Google's Genius.com."""
         artist_name = None
@@ -837,12 +849,6 @@ class Meta:
             decoded = str(base64ToString(text))
             await ctx.send(':lock: :key: Here is your decoded data:\n```{}```'.format(decoded))
 
-    @commands.command(hidden=True)
-    async def reactions(self, ctx):
-        """Adds thumbs up reaction."""
-        if ctx.message.author.bot: return
-        await ctx.message.add_reaction('👍')
-
     @commands.group(invoke_without_command=True)
     @commands.guild_only()
     async def info(self, ctx, *, member: discord.Member = None):
@@ -934,10 +940,10 @@ class Meta:
         fmt = f'Text {text_channels} ({secret_channels} secret)\nVoice {voice_channels} ({secret_voice} locked)'
         e.add_field(name='Channels', value=fmt)
 
-        fmt = f'<:online:316856575413321728> {member_by_status["online"]} ' \
-              f'<:idle:316856575098880002> {member_by_status["idle"]} ' \
-              f'<:dnd:316856574868193281> {member_by_status["dnd"]} ' \
-              f'<:offline:316856575501402112> {member_by_status["offline"]}\n' \
+        fmt = f'<:online:482810128395927574> {member_by_status["online"]} ' \
+              f'<:idle:482810128773545994> {member_by_status["idle"]} ' \
+              f'<:dnd:482810128786259968> {member_by_status["dnd"]} ' \
+              f'<:offline:482810128282681376> {member_by_status["offline"]}\n' \
               f'Total: {guild.member_count}'
 
         e.add_field(name='Members', value=fmt)
@@ -994,12 +1000,6 @@ class Meta:
         e = discord.Embed(title="Invite", description='Here\'s the invite to [here]({}).\nYou can invite me to your server [here](https://discordapp.com/api/oauth2/authorize?client_id=460846291300122635&permissions=8&scope=bot).'.format(invite))
         await ctx.send(embed=e)
 
-    @commands.command(hidden=True)
-    async def guildjoin(self, ctx, invite : discord.Invite):
-        """Joins a guild via invite."""
-        await self.bot.accept_invite(invite)
-        await ctx.send('\U0001f44c')
-
     @commands.command(no_pm=True)
     @checks.has_permissions(manage_guild=True)
     async def guildleave(self, ctx):
@@ -1017,32 +1017,32 @@ class Meta:
     def format_message(self, message):
         return 'On {0.timestamp}, {0.author} said {0.content}'.format(message)
 
-    @commands.command(hidden=True)
-    async def mentions(self, ctx, channel : discord.TextChannel = None, context : int = 3):
-        if ctx.message.author.bot: return
-        """Tells you when you were mentioned in a channel.
-        If a channel is not given, then it tells you when you were mentioned in a
-        the current channel. The context is an integer that tells you how many messages
-        before should be shown. The context cannot be greater than 5 or lower than 0.
-        """
-        if channel is None:
-            channel = ctx.message.channel
+    # @commands.command(hidden=True)
+    # async def mentions(self, ctx, channel : discord.TextChannel = None, context : int = 3):
+    #     if ctx.message.author.bot: return
+    #     """Tells you when you were mentioned in a channel.
+    #     If a channel is not given, then it tells you when you were mentioned in a
+    #     the current channel. The context is an integer that tells you how many messages
+    #     before should be shown. The context cannot be greater than 5 or lower than 0.
+    #     """
+    #     if channel is None:
+    #         channel = ctx.message.channel
 
-        context = min(5, max(0, context))
+    #     context = min(5, max(0, context))
 
-        author = ctx.message.author
-        previous = deque(maxlen=context)
-        async for message in self.bot.logs_from(channel, limit=100):
-            previous.append(message)
-            if author in message.mentions or message.mention_everyone:
-                # we're mentioned so..
-                try:
-                    await self.bot.whisper('\n'.join(map(self.format_message, previous)))
-                except discord.HTTPException:
-                    await self.bot.whisper('An error happened while fetching mentions.')
+    #     author = ctx.message.author
+    #     previous = deque(maxlen=context)
+    #     async for message in self.bot.logs_from(channel, limit=100):
+    #         previous.append(message)
+    #         if author in message.mentions or message.mention_everyone:
+    #             # we're mentioned so..
+    #             try:
+    #                 await self.bot.whisper('\n'.join(map(self.format_message, previous)))
+    #             except discord.HTTPException:
+    #                 await self.bot.whisper('An error happened while fetching mentions.')
 
-    @commands.command(rest_is_raw=True, hidden=True)
-    @commands.is_owner()
+    @commands.command(rest_is_raw=True)
+    # @commands.is_owner()
     async def echo(self, ctx, *, content):
         """Says what you say."""
         if ctx.message.author.bot: return

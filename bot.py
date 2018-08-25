@@ -78,7 +78,7 @@ class Putin(commands.AutoShardedBot):
         for extension in initial_extensions:
             try:
                 self.load_extension(extension)
-            except Exception as e:
+            except:
                 print(f'failed to load extension {extension}.', file=sys.stderr)
                 traceback.print_exc()
 
@@ -121,8 +121,18 @@ class Putin(commands.AutoShardedBot):
         await ctx.send('```shell\n{}```'.format(console))
 
     async def on_guild_join(self, guild):
-        print("Joined guild: {}.".format(guild.name))
-        await guild.owner.send("```Hey nice to see that you invited me!\nIf you need any help use \".help\" anywhere on the guild.\nJoin the bot\'s support guildat here: https://discord.gg/GJvq24V.```")
+        try:
+            channel = await guild.create_text_channel('putin-logging')
+            overwrite = discord.PermissionOverwrite()
+            overwrite.read_messages = False
+            role = guild.default_role
+            await channel.set_permissions(role, overwrite=overwrite)
+            await guild.owner.send(f'Hey, it seems that you own **{guild.name}** and I have been invited to there.\nRun ``.settings`` to get started.')
+            await channel.send('To get started run ``.settings``.\nIf you need more info join here https://discord.gg/Ry4JQRf.\nYou can also check my commands by running ``.help``.')
+        except Exception as error:
+            print(error)
+            logger = logging.getLogger('__main__')
+            logger.warning(error)
         general=self.get_channel(478265028185948162)
         await general.send('I just joined a new guild called ``{}``.'.format(guild.name))
 
@@ -160,12 +170,6 @@ class Putin(commands.AutoShardedBot):
         # await general.send("Ayy, feels good to be back :relaxed:")
         self.uptime = datetime.datetime.utcnow()
         self.commands_executed = 0
-        async def send_files():
-            while True:
-                files = [discord.File('profiles.json'), discord.File('tags.json'), discord.File('prefixes.json'), discord.File('logs.json'), discord.File('rooms.json'), discord.File('mod.json'), discord.File('commands.json')]
-                channel = self.get_channel(478363328448823317)
-                await channel.send(files=files)
-                await asyncio.sleep(300)
         # await send_files()
         self.load_extension('cogs.dbl')
 

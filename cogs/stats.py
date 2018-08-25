@@ -147,7 +147,7 @@ class Stats:
         embed.url = 'https://discord.gg/tVjAuU'
         embed.colour = discord.Colour.blurple()
 
-        owner = self.bot.get_user(self.bot.owner_id)
+        owner = await self.bot.get_user_info(self.bot.owner_id)
         embed.set_author(name=str(owner), icon_url=owner.avatar_url)
 
         # statistics
