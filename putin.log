@@ -113,3 +113,17 @@
 [2018-08-25 12:26:24] [INFO   ] cogs.stats: 2018-08-25 09:26:24.791000: iWeeti#4990 in #testing-1 (Discord Bot List): -.eval return len(bot.all_commands)
 [2018-08-25 12:26:35] [INFO   ] __main__: 2018-08-25 09:26:35.881000: LxgaN in #testing-1 (Discord Bot List): -.role bot developer
 [2018-08-25 12:26:35] [INFO   ] cogs.stats: 2018-08-25 09:26:35.881000: LxgaN#9568 in #testing-1 (Discord Bot List): -.role bot developer
+[2018-08-25 12:26:42] [INFO   ] __main__: 2018-08-25 09:26:43.133000: iWeeti in #testing-1 (Discord Bot List): -.role Bot Developer
+[2018-08-25 12:26:42] [INFO   ] cogs.stats: 2018-08-25 09:26:43.133000: iWeeti#4990 in #testing-1 (Discord Bot List): -.role Bot Developer
+[2018-08-25 12:26:57] [INFO   ] __main__: 2018-08-25 09:26:57.673000: iWeeti in #testing-1 (Discord Bot List): -.about
+[2018-08-25 12:26:57] [INFO   ] cogs.stats: 2018-08-25 09:26:57.673000: iWeeti#4990 in #testing-1 (Discord Bot List): -.about
+[2018-08-25 12:29:12] [INFO   ] __main__: 2018-08-25 09:29:12.505000: iWeeti in #testing-1 (Discord Bot List): -.about
+[2018-08-25 12:29:12] [INFO   ] cogs.stats: 2018-08-25 09:29:12.505000: iWeeti#4990 in #testing-1 (Discord Bot List): -.about
+[2018-08-25 12:33:03] [INFO   ] __main__: 2018-08-25 09:33:04.459000: iWeeti in #general (Putin support server): .reload dislogs
+[2018-08-25 12:33:03] [INFO   ] cogs.stats: 2018-08-25 09:33:04.459000: iWeeti#4990 in #general (Putin support server): .reload dislogs
+[2018-08-25 12:33:07] [INFO   ] __main__: 2018-08-25 09:33:08.681000: iWeeti in #general (Putin support server): .realping
+[2018-08-25 12:33:07] [INFO   ] cogs.stats: 2018-08-25 09:33:08.681000: iWeeti#4990 in #general (Putin support server): .realping
+[2018-08-25 12:33:37] [INFO   ] __main__: 2018-08-25 09:33:38.126000: iWeeti in #putin-logging (Putin support server): .reload dislogs
+[2018-08-25 12:33:37] [INFO   ] cogs.stats: 2018-08-25 09:33:38.126000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
+[2018-08-25 12:33:44] [INFO   ] __main__: 2018-08-25 09:33:45.664000: iWeeti in #putin-logging (Putin support server): .ping
+[2018-08-25 12:33:44] [INFO   ] cogs.stats: 2018-08-25 09:33:45.664000: iWeeti#4990 in #putin-logging (Putin support server): .ping

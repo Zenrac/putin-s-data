@@ -167,5 +167,13 @@ class DisLogs:
             
         await send_channel.send(embed=e)
 
+    async def on_command(self, ctx):
+        try:
+            channel = get(ctx.guild.channels, name='putin-logging')
+        except:
+            pass
+        if channel is None: return
+        await channel.send(f'``{ctx.author}`` ran ``{ctx.prefix}{ctx.command}`` in {ctx.channel.mention}.')
+
 def setup(bot):
     bot.add_cog(DisLogs(bot))
