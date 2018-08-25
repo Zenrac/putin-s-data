@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
 from discord.ext import commands
 from functools import partial
 from io import BytesIO
@@ -313,42 +313,590 @@ class Images():
     #     await ctx.send(file=discord.File(fp=output_buffer, filename="my_file."+avatar_url_format))
 
     @commands.command()
-    async def blur(self, ctx, *, member: discord.Member=None):
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def blur(self, ctx, *, member: discord.Member=None, amount: float=0.5):
         """Makes a blur version of your or someone you specify profile picture."""
         member = member or ctx.author
-        await ctx.trigger_typing()
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
-                avatar_bytes = await image.read()
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
 
-        with Image.open(BytesIO(avatar_bytes)) as image:
-            output_buffer = BytesIO()
-            image = image.filter(ImageFilter.GaussianBlur(15))
-            image.save(output_buffer, 'png')
-            output_buffer.seek(0)
-
-        await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
-
-    @commands.command()
-    async def test(self, ctx, *, member: discord.Member=None):
-        """Makes a blur version of your or someone you specify profile picture."""
-        await ctx.trigger_typing()
-        member = member or ctx.author
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
-                avatar_bytes = await image.read()
-        try:
             with Image.open(BytesIO(avatar_bytes)) as image:
                 output_buffer = BytesIO()
-                gay_flag = Image.open("gayflag.png")
-                image.save(output_buffer, 'png')
-                image = Image.blend(image, gay_flag, 0.0)
+                image = image.filter(ImageFilter.GaussianBlur(5))
                 image.save(output_buffer, 'png')
                 output_buffer.seek(0)
-        except Exception as error:
-            await ctx.send(error)
 
-        await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+        else:
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    image = image.filter(ImageFilter.GaussianBlur(5))
+                    image.save(output_buffer, 'gif')
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def edge(self, ctx, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+                image = image.filter(ImageFilter.FIND_EDGES)
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    image = image.filter(ImageFilter.FIND_EDGES)
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def emboss(self, ctx, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+                image = image.filter(ImageFilter.EMBOSS)
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    image = image.filter(ImageFilter.EMBOSS)
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def smooth(self, ctx, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+                image = image.filter(ImageFilter.SMOOTH_MORE)
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    image = image.filter(ImageFilter.SMOOTH_MORE)
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def sharpen(self, ctx, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+                image = image.filter(ImageFilter.SHARPEN)
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    image = image.filter(ImageFilter.SHARPEN)
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def detail(self, ctx, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+                image = image.filter(ImageFilter.DETAIL)
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    image = image.filter(ImageFilter.DETAIL)
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def upsidedown(self, ctx, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+                image = image.rotate( 180 )
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+
+                    image = image.rotate( 180 )
+
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def rotate(self, ctx, amount: int, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+
+                image = image.rotate( amount, expand=True )
+
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')[-1]
+                await atc.save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    
+                    image = image.rotate( amount, expand=True )
+
+                    image.save(output_buffer, file_format)
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def horisontal(self, ctx, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+                image = image.transpose(Image.FLIP_LEFT_RIGHT)
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    image = image.transpose(Image.FLIP_LEFT_RIGHT)
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def vertical(self, ctx, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+                image = image.transpose(Image.FLIP_TOP_BOTTOM)
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    image = image.transpose(Image.FLIP_TOP_BOTTOM)
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command(aliases = ['colour'])
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def color(self, ctx, amount: float, *, member: discord.Member=None):
+        if amount > 100 or amount < 1:
+            return await ctx.send('The value must be between 100 and 1.')
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+
+                enhancer = ImageEnhance.Color(image)
+                image = enhancer.enhance(amount/100)
+
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+
+                    enhancer = ImageEnhance.Color(image)
+                    image = enhancer.enhance(amount/100)
+
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def contrast(self, ctx, amount: float, *, member: discord.Member=None):
+        if amount > 200 or amount < 1:
+            return await ctx.send('The value must be between 200 and 1.')
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+
+                enhancer = ImageEnhance.Contrast(image)
+                image = enhancer.enhance(amount/100)
+
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+
+                    enhancer = ImageEnhance.Contrast(image)
+                    image = enhancer.enhance(amount/100)
+
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def brightness(self, ctx, amount: float, *, member: discord.Member=None):
+        if amount > 100 or amount < 1:
+            return await ctx.send('The value must be between 100 and 1.')
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+
+                enhancer = ImageEnhance.Brightness(image)
+                image = enhancer.enhance(amount/100)
+
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+
+                    enhancer = ImageEnhance.Brightness(image)
+                    image = enhancer.enhance(amount/100)
+
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.BucketType.user)
+    async def sharpness(self, ctx, amount: float, *, member: discord.Member=None):
+        if amount > 100 or amount < 1:
+            return await ctx.send('The value must be between 100 and 1.')
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+
+                enhancer = ImageEnhance.Sharpness(image)
+                image = enhancer.enhance(amount/100)
+
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+
+                    enhancer = ImageEnhance.Sharpness(image)
+                    image = enhancer.enhance(amount/100)
+
+                    image.save(output_buffer, atc.filename.split('.')[-1])
+                    output_buffer.seek(0)
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
+    #Basic image taking process
+    # @commands.command()
+    # async def test(self, ctx, *, member: discord.Member=None):
+    #     await ctx.trigger_typing()
+    #     member = member or ctx.author
+    #     if not ctx.message.attachments:
+    #         await ctx.trigger_typing()
+    #         async with aiohttp.ClientSession() as cs:
+    #             async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+    #                 avatar_bytes = await image.read()
+
+    #         with Image.open(BytesIO(avatar_bytes)) as image:
+    #             output_buffer = BytesIO()
+                
+
+
+    #             image.save(output_buffer, 'png')
+    #             output_buffer.seek(0)
+
+    #         await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+    #     else:
+    #         atc = ctx.message.attachments[0]
+    #         try:
+    #             attachment_bytes = BytesIO()
+    #             file_format = ctx.message.attachments[0].filename.split('.')
+    #             await ctx.message.attachments[0].save(attachment_bytes)
+    #             attachment_bytes.seek(0)
+    #             with Image.open(attachment_bytes) as image:
+    #                 output_buffer = BytesIO()
+
+
+
+    #                 image.save(output_buffer, atc.filename.split('.')[-1])
+    #                 output_buffer.seek(0)
+    #             await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+    #         except ValueError:
+    #             await ctx.send('That format is not supported.')
+
+    # @commands.command()
+    # async def test(self, ctx, *, member: discord.Member=None):
+    #     """Makes a blur version of your or someone you specify profile picture."""
+    #     await ctx.trigger_typing()
+    #     member = member or ctx.author
+    #     async with aiohttp.ClientSession() as cs:
+    #         async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+    #             avatar_bytes = await image.read()
+    #     try:
+    #         with Image.open(BytesIO(avatar_bytes)) as image:
+    #             output_buffer = BytesIO()
+    #             gay_flag = Image.open("gayflag.png")
+    #             image.save(output_buffer, 'png')
+    #             image = Image.blend(image, gay_flag, 0.0)
+    #             image.save(output_buffer, 'png')
+    #             output_buffer.seek(0)
+    #     except Exception as error:
+    #         await ctx.send(error)
+
+    #     await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
 
     # @commands.command()
     # async def ship(self, ctx, member: discord.Member, second_member: discord.Member=None):
