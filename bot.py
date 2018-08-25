@@ -16,6 +16,7 @@ from cogs.utils import context, db
 from cogs.utils.config import Config
 from collections import Counter, deque
 import config
+from discord.utils import find, get
 print ("[INFO] Discord version: " + discord.__version__)
 description = """
 Hello I am Putin. I hope to see you soon at Russia.
@@ -71,6 +72,7 @@ class Putin(commands.AutoShardedBot):
         self.session = aiohttp.ClientSession(loop=self.loop)
         self._prev_events = deque(maxlen=10)
         self.add_command(self.do)
+        self.add_command(self.setup)
         self.remove_command('help')
 
         self.prefixes = Config('prefixes.json')
@@ -130,6 +132,7 @@ class Putin(commands.AutoShardedBot):
             await guild.owner.send(f'Hey, it seems that you own **{guild.name}** and I have been invited to there.\nRun ``.settings`` to get started.')
             await channel.send('To get started run ``.settings``.\nIf you need more info join here https://discord.gg/Ry4JQRf.\nYou can also check my commands by running ``.help``.')
         except Exception as error:
+            await guild.owner.send('Please let me have Create channels permissions so you can get started.\nAfter you have setted up the permissions, run ``.setup``.')
             print(error)
             logger = logging.getLogger('__main__')
             logger.warning(error)
@@ -194,6 +197,19 @@ class Putin(commands.AutoShardedBot):
             #         if message.channel.id in mod.config.get('ignored', []):
             #             return
             await self.process_commands(message)
+
+    @commands.command(hidden=True)
+    async def setup(self, ctx):
+        already = get(ctx.guild.channels, name='putin-logging')
+        if already:
+            return await ctx.send('Seems that you already have a channel called ``putin-logging`` please delete it to set me up.')
+        channel = await ctx.guild.create_text_channel('putin-logging')
+        overwrite = discord.PermissionOverwrite()
+        overwrite.read_messages = False
+        role = ctx.guild.default_role
+        await channel.set_permissions(role, overwrite=overwrite)
+        await ctx.bot.pool.execute(f'insert into settings values({ctx.guild.id}, true)')
+        await channel.send('Alright to get started use ``.settings``.\nIf you want to see my commands use ``.help``.')            
 
     @commands.command(hidden=True)
     async def shutdown(self, ctx):

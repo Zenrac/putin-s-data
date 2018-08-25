@@ -1,6 +1,8 @@
 from discord.ext import commands
 from .utils import checks, formats
 import discord
+import aiohttp
+from bs4 import BeautifulSoup
 
 from collections import OrderedDict, deque, Counter
 import os, datetime

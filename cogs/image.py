@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from discord.ext import commands
 from functools import partial
 from io import BytesIO
@@ -73,7 +73,7 @@ class Images():
 
         return final_buffer
 
-    @commands.command()
+    @commands.command(hidden=True)
     async def circle(self, ctx, *, member: discord.Member = None):
         """Display the user's avatar on their colour."""
 
@@ -311,6 +311,44 @@ class Images():
     #         output_buffer.seek(0)
 
     #     await ctx.send(file=discord.File(fp=output_buffer, filename="my_file."+avatar_url_format))
+
+    @commands.command()
+    async def blur(self, ctx, *, member: discord.Member=None):
+        """Makes a blur version of your or someone you specify profile picture."""
+        member = member or ctx.author
+        await ctx.trigger_typing()
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                avatar_bytes = await image.read()
+
+        with Image.open(BytesIO(avatar_bytes)) as image:
+            output_buffer = BytesIO()
+            image = image.filter(ImageFilter.GaussianBlur(15))
+            image.save(output_buffer, 'png')
+            output_buffer.seek(0)
+
+        await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+    @commands.command()
+    async def test(self, ctx, *, member: discord.Member=None):
+        """Makes a blur version of your or someone you specify profile picture."""
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                avatar_bytes = await image.read()
+        try:
+            with Image.open(BytesIO(avatar_bytes)) as image:
+                output_buffer = BytesIO()
+                gay_flag = Image.open("gayflag.png")
+                image.save(output_buffer, 'png')
+                image = Image.blend(image, gay_flag, 0.0)
+                image.save(output_buffer, 'png')
+                output_buffer.seek(0)
+        except Exception as error:
+            await ctx.send(error)
+
+        await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
 
     # @commands.command()
     # async def ship(self, ctx, member: discord.Member, second_member: discord.Member=None):

@@ -817,7 +817,7 @@ class Profiless():
                     await ctx.send('That user does not have a profile.')
                 member_alcohol = member_profile['alcohol'] + 1
                 await self.edit_field(ctx, alcohol=alcohol)
-                await self.edit_user_field(member, ctx, alcohol=alcohol)
+                await self.edit_user_field(member, ctx, alcohol=member_alcohol)
                 await ctx.send('Gave :champagne: to {}.'.format(member.name))
 
     @commands.command(aliases=['givemoney'])
@@ -851,12 +851,12 @@ class Profiless():
                 query = """select * from profiles where id=$1"""
                 member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
                 if member_profile is None:
-                    await ctx.send('That user does not have a profile.')
+                    return await ctx.send('That user does not have a profile.')
                 member_cash = member_profile['cash']
                 member_cash += amount
                 await self.edit_field(ctx, cash=cash)
-                await self.edit_user_field(member, ctx, cash=amount)
-                await ctx.send('Gave ${} to {}.'.format(amount, member.name))
+                await self.edit_user_field(member, ctx, cash=member_cash)
+                await ctx.send('{} gave ${} to {}.'.format(ctx.author.display_name, amount, member.display_name))
 
     @commands.group(aliases=['סלוט'])
     @commands.cooldown(1, 2, commands.BucketType.user)

@@ -11,23 +11,6 @@ class DisLogs:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(invoke_without_command=False)
-    @commands.has_permissions(manage_guild=True)
-    async def enablelogging(self, ctx, *, channel: discord.TextChannel=None):
-        """Enables logging for this guild to the text channel you specify."""
-        if channel is None:
-            await ctx.send('You forgot to tag a channel.')
-            return
-        await ctx.bot.pool.execute('update settings set logging_enable=true where id={}'.format(ctx.guild.id))
-        await ctx.send('Logging channel has been set to {}.'.format(channel))
-
-    @commands.command(invoke_without_command=False)
-    @commands.has_permissions(manage_guild=True)
-    async def disablelogging(self, ctx):
-        """Disables logging for this server."""
-        await ctx.bot.pool.execute('update settings set logging_enable=false where id={}'.format(ctx.guild.id))
-        await ctx.send('Logging has been disabled on this guild.')
-
     async def on_message_delete(self, message):
         if message.author.bot: return
         try:
@@ -35,6 +18,9 @@ class DisLogs:
         except:
             return
         if send_channel is None: return
+        data = await self.bot.pool.fetchrow(f'select message_delete from settings where id={message.guild.id}')
+        if not data: return
+        if not data[0]: return
         try:
             async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
                 if entry.user.bot:
@@ -45,12 +31,6 @@ class DisLogs:
             print(e)
         e = discord.Embed(description=f'{message.content}\n\nHas been deleted in {message.channel.mention}.', color=discord.Color.red())
         e.set_author(name=message.author.name, icon_url=message.author.avatar_url)
-        try:
-            async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
-                if entry.user.id == message.author.id:
-                    e.add_field(name="Action by:", value="{}".format(entry.user), inline=False)
-        except discord.Forbidden:
-            e.set_footer(text="If you want to see who did this enable audits logs.")
         e.timestamp = datetime.datetime.utcnow()
 
         await send_channel.send(embed=e)
@@ -62,6 +42,9 @@ class DisLogs:
         except:
             return
         if send_channel is None: return
+        data = await self.bot.pool.fetchrow(f'select message_edit from settings where id={after.guild.id}')
+        if not data: return
+        if not data[0]: return
         e = discord.Embed(color=discord.Color.teal())
         e.set_author(name=before.author.display_name, icon_url=after.author.avatar_url)
         e.add_field(name="Before", value=before.content, inline=False)
@@ -76,6 +59,9 @@ class DisLogs:
         except:
             return
         if send_channel is None: return
+        data = await self.bot.pool.fetchrow(f'select join from settings where id={member.guild.id}')
+        if not data: return
+        if not data[0]: return
         target = 'member' if not member.bot else 'bot'
         e = discord.Embed(title='A {} has joined the guild.'.format(target), description=' ', color=discord.Color.green())
         e.add_field(name='Name:', value='{}'.format(member.name), inline=False)
@@ -95,6 +81,9 @@ class DisLogs:
         except:
             return
         if send_channel is None: return
+        data = await self.bot.pool.fetchrow(f'select leave from settings where id={member.guild.id}')
+        if not data: return
+        if not data[0]: return
         target = 'member' if not member.bot else 'bot'
         e = discord.Embed(title='A {} has joined the guild.'.format(target), description=' ', color=discord.Color.green())
         e.add_field(name='Name:', value='{}'.format(member.name), inline=False)
@@ -108,6 +97,9 @@ class DisLogs:
         except:
             return
         if send_channel is None: return
+        data = await self.bot.pool.fetchrow(f'select kick from settings where id={member.guild.id}')
+        if not data: return
+        if not data[0]: return
         try:
             async for entry in member.guild.audit_logs(limit=1, action=discord.AuditLogAction.ban):
                 if entry.target.id == member.id:
@@ -134,6 +126,9 @@ class DisLogs:
         except:
             return
         if send_channel is None: return
+        if not data[0]: return
+        data = await self.bot.pool.fetchrow(f'select ban from settings where id={guild.id}')
+        if not data: return
         e = discord.Embed(title='A member has been banned from the guild.', color=discord.Color.red())
         e.add_field(name='Name:', value='{}'.format(member.name), inline=False)
         e.add_field(name="Members now:", value='{}'.format(len(member.guild.members)), inline=False)
@@ -154,6 +149,9 @@ class DisLogs:
         except:
             return
         if send_channel is None: return
+        if not data[0]: return
+        data = await self.bot.pool.fetchrow(f'select unban from settings where id={guild.id}')
+        if not data: return
         e = discord.Embed(title='A user has been unbanned from the guild.', color=discord.Color.red())
         e.add_field(name='Name:', value='{}'.format(user.name), inline=False)
         try:
@@ -172,6 +170,10 @@ class DisLogs:
             channel = get(ctx.guild.channels, name='putin-logging')
         except:
             pass
+        data = await self.bot.pool.fetchrow(f'select log_commands from settings where id={ctx.guild.id}')
+        if not data: 
+            return
+        if not data[0]: return
         if channel is None: return
         await channel.send(f'``{ctx.author}`` ran ``{ctx.prefix}{ctx.command}`` in {ctx.channel.mention}.')
 

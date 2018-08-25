@@ -1,129 +1,125 @@
-[2018-08-25 11:12:50] [INFO   ] discord.client: logging in using static token
-[2018-08-25 11:12:51] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
-[2018-08-25 11:12:52] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-g9mp, discord-sessions-prd-1-23 (Session ID: fd6191e11859d9bddf8f2b2662df10e5).
-[2018-08-25 11:13:05] [INFO   ] __main__: 2018-08-25 08:13:05.575000: iWeeti in #general (Putin support server): -.about
-[2018-08-25 11:13:05] [INFO   ] cogs.stats: 2018-08-25 08:13:05.575000: iWeeti#4990 in #general (Putin support server): -.about
-[2018-08-25 11:13:43] [INFO   ] __main__: 2018-08-25 08:13:43.990000: iWeeti in #general (Putin support server): -.reload stats
-[2018-08-25 11:13:43] [INFO   ] cogs.stats: 2018-08-25 08:13:43.990000: iWeeti#4990 in #general (Putin support server): -.reload stats
-[2018-08-25 11:13:45] [INFO   ] __main__: 2018-08-25 08:13:45.612000: iWeeti in #general (Putin support server): -.about
-[2018-08-25 11:13:45] [INFO   ] cogs.stats: 2018-08-25 08:13:45.612000: iWeeti#4990 in #general (Putin support server): -.about
-[2018-08-25 11:13:56] [INFO   ] __main__: 2018-08-25 08:13:57.343000: iWeeti in #general (Putin support server): -.socketstats
-[2018-08-25 11:13:56] [INFO   ] cogs.stats: 2018-08-25 08:13:57.343000: iWeeti#4990 in #general (Putin support server): -.socketstats
-[2018-08-25 11:15:44] [WARNING] discord.state: GUILD_MEMBER_UPDATE referencing an unknown member ID: 289479495444987904. Discarding.
-[2018-08-25 11:15:57] [INFO   ] __main__: 2018-08-25 08:15:58.483000: iWeeti in #general (Putin support server): -.eval await ctx.guild.leave()
-[2018-08-25 11:15:57] [INFO   ] cogs.stats: 2018-08-25 08:15:58.483000: iWeeti#4990 in #general (Putin support server): -.eval await ctx.guild.leave()
-[2018-08-25 11:20:10] [WARNING] discord.state: GUILD_MEMBER_UPDATE referencing an unknown member ID: 237490126714961920. Discarding.
-[2018-08-25 11:25:47] [WARNING] discord.state: GUILD_MEMBER_UPDATE referencing an unknown member ID: 188755494528221185. Discarding.
-[2018-08-25 11:38:58] [INFO   ] __main__: 2018-08-25 08:38:59.177000: iWeeti in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:38:58] [INFO   ] cogs.stats: 2018-08-25 08:38:59.177000: iWeeti#4990 in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:39:28] [INFO   ] __main__: 2018-08-25 08:39:28.767000: iWeeti in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:39:28] [INFO   ] cogs.stats: 2018-08-25 08:39:28.767000: iWeeti#4990 in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:39:59] [INFO   ] __main__: 2018-08-25 08:40:00.731000: iWeeti in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:39:59] [INFO   ] cogs.stats: 2018-08-25 08:40:00.731000: iWeeti#4990 in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:41:32] [INFO   ] __main__: 2018-08-25 08:41:33: iWeeti in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:41:32] [INFO   ] cogs.stats: 2018-08-25 08:41:33: iWeeti#4990 in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:42:00] [INFO   ] __main__: 2018-08-25 08:42:00.940000: Scanner in #general (Putin support server): -.chat U suck
-[2018-08-25 11:42:00] [INFO   ] cogs.stats: 2018-08-25 08:42:00.940000: Scanner#4797 in #general (Putin support server): -.chat U suck
-[2018-08-25 11:42:03] [INFO   ] __main__: 2018-08-25 08:42:04.643000: iWeeti in #general (Putin support server): .rtfm rewrite embed author
-[2018-08-25 11:42:03] [INFO   ] cogs.stats: 2018-08-25 08:42:04.643000: iWeeti#4990 in #general (Putin support server): .rtfm rewrite embed author
-[2018-08-25 11:42:24] [INFO   ] __main__: 2018-08-25 08:42:24.931000: Scanner in #general (Putin support server): -.chat SOOOO
-[2018-08-25 11:42:24] [INFO   ] cogs.stats: 2018-08-25 08:42:24.931000: Scanner#4797 in #general (Putin support server): -.chat SOOOO
-[2018-08-25 11:42:35] [INFO   ] __main__: 2018-08-25 08:42:36.629000: iWeeti in #general (Putin support server): -.chat hello0
-[2018-08-25 11:42:35] [INFO   ] cogs.stats: 2018-08-25 08:42:36.629000: iWeeti#4990 in #general (Putin support server): -.chat hello0
-[2018-08-25 11:43:02] [INFO   ] __main__: 2018-08-25 08:43:02.875000: Scanner in #general (Putin support server): -.chat Your Profile picture is ugly
-[2018-08-25 11:43:02] [INFO   ] cogs.stats: 2018-08-25 08:43:02.875000: Scanner#4797 in #general (Putin support server): -.chat Your Profile picture is ugly
-[2018-08-25 11:43:13] [INFO   ] __main__: 2018-08-25 08:43:13.915000: iWeeti in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:43:13] [INFO   ] cogs.stats: 2018-08-25 08:43:13.915000: iWeeti#4990 in #general (Putin support server): -.reload dislogs
-[2018-08-25 11:43:35] [WARNING] discord.state: VOICE_STATE_UPDATE referencing an unknown member ID: 317877839015837698. Discarding.
-[2018-08-25 11:44:00] [INFO   ] __main__: 2018-08-25 08:44:01.338000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:44:00] [INFO   ] cogs.stats: 2018-08-25 08:44:01.338000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:44:38] [INFO   ] __main__: 2018-08-25 08:44:39.663000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:44:38] [INFO   ] cogs.stats: 2018-08-25 08:44:39.663000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:44:54] [INFO   ] __main__: 2018-08-25 08:44:55.492000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:44:54] [INFO   ] cogs.stats: 2018-08-25 08:44:55.492000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:47:44] [INFO   ] __main__: 2018-08-25 08:47:45.599000: iWeeti in #general (Putin support server): .reload dislogs
-[2018-08-25 11:47:44] [INFO   ] cogs.stats: 2018-08-25 08:47:45.599000: iWeeti#4990 in #general (Putin support server): .reload dislogs
-[2018-08-25 11:48:55] [INFO   ] __main__: 2018-08-25 08:48:56.263000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:48:55] [INFO   ] cogs.stats: 2018-08-25 08:48:56.263000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:49:27] [INFO   ] __main__: 2018-08-25 08:49:28.224000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:49:27] [INFO   ] cogs.stats: 2018-08-25 08:49:28.224000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:50:02] [INFO   ] __main__: 2018-08-25 08:50:03.473000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:50:02] [INFO   ] cogs.stats: 2018-08-25 08:50:03.473000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 11:51:06] [WARNING] discord.state: GUILD_MEMBER_UPDATE referencing an unknown member ID: 165619901212524545. Discarding.
-[2018-08-25 11:52:05] [INFO   ] __main__: 2018-08-25 08:52:06.179000: iWeeti in #general (Putin support server): .setnickname <@!429118689367949322> Scanner
-[2018-08-25 11:52:05] [INFO   ] cogs.stats: 2018-08-25 08:52:06.179000: iWeeti#4990 in #general (Putin support server): .setnickname <@!429118689367949322> Scanner
-[2018-08-25 11:52:20] [INFO   ] __main__: 2018-08-25 08:52:21.445000: iWeeti in #general (Putin support server): .setnickname <@!429118689367949322> Scanner
-[2018-08-25 11:52:20] [INFO   ] cogs.stats: 2018-08-25 08:52:21.445000: iWeeti#4990 in #general (Putin support server): .setnickname <@!429118689367949322> Scanner
-[2018-08-25 11:57:58] [INFO   ] __main__: 2018-08-25 08:57:58.945000: iWeeti in #general (Putin support server): .reload dislogs
-[2018-08-25 11:57:58] [INFO   ] cogs.stats: 2018-08-25 08:57:58.945000: iWeeti#4990 in #general (Putin support server): .reload dislogs
-[2018-08-25 12:00:13] [INFO   ] __main__: 2018-08-25 09:00:13.916000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:00:13] [INFO   ] cogs.stats: 2018-08-25 09:00:13.916000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:00:37] [INFO   ] __main__: 2018-08-25 09:00:38.132000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:00:37] [INFO   ] cogs.stats: 2018-08-25 09:00:38.132000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:01:08] [INFO   ] __main__: 2018-08-25 09:01:09.700000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:01:08] [INFO   ] cogs.stats: 2018-08-25 09:01:09.700000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:01:43] [INFO   ] __main__: 2018-08-25 09:01:44.709000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:01:43] [INFO   ] cogs.stats: 2018-08-25 09:01:44.709000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:02:19] [INFO   ] __main__: 2018-08-25 09:02:19.788000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:02:19] [INFO   ] cogs.stats: 2018-08-25 09:02:19.788000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:02:40] [INFO   ] __main__: 2018-08-25 09:02:41.507000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:02:40] [INFO   ] cogs.stats: 2018-08-25 09:02:41.507000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:05:22] [WARNING] discord.gateway: Unknown event GUILD_INTEGRATIONS_UPDATE.
-[2018-08-25 12:05:58] [INFO   ] __main__: 2018-08-25 09:05:59.017000: iWeeti in #general (test): .kick Auttaja lol
-[2018-08-25 12:05:58] [INFO   ] cogs.stats: 2018-08-25 09:05:59.017000: iWeeti#4990 in #general (test): .kick Auttaja lol
-[2018-08-25 12:06:20] [INFO   ] __main__: 2018-08-25 09:06:21.101000: iWeeti in #test (test): .purge all
-[2018-08-25 12:06:20] [INFO   ] cogs.stats: 2018-08-25 09:06:21.101000: iWeeti#4990 in #test (test): .purge all
-[2018-08-25 12:06:32] [INFO   ] __main__: 2018-08-25 09:06:32.876000: iWeeti in #general (test): .purge all
-[2018-08-25 12:06:32] [INFO   ] cogs.stats: 2018-08-25 09:06:32.876000: iWeeti#4990 in #general (test): .purge all
-[2018-08-25 12:06:51] [INFO   ] __main__: 2018-08-25 09:06:52.069000: iWeeti in #putin-logging (test): .invite
-[2018-08-25 12:06:51] [INFO   ] cogs.stats: 2018-08-25 09:06:52.069000: iWeeti#4990 in #putin-logging (test): .invite
-[2018-08-25 12:07:13] [INFO   ] __main__: 2018-08-25 09:07:13.798000: iWeeti in #general (Putin support server): .reload dislogs
-[2018-08-25 12:07:13] [INFO   ] cogs.stats: 2018-08-25 09:07:13.798000: iWeeti#4990 in #general (Putin support server): .reload dislogs
-[2018-08-25 12:07:30] [INFO   ] __main__: 2018-08-25 09:07:31.255000: iWeeti in #general (Putin support server): .load dislogs
-[2018-08-25 12:07:30] [INFO   ] cogs.stats: 2018-08-25 09:07:31.255000: iWeeti#4990 in #general (Putin support server): .load dislogs
-[2018-08-25 12:07:52] [INFO   ] __main__: 2018-08-25 09:07:53.013000: iWeeti in #general (Putin support server): .purge bot .
-[2018-08-25 12:07:52] [INFO   ] cogs.stats: 2018-08-25 09:07:53.013000: iWeeti#4990 in #general (Putin support server): .purge bot .
-[2018-08-25 12:07:54] [INFO   ] __main__: 2018-08-25 09:07:55.743000: iWeeti in #general (Putin support server): .purge bot -.
-[2018-08-25 12:07:54] [INFO   ] cogs.stats: 2018-08-25 09:07:55.743000: iWeeti#4990 in #general (Putin support server): .purge bot -.
-[2018-08-25 12:08:23] [INFO   ] __main__: 2018-08-25 09:08:23.978000: iWeeti in #general (Putin support server): .reload dislogs
-[2018-08-25 12:08:23] [INFO   ] cogs.stats: 2018-08-25 09:08:23.978000: iWeeti#4990 in #general (Putin support server): .reload dislogs
-[2018-08-25 12:08:50] [INFO   ] __main__: 2018-08-25 09:08:50.840000: iWeeti in #general (Putin support server): .rtfm rewrite on member join
-[2018-08-25 12:08:50] [INFO   ] cogs.stats: 2018-08-25 09:08:50.840000: iWeeti#4990 in #general (Putin support server): .rtfm rewrite on member join
-[2018-08-25 12:11:00] [INFO   ] __main__: 2018-08-25 09:11:01.142000: iWeeti in #general (Putin support server): -.botinfo Turtle
-[2018-08-25 12:11:00] [INFO   ] cogs.stats: 2018-08-25 09:11:01.142000: iWeeti#4990 in #general (Putin support server): -.botinfo Turtle
-[2018-08-25 12:16:23] [INFO   ] __main__: 2018-08-25 09:16:24.577000: iWeeti in #general (test): .reload dislogs
-[2018-08-25 12:16:23] [INFO   ] cogs.stats: 2018-08-25 09:16:24.577000: iWeeti#4990 in #general (test): .reload dislogs
-[2018-08-25 12:16:28] [INFO   ] __main__: 2018-08-25 09:16:29.473000: iWeeti in #general (test): .kick Turtle
-[2018-08-25 12:16:28] [INFO   ] cogs.stats: 2018-08-25 09:16:29.473000: iWeeti#4990 in #general (test): .kick Turtle
-[2018-08-25 12:17:10] [INFO   ] __main__: 2018-08-25 09:17:11.241000: iWeeti in #putin-logging (test): .reload dislogs
-[2018-08-25 12:17:10] [INFO   ] cogs.stats: 2018-08-25 09:17:11.241000: iWeeti#4990 in #putin-logging (test): .reload dislogs
-[2018-08-25 12:17:28] [INFO   ] __main__: 2018-08-25 09:17:29.191000: iWeeti in #test (test): .kick <@!429118689367949322> testing sorry
-[2018-08-25 12:17:28] [INFO   ] cogs.stats: 2018-08-25 09:17:29.191000: iWeeti#4990 in #test (test): .kick <@!429118689367949322> testing sorry
-[2018-08-25 12:19:25] [INFO   ] __main__: 2018-08-25 09:19:26.367000: iWeeti in #general (Putin support server): .reload dislgos
-[2018-08-25 12:19:25] [INFO   ] cogs.stats: 2018-08-25 09:19:26.367000: iWeeti#4990 in #general (Putin support server): .reload dislgos
-[2018-08-25 12:19:31] [INFO   ] __main__: 2018-08-25 09:19:31.822000: iWeeti in #general (Putin support server): .reload dislogs
-[2018-08-25 12:19:31] [INFO   ] cogs.stats: 2018-08-25 09:19:31.822000: iWeeti#4990 in #general (Putin support server): .reload dislogs
-[2018-08-25 12:22:12] [INFO   ] __main__: 2018-08-25 09:22:13.637000: iWeeti in #putin-logging (test): .reload dislogs
-[2018-08-25 12:22:12] [INFO   ] cogs.stats: 2018-08-25 09:22:13.637000: iWeeti#4990 in #putin-logging (test): .reload dislogs
-[2018-08-25 12:24:08] [INFO   ] __main__: 2018-08-25 09:24:09.551000: iWeeti in #testing-1 (Discord Bot List): -.role Moderators
-[2018-08-25 12:24:08] [INFO   ] cogs.stats: 2018-08-25 09:24:09.551000: iWeeti#4990 in #testing-1 (Discord Bot List): -.role Moderators
-[2018-08-25 12:25:56] [INFO   ] __main__: 2018-08-25 09:25:57.536000: iWeeti in #bets (this server is doodoo): .slots 19823102983109238
-[2018-08-25 12:25:56] [INFO   ] cogs.stats: 2018-08-25 09:25:57.536000: iWeeti#4990 in #bets (this server is doodoo): .slots 19823102983109238
-[2018-08-25 12:26:24] [INFO   ] __main__: 2018-08-25 09:26:24.791000: iWeeti in #testing-1 (Discord Bot List): -.eval return len(bot.all_commands)
-[2018-08-25 12:26:24] [INFO   ] cogs.stats: 2018-08-25 09:26:24.791000: iWeeti#4990 in #testing-1 (Discord Bot List): -.eval return len(bot.all_commands)
-[2018-08-25 12:26:35] [INFO   ] __main__: 2018-08-25 09:26:35.881000: LxgaN in #testing-1 (Discord Bot List): -.role bot developer
-[2018-08-25 12:26:35] [INFO   ] cogs.stats: 2018-08-25 09:26:35.881000: LxgaN#9568 in #testing-1 (Discord Bot List): -.role bot developer
-[2018-08-25 12:26:42] [INFO   ] __main__: 2018-08-25 09:26:43.133000: iWeeti in #testing-1 (Discord Bot List): -.role Bot Developer
-[2018-08-25 12:26:42] [INFO   ] cogs.stats: 2018-08-25 09:26:43.133000: iWeeti#4990 in #testing-1 (Discord Bot List): -.role Bot Developer
-[2018-08-25 12:26:57] [INFO   ] __main__: 2018-08-25 09:26:57.673000: iWeeti in #testing-1 (Discord Bot List): -.about
-[2018-08-25 12:26:57] [INFO   ] cogs.stats: 2018-08-25 09:26:57.673000: iWeeti#4990 in #testing-1 (Discord Bot List): -.about
-[2018-08-25 12:29:12] [INFO   ] __main__: 2018-08-25 09:29:12.505000: iWeeti in #testing-1 (Discord Bot List): -.about
-[2018-08-25 12:29:12] [INFO   ] cogs.stats: 2018-08-25 09:29:12.505000: iWeeti#4990 in #testing-1 (Discord Bot List): -.about
-[2018-08-25 12:33:03] [INFO   ] __main__: 2018-08-25 09:33:04.459000: iWeeti in #general (Putin support server): .reload dislogs
-[2018-08-25 12:33:03] [INFO   ] cogs.stats: 2018-08-25 09:33:04.459000: iWeeti#4990 in #general (Putin support server): .reload dislogs
-[2018-08-25 12:33:07] [INFO   ] __main__: 2018-08-25 09:33:08.681000: iWeeti in #general (Putin support server): .realping
-[2018-08-25 12:33:07] [INFO   ] cogs.stats: 2018-08-25 09:33:08.681000: iWeeti#4990 in #general (Putin support server): .realping
-[2018-08-25 12:33:37] [INFO   ] __main__: 2018-08-25 09:33:38.126000: iWeeti in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:33:37] [INFO   ] cogs.stats: 2018-08-25 09:33:38.126000: iWeeti#4990 in #putin-logging (Putin support server): .reload dislogs
-[2018-08-25 12:33:44] [INFO   ] __main__: 2018-08-25 09:33:45.664000: iWeeti in #putin-logging (Putin support server): .ping
-[2018-08-25 12:33:44] [INFO   ] cogs.stats: 2018-08-25 09:33:45.664000: iWeeti#4990 in #putin-logging (Putin support server): .ping
+[2018-08-25 19:46:28] [INFO   ] discord.client: logging in using static token
+[2018-08-25 19:46:29] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
+[2018-08-25 19:46:30] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-j093, discord-sessions-prd-1-13 (Session ID: fcfe597bff7a5e70344ab264bb2f969b).
+[2018-08-25 19:47:07] [INFO   ] __main__: 2018-08-25 16:47:08.785000: iWeeti in #putin-guild-and-error-log (Putin support server): -.test
+[2018-08-25 19:47:07] [INFO   ] cogs.stats: 2018-08-25 16:47:08.785000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): -.test
+[2018-08-25 19:47:29] [INFO   ] __main__: 2018-08-25 16:47:30.273000: iWeeti in #putin-guild-and-error-log (Putin support server): -.reload image
+[2018-08-25 19:47:29] [INFO   ] cogs.stats: 2018-08-25 16:47:30.273000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): -.reload image
+[2018-08-25 19:47:32] [INFO   ] __main__: 2018-08-25 16:47:33.550000: iWeeti in #putin-guild-and-error-log (Putin support server): -.test
+[2018-08-25 19:47:32] [INFO   ] cogs.stats: 2018-08-25 16:47:33.550000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): -.test
+[2018-08-25 19:49:45] [INFO   ] __main__: 2018-08-25 16:49:46.023000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:49:45] [INFO   ] cogs.stats: 2018-08-25 16:49:46.023000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:50:20] [INFO   ] __main__: 2018-08-25 16:50:21.566000: iWeeti in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:50:20] [INFO   ] cogs.stats: 2018-08-25 16:50:21.566000: iWeeti#4990 in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:50:20] [ERROR  ] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x06F01490>
+[2018-08-25 19:50:23] [INFO   ] __main__: 2018-08-25 16:50:24.837000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:50:23] [INFO   ] cogs.stats: 2018-08-25 16:50:24.837000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:51:34] [INFO   ] __main__: 2018-08-25 16:51:34.976000: iWeeti in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:51:34] [INFO   ] cogs.stats: 2018-08-25 16:51:34.976000: iWeeti#4990 in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:51:35] [INFO   ] __main__: 2018-08-25 16:51:36.434000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:51:35] [INFO   ] cogs.stats: 2018-08-25 16:51:36.434000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:52:30] [INFO   ] __main__: 2018-08-25 16:52:31.538000: iWeeti in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:52:30] [INFO   ] cogs.stats: 2018-08-25 16:52:31.538000: iWeeti#4990 in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:52:32] [INFO   ] __main__: 2018-08-25 16:52:33.010000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:52:32] [INFO   ] cogs.stats: 2018-08-25 16:52:33.010000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:53:47] [INFO   ] __main__: 2018-08-25 16:53:48.585000: iWeeti in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:53:47] [INFO   ] cogs.stats: 2018-08-25 16:53:48.585000: iWeeti#4990 in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:53:52] [INFO   ] __main__: 2018-08-25 16:53:53.221000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:53:52] [INFO   ] cogs.stats: 2018-08-25 16:53:53.221000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:54:03] [INFO   ] __main__: 2018-08-25 16:54:03.869000: Mr Chicken™ in #🎵music-commands🎵 (TeGriAi): .slots
+[2018-08-25 19:54:03] [INFO   ] cogs.stats: 2018-08-25 16:54:03.869000: Mr Chicken™#9999 in #🎵music-commands🎵 (TeGriAi): .slots
+[2018-08-25 19:54:13] [INFO   ] __main__: 2018-08-25 16:54:14.840000: Mr Chicken™ in #🎵music-commands🎵 (TeGriAi): .daily
+[2018-08-25 19:54:13] [INFO   ] cogs.stats: 2018-08-25 16:54:14.840000: Mr Chicken™#9999 in #🎵music-commands🎵 (TeGriAi): .daily
+[2018-08-25 19:54:17] [INFO   ] __main__: 2018-08-25 16:54:18.905000: Daddy Derrick in #bot-commands (Freezer Games): .slots 3272984729
+[2018-08-25 19:54:17] [INFO   ] cogs.stats: 2018-08-25 16:54:18.905000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 3272984729
+[2018-08-25 19:54:25] [INFO   ] __main__: 2018-08-25 16:54:26.544000: Daddy Derrick in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:25] [INFO   ] cogs.stats: 2018-08-25 16:54:26.544000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:29] [INFO   ] __main__: 2018-08-25 16:54:30.077000: Daddy Derrick in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:29] [INFO   ] cogs.stats: 2018-08-25 16:54:30.077000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:32] [INFO   ] __main__: 2018-08-25 16:54:33.264000: Daddy Derrick in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:32] [INFO   ] cogs.stats: 2018-08-25 16:54:33.264000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:35] [INFO   ] __main__: 2018-08-25 16:54:36.252000: Daddy Derrick in #bot-commands (Freezer Games): .money
+[2018-08-25 19:54:35] [INFO   ] cogs.stats: 2018-08-25 16:54:36.252000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .money
+[2018-08-25 19:54:37] [INFO   ] __main__: 2018-08-25 16:54:38.706000: Daddy Derrick in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:37] [INFO   ] cogs.stats: 2018-08-25 16:54:38.706000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:40] [INFO   ] __main__: 2018-08-25 16:54:41.877000: Daddy Derrick in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:40] [INFO   ] cogs.stats: 2018-08-25 16:54:41.877000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 36861429271703028889154916520468743908392697856
+[2018-08-25 19:54:44] [INFO   ] __main__: 2018-08-25 16:54:45.328000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-25 19:54:44] [INFO   ] cogs.stats: 2018-08-25 16:54:45.328000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-25 19:54:45] [INFO   ] __main__: 2018-08-25 16:54:46.178000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-25 19:54:45] [INFO   ] cogs.stats: 2018-08-25 16:54:46.178000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-25 19:58:05] [INFO   ] __main__: 2018-08-25 16:58:06.724000: iWeeti in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:58:05] [INFO   ] cogs.stats: 2018-08-25 16:58:06.724000: iWeeti#4990 in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 19:58:20] [ERROR  ] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x07D28D90>
+[2018-08-25 19:58:20] [ERROR  ] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x083EB190>
+[2018-08-25 19:58:20] [ERROR  ] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0853DC10>
+[2018-08-25 19:58:20] [INFO   ] __main__: 2018-08-25 16:58:21.710000: iWeeti in #testing-1 (Discord Bot List): -.load image
+[2018-08-25 19:58:20] [INFO   ] cogs.stats: 2018-08-25 16:58:21.710000: iWeeti#4990 in #testing-1 (Discord Bot List): -.load image
+[2018-08-25 19:58:22] [INFO   ] __main__: 2018-08-25 16:58:23.825000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:58:22] [INFO   ] cogs.stats: 2018-08-25 16:58:23.825000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 19:58:56] [INFO   ] __main__: 2018-08-25 16:58:57.421000: Roki_100 in #testing-2 (Discord Bot List): .dog
+[2018-08-25 19:58:56] [INFO   ] cogs.stats: 2018-08-25 16:58:57.421000: Roki_100#0230 in #testing-2 (Discord Bot List): .dog
+[2018-08-25 20:02:09] [INFO   ] __main__: 2018-08-25 17:02:10.425000: iWeeti in #bot-commands (Freezer Games): -.blur Daddy Derrick
+[2018-08-25 20:02:09] [INFO   ] cogs.stats: 2018-08-25 17:02:10.425000: iWeeti#4990 in #bot-commands (Freezer Games): -.blur Daddy Derrick
+[2018-08-25 20:02:24] [INFO   ] __main__: 2018-08-25 17:02:25.441000: iWeeti in #bot-commands (Freezer Games): -.stats
+[2018-08-25 20:02:24] [INFO   ] cogs.stats: 2018-08-25 17:02:25.441000: iWeeti#4990 in #bot-commands (Freezer Games): -.stats
+[2018-08-25 20:02:38] [INFO   ] __main__: 2018-08-25 17:02:38.742000: iWeeti in #bot-commands (Freezer Games): -.stats global
+[2018-08-25 20:02:38] [INFO   ] cogs.stats: 2018-08-25 17:02:38.742000: iWeeti#4990 in #bot-commands (Freezer Games): -.stats global
+[2018-08-25 20:03:35] [WARNING] discord.state: VOICE_STATE_UPDATE referencing an unknown member ID: 424452833912553474. Discarding.
+[2018-08-25 20:04:43] [WARNING] discord.gateway: Unknown event GUILD_INTEGRATIONS_UPDATE.
+[2018-08-25 20:05:07] [INFO   ] __main__: 2018-08-25 17:05:08.581000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:05:07] [INFO   ] cogs.stats: 2018-08-25 17:05:08.581000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:05:18] [INFO   ] __main__: 2018-08-25 17:05:19.158000: iWeeti in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 20:05:18] [INFO   ] cogs.stats: 2018-08-25 17:05:19.158000: iWeeti#4990 in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 20:05:19] [INFO   ] __main__: 2018-08-25 17:05:20.679000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:05:19] [INFO   ] cogs.stats: 2018-08-25 17:05:20.679000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:06:00] [INFO   ] __main__: 2018-08-25 17:06:01.260000: iWeeti in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 20:06:00] [INFO   ] cogs.stats: 2018-08-25 17:06:01.260000: iWeeti#4990 in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 20:06:01] [INFO   ] __main__: 2018-08-25 17:06:02.794000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:06:01] [INFO   ] cogs.stats: 2018-08-25 17:06:02.794000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:06:35] [INFO   ] __main__: 2018-08-25 17:06:36.400000: iWeeti in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 20:06:35] [INFO   ] cogs.stats: 2018-08-25 17:06:36.400000: iWeeti#4990 in #testing-1 (Discord Bot List): -.reload image
+[2018-08-25 20:06:37] [INFO   ] __main__: 2018-08-25 17:06:37.920000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:06:37] [INFO   ] cogs.stats: 2018-08-25 17:06:37.920000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:07:48] [INFO   ] __main__: 2018-08-25 17:07:49.844000: Rei Carmesim in #geral (República Anarco-Zuckista): .hug
+[2018-08-25 20:07:48] [INFO   ] cogs.stats: 2018-08-25 17:07:49.844000: Rei Carmesim#1132 in #geral (República Anarco-Zuckista): .hug
+[2018-08-25 20:08:01] [INFO   ] __main__: 2018-08-25 17:08:01.481000: Rei Carmesim in #geral (República Anarco-Zuckista): .hug <@!460846291300122635>
+[2018-08-25 20:08:01] [INFO   ] cogs.stats: 2018-08-25 17:08:01.481000: Rei Carmesim#1132 in #geral (República Anarco-Zuckista): .hug <@!460846291300122635>
+[2018-08-25 20:08:10] [INFO   ] __main__: 2018-08-25 17:08:11.619000: iWeeti in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:08:10] [INFO   ] cogs.stats: 2018-08-25 17:08:11.619000: iWeeti#4990 in #testing-1 (Discord Bot List): -.test
+[2018-08-25 20:08:30] [INFO   ] __main__: 2018-08-25 17:08:31.284000: nag√ in #geral (República Anarco-Zuckista): .hug <@!460846291300122635>
+[2018-08-25 20:08:30] [INFO   ] cogs.stats: 2018-08-25 17:08:31.284000: nag√#6532 in #geral (República Anarco-Zuckista): .hug <@!460846291300122635>
+[2018-08-25 20:08:47] [INFO   ] __main__: 2018-08-25 17:08:47.601000: Rei Carmesim in #geral (República Anarco-Zuckista): .slap <@213466096718708737>
+[2018-08-25 20:08:47] [INFO   ] cogs.stats: 2018-08-25 17:08:47.601000: Rei Carmesim#1132 in #geral (República Anarco-Zuckista): .slap <@213466096718708737>
+[2018-08-25 20:09:00] [INFO   ] __main__: 2018-08-25 17:09:01.693000: nag√ in #geral (República Anarco-Zuckista): .slap nag√
+[2018-08-25 20:09:00] [INFO   ] cogs.stats: 2018-08-25 17:09:01.693000: nag√#6532 in #geral (República Anarco-Zuckista): .slap nag√
+[2018-08-25 20:10:06] [INFO   ] __main__: 2018-08-25 17:10:07.644000: nag√ in #geral (República Anarco-Zuckista): .feed nag√
+[2018-08-25 20:10:06] [INFO   ] cogs.stats: 2018-08-25 17:10:07.644000: nag√#6532 in #geral (República Anarco-Zuckista): .feed nag√
+[2018-08-25 20:10:17] [INFO   ] __main__: 2018-08-25 17:10:18.429000: nag√ in #geral (República Anarco-Zuckista): .feed <@!460846291300122635>
+[2018-08-25 20:10:17] [INFO   ] cogs.stats: 2018-08-25 17:10:18.429000: nag√#6532 in #geral (República Anarco-Zuckista): .feed <@!460846291300122635>
+[2018-08-25 20:12:15] [INFO   ] __main__: 2018-08-25 17:12:16.021000: Daddy Derrick in #bot-commands (Freezer Games): .slots 32872424329843274
+[2018-08-25 20:12:15] [INFO   ] cogs.stats: 2018-08-25 17:12:16.021000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 32872424329843274
+[2018-08-25 20:12:18] [INFO   ] __main__: 2018-08-25 17:12:19.081000: Daddy Derrick in #bot-commands (Freezer Games): .slots 10000000000000000
+[2018-08-25 20:12:18] [INFO   ] cogs.stats: 2018-08-25 17:12:19.081000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .slots 10000000000000000
+[2018-08-25 20:12:18] [ERROR  ] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x08525690>
+[2018-08-25 20:12:18] [ERROR  ] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x07C01590>
+[2018-08-25 20:12:20] [INFO   ] __main__: 2018-08-25 17:12:20.989000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-25 20:12:20] [INFO   ] cogs.stats: 2018-08-25 17:12:20.989000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-25 20:12:22] [INFO   ] __main__: 2018-08-25 17:12:23.603000: Daddy Derrick in #bot-commands (Freezer Games): .drink
+[2018-08-25 20:12:22] [INFO   ] cogs.stats: 2018-08-25 17:12:23.603000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .drink
+[2018-08-25 20:12:23] [INFO   ] __main__: 2018-08-25 17:12:24.680000: Daddy Derrick in #bot-commands (Freezer Games): .market
+[2018-08-25 20:12:23] [INFO   ] cogs.stats: 2018-08-25 17:12:24.680000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .market
+[2018-08-25 20:12:29] [INFO   ] __main__: 2018-08-25 17:12:30.776000: Daddy Derrick in #bot-commands (Freezer Games): .profile
+[2018-08-25 20:12:29] [INFO   ] cogs.stats: 2018-08-25 17:12:30.776000: Daddy Derrick#5000 in #bot-commands (Freezer Games): .profile
+[2018-08-25 20:13:20] [INFO   ] __main__: 2018-08-25 17:13:21.586000: iWeeti in #testing-1 (Discord Bot List): -.runas Girappy blur
+[2018-08-25 20:13:20] [INFO   ] cogs.stats: 2018-08-25 17:13:21.586000: iWeeti#4990 in #testing-1 (Discord Bot List): -.runas Girappy blur
+[2018-08-25 20:13:20] [INFO   ] __main__: 2018-08-25 17:13:21.586000: DepressedGiraffe in #testing-1 (Discord Bot List): -.blur
+[2018-08-25 20:13:20] [INFO   ] cogs.stats: 2018-08-25 17:13:21.586000: DepressedGiraffe#9265 in #testing-1 (Discord Bot List): -.blur
+[2018-08-25 20:19:07] [INFO   ] __main__: 2018-08-25 17:19:08.343000: iWeeti in #testing-1 (Discord Bot List): -.blur QTE
+[2018-08-25 20:19:07] [INFO   ] cogs.stats: 2018-08-25 17:19:08.343000: iWeeti#4990 in #testing-1 (Discord Bot List): -.blur QTE
