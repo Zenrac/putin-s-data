@@ -838,6 +838,64 @@ class Images():
             except ValueError:
                 await ctx.send('That format is not supported.')
 
+    @commands.command()
+    async def gay(self, ctx, *, member: discord.Member=None):
+        await ctx.trigger_typing()
+        member = member or ctx.author
+        if not ctx.message.attachments:
+            await ctx.trigger_typing()
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(member.avatar_url_as(format='png', size=1024)) as image:
+                    avatar_bytes = await image.read()
+
+            try:
+                with Image.open(BytesIO(avatar_bytes)) as image:
+                    output_buffer = BytesIO()
+                    
+                    size = width, height = image.size
+                    gay_flag = Image.open('gayflag.png')
+                    gay_flag = gay_flag.convert('RGB')
+                    gay_flag.thumbnail(size)
+                    gbytes = BytesIO()
+                    gay_flag.save(gbytes, 'png')
+                    gbytes.seek(0)
+                    image = Image.blend(gay_flag, image, 0.5)
+
+                    image.save(output_buffer, 'png')
+                    output_buffer.seek(0)
+                    del gay_flag
+            except ValueError:
+                return await ctx.send('I am sorry but that image format is not supported.')
+
+            await ctx.send(file=discord.File(fp=output_buffer, filename='test.png'))
+
+        else:
+            # await ctx.send('This command does not support attachments.')
+            atc = ctx.message.attachments[0]
+            try:
+                attachment_bytes = BytesIO()
+                file_format = ctx.message.attachments[0].filename.split('.')
+                await ctx.message.attachments[0].save(attachment_bytes)
+                attachment_bytes.seek(0)
+                with Image.open(attachment_bytes) as image:
+                    output_buffer = BytesIO()
+                    
+                    size = width, height = image.size
+                    gay_flag = Image.open('gayflag.png')
+                    gay_flag = gay_flag.convert('RGB')
+                    gay_flag.thumbnail(size)
+                    gbytes = BytesIO()
+                    gay_flag.save(gbytes, 'png')
+                    gbytes.seek(0)
+                    image = Image.blend(gay_flag, image, 0.5)
+
+                    image.save(output_buffer, 'png')
+                    output_buffer.seek(0)
+                    del gay_flag
+                await ctx.send(file=discord.File(fp=output_buffer, filename=ctx.message.attachments[0].filename))
+            except ValueError:
+                await ctx.send('That format is not supported.')
+
     #Basic image taking process
     # @commands.command()
     # async def test(self, ctx, *, member: discord.Member=None):

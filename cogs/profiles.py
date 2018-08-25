@@ -5,16 +5,11 @@ import random
 import re
 import asyncio
 
-class Profiles(db.Table):
-    id = db.Column(db.Integer(big=True))
-    description = db.Column(db.String)
-    cash = db.Column(db.Numeric)
-
 class DisambiguateMember(commands.IDConverter):
     async def convert(self, ctx, argument):
         # check if it's a user ID or mention
         match = self._get_id_match(argument) or re.match(r'<@!?([0-9]+)>$', argument)
-
+ 
         if match is not None:
             # exact matches, like user ID + mention should search
             # for every member we can see rather than just this guild.
@@ -919,6 +914,33 @@ class Profiless():
     #         cur.execute('insert into profiles values ({}, \'{}\', \'{}\', \'{}\', {}, {}, {}, {}, {}, {}, {})'.format(profile, desc, bday, married, picks, rings, diamonds, roses, alcohol, exp, cash))
     #         conn.commit()
     #         print(str(profile) + ' has been inserted.')
+
+    @commands.command()
+    async def leaderboard(self, ctx):
+        query = """SELECT id as "_id", cash as "cash"
+                FROM profiles
+                ORDER BY "cash" DESC
+                LIMIT 5;
+        """
+        records = await ctx.bot.pool.fetch(query)
+        print(records)
+
+        e = discord.Embed(title='Leaderboard')
+        def get_name(_id):
+            user = self.bot.get_user(id)
+            if user is not None:
+                return user.name
+            else:
+                return 'Undefined'
+
+        # value = '\n'.join(f'**{await get_name(_id)}**: **${cash}**'
+        #                     for (index (_id, cash)) in enumerate(records))
+        # value = str(records)
+        print(records)
+        value = '\n'.join(f'{_id}: {cash}' for (_id, cash) in records)
+        e.add_field(name="\u200b", value=value, inline=True)
+        e.set_footer(text='Names can\'t be viewed here so you\'ll have to use .info <id>.')
+        await ctx.send(embed=e)
 
     async def on_message(self, message):
         if message.author.bot: return
