@@ -8,6 +8,7 @@ from collections import OrderedDict, deque, Counter
 import os, datetime
 import io
 import re, asyncio
+from .utils import clever
 
 import base64
 import time
@@ -19,6 +20,7 @@ from googletrans import Translator
 
 from fortnite_python import Fortnite
 from fortnite_python.domain import Mode, Platform
+from osuapi import OsuApi, AHConnector
 
 from lxml import etree
 from lru import LRU
@@ -133,6 +135,39 @@ class Meta:
         self.fortnite = Fortnite('274e0176-875b-400a-a7b4-fa2567990fda')
         self._spoiler_cache = LRU(128)
         self._spoiler_cooldown = SpoilerCooldown()
+        self.client = clever.CleverBot(user='9FZVmdY47TEthPLe', key='zl3Fuk2Kx2Nis2YvbaIeMhMdoYRdKA7N', nick="Putin")
+
+    @commands.command()
+    async def osu(self, ctx, player: str=None):
+        # if ctx.subcommand_invoked is None:
+        # await ctx.send(player)
+        async def get_user():
+            api = OsuApi("d372f888679a27536cc2a6732a0d5c83f4db489a", connector=AHConnector())
+            results = await api.get_user(player)
+            return results[0]
+
+        results = await get_user()
+        e = discord.Embed(title="Osu stats for {} {}:".format(results.username, results.country), description="User id: {}".format(results.user_id), color=discord.Color.green())
+        e.add_field(name="Level:", value=results.level, inline=True)
+        e.add_field(name="Total score:", value=results.total_score, inline=True)
+        e.add_field(name="Total hits:", value=results.total_hits, inline=True)
+        e.add_field(name="Accuracy:", value=results.accuracy, inline=True)
+        e.add_field(name="300 hits:", value=results.count300, inline=True)
+        e.add_field(name="100 hits:", value=results.count100, inline=True)
+        e.add_field(name="50 hits:", value=results.count50, inline=True)
+        e.add_field(name="Play count:", value=results.playcount, inline=True)
+        e.add_field(name="Ranked score:", value=results.ranked_score, inline=True)
+        await ctx.send(embed=e)
+
+    @commands.command()
+    async def chat(self, ctx, *, text: str=None):
+        """Say something, and I'll answer to you."""
+        if text is None:
+            await ctx.send('You need to say something.')
+            return
+        msg = await ctx.send('Fetching the response.')
+        await msg.edit(content=ctx.author.name + ', ' + await self.client.query(text))
+
 
     @commands.command()
     async def anime(self, ctx, *, search_string: str=None):
