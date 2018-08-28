@@ -420,3 +420,4 @@ In embed: Embed size exceeds maximum size of 6000
 [2018-08-28 19:50:28] [INFO   ] cogs.stats: 2018-08-28 16:50:30.172000: Sugma_D.ick#7510 in #yifflaari (Autismin aarrearkku): .yiff
 [2018-08-28 19:55:08] [WARNING] discord.state: VOICE_STATE_UPDATE referencing an unknown member ID: 469577306055245831. Discarding.
 [2018-08-28 19:58:48] [WARNING] discord.state: VOICE_STATE_UPDATE referencing an unknown member ID: 469292239391162378. Discarding.
+[2018-08-28 20:05:30] [WARNING] discord.gateway: Unknown event GUILD_INTEGRATIONS_UPDATE.
