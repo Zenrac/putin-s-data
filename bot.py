@@ -123,6 +123,7 @@ class Putin(commands.AutoShardedBot):
         await ctx.send('```shell\n{}```'.format(console))
 
     async def on_guild_join(self, guild):
+        if guild.id == 421630709585805312: return
         try:
             channel = await guild.create_text_channel('putin-logging')
             overwrite = discord.PermissionOverwrite()

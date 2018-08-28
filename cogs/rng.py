@@ -10,6 +10,19 @@ class Random:
         self.bot = bot
 
     @commands.command()
+    async def cake(self, ctx):
+        """Gives you a mur image."""
+        e = discord.Embed(title="Here is a cake image for you {}.".format(ctx.author.name), description='Have fun eating it.', color=discord.Color.magenta())
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get('http://cakebirb.us.to/api/img') as res:
+                r = await res.json()
+
+        yiff_url = r['cakeimg']
+        e.set_footer(text='Powered by http://cakebirb.us.to by SamuraiStacks#5873')
+        e.set_image(url=yiff_url)
+        await ctx.send(embed=e)
+
+    @commands.command()
     async def mur(self, ctx):
         """Gives you a mur image."""
         e = discord.Embed(title="Here is a mur image for you {}.".format(ctx.author.name), color=discord.Color.magenta())

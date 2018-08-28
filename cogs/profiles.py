@@ -57,7 +57,7 @@ class DisambiguateMember(commands.IDConverter):
             raise commands.BadArgument("Could not found this member. Note this is case sensitive.")
         return result
 
-class Profiless():
+class Profile():
     def __init__(self, bot):
         self.bot = bot
 
@@ -560,7 +560,7 @@ class Profiless():
     async def marry(self, ctx, *, member : discord.Member = None):
         """Marrys a member."""
         if member is None:
-                await self.bot.delete_message(ctx.message)
+                await ctx.message.delete()
                 msg = await ctx.send('You did not enter a user to propose.')
                 await asyncio.sleep(10)
                 await self.bot.delete_message(msg)
@@ -633,7 +633,7 @@ class Profiless():
             m_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
 
             if m_profile is None:
-                await self.bot.delete_message(ctx.message)
+                await ctx.message.delete()
                 msg = await ctx.send('That user does not have a profle.')
                 await asyncio.sleep(10)
                 await self.bot.delete_message(msg)
@@ -661,7 +661,7 @@ class Profiless():
     async def ppick(self, ctx, member : discord.Member = None):
         """Gives your pickaxe to another member."""
         try:
-            await self.bot.delete_message(ctx.message)
+            await ctx.message.delete()
         except:
             pass
         if member is None:
@@ -691,7 +691,7 @@ class Profiless():
     async def rring(self, ctx, *, member : discord.Member = None):
         """Gives your ring to another member."""
         try:
-            await self.bot.delete_message(ctx.message)
+            await ctx.message.delete()
         except:
             pass
         if member is None:
@@ -723,7 +723,7 @@ class Profiless():
     async def ddiamond(self, ctx, *, member : discord.Member = None):
         """Gives your diamond to another member."""
         try:
-            await self.bot.delete_message(ctx.message)
+            await ctx.message.delete()
         except:
             pass
         if member is None:
@@ -755,7 +755,7 @@ class Profiless():
     async def rrose(self, ctx, *, member : discord.Member = None):
         """Gives your rose to another member."""
         try:
-            await self.bot.delete_message(ctx.message)
+            await ctx.message.delete()
         except:
             pass
         if member is None:
@@ -787,7 +787,7 @@ class Profiless():
     async def aalcohol(self, ctx, *, member : discord.Member = None):
         """Gives your alcohol to another member."""
         try:
-            await self.bot.delete_message(ctx.message)
+            await ctx.message.delete()
         except:
             pass
         if member is None:
@@ -821,7 +821,7 @@ class Profiless():
         if ctx.author.id == member.id:
             return await ctx.send('Why\'d you give yourself money from yourself?')
         try:
-            await self.bot.delete_message(ctx.message)
+            await ctx.message.delete()
         except:
             pass
         if amount < 1:
@@ -840,7 +840,7 @@ class Profiless():
             if cash <= amount:
                 msg = await ctx.send('You don\'t have enough money to give.')
                 await asyncio.sleep(10)
-                await self.bot.delete_message(msg)
+                await msg.delete()
             else:
                 cash -= amount
                 query = """select * from profiles where id=$1"""
@@ -968,4 +968,4 @@ class Profiless():
 
 
 def setup(bot):
-    bot.add_cog(Profiless(bot))
+    bot.add_cog(Profile(bot))

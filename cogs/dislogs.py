@@ -59,7 +59,7 @@ class DisLogs:
         except:
             return
         if send_channel is None: return
-        data = await self.bot.pool.fetchrow(f'select join from settings where id={member.guild.id}')
+        data = await self.bot.pool.fetchrow(f'select log_join from settings where id={member.guild.id}')
         if not data: return
         if not data[0]: return
         target = 'member' if not member.bot else 'bot'
