@@ -31,6 +31,7 @@ class Music:
                 if c:
                     embed = discord.Embed(colour=c.guild.me.top_role.colour, title='Now Playing', description=event.track.title)
                     embed.timestamp = datetime.datetime.utcnow()
+                    requester = await self.bot.get_user_info(event.track.requester)
                     embed.set_footer(text='Requested by ' + requester.name)
                     embed.set_thumbnail(url=event.track.thumbnail)
                     await c.send(embed=embed)
@@ -146,12 +147,12 @@ class Music:
                 embed.title = "Radio stream enqueued"
                 embed.description = '[Pop Songs World 2018 - The Best Songs Of Spotify 2018 || Live Stream 24/7](https://www.youtube.com/watch?v=QMrJ-L-FfM0)'
                 await ctx.send(embed=embed)
-                player.add(requester=460846291300122635, track=track)
+                player.add(requester=ctx.author.id, track=track)
             else:
                 track = results['tracks'][0]
                 embed.title = "Radio stream enqueued"
                 embed.description = '[Pop Songs World 2018 - The Best Songs Of Spotify 2018 || Live Stream 24/7](https://www.youtube.com/watch?v=QMrJ-L-FfM0)'
-                player.add(requester=460846291300122635, track=track)
+                player.add(requester=ctx.author.id, track=track)
 
         await ctx.send(embed=embed)
 

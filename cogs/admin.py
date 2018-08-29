@@ -8,6 +8,7 @@ from contextlib import redirect_stdout
 import io
 import copy
 from typing import Union
+import subprocess
 
 # to expose to the eval command
 import datetime
@@ -37,6 +38,11 @@ class Admin:
         if e.text is None:
             return f'```py\n{e.__class__.__name__}: {e}\n```'
         return f'```py\n{e.text}{"^":>{e.offset}}\n{e.__class__.__name__}: {e}```'
+
+    @commands.command(hidden=True)
+    async def update(self, ctx):
+        console = self.bot.loop.create_subprocess('git pull', shell=True)
+        print(console)
 
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):

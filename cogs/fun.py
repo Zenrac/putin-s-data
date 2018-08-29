@@ -358,8 +358,7 @@ class Fun():
             await self.bot.delete_message(ctx.message)
         except:
             pass
-        await ctx.send(':tada: | Here is a party image for you {}.'.format(ctx.message.author.mention))
-        embed = discord.Embed(title="", description='', color = discord.Color.green())
+        embed = discord.Embed(description=':tada: Here is a party image for you {}.'.format(ctx.author.display_name), color = ctx.me.top_role.color)
         embed.set_footer(text="Requested by: {}.".format(ctx.message.author), icon_url=ctx.message.author.avatar_url)
         embed.set_image(url=party)
         await ctx.send(embed=embed)
@@ -375,8 +374,8 @@ class Fun():
             await self.bot.delete_message(ctx.message)
         except:
             pass
-        await ctx.send(':cry: | Here is a cry image for you {}.'.format(ctx.message.author.mention))
-        embed = discord.Embed(title="", description='', color = discord.Color.green())
+        await ctx.send()
+        embed = discord.Embed(description=':cry: Here is a cry image for you {}.'.format(ctx.author.display_name), color = ctx.me.top_role.color)
         embed.set_footer(text="Requested by: {}.".format(ctx.message.author), icon_url=ctx.message.author.avatar_url)
         embed.set_image(url=cry)
         await ctx.send(embed=embed)
@@ -401,8 +400,7 @@ class Fun():
             await self.bot.delete_message(ctx.message)
         except:
             pass
-        await ctx.send(":tada: | Here is a cheer image for you {}.".format(ctx.message.author.mention))
-        embed = discord.Embed(title="", description='', color = discord.Color.green())
+        embed = discord.Embed(description=":tada: | Here is a cheer image for you {}.".format(ctx.author.display_name), color=ctx.me.top_role.color)
         embed.set_footer(text="Requested by: {}.".format(ctx.message.author), icon_url=ctx.message.author.avatar_url)
         embed.set_image(url=cheer)
         await ctx.send(embed=embed)
