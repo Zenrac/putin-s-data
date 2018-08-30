@@ -1,5 +1,6 @@
 from discord.ext import commands
 import asyncio
+from asyncio import create_subprocess_shell
 import traceback
 import discord
 import inspect
@@ -8,7 +9,6 @@ from contextlib import redirect_stdout
 import io
 import copy
 from typing import Union
-import subprocess
 
 # to expose to the eval command
 import datetime
@@ -39,11 +39,18 @@ class Admin:
             return f'```py\n{e.__class__.__name__}: {e}\n```'
         return f'```py\n{e.text}{"^":>{e.offset}}\n{e.__class__.__name__}: {e}```'
 
+    async def run_cmd(self, cmd: str) -> str:
+            process =\
+                await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+            results = await process.communicate()
+            return "".join(x.decode("utf-8") for x in results)
+
     @commands.command(hidden=True)
     async def update(self, ctx):
-        console = self.bot.loop.create_subprocess('git pull', shell=True)
-        print(console)
-
+        x = await asyncio.create_subprocess_exec('git pull origin master', stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+        stdout, stderr = await x.communicate()
+        await ctx.send(stdout)
+        
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
         """Loads a module."""
@@ -218,7 +225,6 @@ class Admin:
                 pass
             except discord.HTTPException as e:
                 await ctx.send(f'Unexpected error: `{e}`')
-
 
     @commands.command(hidden=True)
     @commands.is_owner()

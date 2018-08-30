@@ -76,19 +76,29 @@ class Profile():
                 await ctx.send('this member did not set up a profile yet')
             return
 
+        if isinstance(member, discord.Member):
+            name = member.display_name
+        else:
+            name = member.name
 
-        e = discord.Embed(title="Profile of {}".format(member.nick if member.nick else member.name),color=0x19D719)
+        e = discord.Embed(title="Profile of {}".format(name),color=0x19D719)
         e.set_thumbnail(url=member.avatar_url)
         keys = {
             ':writing_hand: Description': 'description',
             ':birthday: Birthday': 'bday',
-            ':heart: Married with': "married",
             ':moneybag: Cash': 'cash',
             ':zap: Experience': 'experience'
         }
         for key, value in keys.items():
             e.add_field(name=key, value=str(record[value]) or 'N/A', inline=True)
+        if record['married']:
+            married = await self.bot.get_user_info(record['married'])
+            married = married.name
+        else:
+            married = 'nobody...'
+        e.add_field(name=':heart: Married with', value=married, inline=True)
         e.add_field(name=':handbag: Inventory', value=":pick:{}x :ring:{}x :diamond_shape_with_a_dot_inside:{}x :rose:{}x :champagne:{}x".format(record['picks'], record['rings'], record['diamonds'], record['roses'], record['alcohol']), inline=True)
+        e.set_footer(text='If your picks are glitched meaning they are None report to iWeeti#4990.')
         await ctx.send(embed=e)
 
     async def edit_field(self, ctx, **fields):
@@ -183,7 +193,7 @@ class Profile():
             return await ctx.send('Cancelled profile creation.')
         if desc is None:
             return
-        query = "insert into profiles values ({}, '{}', '{}', 'nobody...', 0,0,0,0,0,0,0)".format(ctx.author.id, desc.clean_content, bday.clean_content)
+        query = "insert into profiles values ({}, '{}', 0, 0, 0, 0, 0, 0, 0, 0, null)".format(ctx.author.id, desc.clean_content, bday.clean_content)
         # await self.edit_field(ctx, bday=bday.clean_content.upper())
         # await self.edit_field(ctx, cash=int(0))
         # await self.edit_field(ctx, picks=int(0))
@@ -240,7 +250,7 @@ class Profile():
                 cash += found
                 await self.edit_field(ctx, cash=cash)
                 await self.edit_field(ctx, picks=picks)
-                await ctx.send('{} found ${} and has now ${}\n**You can mine again in 5 minutes!**'.format(ctx.message.author.name, found, cash))
+                await ctx.send('{} found ${} and has now ${}\n**You can mine again in 5 minutes!**'.format(ctx.message.author.display_name, found, cash))
                 if diamond_chance == 1:
                     await ctx.send('You lucky, you found a diamond.')
                     diamonds += 1
@@ -286,9 +296,9 @@ class Profile():
         found = random.randint(20,50)
         cash = cash + found
         await self.edit_field(ctx, cash=cash)
-        await ctx.send('{} found ${}, and has now ${}\n**You can loot again in 3 minutes!**'.format(ctx.message.author.name, found, cash))
+        await ctx.send('{} found ${}, and has now ${}\n**You can loot again in 3 minutes!**'.format(ctx.message.author.display_name, found, cash))
 
-    @commands.command(invoke_without_command = True)
+    @commands.command(aliases=['shop'])
     async def market(self, ctx):
         """Shows item prices."""
         embed=discord.Embed(title=":shopping_cart: Market:", description="", color=discord.Color.green())
@@ -297,6 +307,9 @@ class Profile():
         embed.add_field(name=":diamond_shape_with_a_dot_inside: Diamond:", value="Buy :inbox_tray:  $2000, Sell :outbox_tray:  $1500", inline=False)
         embed.add_field(name=":rose: Rose:", value="Buy :inbox_tray:  $25, Sell :outbox_tray:  $19", inline=False)
         embed.add_field(name=":champagne: Alcohol:", value="Buy :inbox_tray:  $50, Sell :outbox_tray:  $38", inline=False)
+        embed.add_field(name=":third_place: Bronze role:", value="Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.", inline=False)
+        embed.add_field(name=":second_place: Silver role:", value="Buy :inbox_tray:  $50000, Sell :outbox_tray: Can not sell.", inline=False)
+        embed.add_field(name=":first_place: Gold role:", value="Buy :inbox_tray:  $1000000000, Sell :outbox_tray: Can not sell.", inline=False)
         await ctx.send(embed=embed)
 
     @commands.group(invoke_without_command=True)
@@ -556,6 +569,117 @@ class Profile():
         else:
             await ctx.send('You don\'t have enough cash.')
 
+    @buy.command()
+    async def bronze(self, ctx):
+        """Buys a Putin market Bronze role. You can not sell this after buying."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        if cash < 10000:
+            return await ctx.send('You do not have enough money to buy this role.')
+        for role in ctx.author.roles:
+            if role.name == 'Putin Bronze':
+                return await ctx.send('Why\'d you buy this role again?')
+        data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
+        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        try:
+            role = discord.utils.get(ctx.guild.roles, name='Putin Bronze')
+            if not role:
+                try:
+                    role = await ctx.guild.create_role(name='Putin Bronze', color=discord.Color.from_rgb(145, 44, 7), reason='Putin Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
+                    return await ctx.send('Bought Putin Bronze role.')
+                except discord.Forbidden:
+                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                except Exception as e:
+                    print(e)
+            role = discord.utils.get(ctx.guild.roles, name='Putin Bronze')
+            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
+            await ctx.send('Bought Putin Bronze role.')
+        except discord.Forbidden:
+            return await ctx.send('I couldn\'t add the role to you.')
+        except Exception as e:
+            print(e)
+        cash -= 5000
+        await self.edit_field(ctx, cash=cash)
+
+    @buy.command()
+    async def silver(self, ctx):
+        """Buys a Putin market Silver role. You can not sell this after buying."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        if cash < 1000000000:
+            return await ctx.send('You do not have enough money to buy this role.')
+        for role in ctx.author.roles:
+            if role.name == 'Putin Silver':
+                return await ctx.send('Why\'d you buy this role again?')
+        data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
+        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        try:
+            role = discord.utils.get(ctx.guild.roles, name='Putin Silver')
+            if not role:
+                try:
+                    role = await ctx.guild.create_role(name='Putin Silver', color=discord.Color.from_rgb(144, 159, 165), reason='Putin Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
+                    return await ctx.send('Bought Putin Silver role.')
+                except discord.Forbidden:
+                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                except Exception as e:
+                    print(e)
+            role = discord.utils.get(ctx.guild.roles, name='Putin Silver')
+            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
+            await ctx.send('Bought Putin Silver role.')
+        except discord.Forbidden:
+            return await ctx.send('I couldn\'t add the role to you.')
+        except Exception as e:
+            print(e)
+        cash -= 5000
+        await self.edit_field(ctx, cash=cash)
+
+    @buy.command()
+    async def gold(self, ctx):
+        """Buys a Putin market Gold role. You can not sell this after buying."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        if cash < 1000000000:
+            return await ctx.send('You do not have enough money to buy this role.')
+        for role in ctx.author.roles:
+            if role.name == 'Putin Gold':
+                return await ctx.send('Why\'d you buy this role again?')
+        data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
+        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        try:
+            role = discord.utils.get(ctx.guild.roles, name='Putin Gold')
+            if not role:
+                try:
+                    role = await ctx.guild.create_role(name='Putin Gold', color=discord.Color.from_rgb(209, 150, 33), reason='Putin Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
+                    return await ctx.send('Bought Putin Gold role.')
+                except discord.Forbidden:
+                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                except Exception as e:
+                    print(e)
+            role = discord.utils.get(ctx.guild.roles, name='Putin Gold')
+            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
+            await ctx.send('Bought Putin Gold role.')
+        except discord.Forbidden:
+            return await ctx.send('I couldn\'t add the role to you.')
+        except Exception as e:
+            print(e)
+        cash -= 5000
+        await self.edit_field(ctx, cash=cash)
+
     @commands.command()
     async def marry(self, ctx, *, member : discord.Member = None):
         """Marrys a member."""
@@ -566,7 +690,7 @@ class Profile():
                 await self.bot.delete_message(msg)
                 return
         if member:
-            if str(ctx.message.author.id) == str(member.id):
+            if ctx.message.author.id == member.id:
                 await ctx.send('You can\'t marry yourself.')
                 return
             if member.bot:
@@ -579,9 +703,7 @@ class Profile():
                     return await ctx.invoke(self.make)
                 rings = profile['rings']
                 married = profile['married']
-                if married in 'nobody...':
-                    married = None
-                if married is not None:
+                if married:
                     await ctx.send('You are already married with {}.'.format(married))
                     return
                 query = """select * from profiles where id=$1"""
@@ -589,23 +711,22 @@ class Profile():
                 if member_profile is None:
                     await ctx.send('That user does not have a profile.')
                 member_married = member_profile['married']
-                if member_married in 'nobody...':
-                    member_married = None
-                if member_married is not None:
-                    await ctx.send('That user is already married with {}.'.format(member_married))
+                if member_married:
+                    member_married_name = await self.bot.get_user_info(member_married)
+                    await ctx.send('That user is already married with {}.'.format(member_married_name))
                     return
                 if rings >= 2:
                     rings -= 2
-                    await ctx.send('{} proposed {}.\n{} type yes or no in 60 seconds.'.format(ctx.message.author.name, member.name, member.mention))
+                    await ctx.send('{} proposed {}.\n{} type yes or no in 60 seconds.'.format(ctx.message.author.display_name, member.display_name, member.mention))
                     def pred(m):
                         return m.author == member and m.channel == ctx.message.channel
 
                     answer = await self.bot.wait_for('message', timeout=60, check=pred)
                     if answer.content.lower() in 'yes':
                         await self.edit_field(ctx, rings=rings)
-                        await self.edit_user_field(member, ctx, married=ctx.message.author.name)
-                        await self.edit_field(ctx, married=member.name)
-                        await ctx.send(':heart: | {} is now married with {}'.format(ctx.message.author.name, member.name))
+                        await self.edit_user_field(member, ctx, married=ctx.message.author.id)
+                        await self.edit_field(ctx, married=member.id)
+                        await ctx.send(':heart: | {} is now married with {}'.format(ctx.message.author.display_name, member.name))
                     elif answer.content.lower() in 'no':
                         await ctx.send('Proposing denied..')
                     else:
@@ -626,28 +747,28 @@ class Profile():
             if profile is None:
                 return await ctx.invoke(self.make)
             married = profile['married']
-            if married in 'nobody...':
+            if not married:
                 await ctx.send('You weren\'t married in the first place.')
                 return
             query = """select * from profiles where id=$1"""
             m_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
 
             if m_profile is None:
-                await ctx.message.delete()
                 msg = await ctx.send('That user does not have a profle.')
-                await asyncio.sleep(10)
-                await self.bot.delete_message(msg)
             m_married = m_profile['married']
-            if member.name in married:
-                await ctx.send('{} would like to get divorced with {}.\n{} type yes in 60 seconds if you want to get divorced.'.format(ctx.message.author.name, member.name, member.mention))
+            if member.id == married:
+                await ctx.send('{} would like to get divorced with {}.\n{} type yes in 60 seconds if you want to get divorced.'.format(ctx.message.author.display_name, member.display_name, member.mention))
                 def pred(m):
                     return m.author == member and m.channel == ctx.message.channel
 
-                answer = await self.bot.wait_for('message', check=pred)
+                try:
+                    answer = await self.bot.wait_for('message', timeout=60, check=pred)
+                except asyncio.TimeoutError:
+                    return await ctx.send('No asnwer.')
                 if answer.content in 'yes':
-                    await self.edit_user_field(member, ctx, married='nobody...')
-                    await self.edit_field(ctx, married='nobody...')
-                    await ctx.send(':broken_heart: | {} got divorced with {}.'.format(ctx.message.author.name, member.name))
+                    await self.edit_user_field(member, ctx, married=None)
+                    await self.edit_field(ctx, married=None)
+                    await ctx.send(':broken_heart: | {} got divorced with {}.'.format(ctx.message.author.display_name, member.display_name))
                 else:
                     await ctx.send('I\'ll take that as no.')
             else:
@@ -685,7 +806,7 @@ class Profile():
                 member_picks = member_profile['picks'] + 1
                 await self.edit_field(ctx, picks=picks)
                 await self.edit_user_field(member, ctx, picks=member_picks)
-                await ctx.send('Gave :pick: to {}.'.format(member.name))
+                await ctx.send('Gave :pick: to {}.'.format(member.display_name))
 
     @itemtransfer.command(name='ring')
     async def rring(self, ctx, *, member : discord.Member = None):
@@ -717,7 +838,7 @@ class Profile():
                 member_rings = member_profile['rings'] + 1
                 await self.edit_field(ctx, rings=rings)
                 await self.edit_user_field(member, ctx, rings=member_rings)
-                await ctx.send('Gave :ring: to {}.'.format(member.name))
+                await ctx.send('Gave :ring: to {}.'.format(member.display_name))
 
     @itemtransfer.command(name='diamond')
     async def ddiamond(self, ctx, *, member : discord.Member = None):
@@ -749,7 +870,7 @@ class Profile():
                 member_diamonds = member_profile['diamonds'] + 1
                 await self.edit_field(ctx, diamonds=diamonds)
                 await self.edit_user_field(member, ctx, diamonds=member_diamonds)
-                await ctx.send('Gave :diamond_shape_with_a_dot_inside: to {}.'.format(member.name))
+                await ctx.send('Gave :diamond_shape_with_a_dot_inside: to {}.'.format(member.display_name))
 
     @itemtransfer.command(name='rose')
     async def rrose(self, ctx, *, member : discord.Member = None):
@@ -781,7 +902,7 @@ class Profile():
                 member_roses = member_profile['roses'] + 1
                 await self.edit_field(ctx, roses=roses)
                 await self.edit_user_field(member, ctx, roses=member_roses)
-                await ctx.send('Gave :rose: to {}.'.format(member.name))
+                await ctx.send('Gave :rose: to {}.'.format(member.display_name))
 
     @itemtransfer.command(name='alcohol')
     async def aalcohol(self, ctx, *, member : discord.Member = None):
@@ -813,45 +934,37 @@ class Profile():
                 member_alcohol = member_profile['alcohol'] + 1
                 await self.edit_field(ctx, alcohol=alcohol)
                 await self.edit_user_field(member, ctx, alcohol=member_alcohol)
-                await ctx.send('Gave :champagne: to {}.'.format(member.name))
+                await ctx.send('Gave :champagne: to {}.'.format(member.display_name))
 
     @commands.command(aliases=['givemoney'])
+    # @commands.is_owner()
     async def moneytransfer(self, ctx, amount : int, *, member : discord.Member = None):
         """Gives the amount you specify from your money to the member you specify."""
         if ctx.author.id == member.id:
             return await ctx.send('Why\'d you give yourself money from yourself?')
-        try:
-            await ctx.message.delete()
-        except:
-            pass
         if amount < 1:
             await ctx.send('You can\'t transfer less than $1.')
             return
-        if member is None:
-            msg = await ctx.send('You didn\'t tell me who to give the money to.')
-            await asyncio.sleep(10)
-            await self.bot.delete_message(msg)
+        if not member:
+            return await ctx.send('You didn\'t tell me who to give the money to.')
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        if cash <= amount:
+            msg = await ctx.send('You don\'t have enough money to give.')
         else:
+            cash -= amount
             query = """select * from profiles where id=$1"""
-            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-            if profile is None:
-                return await ctx.invoke(self.make)
-            cash = profile['cash']
-            if cash <= amount:
-                msg = await ctx.send('You don\'t have enough money to give.')
-                await asyncio.sleep(10)
-                await msg.delete()
-            else:
-                cash -= amount
-                query = """select * from profiles where id=$1"""
-                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-                if member_profile is None:
-                    return await ctx.send('That user does not have a profile.')
-                member_cash = member_profile['cash']
-                member_cash += amount
-                await self.edit_field(ctx, cash=cash)
-                await self.edit_user_field(member, ctx, cash=member_cash)
-                await ctx.send('{} gave ${} to {}.'.format(ctx.author.display_name, amount, member.display_name))
+            member_profile = await self.bot.pool.fetchrow(query, member.id)
+            if member_profile is None:
+                return await ctx.send('That user does not have a profile.')
+            member_cash = member_profile['cash']
+            member_cash += amount
+            await self.edit_field(ctx, cash=cash)
+            await self.edit_user_field(member, ctx, cash=member_cash)
+            await ctx.send('{} gave ${} to {}.'.format(ctx.author.display_name, amount, member.display_name))
 
     @commands.group(aliases=['סלוט'])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -885,7 +998,7 @@ class Profile():
                 cash += win_amount
 
 
-            await ctx.send(slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot))+'\n**{}** bet ${} {}'.format(ctx.message.author.name,amount, winning))
+            await ctx.send(slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot))+'\n**{}** bet ${} {}'.format(ctx.message.author.display_name,amount, winning))
             await self.edit_field(ctx, cash=cash)
 
     # @commands.command()
@@ -915,31 +1028,45 @@ class Profile():
     #         conn.commit()
     #         print(str(profile) + ' has been inserted.')
 
-    @commands.command()
+    @commands.command(aliases=['lb', 'leaderboards'])
     async def leaderboard(self, ctx):
+
+        lookup = (
+            '\N{FIRST PLACE MEDAL}',
+            '\N{SECOND PLACE MEDAL}',
+            '\N{THIRD PLACE MEDAL}',
+            '\N{SPORTS MEDAL}',
+            '\N{SPORTS MEDAL}'
+        )
+
         query = """SELECT id as "_id", cash as "cash"
                 FROM profiles
                 ORDER BY "cash" DESC
                 LIMIT 5;
         """
         records = await ctx.bot.pool.fetch(query)
-        print(records)
 
         e = discord.Embed(title='Leaderboard')
-        def get_name(_id):
-            user = self.bot.get_user(id)
+        async def get_name(_id):
+            user = await self.bot.get_user_info(_id)
             if user is not None:
                 return user.name
             else:
                 return 'Undefined'
 
+        lb = []
+
+        for record in records:
+            name = await get_name(record['_id'])
+            lb.append((name, record['cash']))
+
         # value = '\n'.join(f'**{await get_name(_id)}**: **${cash}**'
         #                     for (index (_id, cash)) in enumerate(records))
         # value = str(records)
-        print(records)
-        value = '\n'.join(f'{_id}: {cash}' for (_id, cash) in records)
-        e.add_field(name="\u200b", value=value, inline=True)
-        e.set_footer(text='Names can\'t be viewed here so you\'ll have to use .info <id>.')
+        # print(lb)
+        value = '\n'.join(f'{lookup[index]} **{_id}**: ``${cash}``' for (index, (_id, cash)) in enumerate(lb))
+        e.color = discord.Color.from_rgb(75, 38, 168)
+        e.add_field(name="Top global profiles by cash", value=value, inline=True)
         await ctx.send(embed=e)
 
     async def on_message(self, message):

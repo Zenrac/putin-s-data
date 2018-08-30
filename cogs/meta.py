@@ -304,8 +304,12 @@ class Meta:
             if artist_name.lower() in hit['result']['primary_artist']['name'].lower():
                 remote_song_info = hit
                 break
+        if not remote_song_info:
+            return await ctx.send('Couldn\'t find anything.')
         if remote_song_info:
             song_url = remote_song_info['result']['url']
+        if not song_url:
+            return await ctx.send('Counldn\'t find anything.')
         async def scrap_song_url(url):
             async with aiohttp.ClientSession() as cs:
                 async with cs.get(url) as res:

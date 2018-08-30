@@ -75,6 +75,7 @@ class Putin(commands.AutoShardedBot):
         for extension in initial_extensions:
             try:
                 self.load_extension(extension)
+                print(f'[INFO] {extension} loaded.')
             except:
                 print(f'failed to load extension {extension}.', file=sys.stderr)
                 traceback.print_exc()
@@ -93,29 +94,25 @@ class Putin(commands.AutoShardedBot):
         elif len(prefixes) > 10:
             raise RuntimeError('Cannot have more than 10 custom prefixes.')
         else:
-            await self.prefixes.put(guild.id, sorted(set(prefixes), reverse=True))
-
-# bot = commands.Bot(command_prefix=get_pre, description=description)
-# bot.remove_command('help')
-    
+            await self.prefixes.put(guild.id, sorted(set(prefixes), reverse=True))    
 
     @property
     def config(self):
         return __import__('config')
 
-    @commands.command(hidden=True)
-    @commands.is_owner()
-    async def shell(self, ctx, *, _code: str):
-        async def run_cmd(self, cmd: str) -> str:
-            """Runs a subprocess and returns the output."""
-            process =\
-                await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
-            results = await process.communicate()
-            return "".join(x.decode("utf-8") for x in results)
-        print(_code)
-        console = await run_cmd(self, _code)
-        print(console)
-        await ctx.send('```shell\n{}```'.format(console))
+    # @commands.command(hidden=True)
+    # @commands.is_owner()
+    # async def shell(self, ctx, *, _code: str):
+    #     async def run_cmd(self, cmd: str) -> str:
+    #         """Runs a subprocess and returns the output."""
+    #         process =\
+    #             await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+    #         results = await process.communicate()
+    #         return "".join(x.decode("utf-8") for x in results)
+    #     print(_code)
+    #     console = await run_cmd(self, _code)
+    #     print(console)
+    #     await ctx.send('```shell\n{}```'.format(console))
 
     async def on_guild_join(self, guild):
         if guild.id == 421630709585805312: return

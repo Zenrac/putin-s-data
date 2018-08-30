@@ -22,6 +22,7 @@ class Settings():
             embed.add_field(name="Logging", value="Sets up logging for the major things that can happen in the server.\n``settings logging enable <module>`` | ``settings logging enable <module>``\nValid modules are: ``kick``, ``ban``, ``join``, ``leave``, ``commands``, ``message_edit``, ``message_delete``", inline=True)
             embed.add_field(name="Prefix", value="Configrues the prefix for this server.\n``settings prefix add <prefix>`` | ``settings prefix remove <prefix>``\nPut the prefix in \"quotes\" to make it have spaces.", inline=True)
             embed.add_field(name="Starboard", value="Sets up a starboard.\n``starboard [name of the starboard channel]``")
+            embed.add_field(name="Buy roles", value="Sets up a role buying.\n``settings buy_roles enable`` | ``settings buy_roles disable``")
             embed.set_footer(text="For more information search across the help menu.")
             embed.timestamp = datetime.datetime.utcnow()
 
@@ -36,6 +37,30 @@ class Settings():
         # if args is None:
         #     return await ctx.send('Valid settings for logging ``message_edit``, ``message_delete``, ``join``, ``leave``, ``kick``, ``ban``, ``command``')
         print('lol')
+
+    @settings.group(name='buy_roles')
+    async def _buy_roles(self, ctx):
+        pass
+
+    @_buy_roles.command(name='enable')
+    async def __enable(self, ctx):
+        data = await self.bot.pool.fetchrow(f'select id from settings where id={ctx.guild.id}')
+        if data[0]:
+            await self.bot.pool.execute(f'update settings set buy_roles=true where id={ctx.guild.id}')
+            return await ctx.send('Role buying is now enabled.')
+        else:
+            await self.bot.pool.execute(f'insert into settings (id, buy_roles) values ({ctx.guild.id}, true)')
+            return await ctx.send('Role buying is now enabled.')
+
+    @_buy_roles.command(name='disable')
+    async def __disable(self, ctx):
+        data = await self.bot.pool.fetchrow(f'select id from settings where id={ctx.guild.id}')
+        if data[0]:
+            await self.bot.pool.execute(f'update settings set buy_roles=false where id={ctx.guild.id}')
+            return await ctx.send('Role buying is now enabled.')
+        else:
+            await self.bot.pool.execute(f'insert into settings (id, buy_roles) values ({ctx.guild.id}, false)')
+            return await ctx.send('Role buying is now enabled.')
     
     @enable.command(name='message_edit')
     async def _message_edit(self, ctx):
