@@ -14,6 +14,13 @@ class Fun():
         self.bot = bot
 
     @commands.command()
+    @commands.has_permissions(administrator=True)
+    async def eat(self, ctx, member: discord.Member):
+        if not member:
+            return await ctx.send('You didn\'t specify a member.')
+        await ctx.send(f'ням, {member.display_name} tastes like finest vodka')
+
+    @commands.command()
     async def wyr(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get('http://www.rrrather.com/botapi') as res:

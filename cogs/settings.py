@@ -1,13 +1,7 @@
 from discord.ext import commands
 import datetime
 import discord
-from .utils import db
 import time
-
-class settings_table(db.Table, table_name='settings'):
-    id = db.Column(db.Integer(big=True), primary_key=True)
-    logging_enabled = db.Column(db.Boolean, default=False)
-    logging_channel = db.Column(db.Integer(big=True))
 
 class Settings():
     def __init__(self, bot):
@@ -61,7 +55,31 @@ class Settings():
         else:
             await self.bot.pool.execute(f'insert into settings (id, buy_roles) values ({ctx.guild.id}, false)')
             return await ctx.send('Role buying is now enabled.')
-    
+
+    # @logging.group()
+    # async def antiadvert(self, ctx)
+    #     pass
+
+    # @antiadvert.command(name='enable')
+    # async def anti_enable(self, ctx):
+    #     data = await self.bot.pool.fetchrow(f'select id from settings where id={ctx.guild.id}')
+    #     if data[0]:
+    #         await self.bot.pool.execute(f'update settings set advert=true where id={ctx.guild.id}')
+    #         return await ctx.send('Anti advertising is now enabled.')
+    #     else:
+    #         await self.bot.pool.execute(f'insert into settings (id, advert) values ({ctx.guild.id}, true)')
+    #         return await ctx.send('Anti advertising is now enabled.')
+
+    # @antiadvert.command(name='disable')
+    # async def anti_disable(self, ctx):
+    #     data = await self.bot.pool.fetchrow(f'select id from settings where id={ctx.guild.id}')
+    #     if data[0]:
+    #         await self.bot.pool.execute(f'update settings set advert=false where id={ctx.guild.id}')
+    #         return await ctx.send('Anti advertising is now enabled.')
+    #     else:
+    #         await self.bot.pool.execute(f'insert into settings (id, advert) values ({ctx.guild.id}, false)')
+    #         return await ctx.send('Anti advertising is now enabled.')
+
     @enable.command(name='message_edit')
     async def _message_edit(self, ctx):
         data = await self.bot.pool.fetchrow(f'select id from settings where id={ctx.guild.id}')

@@ -27,7 +27,7 @@ def requires_starboard():
 
         cog = ctx.bot.get_cog('Stars')
 
-        ctx.starboard = await cog.get_starboard(ctx.guild.id, connection=ctx.bot.pool)
+        ctx.starboard = await cog.get_starboard(ctx.guild.id, connection=ctx.db)
         if ctx.starboard.channel is None:
             raise StarError('\N{WARNING SIGN} Starboard channel not found.')
 
@@ -133,7 +133,7 @@ class Stars:
 
     @cache.cache(strategy=cache.Strategy.raw)
     async def get_starboard(self, guild_id, *, connection=None):
-        connection = self.bot.pool
+        connection = connection or self.bot.pool
         query = "SELECT * FROM starboard WHERE id=$1;"
         record = await connection.fetchrow(query, guild_id)
         return StarboardConfig(guild_id=guild_id, bot=self.bot, record=record)
@@ -232,7 +232,7 @@ class Stars:
                     return
 
             try:
-                await method(channel, payload.message_id, payload.user_id, connection=self.bot.pool)
+                await method(channel, payload.message_id, payload.user_id, connection=con)
             except StarError:
                 pass
 
@@ -292,7 +292,7 @@ class Stars:
             return
 
         async with self.bot.pool.acquire() as con:
-            starboard = await self.get_starboard(channel.guild.id, connection=self.bot.pool)
+            starboard = await self.get_starboard(channel.guild.id, connection=con)
             if starboard.channel is None:
                 return
 
@@ -535,7 +535,7 @@ class Stars:
         # decided to use the ?star command
         self.get_starboard.invalidate(self, ctx.guild.id)
 
-        starboard = await self.get_starboard(ctx.guild.id, connection=self.bot.pool)
+        starboard = await self.get_starboard(ctx.guild.id, connection=ctx.db)
         if starboard.channel is not None:
             return await ctx.send(f'This server already has a starboard ({starboard.channel.mention}).')
 
@@ -546,7 +546,7 @@ class Stars:
                 await ctx.send(e)
             else:
                 if confirm:
-                    await self.bot.pool.execute('DELETE FROM starboard WHERE id=$1;', ctx.guild.id)
+                    await ctx.db.execute('DELETE FROM starboard WHERE id=$1;', ctx.guild.id)
                 else:
                     return await ctx.send('Aborting starboard creation. Join the bot support server for more questions.')
 
@@ -573,7 +573,7 @@ class Stars:
 
         query = "INSERT INTO starboard (id, channel_id) VALUES ($1, $2);"
         try:
-            await self.bot.pool.execute(query, ctx.guild.id, channel.id)
+            await ctx.db.execute(query, ctx.guild.id, channel.id)
         except:
             await channel.delete(reason='Failure to commit to create the ')
             await ctx.send('Could not create the channel due to an internal error. Join the bot support server for help.')
@@ -596,7 +596,7 @@ class Stars:
         """
 
         try:
-            await self.star_message(ctx.channel, message, ctx.author.id, connection=self.bot.pool)
+            await self.star_message(ctx.channel, message, ctx.author.id, connection=ctx.db)
         except StarError as e:
             await ctx.send(e)
         else:
@@ -612,7 +612,7 @@ class Stars:
         functionality.
         """
         try:
-            await self.unstar_message(ctx.channel, message, ctx.author.id, connection=self.bot.pool)
+            await self.unstar_message(ctx.channel, message, ctx.author.id, connection=ctx.db)
         except StarError as e:
             return await ctx.send(e)
         else:
@@ -652,7 +652,7 @@ class Stars:
                    RETURNING starboard_entries.bot_message_id
                 """
 
-        to_delete = await self.bot.pool.fetch(query, ctx.guild.id, last_messages, stars)
+        to_delete = await ctx.db.fetch(query, ctx.guild.id, last_messages, stars)
 
         # we cannot bulk delete entries over 14 days old
         min_snowflake = int((time.time() - 14 * 24 * 60 * 60) * 1000.0 - 1420070400000) << 22
@@ -690,7 +690,7 @@ class Stars:
                    LIMIT 1
                 """
 
-        record = await self.bot.pool.fetchrow(query, ctx.guild.id, message)
+        record = await ctx.db.fetchrow(query, ctx.guild.id, message)
         if record is None:
             return await ctx.send('This message has not been starred.')
 
@@ -704,7 +704,7 @@ class Stars:
             else:
                 # somehow it got deleted, so just delete the entry
                 query = "DELETE FROM starboard_entries WHERE message_id=$1;"
-                await self.bot.pool.execute(query, record['message_id'])
+                await ctx.db.execute(query, record['message_id'])
                 return
 
         # slow path, try to fetch the content
@@ -735,7 +735,7 @@ class Stars:
                    WHERE entry.message_id = $1 OR entry.bot_message_id = $1
                 """
 
-        records = await self.bot.pool.fetch(query, message)
+        records = await ctx.db.fetch(query, message)
         if records is None or len(records) == 0:
             return await ctx.send('No one starred this message or this is an invalid message ID.')
 
@@ -799,14 +799,14 @@ class Stars:
 
             await ctx.acquire()
             query = "DELETE FROM starboard_entries WHERE guild_id=$1 AND NOT (bot_message_id=ANY($2::bigint[]))"
-            status = await self.bot.pool.execute(query, ctx.guild.id, message_ids)
+            status = await ctx.db.execute(query, ctx.guild.id, message_ids)
 
             _, _, deleted = status.partition(' ') # DELETE <number>
             deleted = int(deleted)
 
             # get the up-to-date resolution of bot_message_id -> message_id
             query = "SELECT bot_message_id, message_id FROM starboard_entries WHERE guild_id=$1;"
-            records = await self.bot.pool.fetch(query, ctx.guild.id)
+            records = await ctx.db.fetch(query, ctx.guild.id)
             records = dict(records)
 
             # so I want to add in a channel_id and an author_id
@@ -853,7 +853,7 @@ class Stars:
                        AND   starboard_entries.bot_message_id=t.message_id
                     """
 
-            status = await self.bot.pool.execute(query, channel_ids, message_ids, author_ids, ctx.guild.id)
+            status = await ctx.db.execute(query, channel_ids, message_ids, author_ids, ctx.guild.id)
             _, _, updated = status.partition(' ')
             updated = int(updated)
             await ctx.release()
@@ -869,7 +869,7 @@ class Stars:
 
                 await ctx.acquire()
                 query = "UPDATE starboard SET locked = FALSE WHERE id=$1;"
-                await self.bot.pool.execute(query, ctx.guild.id)
+                await ctx.db.execute(query, ctx.guild.id)
                 self.get_starboard.invalidate(self, ctx.guild.id)
 
                 m = await ctx.send(f'{ctx.author.mention}, we are done migrating!\n' \
@@ -936,7 +936,7 @@ class Stars:
                     """
 
             await ctx.acquire()
-            status = await self.bot.pool.execute(query, list(data_to_pass.keys()), list(data_to_pass.values()))
+            status = await ctx.db.execute(query, list(data_to_pass.keys()), list(data_to_pass.values()))
             _, _, second_update = status.partition(' ')
             updated += int(second_update)
             updated = min(updated, len(current_messages))
@@ -962,7 +962,7 @@ class Stars:
         # messages starred
         query = "SELECT COUNT(*) FROM starboard_entries WHERE guild_id=$1;"
 
-        record = await self.bot.pool.fetchrow(query, ctx.guild.id)
+        record = await ctx.db.fetchrow(query, ctx.guild.id)
         total_messages = record[0]
 
         # total stars given
@@ -973,7 +973,7 @@ class Stars:
                    WHERE entry.guild_id=$1;
                 """
 
-        record = await self.bot.pool.fetchrow(query, ctx.guild.id)
+        record = await ctx.db.fetchrow(query, ctx.guild.id)
         total_stars = record[0]
 
         e.description = f'{Plural(message=total_messages)} starred with a total of {total_stars} stars.'
@@ -1021,7 +1021,7 @@ class Stars:
                    );
                 """
 
-        records = await self.bot.pool.fetch(query, ctx.guild.id)
+        records = await ctx.db.fetch(query, ctx.guild.id)
         starred_posts = [r for r in records if r['Type'] == 3]
         e.add_field(name='Top Starred Posts', value=self.records_to_value(starred_posts), inline=False)
 
@@ -1077,14 +1077,14 @@ class Stars:
                    )
                 """
 
-        records = await self.bot.pool.fetch(query, ctx.guild.id, member.id)
+        records = await ctx.db.fetch(query, ctx.guild.id, member.id)
         received = records[0]['Stars']
         given = records[1]['Stars']
         top_three = records[2:]
 
         # this query calculates how many of our messages were starred
         query = """SELECT COUNT(*) FROM starboard_entries WHERE guild_id=$1 AND author_id=$2;"""
-        record = await self.bot.pool.fetchrow(query, ctx.guild.id, member.id)
+        record = await ctx.db.fetchrow(query, ctx.guild.id, member.id)
         messages_starred = record[0]
 
         e.add_field(name='Messages Starred', value=messages_starred)
@@ -1123,7 +1123,7 @@ class Stars:
                    LIMIT 1
                 """
 
-        record = await self.bot.pool.fetchrow(query, ctx.guild.id)
+        record = await ctx.db.fetchrow(query, ctx.guild.id)
 
         if record is None:
             return await ctx.send('Could not find anything.')
@@ -1160,7 +1160,7 @@ class Stars:
             return await ctx.send('Your starboard requires migration!')
 
         query = "UPDATE starboard SET locked=TRUE WHERE id=$1;"
-        await self.bot.pool.execute(query, ctx.guild.id)
+        await ctx.db.execute(query, ctx.guild.id)
         self.get_starboard.invalidate(self, ctx.guild.id)
 
         await ctx.send('Starboard is now locked.')
@@ -1178,7 +1178,7 @@ class Stars:
             return await ctx.send('Your starboard requires migration!')
 
         query = "UPDATE starboard SET locked=FALSE WHERE id=$1;"
-        await self.bot.pool.execute(query, ctx.guild.id)
+        await ctx.db.execute(query, ctx.guild.id)
         self.get_starboard.invalidate(self, ctx.guild.id)
 
         await ctx.send('Starboard is now unlocked.')
@@ -1207,7 +1207,7 @@ class Stars:
 
         stars = min(max(stars, 1), 25)
         query = "UPDATE starboard SET threshold=$2 WHERE id=$1;"
-        await self.bot.pool.execute(query, ctx.guild.id, stars)
+        await ctx.db.execute(query, ctx.guild.id, stars)
         self.get_starboard.invalidate(self, ctx.guild.id)
 
         await ctx.send(f'Messages now require {Plural(star=stars)} to show up in the starboard.')
@@ -1251,7 +1251,7 @@ class Stars:
         # only doing this because asyncpg requires a timedelta object but
         # generating that with these clamp units is overkill
         query = f"UPDATE starboard SET max_age='{number} {units}'::interval WHERE id=$1;"
-        await self.bot.pool.execute(query, ctx.guild.id)
+        await ctx.db.execute(query, ctx.guild.id)
         self.get_starboard.invalidate(self, ctx.guild.id)
 
         if number == 1:
@@ -1266,7 +1266,7 @@ class Stars:
     async def star_announce(self, ctx, *, message):
         """Announce stuff to every starboard."""
         query = "SELECT id, channel_id FROM starboard;"
-        records = await self.bot.pool.fetch(query)
+        records = await ctx.db.fetch(query)
         await ctx.release()
 
         to_send = []

@@ -898,52 +898,17 @@ class Meta:
         """Gives you the discordbots.org vote link."""
         await ctx.send('You can upvote me here: https://discordbots.org/bot/460846291300122635/vote')
 
-    @commands.group(hidden=True)
-    async def suggest(self, ctx):
-        if ctx.invoked_subcommand is None:
-            await ctx.send('You didn\'t tell what to suggest.\nUsage is ``suggest <commands/song>``')
-
-    @suggest.command()
-    async def song(self, ctx, *, text : str = None):
-        """Sends a song suggestion to the support guild."""
-        try:
-            await ctx.message.delete()
-        except:
-            pass
-        if text is None:
-            msg = await ctx.send('You didn\'t tell me what song to suggest.')
-            await asyncio.sleep(10)
-            await msg.delete()
+    @commands.command(hidden=True)
+    async def suggest(self, ctx, *, text: str):
+        if not text:
+            return await ctx.send('You didn\'t tell me what to suggest.')
         else:
-            msg = text
             author = ctx.message.author
-            suggestion = self.bot.get_channel(468710780867575809)
-            embed = discord.Embed(title='Suggestion from: ', description='{}'.format(author.name), color=discord.Color.green())
-            embed.add_field(name="Song name:", value="{}".format(text), inline=True)
-            await suggestion.send(embed=embed)
-            msg = await ctx.send('Song suggestion sent.', delete_after=10.0)
-
-    @suggest.command()
-    async def command(self, ctx, *, text: str=None):
-        """Sends a command suggestion to the support guild."""
-        try:
-            await ctx.message.delete()
-        except:
-            pass
-        if text is None:
-            msg = await ctx.send('You didn\'t tell me what to suggest.')
-            await asyncio.sleep(10)
-            await msg.delete()
-        else:
-            msg = text
-            author = ctx.message.author
-            suggestion = self.bot.get_channel(468710780867575809)
+            suggestion = self.bot.get_channel(484837399059365888)
             embed = discord.Embed(title='Suggestion from: ', description='{}'.format(author.name), color=discord.Color.blue())
-            embed.add_field(name="Command suggestion:", value="{}".format(text), inline=True)
+            embed.add_field(name="Command suggestion:", value=text, inline=True)
             await suggestion.send(embed=embed)
-            msg = await ctx.send('Command suggestion sent.')
-            await asyncio.sleep(10)
-            await msg.delete()
+            await ctx.send('Command suggestion sent.')
 
     @commands.command()
     async def encode(self, ctx, *, text = None):

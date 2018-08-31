@@ -7,7 +7,7 @@ import discord
 import importlib
 import contextlib
 
-from bot import Putin, initial_extensions
+from bot import Putin, INITIAL_EXTENSIONS
 from cogs.utils.db import Table
 
 from pathlib import Path
@@ -87,7 +87,7 @@ def init(cogs, quiet):
         return
 
     if not cogs:
-        cogs = initial_extensions
+        cogs = INITIAL_EXTENSIONS
     else:
         cogs = [f'cogs.{e}' if not e.startswith('cogs.') else e for e in cogs]
 

@@ -1,15 +1,55 @@
 from discord.ext import commands
-from .utils import config
-from collections import Counter
-import re
-import discord
-import asyncio
-import argparse
-import json
+from .utils import checks, db, time, cache
+from collections import Counter, defaultdict
+from inspect import cleandoc
 
+import re
+import json
+import discord
+import enum
+import datetime
+import asyncio
+import argparse, shlex
+import logging
 class Arguments(argparse.ArgumentParser):
     def error(self, message):
         raise RuntimeError(message)
+
+class RaidMode(enum.Enum):
+    off = 0
+    on = 1
+    strict = 2
+
+    def __str__(self):
+        return self.name
+
+class GuildConfig(db.Table, table_name='guild_mod_config'):
+    id = db.Column(db.Integer(big=True), primary_key=True)
+    raid_mode = db.Column(db.Integer(small=True))
+    broadcast_channel = db.Column(db.Integer(big=True))
+    mention_count = db.Column(db.Integer(small=True))
+    safe_mention_channel_ids = db.Column(db.Array(db.Integer(big=True)))
+
+class ModConfig:
+    __slots__ = ('raid_mode', 'id', 'bot', 'broadcast_channel_id', 'mention_count', 'safe_mention_channel_ids')
+
+    @classmethod
+    async def from_record(cls, record, bot):
+        self = cls()
+
+        # the basic configuration
+        self.bot = bot
+        self.raid_mode = record['raid_mode']
+        self.id = record['id']
+        self.broadcast_channel_id = record['broadcast_channel']
+        self.mention_count = record['mention_count']
+        self.safe_mention_channel_ids = set(record['safe_mention_channel_ids'] or [])
+        return self
+
+    @property
+    def broadcast_channel(self):
+        guild = self.bot.get_guild(self.id)
+        return guild and guild.get_channel(self.broadcast_channel_id)
 
 class MemberID(commands.Converter):
     async def convert(self, ctx, argument):
@@ -56,10 +96,401 @@ class Mod():
     """Moderation related commands."""
     def __init__(self, bot):
         self.bot = bot
-        self.config = config.Config('mod.json', loop=bot.loop)
+        self._recently_kicked = defaultdict(set)
 
     def bot_user(self, message):
         return message.guild.me if message.channel.is_private else self.bot.user
+
+        self._recently_kicked = defaultdict(set)
+
+    def __repr__(self):
+        return '<cogs.Mod>'
+
+    async def __error(self, ctx, error):
+        if isinstance(error, commands.BadArgument):
+            await ctx.send(error)
+        elif isinstance(error, commands.CommandInvokeError):
+            original = error.original
+            if isinstance(original, discord.Forbidden):
+                await ctx.send('I do not have permission to execute this action.')
+            elif isinstance(original, discord.NotFound):
+                await ctx.send(f'This entity does not exist: {original.text}')
+            elif isinstance(original, discord.HTTPException):
+                await ctx.send('Somehow, an unexpected error occurred. Try again later?')
+
+    @cache.cache()
+    async def get_guild_config(self, guild_id):
+        query = """SELECT * FROM guild_mod_config WHERE id=$1;"""
+        async with self.bot.pool.acquire() as con:
+            record = await con.fetchrow(query, guild_id)
+            if record is not None:
+                return await ModConfig.from_record(record, self.bot)
+            return None
+
+    async def check_raid(self, config, guild, member, timestamp):
+        if config.raid_mode != RaidMode.strict.value:
+            return
+
+        delta  = (member.joined_at - member.created_at).total_seconds() // 60
+
+        # they must have created their account at most 30 minutes before they joined.
+        if delta > 30:
+            return
+
+        delta = (timestamp - member.joined_at).total_seconds() // 60
+
+        # check if this is their first action in the 30 minutes they joined
+        if delta > 30:
+            return
+
+        try:
+            fmt = f"""Howdy. The server {guild.name} is currently in a raid mode lockdown.
+                   A raid is when a server is being bombarded with trolls or low effort posts.
+                   Unfortunately, what this means is that you have been automatically kicked for
+                   meeting the suspicious thresholds currently set.
+                   **Do not worry though, as you will be able to join again in the future!**
+                   """
+
+            fmt = cleandoc(fmt)
+            await member.send(fmt)
+        except discord.HTTPException:
+            pass
+
+        # kick anyway
+        try:
+            await member.kick(reason='Strict raid mode')
+        except discord.HTTPException:
+            log.info(f'[Raid Mode] Failed to kick {member} (ID: {member.id}) from server {member.guild} via strict mode.')
+        else:
+            log.info(f'[Raid Mode] Kicked {member} (ID: {member.id}) from server {member.guild} via strict mode.')
+            self._recently_kicked[guild.id].add(member.id)
+
+    async def on_message(self, message):
+        author = message.author
+        if author.id in (self.bot.user.id, self.bot.owner_id):
+            return
+
+        if message.guild is None:
+            return
+
+        if not isinstance(author, discord.Member):
+            return
+
+        # we're going to ignore members with roles
+        if len(author.roles) > 1:
+            return
+
+        guild_id = message.guild.id
+        config = await self.get_guild_config(guild_id)
+        if config is None:
+            return
+
+        # check for raid mode stuff
+        await self.check_raid(config, message.guild, author, message.created_at)
+
+        # auto-ban tracking for mention spams begin here
+        if len(message.mentions) <= 3:
+            return
+
+        if not config.mention_count:
+            return
+
+        # check if it meets the thresholds required
+        mention_count = sum(not m.bot for m in message.mentions)
+        if mention_count < config.mention_count:
+            return
+
+        if message.channel.id in config.safe_mention_channel_ids:
+            return
+
+        try:
+            await author.ban(reason=f'Spamming mentions ({mention_count} mentions)')
+        except Exception as e:
+            log.info(f'Failed to autoban member {author} (ID: {author.id}) in guild ID {guild_id}')
+        else:
+            await message.channel.send(f'Banned {author} (ID: {author.id}) for spamming {mention_count} mentions.')
+            log.info(f'Member {author} (ID: {author.id}) has been autobanned from guild ID {guild_id}')
+
+    async def on_voice_state_update(self, user, before, after):
+        if not isinstance(user, discord.Member):
+            return
+
+        # joined a voice channel
+        if before.channel is None and after.channel is not None:
+            config = await self.get_guild_config(user.guild.id)
+            if config is None:
+                return
+
+            await self.check_raid(config, user.guild, user, datetime.datetime.utcnow())
+
+    async def on_member_join(self, member):
+        config = await self.get_guild_config(member.guild.id)
+        if config is None or not config.raid_mode:
+            return
+
+        now = datetime.datetime.utcnow()
+
+        # these are the dates in minutes
+        created = (now - member.created_at).total_seconds() // 60
+        was_kicked = False
+
+        if config.raid_mode == RaidMode.strict.value:
+            was_kicked = self._recently_kicked.get(member.guild.id)
+            if was_kicked is not None:
+                try:
+                    was_kicked.remove(member.id)
+                except KeyError:
+                    was_kicked = False
+                else:
+                    was_kicked = True
+
+        # Do the broadcasted message to the channel
+        if was_kicked:
+            title = 'Member Re-Joined'
+            colour = 0xdd5f53 # red
+        else:
+            title = 'Member Joined'
+            colour = 0x53dda4 # green
+
+            if created < 30:
+                colour = 0xdda453 # yellow
+
+        e = discord.Embed(title=title, colour=colour)
+        e.timestamp = now
+        e.set_footer(text='Created')
+        e.set_author(name=str(member), icon_url=member.avatar_url)
+        e.add_field(name='ID', value=member.id)
+        e.add_field(name='Joined', value=member.joined_at)
+        e.add_field(name='Created', value=time.human_timedelta(member.created_at), inline=False)
+
+        if config.broadcast_channel:
+            await config.broadcast_channel.send(embed=e)
+
+    @commands.command(aliases=['newmembers'])
+    @commands.guild_only()
+    async def newusers(self, ctx, *, count=5):
+        """Tells you the newest members of the server.
+        This is useful to check if any suspicious members have
+        joined.
+        The count parameter can only be up to 25.
+        """
+        count = max(min(count, 25), 5)
+
+        if not ctx.guild.chunked:
+            await self.bot.request_offline_members(ctx.guild)
+
+        members = sorted(ctx.guild.members, key=lambda m: m.joined_at, reverse=True)[:count]
+
+        e = discord.Embed(title='New Members', colour=discord.Colour.green())
+
+        for member in members:
+            body = f'joined {time.human_timedelta(member.joined_at)}, created {time.human_timedelta(member.created_at)}'
+            e.add_field(name=f'{member} (ID: {member.id})', value=body, inline=False)
+
+        await ctx.send(embed=e)
+
+    @commands.group(aliases=['raids'], invoke_without_command=True)
+    @checks.is_mod()
+    async def raid(self, ctx):
+        """Controls raid mode on the server.
+        Calling this command with no arguments will show the current raid
+        mode information.
+        You must have Manage Server permissions to use this command or
+        its subcommands.
+        """
+
+        query = "SELECT raid_mode, broadcast_channel FROM guild_mod_config WHERE id=$1;"
+
+        row = await ctx.db.fetchrow(query, ctx.guild.id)
+        if row is None:
+            fmt = 'Raid Mode: off\nBroadcast Channel: None'
+        else:
+            ch = f'<#{row[1]}>' if row[1] else None
+            fmt = f'Raid Mode: {RaidMode(row[0])}\nBroadcast Channel: {ch}'
+
+        await ctx.send(fmt)
+
+    @raid.command(name='on', aliases=['enable', 'enabled'])
+    @checks.is_mod()
+    async def raid_on(self, ctx, *, channel: discord.TextChannel = None):
+        """Enables basic raid mode on the server.
+        When enabled, server verification level is set to table flip
+        levels and allows the bot to broadcast new members joining
+        to a specified channel.
+        If no channel is given, then the bot will broadcast join
+        messages on the channel this command was used in.
+        """
+
+        channel = channel or ctx.channel
+
+        try:
+            await ctx.guild.edit(verification_level=discord.VerificationLevel.high)
+        except discord.HTTPException:
+            await ctx.send('\N{WARNING SIGN} Could not set verification level.')
+
+        query = """INSERT INTO guild_mod_config (id, raid_mode, broadcast_channel)
+                   VALUES ($1, $2, $3) ON CONFLICT (id)
+                   DO UPDATE SET
+                        raid_mode = EXCLUDED.raid_mode,
+                        broadcast_channel = EXCLUDED.broadcast_channel;
+                """
+
+        await ctx.db.execute(query, ctx.guild.id, RaidMode.on.value, channel.id)
+        self.get_guild_config.invalidate(self, ctx.guild.id)
+        await ctx.send(f'Raid mode enabled. Broadcasting join messages to {channel.mention}.')
+
+    @raid.command(name='off', aliases=['disable', 'disabled'])
+    @checks.is_mod()
+    async def raid_off(self, ctx):
+        """Disables raid mode on the server.
+        When disabled, the server verification levels are set
+        back to Low levels and the bot will stop broadcasting
+        join messages.
+        """
+
+        try:
+            await ctx.guild.edit(verification_level=discord.VerificationLevel.low)
+        except discord.HTTPException:
+            await ctx.send('\N{WARNING SIGN} Could not set verification level.')
+
+        query = """INSERT INTO guild_mod_config (id, raid_mode, broadcast_channel)
+                   VALUES ($1, $2, NULL) ON CONFLICT (id)
+                   DO UPDATE SET
+                        raid_mode = EXCLUDED.raid_mode,
+                        broadcast_channel = NULL;
+                """
+
+        await ctx.db.execute(query, ctx.guild.id, RaidMode.off.value)
+        self._recently_kicked.pop(ctx.guild.id, None)
+        self.get_guild_config.invalidate(self, ctx.guild.id)
+        await ctx.send('Raid mode disabled. No longer broadcasting join messages.')
+
+    @raid.command(name='strict')
+    @checks.is_mod()
+    async def raid_strict(self, ctx, *, channel: discord.TextChannel = None):
+        """Enables strict raid mode on the server.
+        Strict mode is similar to regular enabled raid mode, with the added
+        benefit of auto-kicking members that meet the following requirements:
+        - Account creation date and join date are at most 30 minutes apart.
+        - First message recorded on the server is 30 minutes apart from join date.
+        - Joining a voice channel within 30 minutes of joining.
+        Members who meet these requirements will get a private message saying that the
+        server is currently in lock down.
+        If this is considered too strict, it is recommended to fall back to regular
+        raid mode.
+        """
+        channel = channel or ctx.channel
+
+        if not ctx.me.guild_permissions.kick_members:
+            return await ctx.send('\N{NO ENTRY SIGN} I do not have permissions to kick members.')
+
+        try:
+            await ctx.guild.edit(verification_level=discord.VerificationLevel.high)
+        except discord.HTTPException:
+            await ctx.send('\N{WARNING SIGN} Could not set verification level.')
+
+        query = """INSERT INTO guild_mod_config (id, raid_mode, broadcast_channel)
+                   VALUES ($1, $2, $3) ON CONFLICT (id)
+                   DO UPDATE SET
+                        raid_mode = EXCLUDED.raid_mode,
+                        broadcast_channel = EXCLUDED.broadcast_channel;
+                """
+
+        await ctx.db.execute(query, ctx.guild.id, RaidMode.strict.value, ctx.channel.id)
+        self.get_guild_config.invalidate(self, ctx.guild.id)
+        await ctx.send(f'Raid mode enabled strictly. Broadcasting join messages to {channel.mention}.')
+
+    @commands.group(invoke_without_command=True)
+    @commands.guild_only()
+    @checks.has_permissions(ban_members=True)
+    async def mentionspam(self, ctx, count: int=None):
+        """Enables auto-banning accounts that spam mentions.
+        If a message contains `count` or more mentions then the
+        bot will automatically attempt to auto-ban the member.
+        The `count` must be greater than 3. If the `count` is 0
+        then this is disabled.
+        This only applies for user mentions. Everyone or Role
+        mentions are not included.
+        To use this command you must have the Ban Members permission.
+        """
+
+        if count is None:
+            query = """SELECT mention_count, COALESCE(safe_mention_channel_ids, '{}') AS channel_ids
+                       FROM guild_mod_config
+                       WHERE id=$1;
+                    """
+
+            row = await ctx.db.fetchrow(query, ctx.guild.id)
+            if row is None or not row['mention_count']:
+                return await ctx.send('This server has not set up mention spam banning.')
+
+            ignores = ', '.join(f'<#{e}>' for e in row['channel_ids']) or 'None'
+            return await ctx.send(f'- Threshold: {row["mention_count"]} mentions\n- Ignored Channels: {ignores}')
+
+        if count == 0:
+            query = """UPDATE guild_mod_config SET mention_count = NULL WHERE id=$1;"""
+            await ctx.db.execute(query, ctx.guild.id)
+            self.get_guild_config.invalidate(self, ctx.guild.id)
+            return await ctx.send('Auto-banning members has been disabled.')
+
+        if count <= 3:
+            await ctx.send('\N{NO ENTRY SIGN} Auto-ban threshold must be greater than three.')
+            return
+
+        query = """INSERT INTO guild_mod_config (id, mention_count, safe_mention_channel_ids)
+                   VALUES ($1, $2, '{}')
+                   ON CONFLICT (id) DO UPDATE SET
+                       mention_count = $2;
+                """
+        await ctx.db.execute(query, ctx.guild.id, count)
+        self.get_guild_config.invalidate(self, ctx.guild.id)
+        await ctx.send(f'Now auto-banning members that mention more than {count} users.')
+
+    @mentionspam.command(name='ignore', aliases=['bypass'])
+    @commands.guild_only()
+    @checks.has_permissions(ban_members=True)
+    async def mentionspam_ignore(self, ctx, *channels: discord.TextChannel):
+        """Specifies what channels ignore mentionspam auto-bans.
+        If a channel is given then that channel will no longer be protected
+        by auto-banning from mention spammers.
+        To use this command you must have the Ban Members permission.
+        """
+
+        query = """UPDATE guild_mod_config
+                   SET safe_mention_channel_ids =
+                       ARRAY(SELECT DISTINCT * FROM unnest(COALESCE(safe_mention_channel_ids, '{}') || $2::bigint[]))
+                   WHERE id = $1;
+                """
+
+        if len(channels) == 0:
+            return await ctx.send('Missing channels to ignore.')
+
+        channel_ids = [c.id for c in channels]
+        await ctx.db.execute(query, ctx.guild.id, channel_ids)
+        self.get_guild_config.invalidate(self, ctx.guild.id)
+        await ctx.send(f'Mentions are now ignored on {", ".join(c.mention for c in channels)}.')
+
+    @mentionspam.command(name='unignore', aliases=['protect'])
+    @commands.guild_only()
+    @checks.has_permissions(ban_members=True)
+    async def mentionspam_unignore(self, ctx, *channels: discord.TextChannel):
+        """Specifies what channels to take off the ignore list.
+        To use this command you must have the Ban Members permission.
+        """
+
+        if len(channels) == 0:
+            return await ctx.send('Missing channels to protect.')
+
+        query = """UPDATE guild_mod_config
+                   SET safe_mention_channel_ids =
+                       ARRAY(SELECT element FROM unnest(safe_mention_channel_ids) AS element
+                             WHERE NOT(element = ANY($2::bigint[])))
+                   WHERE id = $1;
+                """
+
+        await ctx.db.execute(query, ctx.guild.id, [c.id for c in channels])
+        self.get_guild_config.invalidate(self, ctx.guild.id)
+        await ctx.send('Updated mentionspam ignore list.')
 
     @commands.command()
     @commands.has_permissions(manage_guild=True)

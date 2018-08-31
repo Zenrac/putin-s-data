@@ -144,6 +144,7 @@ class Tags:
 
     async def get_possible_tags(self, guild, *, connection=None):
         """Returns a list of Records of possible tags that the guild can execute.
+
         If this is a private message then only the generic tags are possible.
         Server specific tags will override the generic tags.
         """
@@ -210,12 +211,13 @@ class Tags:
     @suggest_box()
     async def tag(self, ctx, *, name: TagName(lower=True)):
         """Allows you to tag text for later retrieval.
+
         If a subcommand is not called, then this will search the tag database
         for the tag requested.
         """
 
         try:
-            tag = await self.get_tag(ctx.guild.id, name, connection=self.bot.pool)
+            tag = await self.get_tag(ctx.guild.id, name, connection=ctx.db)
         except RuntimeError as e:
             return await ctx.send(e)
 
@@ -223,14 +225,16 @@ class Tags:
 
         # update the usage
         query = "UPDATE tags SET uses = uses + 1 WHERE name = $1 AND (location_id=$2 OR location_id IS NULL);"
-        await self.bot.pool.execute(query, tag['name'], ctx.guild.id)
+        await ctx.db.execute(query, tag['name'], ctx.guild.id)
 
     @tag.command(aliases=['add'])
     @suggest_box()
     async def create(self, ctx, name: TagName, *, content: commands.clean_content):
         """Creates a new tag owned by you.
+
         This tag is server-specific and cannot be used in other servers.
         For global tags that others can use, consider using the tag box.
+
         Note that server moderators can delete your tag.
         """
 
@@ -249,27 +253,29 @@ class Tags:
         # since I'm checking for the exception type and acting on it, I need
         # to use the manual transaction blocks
 
-        # tr = ctx.db.transaction()
-        # await tr.start()
+        tr = ctx.db.transaction()
+        await tr.start()
 
         try:
-            await self.bot.pool.execute(query, name, content, ctx.author.id, ctx.guild.id)
+            await ctx.db.execute(query, name, content, ctx.author.id, ctx.guild.id)
         except asyncpg.UniqueViolationError:
-            # await tr.rollback()
+            await tr.rollback()
             await ctx.send('This tag already exists.')
         except:
-            # await tr.rollback()
+            await tr.rollback()
             await ctx.send('Could not create tag.')
         else:
-            # await tr.commit()
+            await tr.commit()
             await ctx.send(f'Tag {name} successfully created.')
 
     @tag.command()
     @suggest_box()
     async def alias(self, ctx, new_name: TagName, *, old_name: TagName):
         """Creates an alias for a pre-existing tag.
+
         You own the tag alias. However, when the original
         tag is deleted the alias is deleted as well.
+
         Tag aliases cannot be edited. You must delete
         the alias and remake it to point it to another
         location.
@@ -282,7 +288,7 @@ class Tags:
                 """
 
         try:
-            status = await self.bot.pool.execute(query, new_name, old_name.lower(), ctx.guild.id, ctx.author.id)
+            status = await ctx.db.execute(query, new_name, old_name.lower(), ctx.guild.id, ctx.author.id)
         except asyncpg.UniqueViolationError:
             await ctx.send('A tag with this name already exists.')
         else:
@@ -296,6 +302,7 @@ class Tags:
     @suggest_box()
     async def make(self, ctx):
         """Interactive makes a tag for you.
+
         This walks you through the process of creating a tag with
         its name and its content. This works similar to the tag
         create command.
@@ -334,7 +341,7 @@ class Tags:
         # however for UX reasons I might as well do it.
 
         query = """SELECT 1 FROM tags WHERE location_id=$1 AND LOWER(name)=$2;"""
-        row = await self.bot.pool.fetchrow(query, ctx.guild.id, name.lower())
+        row = await ctx.db.fetchrow(query, ctx.guild.id, name.lower())
         if row is not None:
             return await ctx.send('Sorry. A tag with that name already exists. ' \
                                  f'Redo the command "{ctx.prefix}tag make" to retry.')
@@ -386,7 +393,7 @@ class Tags:
                    LIMIT 3;
                 """
 
-        records = await self.bot.pool.fetch(query, ctx.guild.id)
+        records = await ctx.db.fetch(query, ctx.guild.id)
         if not records:
             e.description = 'No tag statistics here.'
         else:
@@ -419,7 +426,7 @@ class Tags:
                    LIMIT 3;
                 """
 
-        records = await self.bot.pool.fetch(query, ctx.guild.id)
+        records = await ctx.db.fetch(query, ctx.guild.id)
 
         if len(records) < 3:
             # fill with data to ensure that we have a minimum of 3
@@ -441,7 +448,7 @@ class Tags:
                    LIMIT 3;
                 """
 
-        records = await self.bot.pool.fetch(query, ctx.guild.id)
+        records = await ctx.db.fetch(query, ctx.guild.id)
 
         if len(records) < 3:
             # fill with data to ensure that we have a minimum of 3
@@ -463,7 +470,7 @@ class Tags:
                    WHERE guild_id=$1 AND command='tag' AND author_id=$2
                 """
 
-        count = await self.bot.pool.fetchrow(query, ctx.guild.id, member.id)
+        count = await ctx.db.fetchrow(query, ctx.guild.id, member.id)
 
         # top 3 commands and total tags/uses
         query = """SELECT
@@ -477,7 +484,7 @@ class Tags:
                    LIMIT 3;
                 """
 
-        records = await self.bot.pool.fetch(query, ctx.guild.id, member.id)
+        records = await ctx.db.fetch(query, ctx.guild.id, member.id)
 
         if len(records) > 1:
             owned = records[0]['Count']
@@ -520,13 +527,14 @@ class Tags:
     @suggest_box()
     async def edit(self, ctx, name: TagName(lower=True), *, content: commands.clean_content):
         """Modifies an existing tag that you own.
+
         This command completely replaces the original text. If
         you want to get the old text back, consider using the
         tag raw command.
         """
 
         query = "UPDATE tags SET content=$1 WHERE LOWER(name)=$2 AND location_id=$3 AND owner_id=$4;"
-        status = await self.bot.pool.execute(query, content, name, ctx.guild.id, ctx.author.id)
+        status = await ctx.db.execute(query, content, name, ctx.guild.id, ctx.author.id)
 
         # the status returns UPDATE <count>
         # if the <count> is 0, then nothing got updated
@@ -541,9 +549,11 @@ class Tags:
     @suggest_box()
     async def remove(self, ctx, *, name: TagName(lower=True)):
         """Removes a tag that you own.
+
         The tag owner can always delete their own tags. If someone requests
         deletion and has Manage Server permissions then they can also
         delete it.
+
         Deleting a tag will delete all of its aliases as well.
         """
 
@@ -557,7 +567,7 @@ class Tags:
             clause = f'{clause} AND owner_id=$3'
 
         query = f'DELETE FROM tag_lookup WHERE {clause} RETURNING tag_id;'
-        deleted = await self.bot.pool.fetchrow(query, *args)
+        deleted = await ctx.db.fetchrow(query, *args)
 
         if deleted is None:
             await ctx.send('Could not delete tag. Either it does not exist or you do not have permissions to do so.')
@@ -565,7 +575,7 @@ class Tags:
 
         args.append(deleted[0])
         query = f'DELETE FROM tags WHERE id=${len(args)} AND {clause};'
-        status = await self.bot.pool.execute(query, *args)
+        status = await ctx.db.execute(query, *args)
 
         # the status returns DELETE <count>, similar to UPDATE above
         if status[-1] == '0':
@@ -613,7 +623,7 @@ class Tags:
                    WHERE first.id=$1
                 """
 
-        rank = await self.bot.pool.fetchrow(query, record['id'])
+        rank = await ctx.db.fetchrow(query, record['id'])
 
         if rank is not None:
             embed.add_field(name='Rank', value=rank['rank'])
@@ -624,6 +634,7 @@ class Tags:
     @suggest_box()
     async def info(self, ctx, *, name: TagName(lower=True)):
         """Retrieves info about a tag.
+
         The info includes things like the owner and how many times it was used.
         """
 
@@ -638,7 +649,7 @@ class Tags:
                    WHERE LOWER(tag_lookup.name)=$1 AND tag_lookup.location_id=$2
                 """
 
-        record = await self.bot.pool.fetchrow(query, name, ctx.guild.id)
+        record = await ctx.db.fetchrow(query, name, ctx.guild.id)
         if record is None:
             return await ctx.send('Tag not found.')
 
@@ -651,11 +662,12 @@ class Tags:
     @suggest_box()
     async def raw(self, ctx, *, name: TagName(lower=True)):
         """Gets the raw content of the tag.
+
         This is with markdown escaped. Useful for editing.
         """
 
         try:
-            tag = await self.get_tag(ctx.guild.id, name, connection=self.bot.pool)
+            tag = await self.get_tag(ctx.guild.id, name, connection=ctx.db)
         except RuntimeError as e:
             return await ctx.send(e)
 
@@ -683,7 +695,7 @@ class Tags:
                    ORDER BY name
                 """
 
-        rows = await self.bot.pool.fetch(query, ctx.guild.id, member.id)
+        rows = await ctx.db.fetch(query, ctx.guild.id, member.id)
         await ctx.release()
 
         if rows:
@@ -712,7 +724,7 @@ class Tags:
                    WHERE location_id=$1
                 """
 
-        rows = await self.bot.pool.fetch(query, ctx.guild.id)
+        rows = await ctx.db.fetch(query, ctx.guild.id)
         await ctx.release()
 
         if rows:
@@ -731,13 +743,14 @@ class Tags:
     @checks.has_guild_permissions(manage_messages=True)
     async def purge(self, ctx, member: discord.Member):
         """Removes all server-specific tags by a user.
+
         You must have server-wide Manage Messages permissions to use this.
         """
 
         # Though inefficient, for UX purposes we should do two queries
 
         query = "SELECT COUNT(*) FROM tags WHERE location_id=$1 AND owner_id=$2;"
-        count = await self.bot.pool.fetchrow(query, ctx.guild.id, member.id)
+        count = await ctx.db.fetchrow(query, ctx.guild.id, member.id)
         count = count[0] # COUNT(*) always returns 0 or higher
 
         if count == 0:
@@ -748,7 +761,7 @@ class Tags:
             return await ctx.send('Cancelling tag purge request.')
 
         query = "DELETE FROM tags WHERE location_id=$1 AND owner_id=$2;"
-        await self.bot.pool.execute(query, ctx.guild.id, member.id)
+        await ctx.db.execute(query, ctx.guild.id, member.id)
 
         await ctx.send(f'Successfully removed all {count} tags that belong to {member}.')
 
@@ -756,6 +769,7 @@ class Tags:
     @suggest_box()
     async def search(self, ctx, *, query: commands.clean_content):
         """Searches for a tag.
+
         The query must be at least 3 characters.
         """
 
@@ -769,7 +783,7 @@ class Tags:
                  LIMIT 100;
               """
 
-        results = await self.bot.pool.fetch(sql, ctx.guild.id, query)
+        results = await ctx.db.fetch(sql, ctx.guild.id, query)
 
         if results:
             try:
@@ -786,13 +800,14 @@ class Tags:
     @suggest_box()
     async def claim(self, ctx, *, tag: TagName):
         """Claims an unclaimed tag.
+
         An unclaimed tag is a tag that effectively
         has no owner because they have left the server.
         """
 
         # requires 2 queries for UX
         query = "SELECT id, owner_id FROM tags WHERE location_id=$1 AND LOWER(name)=$2;"
-        row = await self.bot.pool.fetchrow(query, ctx.guild.id, tag.lower())
+        row = await ctx.db.fetchrow(query, ctx.guild.id, tag.lower())
         if row is None:
             return await ctx.send(f'A tag with the name of "{tag}" does not exist.')
 
@@ -805,19 +820,21 @@ class Tags:
             return await ctx.send('Tag owner is still in server.')
 
         query = "UPDATE tags SET owner_id=$1 WHERE id=$2;"
-        await self.bot.pool.execute(query, ctx.author.id, row[0])
+        await ctx.db.execute(query, ctx.author.id, row[0])
         query = "UPDATE tag_lookup SET owner_id=$1 WHERE tag_id=$2;"
-        await self.bot.pool.execute(query, ctx.author.id, row[0])
+        await ctx.db.execute(query, ctx.author.id, row[0])
         await ctx.send('Successfully transferred tag ownership to you.')
 
     @tag.group()
     @can_use_box()
     async def box(self, ctx):
         """The tag box is where global tags are stored.
+
         The tags in the box are not part of your server's tag list
         unless you explicitly enable them. As a result, only those
         with Manage Messages can check out the tag box, or anyone
         if it's a private message.
+
         To play around with the tag box, you should use the subcommands
         provided.
         """
@@ -828,6 +845,7 @@ class Tags:
     @box.command(name='put')
     async def box_put(self, ctx, name: TagName, *, content: commands.clean_content):
         """Puts a tag in the tag box.
+
         These are global tags that anyone can opt-in to receiving
         via the "tag box take" subcommand.
         """
@@ -835,7 +853,7 @@ class Tags:
         query = "INSERT INTO tags (name, content, owner_id) VALUES ($1, $2, $3);"
 
         try:
-            await self.bot.pool.execute(query, name, content, ctx.author.id)
+            await ctx.db.execute(query, name, content, ctx.author.id)
         except asyncpg.UniqueViolationError:
             await ctx.send('A tag with this name exists in the box already.')
         else:
@@ -845,6 +863,7 @@ class Tags:
     @commands.guild_only()
     async def box_take(self, ctx, *, name: TagName(lower=True)):
         """Takes a tag from the tag box.
+
         When you take a tag from the tag box, you essentially
         duplicate the tag for use for your own server. Any updates
         to the tag in the tag box does not affect your duplicated
@@ -854,7 +873,7 @@ class Tags:
 
         query = "SELECT name, content FROM tags WHERE LOWER(name)=$1 AND location_id IS NULL;"
 
-        tag = await self.bot.pool.fetchrow(query, name)
+        tag = await ctx.db.fetchrow(query, name)
 
         if tag is None:
             return await ctx.send('A tag with this name cannot be found in the box.')
@@ -867,7 +886,7 @@ class Tags:
 
         query = "SELECT name, content FROM tags WHERE LOWER(name)=$1 AND location_id IS NULL;"
 
-        tag = await self.bot.pool.fetchrow(query, name)
+        tag = await ctx.db.fetchrow(query, name)
 
         if tag is None:
             return await ctx.send('A tag with this name cannot be found in the box.')
@@ -875,18 +894,20 @@ class Tags:
         await ctx.send(tag['content'])
 
         query = "UPDATE tags SET uses = uses + 1 WHERE name=$1 AND location_id IS NULL;"
-        await self.bot.pool.execute(query, tag['name'])
+        await ctx.db.execute(query, tag['name'])
 
     @box.command(name='edit', aliases=['change'])
     async def box_edit(self, ctx, name: TagName(lower=True), *, content: commands.clean_content):
         """Edits tag from the tag box.
+
         You must own the tag to edit it.
+
         Editing the tag does not affect tags where people
         took it for their own personal use.
         """
 
         query = "UPDATE tags SET content = $2 WHERE LOWER(name)=$1 AND owner_id=$3 AND location_id IS NULL;"
-        status = await self.bot.pool.execute(query, name, content, ctx.author.id)
+        status = await ctx.db.execute(query, name, content, ctx.author.id)
 
         if status[-1] == '0':
             await ctx.send('This tag is either not in the box or you do not own it.')
@@ -896,13 +917,15 @@ class Tags:
     @box.command(name='delete', aliases=['remove'])
     async def box_delete(self, ctx, *, name: TagName(lower=True)):
         """Deletes a tag from the tag box.
+
         You must own the tag to delete it.
+
         Deleting the tag does not affect tags where people
         took it for their own personal use.
         """
 
         query = "DELETE FROM tags WHERE LOWER(name)=$1 AND owner_id=$2 AND location_id IS NULL;"
-        status = await self.bot.pool.execute(query, name, ctx.author.id)
+        status = await ctx.db.execute(query, name, ctx.author.id)
 
         if status[-1] == '0':
             await ctx.send('This tag is either not in the box or you do not own it.')
@@ -923,7 +946,7 @@ class Tags:
                    WHERE LOWER(first.name)=$1 AND first.location_id IS NULL;
                 """
 
-        data = await self.bot.pool.fetchrow(query, name)
+        data = await ctx.db.fetchrow(query, name)
 
         if data is None or data['name'] is None:
             return await ctx.send('This tag is not in the box.')
@@ -947,6 +970,7 @@ class Tags:
     @box.command(name='search')
     async def box_search(self, ctx, *, query: commands.clean_content):
         """Searches for a tag in the tag box.
+
         The query must be at least 3 characters long.
         """
 
@@ -954,7 +978,7 @@ class Tags:
             return await ctx.send('Query must be 3 characters or longer.')
 
         sql = "SELECT name FROM tags WHERE name % $1 AND location_id IS NULL LIMIT 100;"
-        data = await self.bot.pool.fetch(sql, query)
+        data = await ctx.db.fetch(sql, query)
 
         if len(data) == 0:
             return await ctx.send('No tags found.')
@@ -990,7 +1014,7 @@ class Tags:
                    LIMIT 3;
                 """
 
-        top_creators = await self.bot.pool.fetch(query)
+        top_creators = await ctx.db.fetch(query)
 
         query = """SELECT
                        name AS "Tag Name",
@@ -1003,7 +1027,7 @@ class Tags:
                    LIMIT 3;
                 """
 
-        top_tags = await self.bot.pool.fetch(query)
+        top_tags = await ctx.db.fetch(query)
 
         embed = discord.Embed(colour=discord.Colour.blurple(), title='Tag Box Stats')
 
@@ -1027,6 +1051,7 @@ class Tags:
     @box.command(name='list')
     async def box_list(self, ctx, *, user: discord.User = None):
         """Lists all the tags in the box that belong to you or someone else.
+
         Unlike the regular tag list command, this one is sorted by uses.
         """
 
@@ -1038,7 +1063,7 @@ class Tags:
                    ORDER BY uses DESC
                 """
 
-        rows = await self.bot.pool.fetch(query, user.id)
+        rows = await ctx.db.fetch(query, user.id)
         await ctx.release()
 
         if rows:
