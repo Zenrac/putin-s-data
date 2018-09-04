@@ -55,7 +55,7 @@ class Admin:
     @commands.command(hidden=True)
     async def update(self, ctx):
         x = await self.run_cmd('git pull origin master --allow-unrelated-histories --no-edit')
-        modules = re.match(r'^cogs=.*\.py$', x)
+        modules = re.match(r'cogs/.*\.py$', x)
         await ctx.send(modules)
         for module in modules:
             await ctx.send(module)
