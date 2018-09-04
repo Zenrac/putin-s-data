@@ -266,6 +266,19 @@ class Mod():
         if config.broadcast_channel:
             await config.broadcast_channel.send(embed=e)
 
+    @commands.command()
+    @checks.is_mod()
+    async def unrole(self, ctx, member:discord.Member=None, *, role:discord.Role=None):
+        if not member:
+            return await ctx.send('You forgot to give me the user or role.')
+        if not role:
+            return await ctx.send('You forgot to give me the user or role.')
+        try:
+            await member.remove_roles(role)
+            return await ctx.send(f'{ctx.tick(True)} Removed {role.name} role from {member.display_name}.')
+        except discord.Forbidden:
+            await ctx.send(f'{ctx.tick(False)}I don\'t have permissions to remove roles.')
+
     @commands.command(aliases=['newmembers'])
     @commands.guild_only()
     async def newusers(self, ctx, *, count=5):
@@ -493,7 +506,7 @@ class Mod():
         await ctx.send('Updated mentionspam ignore list.')
 
     @commands.command()
-    @commands.has_permissions(manage_guild=True)
+    @checks.has_permissions(manage_guild=True)
     async def createrole(self, ctx, role : str = None):
         """Creates a role to the guild."""
         if role is None:
@@ -503,7 +516,7 @@ class Mod():
             await ctx.send('I created the role {}.'.format('@' + role))
 
     @commands.command()
-    @commands.has_permissions(manage_guild=True)
+    @checks.has_permissions(manage_guild=True)
     async def addrole(self, ctx, member: discord.Member = None, role: discord.Role = None, reason: str = None):
         if member is None:
             return await ctx.send('You didn\'t give me the member.')
@@ -515,105 +528,8 @@ class Mod():
         except:
             pass
 
-    # @commands.command(hidden=True)
-    # @commands.has_permissions(manage_channel=True)
-    # async def pin(self, ctx):
-    #
-    #     message = ctx.message.content
-    #     message = message.replace(".pin ", '')
-    #     msg = await self.bot.send_message(ctx.message, message)
-    #     await self.bot.pin_message(msg)
-
-    @commands.group(no_pm=True)
-    @commands.has_permissions(manage_channel=True)
-    async def ignore(self, ctx):
-        """Handles the bot's ignore lists.
-        To use these commands, you must have the Bot Admin role or have
-        Manage Channel permissions. These commands are not allowed to be used
-        in a private message context.
-        Users with Manage Roles or Bot Admin role can still invoke the bot
-        in ignored channels.
-        """
-        if ctx.invoked_subcommand is None:
-            await ctx.send('Invalid subcommand passed: {0.subcommand_passed}'.format(ctx))
-
-    @ignore.command(name='channel')
-    async def channel_cmd(self, ctx, *, channel : discord.TextChannel = None):
-        """Ignores a specific channel from being processed.
-        If no channel is specified, the current channel is ignored.
-        If a channel is ignored then the bot does not process commands in that
-        channel until it is unignored.
-        """
-
-        if channel is None:
-            channel = ctx.message.channel
-
-        ignored = self.config.get('ignored', [])
-        if str(channel.id) in ignored:
-            await ctx.send(':exclamation: | That channel is already ignored.')
-            return
-
-        ignored.append(str(channel.id))
-        await self.config.put('ignored', ignored)
-        await ctx.send(':ballot_box_with_check:')
-
-    @ignore.command(name='all', )
-    @commands.has_permissions(manage_guild=True)
-    async def _all(self, ctx):
-        """Ignores every channel in the guild from being processed.
-        This works by adding every channel that the guild currently has into
-        the ignore list. If more channels are added then they will have to be
-        ignored by using the ignore command.
-        To use this command you must have Manage guild permissions along with
-        Manage Channel permissions. You could also have the Bot Admin role.
-        """
-
-        ignored = self.config.get('ignored', [])
-        channels = ctx.message.guild.channels
-        ignored.extend(str(c.id) for c in channels if c.type == discord.ChannelType.text)
-        await self.config.put('ignored', list(set(ignored))) # make unique
-        await ctx.send(':ballot_box_with_check:')
-
-    @commands.command(no_pm=True)
-    @commands.has_permissions(manage_channel=True)
-    async def unignore(self, ctx, *, channel : discord.TextChannel = None):
-        """Unignores a specific channel from being processed.
-        If no channel is specified, it unignores the current channel.
-        To use this command you must have the Manage Channel permission or have the
-        Bot Admin role.
-        """
-
-        if channel is None:
-            channel = ctx.message.channel
-
-        # a set is the proper data type for the ignore list
-        # however, JSON only supports arrays and objects not sets.
-        ignored = self.config.get('ignored', [])
-        try:
-            ignored.purge(str(channel.id))
-        except ValueError:
-            await ctx.send(':exclamation: | Channel was not ignored in the first place.')
-        else:
-            await ctx.send(':ballot_box_with_check:')
-
     @commands.command(no_pm = True)
-    @commands.has_permissions(manage_channel=True)
-    async def editchannelname(self, ctx, channel : discord.abc.GuildChannel = None, *, newchannelname : str = None):
-        """Edits a channel's name."""
-        if channel is None:
-            await ctx.send('You did not tell me which channel to edit.')
-        elif newchannelname is None:
-            await ctx.send('You did not tell me what to change it to.')
-        else:
-            try:
-                await ctx.message.delete()
-            except:
-                pass
-            await channel.edit(name=newchannelname)
-            await ctx.send(':ballot_box_with_check: | {} changed the name of #{}#{}.'.format(ctx.message.author.name, channel.name, channel.discriminator))
-
-    @commands.command(no_pm = True)
-    @commands.has_permissions(manage_guild=True)
+    @checks.has_permissions(manage_guild=True)
     async def mute(self, ctx, *, user : discord.Member):
         """Mutes a user."""
         try:
@@ -625,7 +541,7 @@ class Mod():
             await ctx.send(':exclamation: | Muting failed.')
 
     @commands.command(no_pm = True)
-    @commands.has_permissions(manage_guild=True)
+    @checks.has_permissions(manage_guild=True)
     async def unmute(self, ctx, *, user : discord.Member):
         """Unmutes a user."""
         try:
@@ -637,7 +553,7 @@ class Mod():
             await ctx.send(':exclamation: | Unmuting failed.')
 
     @commands.command(no_pm = True)
-    @commands.has_permissions(manage_guild=True)
+    @checks.has_permissions(manage_guild=True)
     async def deafen(self, ctx, *, user : discord.Member):
         """Deafens a user."""
         try:
@@ -649,7 +565,7 @@ class Mod():
             await ctx.send(':exclamation: | Deafening failed.')
 
     @commands.command(no_pm = True)
-    @commands.has_permissions(manage_guild=True)
+    @checks.has_permissions(manage_guild=True)
     async def undeafen(self, ctx, *, user : discord.Member):
         """Undeafens a user."""
         try:
@@ -669,20 +585,16 @@ class Mod():
         return { 'Bot': count }
 
     async def _complex_cleanup_strategy(self, ctx, search):
-        with open('prefixes.json') as f:
-            data = json.read(f)
+        prefixes = tuple(self.bot.get_guild_prefixes(ctx.guild)) # thanks startswith
 
-        if str(ctx.guild.id) in data:
-            prefix = data[str(ctx.guild.id)]
-        else:
-            prefix = None
         def check(m):
-            return m.author == ctx.me or m.content.startswith('.') or m.content.startswith('<@460846291300122635> ') or m.content.startswith(prefix)
+            return m.author == ctx.me or m.content.startswith(prefixes)
+
         deleted = await ctx.channel.purge(limit=search, check=check, before=ctx.message)
         return Counter(m.author.display_name for m in deleted)
 
     @commands.command()
-    @commands.has_permissions(manage_messages=True)
+    @checks.has_permissions(manage_messages=True)
     async def cleanup(self, ctx, search=100):
         """Cleans up the bot's messages from the channel.
         If a search number is specified, it searches that many messages to delete.
@@ -695,8 +607,8 @@ class Mod():
         """
 
         strategy = self._basic_cleanup_strategy
-        # if ctx.me.permissions_in(ctx.channel).manage_messages:
-        #     strategy = self._complex_cleanup_strategy
+        if ctx.me.permissions_in(ctx.channel).manage_messages:
+            strategy = self._complex_cleanup_strategy
 
         spammers = await strategy(ctx, search)
         deleted = sum(spammers.values())
@@ -710,7 +622,7 @@ class Mod():
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_permissions(kick_members=True)
+    @checks.has_permissions(kick_members=True)
     async def kick(self, ctx, member: discord.Member, *, reason: ActionReason = None):
         """Kicks a member from the server.
         In order for this to work, the bot must have Kick Member permissions.
@@ -725,7 +637,7 @@ class Mod():
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_permissions(ban_members=True)
+    @checks.has_permissions(ban_members=True)
     async def ban(self, ctx, member: MemberID, *, reason: ActionReason = None):
         """Bans a member from the server.
         You can also ban from ID to ban regardless whether they're
@@ -742,7 +654,7 @@ class Mod():
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_permissions(ban_members=True)
+    @checks.has_permissions(ban_members=True)
     async def massban(self, ctx, reason: ActionReason, *members: MemberID):
         """Mass bans multiple members from the server.
         You can also ban from ID to ban regardless whether they're
@@ -760,7 +672,7 @@ class Mod():
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_permissions(kick_members=True)
+    @checks.has_permissions(kick_members=True)
     async def softban(self, ctx, member: MemberID, *, reason: ActionReason = None):
         """Soft bans a member from the server.
         A softban is basically banning the member from the server but
@@ -780,7 +692,7 @@ class Mod():
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_permissions(ban_members=True)
+    @checks.has_permissions(ban_members=True)
     async def unban(self, ctx, member: BannedMember, *, reason: ActionReason = None):
         """Unbans a member from the server.
         You can pass either the ID of the banned member or the Name#Discrim
@@ -801,7 +713,7 @@ class Mod():
 
     @commands.group()
     @commands.guild_only()
-    @commands.has_permissions(manage_messages=True)
+    @checks.has_permissions(manage_messages=True)
     async def purge(self, ctx):
         """Purges messages that meet a criteria.
         In order to use this command, you must have Manage Messages permissions.
@@ -1013,7 +925,7 @@ class Mod():
         args.search = max(0, min(2000, args.search)) # clamp from 0-2000
         await self.do_removal(ctx, args.search, predicate, before=args.before, after=args.after)
     @commands.command(no_pm = True)
-    @commands.has_permissions(manage_nicknames=True)
+    @checks.has_permissions(manage_nicknames=True)
     async def setnickname(self, ctx, user : discord.Member = None, *, nick: str = None):
 
         """Changes the nickname of a user

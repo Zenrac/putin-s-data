@@ -124,9 +124,9 @@ class Music:
             if not ctx.author.voice or not ctx.author.voice.channel or player.connected_channel.id != ctx.author.voice.channel.id:
                 return await ctx.send('Join my voice channel!')
 
-        lists = ['https://www.youtube.com/watch?v=aJOTlE1K90k&list=PLw-VjHDlEOgvtnnnqWlTqByAtC7tXBg6D', 'https://www.youtube.com/watch?v=QMrJ-L-FfM0']
+        list = 'https://www.youtube.com/watch?v=aJOTlE1K90k&list=PLw-VjHDlEOgvtnnnqWlTqByAtC7tXBg6D'
 
-        query = random.choice(lists)
+        query = list
 
         results = await self.bot.lavalink.get_tracks(query)
 

@@ -116,6 +116,8 @@ class Putin(commands.AutoShardedBot):
 
     async def on_guild_join(self, guild):
         """This triggers when the bot joins a guild."""
+        game = discord.Activity(name=f"slaves in {len(self.guilds)} servers.", type=discord.ActivityType.watching)
+        await self.change_presence(status=discord.Status.online, activity=game)
         if guild.id == 421630709585805312:
             return
         try:
@@ -155,13 +157,20 @@ class Putin(commands.AutoShardedBot):
             await ctx.send(ctx.message.author, 'Sorry. This command is disabled'
                                                ' and cannot be used.')
         elif isinstance(error, commands.BadArgument):
-            await ctx.send(error)
+            await ctx.send(error.replace('int', 'number'))
         elif isinstance(error, commands.MissingPermissions):
             missing_perms = error.missing_perms[0].replace('_', ' ')
             await ctx.send(f'You do not have **{missing_perms}** permissions.'
                            ' You need them to use this command.')
+        elif isinstance(error, commands.BotMissingPermissions):
+            missing_perms = ", ".join(perms.missing_perms.lower.replace('_', ' ') for perms in error.missing_perms)
         elif isinstance(error, commands.NotOwner):
             await ctx.send('Only my creator can use this command.')
+        if isinstance(error, commands.CommandOnCooldown):
+            m, s = divmod(error.retry_after, 60)
+            h, m = divmod(m, 60)
+            await ctx.send("This command is on cooldown for another {}.".format("%d hour(s) %02d minute(s) %02d second(s)" % (h, m, s)), delete_after=10.0)
+
 
 
 
@@ -172,6 +181,8 @@ class Putin(commands.AutoShardedBot):
         print('[ ID ] ' + str(self.user.id))
         print('[]---------------------------[]')
         self.commands_executed = 0
+        game = discord.Activity(name=f"slaves in {len(self.guilds)} servers.", type=discord.ActivityType.watching)
+        await self.change_presence(status=discord.Status.online, activity=game)
 
     async def on_command(self, ctx):
         """This triggers when a command is invoked."""

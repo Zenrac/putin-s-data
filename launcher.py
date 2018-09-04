@@ -52,8 +52,8 @@ def run_bot():
     try:
         pool = loop.run_until_complete(Table.create_pool(config.postgresql, command_timeout=60))
     except Exception as e:
-        click.echo('Could not set up PostgreSQL. Exiting.', file=sys.stderr)
-        log.exception('Could not set up PostgreSQL. Exiting.')
+        # click.echo('Could not set up PostgreSQL. Exiting.', file=sys.stderr)
+        # log.exception('Could not set up PostgreSQL. Exiting.')
         return
 
     bot = Putin()

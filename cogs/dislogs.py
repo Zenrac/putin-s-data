@@ -5,11 +5,19 @@ from .utils import config
 import json
 from discord.utils import find, get
 import datetime
+import asyncio
+import aiohttp
 # from .utils import db
 
 class DisLogs:
     def __init__(self, bot):
         self.bot = bot
+
+    async def post(self, content):
+        async with aiohttp.ClientSession() as session:
+            async with session.post("https://hastebin.com/documents",data=content.encode('utf-8')) as post:
+                post = await post.json()
+                return "https://hastebin.com/{}".format(post['key'])
 
     async def on_message_delete(self, message):
         if message.author.bot: return
@@ -22,9 +30,20 @@ class DisLogs:
         if not data: return
         if not data[0]: return
         try:
+            deleted = []
             async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
-                if entry.user.bot:
-                    return
+                count = entry.extra.count
+                if entry.extra.count >= 2:
+                    deleted.append((entry.user.display_name, entry.extra.channel.name, message.content, 
+                                    message.edited_at if message.edited_at else message.created_at))
+            if count >= 2:
+                url = await self.post("\n\n\n".join(f'{_[0]} in {_[1]} at {_[3]}\n  {_[2]}' for _ in deleted))
+                e = discord.Embed(description=f"Bulk message delete in {message.channel.mention}", color=discord.Color.red())
+                e.add_field(name='Messages', value=f'[Click here to see the messages.]({url})')
+                e.timestamp = datetime.datetime.utcnow()
+                return await send_channel.send(embed=e)
+            else:
+                pass
         except discord.Forbidden:
             pass
         except Exception as e:
@@ -34,6 +53,12 @@ class DisLogs:
         e.timestamp = datetime.datetime.utcnow()
 
         await send_channel.send(embed=e)
+
+    # async def post(content):
+    #     async with aiohttp.ClientSession() as session:
+    #         async with session.post("https://hastebin.com/documents",data=content.encode('utf-8')) as post:
+    #             post = await post.json()
+    #             return "https://hastebin.com/{}".format(post['key'])
 
     async def on_message_edit(self, before, after):
         if before.author.bot: return

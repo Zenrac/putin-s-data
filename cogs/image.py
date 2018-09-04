@@ -25,7 +25,7 @@ class Images():
     async def tweet(self, ctx, *, text : str=None):
         """Makes me tweet what you say."""
         if text is None:
-            await self.bot.say('You didn\'t tell what I should tweet.')
+            await ctx.send('You didn\'t tell what I should tweet.')
             return
         async with ctx.message.channel.typing():
             image = Image.open("tweet_temp.jpg")
@@ -36,7 +36,7 @@ class Images():
             (x2, y2) = (15, 90)
             (x3, y3) = (15, 110)
             if len(text) > 120:
-                await self.bot.say('The message is too long.')
+                await ctx.send('The message is too long.')
             else:
                 message = re.findall('.{1,40}', text)
             color = 'rgb(0,0,0)'
@@ -54,7 +54,7 @@ class Images():
     async def ohno(self, ctx, *,text: str=None):
         """Makes the dog say what you say."""
         if text is None:
-            await self.bot.say('You didn\'t tell what the dog should say.')
+            await ctx.send('You didn\'t tell what the dog should say.')
         else:
             async with ctx.message.channel.typing():
                 image = Image.open("ohno_temp.png")
@@ -65,7 +65,7 @@ class Images():
                 (x2, y2) = (300, 62)
                 (x3, y3) = (300, 100)
                 if len(text) > 51:
-                    await self.bot.say('The message is too long.')
+                    await ctx.send('The message is too long.')
                 else:
                     message = re.findall('.{1,17}', text)
                 color = 'rgb(0,0,0)'
@@ -82,7 +82,7 @@ class Images():
     async def glitch(self, ctx, *, text: str=None):
         """Converts your text to a image."""
         if text is None:
-            await self.bot.say('You didn\'t tell me what to convert.')
+            await ctx.send('You didn\'t tell me what to convert.')
             return
         async with ctx.message.channel.typing():
             lenght = len(text) * 27
@@ -114,7 +114,7 @@ class Images():
     async def graffiti(self, ctx, *, text: str=None):
         """Converts your text to a image."""
         if text is None:
-            await self.bot.say('You didn\'t tell me what to convert.')
+            await ctx.send('You didn\'t tell me what to convert.')
             return
         async with ctx.typing():
             lenght = len(text) * 17
@@ -146,7 +146,7 @@ class Images():
     async def groovy(self, ctx, *, text: str=None):
         """Converts your text to a image."""
         if text is None:
-            await self.bot.say('You didn\'t tell me what to convert.')
+            await ctx.send('You didn\'t tell me what to convert.')
             return
         async with ctx.typing():
             lenght = len(text) * 30
@@ -178,7 +178,7 @@ class Images():
     async def hanging(self, ctx, *, text: str=None):
         """Converts your text to a image."""
         if text is None:
-            await self.bot.say('You didn\'t tell me what to convert.')
+            await ctx.send('You didn\'t tell me what to convert.')
             return
         async with ctx.message.channel.typing():
             lenght = len(text) * 19

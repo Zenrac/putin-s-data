@@ -4,6 +4,8 @@ import discord
 import random
 import re
 import asyncio
+from .utils.paginator import Pages
+import datetime
 
 class DisambiguateMember(commands.IDConverter):
     async def convert(self, ctx, argument):
@@ -54,7 +56,7 @@ class DisambiguateMember(commands.IDConverter):
                 raise commands.BadArgument(f'Could not find this member. {e}') from None
 
         if result is None:
-            raise commands.BadArgument("Could not found this member. Note this is case sensitive.")
+            raise commands.BadArgument("Could not find this member. Note this is case sensitive.")
         return result
 
 class Profile():
@@ -73,15 +75,17 @@ class Profile():
                 await ctx.send('You didnt set up a profile yet.')
                 return await ctx.invoke(self.make)
             else:
-                await ctx.send('this member did not set up a profile yet')
+                await ctx.send('This member did not set up a profile yet.')
             return
 
         if isinstance(member, discord.Member):
             name = member.display_name
+            color = member.top_role.color
         else:
             name = member.name
+            color = 0xcc205c
 
-        e = discord.Embed(title="Profile of {}".format(name),color=0x19D719)
+        e = discord.Embed(title="Profile of {}".format(name),color=color)
         e.set_thumbnail(url=member.avatar_url)
         keys = {
             ':writing_hand: Description': 'description',
@@ -97,8 +101,17 @@ class Profile():
         else:
             married = 'nobody...'
         e.add_field(name=':heart: Married with', value=married, inline=True)
-        e.add_field(name=':handbag: Inventory', value=":pick:{}x :ring:{}x :diamond_shape_with_a_dot_inside:{}x :rose:{}x :champagne:{}x".format(record['picks'], record['rings'], record['diamonds'], record['roses'], record['alcohol']), inline=True)
-        e.set_footer(text='If your picks are glitched meaning they are None report to iWeeti#4990.')
+        picks = ':pick:{}'.format(record['picks']) if record['picks'] else ''
+        rings = ':ring:{}'.format(record['rings']) if record['rings'] else ''
+        diamonds = ':diamond_shape_with_a_dot_inside:{}'.format(record['diamonds']) if record['diamonds'] else ''
+        roses = ':rose:{}'.format(record['roses']) if record['roses'] else ''
+        alcohol = ':champagne:{}'.format(record['alcohol']) if record['alcohol'] else ''
+        inventory = picks + rings + diamonds + roses + alcohol
+        inventory = inventory if inventory else 'Nothing in inventory'
+        e.add_field(name=':handbag: Inventory', value=inventory, inline=True)
+        pet = record['pet'] if record['pet'] else 'No pet'
+        pet_title = 'Pet'
+        e.add_field(name=pet_title, value=pet, inline=True)
         await ctx.send(embed=e)
 
     async def edit_field(self, ctx, **fields):
@@ -132,40 +145,13 @@ class Profile():
     @profile.command(aliases=['יום הולדת', 'bday'])
     async def birthday(self, ctx, BDAY : str):
         """Sets a birthday to your profile."""
-        bday = BDAY.upper()
+        bday = re.search(r'(\d+-\d+-\d+)', BDAY)
+        if not bday:
+            return await ctx.send('Invalid birthday inserted. The format is `DD-MM-YYYY`')
+        else:
+            bday = bday.group(1)
         await self.edit_field(ctx, bday=bday)
         await ctx.send('Birthday edited.')
-
-
-    # @profile.command()
-    # async def delete(self, ctx, *fields : str):
-    #     """Deletes certain fields from your profile.
-    #     The valid fields that could be deleted are:
-    #     - desc
-    #     - bday
-    #     Omitting any fields will delete your entire profile.
-    #     """
-    #     uid = ctx.message.author.id
-    #     profile = self.config.get(uid)
-    #     if profile is None:
-    #         await ctx.send('You don\'t have a profile set up.')
-    #         return
-
-    #     if len(fields) == 0:
-    #         await self.config.remove(uid)
-    #         await ctx.send('Your profile has been deleted.')
-    #         return
-
-    #     for attr in map(str.lower, fields):
-    #         if hasattr(profile, attr):
-    #             setattr(profile, attr, None)
-
-    #     await self.config.put(uid, profile)
-    #     fmt = 'The fields {} have been deleted.'
-    #     if len(fields) == 1:
-    #         fmt = 'The field {} has been deleted'
-    #     await ctx.send(fmt.format(', '.join(fields)))
-
 
     @profile.command()
     async def make(self, ctx):
@@ -191,19 +177,14 @@ class Profile():
         bday = await self.bot.wait_for('message', check=pred)
         if bday.content.lower() == 'cancel':
             return await ctx.send('Cancelled profile creation.')
-        if desc is None:
+        if not desc:
             return
-        query = "insert into profiles values ({}, '{}', 0, 0, 0, 0, 0, 0, 0, 0, null)".format(ctx.author.id, desc.clean_content, bday.clean_content)
-        # await self.edit_field(ctx, bday=bday.clean_content.upper())
-        # await self.edit_field(ctx, cash=int(0))
-        # await self.edit_field(ctx, picks=int(0))
-        # await self.edit_field(ctx, married='nobody...')
-        # await self.edit_field(ctx, rings=int(0))
-        # await self.edit_field(ctx, diamonds=int(0))
-        # await self.edit_field(ctx, roses=int(0))
-        # await self.edit_field(ctx, alcohol=int(0))
-        # await self.edit_field(ctx, experience=int(0))
-        # await ctx.send(query)
+        bday = re.search(r'(\d+-\d+-\d+)', bday.clean_content)
+        if not bday:
+            bday = '`.profile birthday <DD-MM-YYY>`'
+        else:
+            bday = bday.group(1)
+        query = "insert into profiles values ({}, '{}', '{}', 0, 0, 0, 0, 0, 0, 0, null, null)".format(ctx.author.id, desc.clean_content, bday)
         await self.bot.pool.execute(query)
         await ctx.send('Alright! Your profile is all ready now.')
 
@@ -255,10 +236,6 @@ class Profile():
                     await ctx.send('You lucky, you found a diamond.')
                     diamonds += 1
                     await self.edit_field(ctx, diamonds=diamonds)
-    @mine.error
-    async def mine_handler(self, ctx, error):
-        if isinstance(error, commands.CommandOnCooldown):
-            await ctx.send('You are on cooldown. Chill.', delete_after=10.0)
 
     @commands.command()
     @commands.cooldown(1, 86400, commands.BucketType.user)
@@ -301,25 +278,208 @@ class Profile():
     @commands.command(aliases=['shop'])
     async def market(self, ctx):
         """Shows item prices."""
-        embed=discord.Embed(title=":shopping_cart: Market:", description="", color=discord.Color.green())
-        embed.add_field(name=":pick: Pickaxe",value="Buy :inbox_tray:  $100, Sell :outbox_tray:  $75",inline=False)
-        embed.add_field(name=":ring: Ring", value="Buy :inbox_tray:  $200, Sell :outbox_tray:  $150",inline=False)
-        embed.add_field(name=":diamond_shape_with_a_dot_inside: Diamond:", value="Buy :inbox_tray:  $2000, Sell :outbox_tray:  $1500", inline=False)
-        embed.add_field(name=":rose: Rose:", value="Buy :inbox_tray:  $25, Sell :outbox_tray:  $19", inline=False)
-        embed.add_field(name=":champagne: Alcohol:", value="Buy :inbox_tray:  $50, Sell :outbox_tray:  $38", inline=False)
-        embed.add_field(name=":third_place: Bronze role:", value="Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.", inline=False)
-        embed.add_field(name=":second_place: Silver role:", value="Buy :inbox_tray:  $50000, Sell :outbox_tray: Can not sell.", inline=False)
-        embed.add_field(name=":first_place: Gold role:", value="Buy :inbox_tray:  $1000000000, Sell :outbox_tray: Can not sell.", inline=False)
-        embed.add_field(name=":first_place: Blue role:", value="Buy :inbox_tray:  $1000000000000, Sell :outbox_tray: Can not sell.", inline=False)
-        embed.add_field(name=":first_place: Red role:", value="Buy :inbox_tray:  $1000000000000000, Sell :outbox_tray: Can not sell.", inline=False)
-        embed.add_field(name=":first_place: Black role:", value="Buy :inbox_tray:  $1000000000000000000, Sell :outbox_tray: Can not sell.", inline=False)
-        embed.add_field(name=":first_place: Green role:", value="Buy :inbox_tray:  $1000000000000000000000, Sell :outbox_tray: Can not sell.", inline=False)
-        await ctx.send(embed=embed)
+        pages=[':pick: Pickaxe: Buy :inbox_tray:  $100, Sell :outbox_tray:  $75',
+              ':ring: Ring: Buy :inbox_tray:  $200, Sell :outbox_tray:  $150',
+              ':diamond_shape_with_a_dot_inside: Diamond: Buy :inbox_tray:  $2000, Sell :outbox_tray:  $1500',
+              ':rose: Rose: Buy :inbox_tray:  $25, Sell :outbox_tray:  $19',
+              ':champagne: Alcohol: Buy :inbox_tray:  $50, Sell :outbox_tray:  $38',
+              ':medal: Bronze role: Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.',
+              ':medal: Silver role: Buy :inbox_tray:  $50000, Sell :outbox_tray: Can not sell.',
+              ':medal: Gold role: Buy :inbox_tray:  $1000000000, Sell :outbox_tray: Can not sell.',
+              ':medal: Blue role: Buy :inbox_tray:  $1000000000000, Sell :outbox_tray: Can not sell.',
+              ':third_place: Red role: Buy :inbox_tray:  $1000000000000000, Sell :outbox_tray: Can not sell.',
+              ':second_place: Black role: Buy :inbox_tray:  $1000000000000000000, Sell :outbox_tray: Can not sell.',
+              ':first_place: Green role: Buy :inbox_tray:  $1000000000000000000000, Sell :outbox_tray: Can not sell.',
+              ':dog: Dog: Buy :inbox_tray:  $10000, Sell :outbox_tray:  $7500',
+              ':cat2: Cat: Buy :inbox_tray:  $20000, Sell :outbox_tray:  $15000',
+              ':mouse: Mouse: Buy :inbox_tray:  $5000, Sell :outbox_tray:  $4500',
+              ':hamster: Hamster: Buy :inbox_tray:  $15000, Sell :outbox_tray:  $11250',
+              ':rabbit: Rabbit: Buy :inbox_tray:  $10000, Sell :outbox_tray:  $7500',
+              ':pig2: Pig: Buy :inbox_tray:  $50000, Sell :outbox_tray:  $37500',
+              ':bear: Bear: Buy :inbox_tray:  $100000, Sell :outbox_tray:  $75000',
+              ':dragon: Dragon: Buy :inbox_tray:  $100000000000000, Sell :outbox_tray:  $75000000000000',
+              ]
+        try:
+            p = Pages(ctx, entries=pages, per_page=10)
+            # p.embed.title = str(base)
+            p.embed.timestamp = datetime.datetime.utcnow()
+            p.embed.title=":shopping_cart: Market:"
+            await p.paginate()
+        except Exception as e:
+            await ctx.send(e)
 
     @commands.group(invoke_without_command=True)
     async def sell(self, ctx):
         """Use ``(prefix)help sell`` for more information."""
         await ctx.send('Use ``{}help sell`` for more information.'.format(ctx.prefix))
+
+    @sell.command(name='dog')
+    async def _dog(self, ctx):
+        """Sells a dog."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if not pet:
+            return await ctx.send('You don\'t have a pet.')
+        if pet != ':dog: Dog':
+            await ctx.send('You do not have this pet.' \
+                           f'Your pet is {pet}.')
+        else:
+            cash += 7500
+            pet = None
+            await self.edit_field(ctx, cash=cash)            
+            await self.edit_field(ctx, pet=pet)            
+            await ctx.send('Sold :dog:')
+
+    @sell.command(name='cat')
+    async def _cat(self, ctx):
+        """Sells a dog."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if not pet:
+            return await ctx.send('You don\'t have a pet.')
+        if pet != ':cat2: Cat':
+            await ctx.send('You do not have this pet.' \
+                           f'Your pet is {pet}.')
+        else:
+            cash += 15000
+            pet = None
+            await self.edit_field(ctx, cash=cash)
+            await self.edit_field(ctx, pet=pet)
+            await ctx.send('Sold :cat2:')
+
+    @sell.command(name='mouse')
+    async def _mouse(self, ctx):
+        """Sells a mouse."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if not pet:
+            return await ctx.send('You don\'t have a pet.')
+        if pet != ':mouse: Mouse':
+            await ctx.send('You do not have this pet.' \
+                           f'Your pet is {pet}.')
+        else:
+            cash += 4500
+            pet = None
+            await self.edit_field(ctx, cash=cash)            
+            await self.edit_field(ctx, pet=pet)            
+            await ctx.send('Sold :mouse:')
+
+    @sell.command(name='hamster')
+    async def _hamster(self, ctx):
+        """Sells a mouse."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if not pet:
+            return await ctx.send('You don\'t have a pet.')
+        if pet != ':hamster: Hamster':
+            await ctx.send('You do not have this pet.' \
+                           f'Your pet is {pet}.')
+        else:
+            cash += 4500
+            pet = None
+            await self.edit_field(ctx, cash=cash)            
+            await self.edit_field(ctx, pet=pet)            
+            await ctx.send('Sold :hamster:')
+
+    @sell.command(name='rabbit')
+    async def _rabbit(self, ctx):
+        """Sells a mouse."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if not pet:
+            return await ctx.send('You don\'t have a pet.')
+        if pet != ':rabbit: Rabbit':
+            await ctx.send('You do not have this pet.' \
+                           f'Your pet is {pet}.')
+        else:
+            cash += 7500
+            pet = None
+            await self.edit_field(ctx, cash=cash)            
+            await self.edit_field(ctx, pet=pet)            
+            await ctx.send('Sold :rabbit:')
+
+    @sell.command(name='dragon')
+    async def _dragon(self, ctx):
+        """Sells a dragon."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if not pet:
+            return await ctx.send('You don\'t have a pet.')
+        if pet != ':dragon: Dragon':
+            await ctx.send('You do not have this pet.' \
+                           f'Your pet is {pet}.')
+        else:
+            cash += 75000000000000
+            pet = None
+            await self.edit_field(ctx, cash=cash)            
+            await self.edit_field(ctx, pet=pet)            
+            await ctx.send('Sold :dragon:')
+
+    @sell.command(name='bear')
+    async def _bear(self, ctx):
+        """Sells a mouse."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if not pet:
+            return await ctx.send('You don\'t have a pet.')
+        if pet != ':bear: Bear':
+            await ctx.send('You do not have this pet.' \
+                           f'Your pet is {pet}.')
+        else:
+            cash += 75000
+            pet = None
+            await self.edit_field(ctx, cash=cash)            
+            await self.edit_field(ctx, pet=pet)            
+            await ctx.send('Sold :bear:')
+
+    @sell.command(name='pig')
+    async def _pig(self, ctx):
+        """Sells a mouse."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if not pet:
+            return await ctx.send('You don\'t have a pet.')
+        if pet != ':pig2: Pig':
+            await ctx.send('You do not have this pet.' \
+                           f'Your pet is {pet}.')
+        else:
+            cash += 37500
+            pet = None
+            await self.edit_field(ctx, cash=cash)            
+            await self.edit_field(ctx, pet=pet)            
+            await ctx.send('Sold :pig2:')
 
     @sell.command(name='pick')
     async def pic(self, ctx, amount : int = None):
@@ -412,7 +572,7 @@ class Profile():
             await self.edit_field(ctx, cash=cash)
             await ctx.send('Sold {}x :rose:'.format(amount))
 
-    @sell.command(name='alcohol')
+    @sell.command(name='alcohol', aliases=['vodka'])
     async def alcoho(self, ctx, amount : int = None):
         """Sells alcohol."""
         query = """select * from profiles where id=$1"""
@@ -455,6 +615,158 @@ class Profile():
     async def buy(self, ctx):
         """Use ``(prefix)help buy`` for more information."""
         print("buying")
+
+    @buy.command()
+    async def dog(self, ctx):
+        """Buys a dog."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if pet:
+            return await ctx.send(f'You have a {pet} already.')
+        if 10000 > cash:
+            return await ctx.send('You don\'t have enough money.')
+        cash -= 10000
+        pet = ':dog: Dog'
+        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, pet=pet)
+        await ctx.send('Bought :dog:')
+
+    @buy.command()
+    async def cat(self, ctx):
+        """Buys a cat."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if pet:
+            return await ctx.send(f'You have a {pet} already.')
+        if 20000 > cash:
+            return await ctx.send('You don\'t have enough money.')
+        cash -= 20000
+        pet = ':cat2: Cat'
+        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, pet=pet)
+        await ctx.send('Bought :cat2:')
+
+    @buy.command()
+    async def mouse(self, ctx):
+        """Buys a mouse."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if pet:
+            return await ctx.send(f'You have a {pet} already.')
+        if 5000 > cash:
+            return await ctx.send('You don\'t have enough money.')
+        cash -= 5000
+        pet = ':mouse: Mouse'
+        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, pet=pet)
+        await ctx.send('Bought :mouse:')
+
+    @buy.command()
+    async def hamster(self, ctx):
+        """Buys a hamster."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if pet:
+            return await ctx.send(f'You have a {pet} already.')
+        if 15000 > cash:
+            return await ctx.send('You don\'t have enough money.')
+        cash -= 11250
+        pet = ':hamster: Hamster'
+        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, pet=pet)
+        await ctx.send('Bought :hamster:')
+
+    @buy.command()
+    async def rabbit(self, ctx):
+        """Buys a rabbit."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if pet:
+            return await ctx.send(f'You have a {pet} already.')
+        if 10000 > cash:
+            return await ctx.send('You don\'t have enough money.')
+        cash -= 10000
+        pet = ':rabbit: Rabbit'
+        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, pet=pet)
+        await ctx.send('Bought :rabbit:')
+
+    @buy.command()
+    async def bear(self, ctx):
+        """Buys a bear."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if pet:
+            return await ctx.send(f'You have a {pet} already.')
+        if 100000 > cash:
+            return await ctx.send('You don\'t have enough money.')
+        cash -= 100000
+        pet = ':bear: Bear'
+        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, pet=pet)
+        await ctx.send('Bought :bear:')
+
+    @buy.command()
+    async def dragon(self, ctx):
+        """Buys a dragon."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if pet:
+            return await ctx.send(f'You have a {pet} already.')
+        if 100000000000000 > cash:
+            return await ctx.send('You don\'t have enough money.')
+        cash -= 100000000000000
+        pet = ':dragon: Dragon'
+        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, pet=pet)
+        await ctx.send('Bought :dragon:')
+
+    @buy.command()
+    async def pig(self, ctx):
+        """Buys a pig."""
+        query = """select * from profiles where id=$1"""
+        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        if profile is None:
+            return await ctx.invoke(self.make)
+        cash = profile['cash']
+        pet = profile['pet']
+        if pet:
+            return await ctx.send(f'You have a {pet} already.')
+        if 50000 > cash:
+            return await ctx.send('You don\'t have enough money.')
+        cash -= 50000
+        pet = ':pig2: Pig'
+        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, pet=pet)
+        await ctx.send('Bought :pig2:')
 
     @buy.command()
     async def pick(self, ctx, amount : int = None):
@@ -550,7 +862,7 @@ class Profile():
         else:
             await ctx.send('You don\'t have enough cash.')
 
-    @buy.command()
+    @buy.command(aliases=['vodka'])
     async def alcohol(self, ctx, amount : int = None):
         """Buys alcohol."""
         query = """select * from profiles where id=$1"""
@@ -1148,33 +1460,6 @@ class Profile():
             await ctx.send(slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot))+'\n**{}** bet ${} {}'.format(ctx.message.author.display_name,amount, winning))
             await self.edit_field(ctx, cash=cash)
 
-    # @commands.command()
-    # @commands.is_owner()
-    # async def convert(self, ctx):
-    #     conn = psycopg2.connect("dbname='postgres' user='postgres' host='localhost' password='postgres'")
-    #     cur = conn.cursor()
-    #     with open('profiles.json') as f:
-    #         data = json.load(f)
-    #     # print(data)
-    #     for profile in data:
-    #         profilee = self.config.get(profile)
-    #         desc = str(profilee.desc.replace("'", '\''))
-    #         bday = str(profilee.bday)
-    #         married = str(profilee.married)
-    #         picks = str(profilee.picks)
-    #         rings = str(profilee.rings)
-    #         diamonds = str(profilee.diamonds)
-    #         roses = str(profilee.roses)
-    #         alcohol = str(profilee.alcohol)
-    #         exp = str(profilee.experience)
-    #         cash = str(profilee.cash)
-    #         print(diamonds)
-    #         print('got the vars')
-    #         print('insert into profiles values ({}, \'{}\', \'{}\', \'{}\', {}, {}, {}, {}, {}, {}, {})'.format(profile, desc, bday, married, picks, rings, diamonds, roses, alcohol, exp, cash))
-    #         cur.execute('insert into profiles values ({}, \'{}\', \'{}\', \'{}\', {}, {}, {}, {}, {}, {}, {})'.format(profile, desc, bday, married, picks, rings, diamonds, roses, alcohol, exp, cash))
-    #         conn.commit()
-    #         print(str(profile) + ' has been inserted.')
-
     @commands.command(aliases=['lb', 'leaderboards'])
     async def leaderboard(self, ctx):
 
@@ -1255,13 +1540,6 @@ class Profile():
         add = random.randint(1, 10)
         exp += add
         await self.edit_field(ctx, experience=exp)
-
-    async def on_command_error(self, ctx, error):
-        if isinstance(error, commands.CommandOnCooldown):
-            m, s = divmod(error.retry_after, 60)
-            h, m = divmod(m, 60)
-            await ctx.send("This command is on cooldown for another {}.".format("%d hour(s) %02d minute(s) %02d second(s)" % (h, m, s)), delete_after=10.0)
-
 
 def setup(bot):
     bot.add_cog(Profile(bot))

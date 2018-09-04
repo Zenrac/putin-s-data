@@ -14,6 +14,12 @@ class Fun():
         self.bot = bot
 
     @commands.command()
+    async def jumbo(self, ctx, emoji: discord.Emoji):
+        e = discord.Embed(title=emoji.name)
+        e.set_image(url=emoji.url)
+        await ctx.send(embed=e)
+
+    @commands.command()
     @commands.has_permissions(administrator=True)
     async def eat(self, ctx, member: discord.Member):
         if not member:
