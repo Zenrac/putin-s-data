@@ -229,7 +229,7 @@ class Command():
 
     async def on_message(self, message):
         if message.author.bot: return
-        if not isinstance(message.channel, discord.DMChannel):
+       
         
         if message.content.startswith('.'):
             invoke = message.content.replace('.', '', 1)
