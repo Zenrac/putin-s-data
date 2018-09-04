@@ -1,0 +1,48 @@
+{
+    "name": "settings",
+    "__meta__": "cogs.settings.settings_table",
+    "columns": [
+        {
+            "column_type": {
+                "big": true,
+                "small": false,
+                "auto_increment": false,
+                "__meta__": "cogs.utils.db.Integer"
+            },
+            "index": false,
+            "primary_key": true,
+            "nullable": true,
+            "default": null,
+            "unique": false,
+            "name": "id",
+            "index_name": null
+        },
+        {
+            "column_type": {
+                "__meta__": "cogs.utils.db.Boolean"
+            },
+            "index": false,
+            "primary_key": false,
+            "nullable": true,
+            "default": false,
+            "unique": false,
+            "name": "logging_enabled",
+            "index_name": null
+        },
+        {
+            "column_type": {
+                "big": true,
+                "small": false,
+                "auto_increment": false,
+                "__meta__": "cogs.utils.db.Integer"
+            },
+            "index": false,
+            "primary_key": false,
+            "nullable": true,
+            "default": null,
+            "unique": false,
+            "name": "logging_channel",
+            "index_name": null
+        }
+    ]
+}

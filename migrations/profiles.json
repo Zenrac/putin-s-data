@@ -1,0 +1,52 @@
+{
+    "table": {
+        "name": "profiles",
+        "__meta__": "cogs.profiless.Profiles",
+        "columns": [
+            {
+                "column_type": {
+                    "big": true,
+                    "small": false,
+                    "auto_increment": false,
+                    "__meta__": "cogs.utils.db.Integer"
+                },
+                "index": false,
+                "primary_key": false,
+                "nullable": true,
+                "default": null,
+                "unique": false,
+                "name": "id",
+                "index_name": null
+            },
+            {
+                "column_type": {
+                    "length": null,
+                    "fixed": false,
+                    "__meta__": "cogs.utils.db.String"
+                },
+                "index": false,
+                "primary_key": false,
+                "nullable": true,
+                "default": null,
+                "unique": false,
+                "name": "description",
+                "index_name": null
+            },
+            {
+                "column_type": {
+                    "precision": null,
+                    "scale": null,
+                    "__meta__": "cogs.utils.db.Numeric"
+                },
+                "index": false,
+                "primary_key": false,
+                "nullable": true,
+                "default": null,
+                "unique": false,
+                "name": "cash",
+                "index_name": null
+            }
+        ]
+    },
+    "migrations": []
+}
