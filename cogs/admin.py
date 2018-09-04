@@ -54,18 +54,14 @@ class Admin:
 
     @commands.command(hidden=True)
     async def update(self, ctx):
+        msg = await ctx.send('Updating...')
         x = await self.run_cmd('git pull origin master --allow-unrelated-histories --no-edit')
         #modules = re.match(r'cogs/.*\.py$', x)
-        
-            
-        
-            
-        
-            
-                
-            
-
-        await ctx.send(f'```bash\n{x}```')
+        x = x.replace('Merge made by the \'recursive\' strategy.')
+        x = x.replace('From https://github.com/iWeeti/putin-s-data')
+        x = x.replace('* branch            master     -> FETCH_HEAD')
+        x = x.replace('master     -> origin/master')
+        await msg.edit(content=f'```bash\n{x}```')
         
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
