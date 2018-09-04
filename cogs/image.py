@@ -24,9 +24,8 @@ class Images():
 
     @commands.command()
     async def qr(self, ctx, *, text:str=None):
-         if not text:
-             return await ctx.send("You forgot to include text.")
-
+        if not text:
+            return await ctx.send("You forgot to include text.")
         img = qrcode.make(text)
         output = BytesIO()
         img.save(output, 'png')
