@@ -112,6 +112,7 @@ class Profile():
         pet = record['pet'] if record['pet'] else 'No pet'
         pet_title = 'Pet'
         e.add_field(name=pet_title, value=pet, inline=True)
+        e.set_footer(text='Sorry guys for the database reset I gave everyone $10K to start with.')
         await ctx.send(embed=e)
 
     async def edit_field(self, ctx, **fields):
