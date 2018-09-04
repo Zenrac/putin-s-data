@@ -280,8 +280,6 @@ class Command():
                 if '{server_icon}' in _command.reply:
                     command_reply = command_reply.replace('{server_icon}', message.guild.icon_url)
                 await message.channel.send(command_reply)
-            # if invoke.startswith(get_possible_commands(ctx.guild))
-        await self.bot.process_commands(message)
-
+            
 def setup(bot):
     bot.add_cog(Command(bot))
