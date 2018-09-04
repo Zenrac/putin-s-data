@@ -1449,11 +1449,11 @@ class Profile():
             if rand == 1:
                 winning = 'and lost everything.'
             elif rand == 2:
-                win_amount = amount * 1.5
+                win_amount = round(amount * 1.5)
                 winning = 'and won ${}'.format(win_amount)
                 cash += win_amount
             else:
-                win_amount = amount * 2
+                win_amount = round(amount * 2)
                 winning = 'and won ${}'.format(win_amount)
                 cash += win_amount
 
