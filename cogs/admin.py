@@ -48,7 +48,7 @@ class Admin:
     @commands.command(hidden=True)
     async def update(self, ctx):
         x = await self.run_cmd('git pull origin master --allow-unrelated-histories --no-edit')
-        await ctx.send(x)
+        await ctx.send(f'```bash\n{x}```')
         
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
