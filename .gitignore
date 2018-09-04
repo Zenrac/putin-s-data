@@ -9,3 +9,6 @@ migrations
 sh.exe.stackdump
 cogs/settings.py
 putin.log
+__pycache__
+putin.log
+prev_events.log
