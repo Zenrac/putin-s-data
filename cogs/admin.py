@@ -51,20 +51,20 @@ class Admin:
     async def shell(self, ctx, *, code:str):
         x = await self.run_cmd(code)
         await ctx.send(f'```bash\n{x}```')
-#test
+
     @commands.command(hidden=True)
     async def update(self, ctx):
         x = await self.run_cmd('git pull origin master --allow-unrelated-histories --no-edit')
-        modules = re.match(r'cogs/.*\.py$', x)
-        try:
-            await ctx.send(modules)
-        except:
-            pass
-        for module in modules:
-            try:
-                await ctx.send(module)
-            except:
-                pass
+        #modules = re.match(r'cogs/.*\.py$', x)
+        
+            
+        
+            
+        
+            
+                
+            
+
         await ctx.send(f'```bash\n{x}```')
         
     @commands.command(hidden=True)
