@@ -230,89 +230,58 @@ class Command():
     async def on_message(self, message):
         if message.author.bot: return
         if not isinstance(message.channel, discord.DMChannel):
-            with open('prefixes.json') as f:
-                data = json.load(f)
-            if str(message.guild.id) in data:
-                prefix = data[str(message.guild.id)]
-            else:
-                prefix = None
-            if not prefix: return
-            for _prefix in prefix:
-                if message.content.startswith(_prefix):
-                    invoke = message.content.replace(prefix, '', 1)
-                    # await message.channel.send(invoke)
-                    location = self.get_database_location(message)
-                    db = self.config.get(location, {})
-                    guild = message.guild
-                    if invoke in db:
-                        _command = self.get_command(guild, invoke)
-                        command_reply = _command.reply
-                        if '{user}' in _command.reply:
-                            command_reply = command_reply.replace('{user}', message.author.name)
-                        if '{user_avatar}' in _command.reply:
-                            command_reply = command_reply.replace('{user_avatar}', message.author.avatar_url_as(format='png', size=1024))
-                        if '{server}' in _command.reply:
-                            command_reply = command_reply.replace('{server}', message.guild.name)
-                        if '{channel}' in _command.reply:
-                            command_reply = command_reply.replace('{channel}', message.channel.name)
-                        if '{members}' in _command.reply:
-                            command_reply = command_reply.replace('{members}', str(len(message.guild.members)))
-                        if '{channels}' in _command.reply:
-                            command_reply = command_reply.replace('{channels}', str(len(message.guild.channels)))
-                        if '{server_icon}' in _command.reply:
-                            command_reply = command_reply.replace('{server_icon}', message.guild.icon_url)
-        #                 await message.channel.send(command_reply)
-        # if message.content.startswith('.'):
-        #     invoke = message.content.replace('.', '', 1)
-        #     # await message.channel.send(invoke)
-        #     location = self.get_database_location(message)
-        #     db = self.config.get(location, {})
-        #     guild = message.guild
-        #     if invoke in db:
-        #         _command = self.get_command(guild, invoke)
-        #         command_reply = _command.reply
-        #         if '{user}' in _command.reply:
-        #             command_reply = command_reply.replace('{user}', message.author.name)
-        #         if '{user_avatar}' in _command.reply:
-        #             command_reply = command_reply.replace('{user_avatar}', message.author.avatar_url_as(format='png', size=1024))
-        #         if '{server}' in _command.reply:
-        #             command_reply = command_reply.replace('{server}', message.guild.name)
-        #         if '{channel}' in _command.reply:
-        #             command_reply = command_reply.replace('{channel}', message.channel.name)
-        #         if '{members}' in _command.reply:
-        #             command_reply = command_reply.replace('{members}', str(len(message.guild.members)))
-        #         if '{channels}' in _command.reply:
-        #             command_reply = command_reply.replace('{channels}', str(len(message.guild.channels)))
-        #         if '{server_icon}' in _command.reply:
-        #             command_reply = command_reply.replace('{server_icon}', message.guild.icon_url)
-        #         await message.channel.send(command_reply)
-        #
-        # if message.content.startswith('<@460846291300122635> '):
-        #     invoke = message.content.replace('<@460846291300122635> ', '', 1)
-        #     # await message.channel.send(invoke)
-        #     location = self.get_database_location(message)
-        #     db = self.config.get(location, {})
-        #     guild = message.guild
-        #     if invoke in db:
-        #         _command = self.get_command(guild, invoke)
-        #         command_reply = _command.reply
-        #         if '{user}' in _command.reply:
-        #             command_reply = command_reply.replace('{user}', message.author.name)
-        #         if '{user_avatar}' in _command.reply:
-        #             command_reply = command_reply.replace('{user_avatar}', message.author.avatar_url_as(format='png', size=1024))
-        #         if '{server}' in _command.reply:
-        #             command_reply = command_reply.replace('{server}', message.guild.name)
-        #         if '{channel}' in _command.reply:
-        #             command_reply = command_reply.replace('{channel}', message.channel.name)
-        #         if '{members}' in _command.reply:
-        #             command_reply = command_reply.replace('{members}', str(len(message.guild.members)))
-        #         if '{channels}' in _command.reply:
-        #             command_reply = command_reply.replace('{channels}', str(len(message.guild.channels)))
-        #         if '{server_icon}' in _command.reply:
-        #             command_reply = command_reply.replace('{server_icon}', message.guild.icon_url)
-        #         await message.channel.send(command_reply)
+        
+        if message.content.startswith('.'):
+            invoke = message.content.replace('.', '', 1)
+            # await message.channel.send(invoke)
+            location = self.get_database_location(message)
+            db = self.config.get(location, {})
+            guild = message.guild
+            if invoke in db:
+                _command = self.get_command(guild, invoke)
+                command_reply = _command.reply
+                if '{user}' in _command.reply:
+                    command_reply = command_reply.replace('{user}', message.author.name)
+                if '{user_avatar}' in _command.reply:
+                    command_reply = command_reply.replace('{user_avatar}', message.author.avatar_url_as(format='png', size=1024))
+                if '{server}' in _command.reply:
+                    command_reply = command_reply.replace('{server}', message.guild.name)
+                if '{channel}' in _command.reply:
+                    command_reply = command_reply.replace('{channel}', message.channel.name)
+                if '{members}' in _command.reply:
+                    command_reply = command_reply.replace('{members}', str(len(message.guild.members)))
+                if '{channels}' in _command.reply:
+                    command_reply = command_reply.replace('{channels}', str(len(message.guild.channels)))
+                if '{server_icon}' in _command.reply:
+                    command_reply = command_reply.replace('{server_icon}', message.guild.icon_url)
+                await message.channel.send(command_reply)
+        
+        if message.content.startswith('<@460846291300122635> '):
+            invoke = message.content.replace('<@460846291300122635> ', '', 1)
+            # await message.channel.send(invoke)
+            location = self.get_database_location(message)
+            db = self.config.get(location, {})
+            guild = message.guild
+            if invoke in db:
+                _command = self.get_command(guild, invoke)
+                command_reply = _command.reply
+                if '{user}' in _command.reply:
+                    command_reply = command_reply.replace('{user}', message.author.name)
+                if '{user_avatar}' in _command.reply:
+                    command_reply = command_reply.replace('{user_avatar}', message.author.avatar_url_as(format='png', size=1024))
+                if '{server}' in _command.reply:
+                    command_reply = command_reply.replace('{server}', message.guild.name)
+                if '{channel}' in _command.reply:
+                    command_reply = command_reply.replace('{channel}', message.channel.name)
+                if '{members}' in _command.reply:
+                    command_reply = command_reply.replace('{members}', str(len(message.guild.members)))
+                if '{channels}' in _command.reply:
+                    command_reply = command_reply.replace('{channels}', str(len(message.guild.channels)))
+                if '{server_icon}' in _command.reply:
+                    command_reply = command_reply.replace('{server_icon}', message.guild.icon_url)
+                await message.channel.send(command_reply)
             # if invoke.startswith(get_possible_commands(ctx.guild))
-        # await self.bot.process_commands(message)
+        await self.bot.process_commands(message)
 
 def setup(bot):
     bot.add_cog(Command(bot))
