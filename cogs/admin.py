@@ -44,6 +44,12 @@ class Admin:
                 await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
             results = await process.communicate()
             return "".join(x.decode("utf-8") for x in results)
+        
+    @commands.command(hidden=True)
+    @commands.is_owner()
+    async def shell(self, ctx, *, code:str):
+        x = await self.run_cmd(code)
+        await ctx.send(f'```bash\n{x}```')
 
     @commands.command(hidden=True)
     async def update(self, ctx):
