@@ -47,7 +47,7 @@ class Admin:
 
     @commands.command(hidden=True)
     async def update(self, ctx):
-        x = await self.run_cmd('git pull origin master --no-commit --no-edit --ff-only')
+        x = await self.run_cmd('git pull origin master --no-commit --no-edit --allow-unrelated-histories')
         await ctx.send(x)
         
     @commands.command(hidden=True)
