@@ -918,7 +918,10 @@ class Meta:
         else:
             def stringToBase64(s):
                 return base64.b64encode(s.encode('utf-8'))
-            encodeddd = str(stringToBase64(text))
+            try:
+                encodeddd = str(stringToBase64(text))
+            except Exception as e:
+                return await ctx.send(e)
             encodedd = encodeddd.replace('b\'', '')
             encoded = encodedd.replace('\'', '')
             await ctx.send(':closed_lock_with_key: Here is you encoded data:\n```{}```'.format(encoded))
@@ -931,7 +934,11 @@ class Meta:
         else:
             def base64ToString(b):
                 return base64.b64decode(b).decode('utf-8')
-            decoded = str(base64ToString(text))
+            
+            try:
+                decoded = str(base64ToString(text))
+            except Exception as e:
+                return await ctx.send(e)
             await ctx.send(':lock: :key: Here is your decoded data:\n```{}```'.format(decoded))
 
     @commands.group(invoke_without_command=True)
