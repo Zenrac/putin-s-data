@@ -51,7 +51,7 @@ class Admin:
     async def shell(self, ctx, *, code:str):
         x = await self.run_cmd(code)
         await ctx.send(f'```bash\n{x}```')
-
+#test
     @commands.command(hidden=True)
     async def update(self, ctx):
         x = await self.run_cmd('git pull origin master --allow-unrelated-histories --no-edit')
