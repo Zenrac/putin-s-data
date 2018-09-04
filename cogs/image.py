@@ -13,6 +13,7 @@ import tempfile
 import unidecode
 import random
 import sys
+import qrcode
 
 COLORS = ['rgb(225,205,102)', 'rgb(144,238,144)' ,'rgb(173,216,230)','rgb(32,178,170)','rgb(255,20,147)','rgb(128,128,128)']
 
@@ -21,6 +22,17 @@ class Images():
         self.bot = bot
         self.session = aiohttp.ClientSession(loop=bot.loop)
 
+    @commands.command()
+    async def qr(self, ctx, *, text:str=None):
+         if not text:
+             return await ctx.send("You forgot to include text.")
+
+        img = qrcode.make(text)
+        output = BytesIO()
+        img.save(output, 'png')
+        output.seek(0)
+        await ctx.send(file=discord.File(fp=output, filename="xd.png"))
+        
     @commands.command()
     async def tweet(self, ctx, *, text : str=None):
         """Makes me tweet what you say."""
