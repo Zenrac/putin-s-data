@@ -144,7 +144,9 @@ class Meta:
     async def ascii(self, ctx, *, text:str=None):
         if text is None:
             return await ctx.send("Please import text.")
-        fgl = figlet_format(text)
+        fgl = figlet_format(text).replace(' ', '\n')
+        if len(fgl) > 1900:
+            return await ctx.send('Too long message.')
         await ctx.send(f'```\n{fgl}```')
         
     @commands.command()
