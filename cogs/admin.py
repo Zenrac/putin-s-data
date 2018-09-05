@@ -65,8 +65,12 @@ class Admin:
         # pattern = r'cogs\/(.*)\.py'
         # matches = re.match(pattern, x)
         l = x.split('|')
-        await ctx.send(l)
-        await ctx.send(l[0])
+        # await ctx.send(l)
+        # await ctx.send(l[0])
+        try:
+            await ctx.invoke(self.reload, module=l[0])
+        except Exception as e:
+            await ctx.send(e)
         
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
