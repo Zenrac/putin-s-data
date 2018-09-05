@@ -74,17 +74,17 @@ class Admin:
 
     @commands.command()
     @commands.has_permissions(ban_members=True)
-	async def idban(self, ctx, id:int=None, *, reason:str):
-		if not reason:
-			reason = 'No reason specified.'
-		if id is None:
-			return await ctx.send('You need to tell who to ban.')
-		try:
-			member = await self.bot.get_user_info(id)
-			await ctx.guild.ban(member, reason=reason)
-			await ctx.send(f'Banned {member.display_name}')
-		except discord.Forbidden:
-			await ctx.send('I do not have permissions to ban.')
+    async def idban(self, ctx, id:int=None, *, reason:str):
+        if not reason:
+            reason = 'No reason specified.'
+        if id is None:
+            return await ctx.send('You need to tell who to ban.')
+        try:
+            member = await self.bot.get_user_info(id)
+            await ctx.guild.ban(member, reason=reason)
+            await ctx.send(f'Banned {member.display_name}')
+        except discord.Forbidden:
+            await ctx.send('I do not have permissions to ban.')
         
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
