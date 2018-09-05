@@ -68,7 +68,7 @@ class Admin:
         # await ctx.send(l)
         # await ctx.send(l[0])
         try:
-            await ctx.invoke(self.reload, module=l[0])
+            await ctx.invoke(self._reload, module=l[0])
         except Exception as e:
             await ctx.send(e)
         
