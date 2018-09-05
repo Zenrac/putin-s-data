@@ -73,7 +73,7 @@ class Admin:
             await ctx.send(e)
 
     @commands.command()
-	@commands.has_permissions(ban_members=True)
+    @commands.has_permissions(ban_members=True)
 	async def idban(self, ctx, id:int=None, *, reason:str):
 		if not reason:
 			reason = 'No reason specified.'
