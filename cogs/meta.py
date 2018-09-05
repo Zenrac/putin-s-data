@@ -18,6 +18,9 @@ import copy
 import unicodedata
 from googletrans import Translator
 
+from pyfiglet import figlet_format
+
+
 from fortnite_python import Fortnite
 from fortnite_python.domain import Mode, Platform
 from osuapi import OsuApi, AHConnector
@@ -137,6 +140,12 @@ class Meta:
         self._spoiler_cooldown = SpoilerCooldown()
         self.client = clever.CleverBot(user='9FZVmdY47TEthPLe', key='zl3Fuk2Kx2Nis2YvbaIeMhMdoYRdKA7N', nick="Putin")
 
+    @commands.command()
+    async def ascii(self, ctx, *, text:str=None):
+        if text is None:
+            return await ctx.send("Please import text.")
+        await ctx.send(figlet_formst(text))
+        
     @commands.command()
     async def osu(self, ctx, player: str=None):
         # if ctx.subcommand_invoked is None:
