@@ -10,7 +10,7 @@ class Store():
     
     @commands.group(hidden=True)
     async def store(self, ctx):
-        pass
+        await ctx.send('xD')
     
 def setup(bot):
     bot.add_cog(Store(bot))
