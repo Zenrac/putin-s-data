@@ -12,6 +12,10 @@ class Store():
     async def store(self, ctx):
         if ctx.invoked_subcommand is None:
             await ctx.show_help('store')
+
+    @store.command(name='help', hidden=True)
+    async def _help(self, ctx):
+        await ctx.show_help('store')
     
 def setup(bot):
     bot.add_cog(Store(bot))
