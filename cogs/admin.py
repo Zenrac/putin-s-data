@@ -68,6 +68,9 @@ class Admin:
         await ctx.send(dir(matches))
         await ctx.send(type(matches))
         await ctx.send(matches)
+        l = x.split('|')
+        await ctx.send(l)
+        await ctx.send(l[0])
         
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
