@@ -61,7 +61,7 @@ class Admin:
         x = x.replace('* branch            master     -> FETCH_HEAD', '')
         x = x.replace('master     -> origin/master', '')
         await msg.edit(content=f'```bash\n{x}```')
-        pattern = r'/cogs\/.*\.py'
+        pattern = r'cogs\/.*\.py'
         await ctx.send(pattern)
         matches = re.compile(pattern, x)
         await ctx.send(matches.group(0))
