@@ -68,6 +68,7 @@ class Admin:
         # await ctx.send(l)
         # await ctx.send(l[0])
         l[0] = l[0].replace(' ', '')
+        l[0] = l[0].replace('.py', '')
         await ctx.send(l[0].replace('/', '.'))
         try:
             await ctx.invoke(self._reload, module=l[0].replace('/', '.'))
