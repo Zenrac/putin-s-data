@@ -61,8 +61,8 @@ class Admin:
         x = x.replace('* branch            master     -> FETCH_HEAD', '')
         x = x.replace('master     -> origin/master', '')
         await msg.edit(content=f'```bash\n{x}```')
-        matches = re.compile(r'/cogs\/(.*).py', x)
-        await ctx.send(matches.group(1))
+        matches = re.compile(r'/cogs\/.*.py', x)
+        await ctx.send(matches.group(0))
         
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
