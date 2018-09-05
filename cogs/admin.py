@@ -65,7 +65,9 @@ class Admin:
         pattern = r'cogs\/.*\.py'
         await ctx.send(pattern)
         matches = re.match(pattern, x)
-        await ctx.send(matches.group(0))
+        await ctx.send(dir(matches))
+        await ctx.send(type(matches()
+        await ctx.send(matches)
         
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
