@@ -83,7 +83,8 @@ class Admin:
         except Exception as e:
             await ctx.send(f'```py\n{traceback.format_exc()}\n```')
         else:
-            await ctx.send(f'Reloaded `{module.replace('cogs.', '')}`')
+            module = str(module.replace('cogs.', ''))
+            await ctx.send(f'Reloaded `{module}`')
 
     @commands.command(hidden=True)
     async def unload(self, ctx, *, module):
