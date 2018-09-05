@@ -1,5 +1,14 @@
-[2018-09-04 19:27:44] [INFO   ] discord.client: logging in using static token
-[2018-09-04 19:27:45] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
-[2018-09-04 19:27:46] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-dsfl, discord-sessions-prd-1-7 (Session ID: fe70ecce1658e6cb2a8ceae1a3d835a0).
-[2018-09-04 19:27:53] [INFO   ] discord.client: Cleaning up event loop.
-[2018-09-04 19:27:55] [INFO   ] discord.client: Cleaning up after 14 tasks
+[2018-09-05 12:10:12] [INFO   ] discord.client: logging in using static token
+[2018-09-05 12:10:12] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
+[2018-09-05 12:10:13] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-b88v, discord-sessions-prd-1-22 (Session ID: cd0b4d333da8edf9d0e9830efafdf5c6).
+[2018-09-05 12:10:57] [INFO   ] __main__: 2018-09-05 12:10:57.776000: korby (titanxd) in #bots (ROBLOX România): ;loot
+[2018-09-05 12:10:57] [INFO   ] cogs.stats: 2018-09-05 12:10:57.776000: korby (titanxd)#1432 in #bots (ROBLOX România): ;loot
+[2018-09-05 12:11:38] [WARNING] discord.gateway: Unknown event GUILD_INTEGRATIONS_UPDATE.
+[2018-09-05 12:11:38] [INFO   ] __main__: 2018-09-05 12:11:38.679000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-05 12:11:38] [INFO   ] cogs.stats: 2018-09-05 12:11:38.679000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-05 12:12:09] [INFO   ] __main__: 2018-09-05 12:12:08.853000: iWeeti in #putin-guild-and-error-log (Putin support server): .shell git merger cogs/admin.py
+[2018-09-05 12:12:09] [INFO   ] cogs.stats: 2018-09-05 12:12:08.853000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .shell git merger cogs/admin.py
+[2018-09-05 12:12:17] [INFO   ] __main__: 2018-09-05 12:12:16.865000: iWeeti in #putin-guild-and-error-log (Putin support server): .shell git merge cogs/admin.py
+[2018-09-05 12:12:17] [INFO   ] cogs.stats: 2018-09-05 12:12:16.865000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .shell git merge cogs/admin.py
+[2018-09-05 12:12:29] [INFO   ] __main__: 2018-09-05 12:12:28.885000: iWeeti in #putin-guild-and-error-log (Putin support server): .shell git commit -a -m "."
+[2018-09-05 12:12:29] [INFO   ] cogs.stats: 2018-09-05 12:12:28.885000: iWeeti#4990 in #putin-guild-and-error-log (Putin support server): .shell git commit -a -m "."

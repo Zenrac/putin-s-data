@@ -157,7 +157,7 @@ class Putin(commands.AutoShardedBot):
             await ctx.send(ctx.message.author, 'Sorry. This command is disabled'
                                                ' and cannot be used.')
         elif isinstance(error, commands.BadArgument):
-            await ctx.send(error.replace('int', 'number'))
+            await ctx.send(error)
         elif isinstance(error, commands.MissingPermissions):
             missing_perms = error.missing_perms[0].replace('_', ' ')
             await ctx.send(f'You do not have **{missing_perms}** permissions.'

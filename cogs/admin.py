@@ -13,7 +13,7 @@ import re
 
 import datetime
 from collections import Counter
-#
+
 class Admin:
     """Admin-only commands that make the bot dynamic."""
 
@@ -66,7 +66,7 @@ class Admin:
         await ctx.send(pattern)
         matches = re.match(pattern, x)
         await ctx.send(dir(matches))
-        await ctx.send(type(matches()
+        await ctx.send(type(matches))
         await ctx.send(matches)
         
     @commands.command(hidden=True)
