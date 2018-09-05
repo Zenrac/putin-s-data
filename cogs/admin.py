@@ -63,11 +63,7 @@ class Admin:
         x = x.replace('\n', '')
         await msg.edit(content=f'```bash\n{x}```')
         pattern = r'cogs\/(.*)\.py'
-        await ctx.send(pattern)
-        matches = re.match(pattern, x)
-        await ctx.send(dir(matches))
-        await ctx.send(type(matches))
-        await ctx.send(matches)
+        # matches = re.match(pattern, x)
         l = x.split('|')
         await ctx.send(l)
         await ctx.send(l[0])
