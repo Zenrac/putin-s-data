@@ -72,7 +72,7 @@ class Admin:
         except Exception as e:
             await ctx.send(e)
 
-    @commands.command()
+    @commands.command(hidden=True)
     @commands.has_permissions(ban_members=True)
     async def idban(self, ctx, id:int=None, *, reason:str):
         if not reason:
