@@ -67,6 +67,7 @@ class Admin:
         l = x.split('|')
         # await ctx.send(l)
         # await ctx.send(l[0])
+        l[0] = l[0].replace(' ', '')
         await ctx.send(l[0].replace('/', '.'))
         try:
             await ctx.invoke(self._reload, module=l[0].replace('/', '.'))
