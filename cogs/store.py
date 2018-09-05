@@ -10,7 +10,8 @@ class Store():
     
     @commands.group(hidden=True)
     async def store(self, ctx):
-        await ctx.send('xD')
+        if ctx.invoked_subcommand is None:
+            await ctx.show_help('store')
     
 def setup(bot):
     bot.add_cog(Store(bot))
