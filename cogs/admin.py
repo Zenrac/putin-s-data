@@ -67,7 +67,6 @@ class Admin:
         l = x.split('|')
         l[0] = l[0].replace(' ', '')
         l[0] = l[0].replace('.py', '')
-        # await ctx.send(l[0].replace('/', '.'))
         try:
             await ctx.invoke(self._reload, module=l[0].replace('/', '.'))
         except Exception as e:
@@ -84,7 +83,7 @@ class Admin:
             await ctx.send(f'```py\n{traceback.format_exc()}\n```')
         else:
             module = str(module.replace('cogs.', ''))
-            await ctx.send(f'Reloaded `{module}`')
+            await ctx.send(f'Loaded `{module}`')
 
     @commands.command(hidden=True)
     async def unload(self, ctx, *, module):
@@ -96,7 +95,8 @@ class Admin:
         except Exception as e:
             await ctx.send(f'```py\n{traceback.format_exc()}\n```')
         else:
-            await ctx.send('\N{OK HAND SIGN}')
+            module = str(module.replace('cogs.', ''))
+            await ctx.send(f'Unloaded `{module}`')
 
     @commands.command(name='reload', hidden=True)
     async def _reload(self, ctx, *, module):
@@ -109,7 +109,8 @@ class Admin:
         except Exception as e:
             await ctx.send(f'```py\n{traceback.format_exc()}\n```')
         else:
-            await ctx.send('\N{OK HAND SIGN}')
+            module = str(module.replace('cogs.', ''))
+            await ctx.send(f'Reloaded `{module}`')
 
     @commands.command(pass_context=True, hidden=True, name='eval')
     @commands.is_owner()
