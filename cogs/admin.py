@@ -83,7 +83,7 @@ class Admin:
         except Exception as e:
             await ctx.send(f'```py\n{traceback.format_exc()}\n```')
         else:
-            await ctx.send('\N{OK HAND SIGN}')
+            await ctx.send(f'Reloaded `{module.replace('cogs.', '')}`')
 
     @commands.command(hidden=True)
     async def unload(self, ctx, *, module):
