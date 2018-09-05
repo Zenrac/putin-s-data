@@ -5,8 +5,8 @@ class store(db.Table):
     pass
     
 class Store():
-    pass
-    
+    def __init__(self, bot):
+        self.bot = bot
     
     
 def setup(bot):
