@@ -62,7 +62,7 @@ class Admin:
         x = x.replace('master     -> origin/master', '')
         x = x.replace('\n', '')
         await msg.edit(content=f'```bash\n{x}```')
-        pattern = r'cogs\/(.*)\.py'
+        # pattern = r'cogs\/(.*)\.py'
         # matches = re.match(pattern, x)
         l = x.split('|')
         await ctx.send(l)
