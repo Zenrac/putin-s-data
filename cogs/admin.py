@@ -62,7 +62,7 @@ class Admin:
         x = x.replace('master     -> origin/master', '')
         x = x.replace('\n', '')
         await msg.edit(content=f'```bash\n{x}```')
-        pattern = r'cogs\/.*\.py'
+        pattern = r'cogs\/(.*)\.py'
         await ctx.send(pattern)
         matches = re.match(pattern, x)
         await ctx.send(dir(matches))
