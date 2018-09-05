@@ -508,7 +508,7 @@ class Fun():
         """Tells someone to kill themselves."""
         if user is None:
             user = ctx.message.author
-        await ctx.send("{} should kill themshelves... ***Do not take this seriously***".format(user.mention))
+        await ctx.send("{}, you should kill yourself... ***Do not take this seriously***".format(user.display_name))
 
     @commands.command()
     async def fact(self, ctx):
