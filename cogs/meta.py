@@ -144,7 +144,8 @@ class Meta:
     async def ascii(self, ctx, *, text:str=None):
         if text is None:
             return await ctx.send("Please import text.")
-        await ctx.send(figlet_formst(text))
+        fgl = figlet_format(text)
+        await ctx.send(f'```\n{fgl}```')
         
     @commands.command()
     async def osu(self, ctx, player: str=None):
