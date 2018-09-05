@@ -1,43 +1,42 @@
-[2018-09-05 12:48:10] [INFO   ] discord.client: logging in using static token
-[2018-09-05 12:48:10] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
-[2018-09-05 12:48:11] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-0s8j, discord-sessions-prd-1-6 (Session ID: 56b87931184cb4873fea5781e5306bb5).
-[2018-09-05 12:48:29] [INFO   ] __main__: 2018-09-05 12:48:29.819000: RaareBill in #slots-channel (Ace's Family): .slap <@374082812979970048>  BEEEEE
-[2018-09-05 12:48:29] [INFO   ] cogs.stats: 2018-09-05 12:48:29.819000: RaareBill#4507 in #slots-channel (Ace's Family): .slap <@374082812979970048>  BEEEEE
-[2018-09-05 12:48:45] [INFO   ] __main__: 2018-09-05 12:48:45.359000: iWeeti in #general (Putin support server): .reload store
-[2018-09-05 12:48:45] [INFO   ] cogs.stats: 2018-09-05 12:48:45.359000: iWeeti#4990 in #general (Putin support server): .reload store
-[2018-09-05 12:48:46] [INFO   ] __main__: 2018-09-05 12:48:46.373000: RaareBill in #slots-channel (Ace's Family): .slots 50
-[2018-09-05 12:48:46] [INFO   ] cogs.stats: 2018-09-05 12:48:46.373000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 50
-[2018-09-05 12:48:51] [INFO   ] __main__: 2018-09-05 12:48:51.210000: RaareBill in #slots-channel (Ace's Family): .slots 40
-[2018-09-05 12:48:51] [INFO   ] cogs.stats: 2018-09-05 12:48:51.210000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 40
-[2018-09-05 12:48:58] [INFO   ] __main__: 2018-09-05 12:48:58.535000: RaareBill in #slots-channel (Ace's Family): .slots 60
-[2018-09-05 12:48:58] [INFO   ] cogs.stats: 2018-09-05 12:48:58.535000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 60
-[2018-09-05 12:49:01] [INFO   ] __main__: 2018-09-05 12:49:01.310000: RaareBill in #slots-channel (Ace's Family): .money
-[2018-09-05 12:49:01] [INFO   ] cogs.stats: 2018-09-05 12:49:01.310000: RaareBill#4507 in #slots-channel (Ace's Family): .money
-[2018-09-05 12:49:07] [INFO   ] __main__: 2018-09-05 12:49:07.258000: RaareBill in #slots-channel (Ace's Family): .buy ring 2
-[2018-09-05 12:49:07] [INFO   ] cogs.stats: 2018-09-05 12:49:07.258000: RaareBill#4507 in #slots-channel (Ace's Family): .buy ring 2
-[2018-09-05 12:49:12] [INFO   ] __main__: 2018-09-05 12:49:12.759000: RaareBill in #slots-channel (Ace's Family): .buy ring 1
-[2018-09-05 12:49:12] [INFO   ] cogs.stats: 2018-09-05 12:49:12.759000: RaareBill#4507 in #slots-channel (Ace's Family): .buy ring 1
-[2018-09-05 12:49:13] [INFO   ] __main__: 2018-09-05 12:49:13.386000: iWeeti in #general (Putin support server): .unload store
-[2018-09-05 12:49:13] [INFO   ] cogs.stats: 2018-09-05 12:49:13.386000: iWeeti#4990 in #general (Putin support server): .unload store
-[2018-09-05 12:49:15] [INFO   ] __main__: 2018-09-05 12:49:15.746000: iWeeti in #general (Putin support server): .load store
-[2018-09-05 12:49:15] [INFO   ] cogs.stats: 2018-09-05 12:49:15.746000: iWeeti#4990 in #general (Putin support server): .load store
-[2018-09-05 12:49:19] [INFO   ] __main__: 2018-09-05 12:49:19.841000: RaareBill in #slots-channel (Ace's Family): .slots 100
-[2018-09-05 12:49:20] [INFO   ] cogs.stats: 2018-09-05 12:49:19.841000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 100
-[2018-09-05 12:49:29] [INFO   ] __main__: 2018-09-05 12:49:29.175000: RaareBill in #slots-channel (Ace's Family): .slots 30
-[2018-09-05 12:49:29] [INFO   ] cogs.stats: 2018-09-05 12:49:29.175000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 30
-[2018-09-05 12:49:33] [INFO   ] __main__: 2018-09-05 12:49:33.466000: RaareBill in #slots-channel (Ace's Family): .slots 60
-[2018-09-05 12:49:33] [INFO   ] cogs.stats: 2018-09-05 12:49:33.466000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 60
-[2018-09-05 12:49:36] [INFO   ] __main__: 2018-09-05 12:49:36.714000: RaareBill in #slots-channel (Ace's Family): .slots 120
-[2018-09-05 12:49:36] [INFO   ] cogs.stats: 2018-09-05 12:49:36.714000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 120
-[2018-09-05 12:49:41] [INFO   ] __main__: 2018-09-05 12:49:41.189000: RaareBill in #slots-channel (Ace's Family): .slots 240
-[2018-09-05 12:49:41] [INFO   ] cogs.stats: 2018-09-05 12:49:41.189000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 240
-[2018-09-05 12:49:45] [INFO   ] __main__: 2018-09-05 12:49:45.233000: RaareBill in #slots-channel (Ace's Family): .money
-[2018-09-05 12:49:45] [INFO   ] cogs.stats: 2018-09-05 12:49:45.233000: RaareBill#4507 in #slots-channel (Ace's Family): .money
-[2018-09-05 12:49:48] [INFO   ] __main__: 2018-09-05 12:49:47.924000: iWeeti in #general (Putin support server): .update
-[2018-09-05 12:49:48] [INFO   ] cogs.stats: 2018-09-05 12:49:47.924000: iWeeti#4990 in #general (Putin support server): .update
-[2018-09-05 12:49:49] [INFO   ] __main__: 2018-09-05 12:49:49.331000: RaareBill in #slots-channel (Ace's Family): .slots 250
-[2018-09-05 12:49:49] [INFO   ] cogs.stats: 2018-09-05 12:49:49.331000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 250
-[2018-09-05 12:49:53] [INFO   ] __main__: 2018-09-05 12:49:53.466000: RaareBill in #slots-channel (Ace's Family): .slots 400
-[2018-09-05 12:49:53] [INFO   ] cogs.stats: 2018-09-05 12:49:53.466000: RaareBill#4507 in #slots-channel (Ace's Family): .slots 400
-[2018-09-05 12:49:56] [INFO   ] discord.client: Cleaning up event loop.
-[2018-09-05 12:49:56] [INFO   ] discord.gateway: Websocket closed with 1000 (), cannot reconnect.
+[2018-09-05 15:29:51] [INFO   ] discord.client: logging in using static token
+[2018-09-05 15:29:52] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
+[2018-09-05 15:29:52] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-fp7m, discord-sessions-prd-1-26 (Session ID: 1c1d3f3427dd46700733ae51a5f52879).
+[2018-09-05 15:29:59] [INFO   ] __main__: 2018-09-05 15:29:57.367000: Wednesday in #bots (ROBLOX România): ;money
+[2018-09-05 15:29:59] [INFO   ] cogs.stats: 2018-09-05 15:29:57.367000: Wednesday#0128 in #bots (ROBLOX România): ;money
+[2018-09-05 15:29:59] [INFO   ] __main__: 2018-09-05 15:29:58.687000: !Wcicky in #bot-commands (Giveaway Universe): .loot
+[2018-09-05 15:29:59] [INFO   ] cogs.stats: 2018-09-05 15:29:58.687000: !Wcicky#3090 in #bot-commands (Giveaway Universe): .loot
+[2018-09-05 15:30:08] [INFO   ] __main__: 2018-09-05 15:30:08.667000: Wednesday in #bots (ROBLOX România): ;slots 6000
+[2018-09-05 15:30:08] [INFO   ] cogs.stats: 2018-09-05 15:30:08.667000: Wednesday#0128 in #bots (ROBLOX România): ;slots 6000
+[2018-09-05 15:30:13] [INFO   ] __main__: 2018-09-05 15:30:13.316000: Wednesday in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:13] [INFO   ] cogs.stats: 2018-09-05 15:30:13.316000: Wednesday#0128 in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:16] [INFO   ] __main__: 2018-09-05 15:30:16.917000: Wednesday in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:16] [INFO   ] cogs.stats: 2018-09-05 15:30:16.917000: Wednesday#0128 in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:20] [INFO   ] __main__: 2018-09-05 15:30:20.081000: Wednesday in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:20] [INFO   ] cogs.stats: 2018-09-05 15:30:20.081000: Wednesday#0128 in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:26] [INFO   ] __main__: 2018-09-05 15:30:26.670000: Wednesday in #bots (ROBLOX România): ;slots 10736
+[2018-09-05 15:30:26] [INFO   ] cogs.stats: 2018-09-05 15:30:26.670000: Wednesday#0128 in #bots (ROBLOX România): ;slots 10736
+[2018-09-05 15:30:30] [INFO   ] discord.gateway: Websocket closed with 1006 (), attempting a reconnect.
+[2018-09-05 15:30:30] [INFO   ] discord.shard: Got a request to RESUME the websocket at Shard ID 0.
+[2018-09-05 15:30:31] [INFO   ] discord.gateway: Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+[2018-09-05 15:30:31] [INFO   ] discord.gateway: Shard ID 0 has sent the RESUME payload.
+[2018-09-05 15:30:31] [INFO   ] discord.gateway: Shard ID 0 has successfully RESUMED session 1c1d3f3427dd46700733ae51a5f52879 under trace gateway-prd-main-w8cx, discord-sessions-prd-1-26.
+[2018-09-05 15:30:33] [INFO   ] __main__: 2018-09-05 15:30:33.568000: Wednesday in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:33] [INFO   ] cogs.stats: 2018-09-05 15:30:33.568000: Wednesday#0128 in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:37] [INFO   ] __main__: 2018-09-05 15:30:37.579000: Wednesday in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:37] [INFO   ] cogs.stats: 2018-09-05 15:30:37.579000: Wednesday#0128 in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:40] [INFO   ] __main__: 2018-09-05 15:30:40.920000: Wednesday in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:41] [INFO   ] cogs.stats: 2018-09-05 15:30:40.920000: Wednesday#0128 in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:41] [INFO   ] __main__: 2018-09-05 15:30:41.276000: Rhoewyn in #general (Putin support server): .profile
+[2018-09-05 15:30:41] [INFO   ] cogs.stats: 2018-09-05 15:30:41.276000: Rhoewyn#8017 in #general (Putin support server): .profile
+[2018-09-05 15:30:44] [INFO   ] __main__: 2018-09-05 15:30:44.637000: Wednesday in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:44] [INFO   ] cogs.stats: 2018-09-05 15:30:44.637000: Wednesday#0128 in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:49] [INFO   ] __main__: 2018-09-05 15:30:49.780000: Wednesday in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:49] [INFO   ] cogs.stats: 2018-09-05 15:30:49.780000: Wednesday#0128 in #bots (ROBLOX România): ;slots 10000
+[2018-09-05 15:30:55] [INFO   ] __main__: 2018-09-05 15:30:55.548000: Wednesday in #bots (ROBLOX România): ;slots 20000
+[2018-09-05 15:30:55] [INFO   ] cogs.stats: 2018-09-05 15:30:55.548000: Wednesday#0128 in #bots (ROBLOX România): ;slots 20000
+[2018-09-05 15:31:01] [INFO   ] __main__: 2018-09-05 15:31:01.351000: Wednesday in #bots (ROBLOX România): ;slots 20000
+[2018-09-05 15:31:01] [INFO   ] cogs.stats: 2018-09-05 15:31:01.351000: Wednesday#0128 in #bots (ROBLOX România): ;slots 20000
+[2018-09-05 15:31:04] [INFO   ] __main__: 2018-09-05 15:31:04.768000: Wednesday in #bots (ROBLOX România): ;slots 20000
+[2018-09-05 15:31:04] [INFO   ] cogs.stats: 2018-09-05 15:31:04.768000: Wednesday#0128 in #bots (ROBLOX România): ;slots 20000
+[2018-09-05 15:31:06] [INFO   ] discord.client: Cleaning up event loop.
+[2018-09-05 15:31:06] [INFO   ] discord.gateway: Websocket closed with 1000 (), cannot reconnect.
