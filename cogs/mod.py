@@ -628,7 +628,9 @@ class Mod():
         In order for this to work, the bot must have Kick Member permissions.
         To use this command you must have Kick Members permission.
         """
-
+        if member is None:
+            cmd = self.bot.get_command('help')
+            return await ctx.invoke(cmd, command=ctx.command)
         if reason is None:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
 
@@ -944,12 +946,12 @@ class Mod():
 
         try:
             await user.edit(nick=nick)
-            await ctx.send(":ballot_box_with_check: | {} changed ``{}``\'s username.".format(ctx.message.author.mention, user.nick if user.nick else user.name))
+            await ctx.send(":ballot_box_with_check: | {} changed ``{}``\'s username.".format(ctx.message.author.display_name, user.display_name))
         except discord.Forbidden:
             await ctx.send(':exclamation: | The bot does not have permissions to change nicknames.')
         except discord.HTTPException:
             await ctx.send(':exclamation: | Changing nickname failed.')
-            
+
 def setup(bot):
     m = Mod(bot)
     bot.add_cog(m)
