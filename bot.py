@@ -116,7 +116,8 @@ class Putin(commands.AutoShardedBot):
 
     async def on_guild_join(self, guild):
         """This triggers when the bot joins a guild."""
-        game = discord.Activity(name=f"slaves in {len(self.guilds)} servers.", type=discord.ActivityType.watching)
+        game = discord.Activity(name=f"slaves in {len(self.guilds)} servers.",
+                                type=discord.ActivityType.watching)
         await self.change_presence(status=discord.Status.online, activity=game)
         if guild.id == 421630709585805312:
             return
@@ -163,16 +164,33 @@ class Putin(commands.AutoShardedBot):
             await ctx.send(f'You do not have **{missing_perms}** permissions.'
                            ' You need them to use this command.')
         elif isinstance(error, commands.BotMissingPermissions):
-            missing_perms = ", ".join(perms.missing_perms.lower.replace('_', ' ') for perms in error.missing_perms)
+            missing_perms = ", ".join(_perms.replace('_', ' ') for _perms in error.missing_perms)
+            await ctx.send(f'You do not have **{missing_perms}** permissions.'
+                           ' You need them to use this command.')
         elif isinstance(error, commands.NotOwner):
             await ctx.send('Only my creator can use this command.')
         if isinstance(error, commands.CommandOnCooldown):
-            m, s = divmod(error.retry_after, 60)
-            h, m = divmod(m, 60)
-            await ctx.send("This command is on cooldown for another {}.".format("%d hour(s) %02d minute(s) %02d second(s)" % (h, m, s)), delete_after=10.0)
-
-
-
+            minutes, s = divmod(error.retry_after, 60)
+            hours, minutes = divmod(m, 60)
+            if hours > 1:
+                hours = f'{hours} hours'
+            elif hours == 0:
+                hours = ''
+            else:
+                hours = f'{hours} hour'
+            if minutes > 2:
+                minutes = f'{minutes} minutes'
+            elif minutes == 0:
+                minutes = ''
+            else:
+                minutes = f'{minutes} minute'
+            if seconds > 2:
+                seconds = f'{seconds} seconds'
+            elif seconds == 0:
+                seconds = ''
+            else:
+                seconds = f'{seconds} second'
+            await ctx.send(f'This command is on cooldown for {hours} {minutes} {seconds}.')
 
     async def on_ready(self):
         """This triggers when the bot is ready."""
