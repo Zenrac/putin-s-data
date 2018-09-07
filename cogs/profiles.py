@@ -1584,7 +1584,7 @@ class Profile():
 
         answer = await self.bot.wait_for('message', check=pred)
 
-        while not answer.lower == word:
+        while not answer.clean_content.lower == word:
             answer = await self.bot.wait_for('message', check=pred)
 
         winner = answer.author
