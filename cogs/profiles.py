@@ -113,6 +113,7 @@ class Profile():
         pet_title = 'Pet'
         e.add_field(name=pet_title, value=pet, inline=True)
         e.set_footer(text='Sorry guys for the database reset, message iWeeti#4990 and he will give you $10K to start with.')
+        e.set_image(url='https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_960_720.jpg')
         await ctx.send(embed=e)
 
     async def edit_field(self, ctx, **fields):
