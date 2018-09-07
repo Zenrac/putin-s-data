@@ -1586,7 +1586,7 @@ class Profile():
 
         answer = await self.bot.wait_for('message', check=pred)
 
-        if no answer.clean_content.lower == word:
+        if not answer.clean_content.lower == word:
             await ctx.send('Wrong word.')
             if not answer.author is ctx.author:
                 winner = ctx.author
