@@ -3481,3 +3481,15 @@ discord.errors.NotFound: NOT FOUND (status code: 404): Unknown Message
 [2018-09-07 14:56:40] [INFO   ] cogs.stats: 2018-09-07 14:56:40.773000: iWeeti#4990 in #conversation (Giveaway Universe): .shell git merge cogs/profiles.py
 [2018-09-07 14:56:50] [INFO   ] __main__: 2018-09-07 14:56:50.001000: iWeeti in #conversation (Giveaway Universe): .shell git commit -a -m "."
 [2018-09-07 14:56:50] [INFO   ] cogs.stats: 2018-09-07 14:56:50.001000: iWeeti#4990 in #conversation (Giveaway Universe): .shell git commit -a -m "."
+[2018-09-07 14:56:54] [INFO   ] __main__: 2018-09-07 14:56:54.696000: iWeeti in #conversation (Giveaway Universe): .update
+[2018-09-07 14:56:54] [INFO   ] cogs.stats: 2018-09-07 14:56:54.696000: iWeeti#4990 in #conversation (Giveaway Universe): .update
+[2018-09-07 14:57:00] [INFO   ] __main__: 2018-09-07 14:57:00.097000: iWeeti in #conversation (Giveaway Universe): .reload profiles
+[2018-09-07 14:57:00] [INFO   ] cogs.stats: 2018-09-07 14:57:00.097000: iWeeti#4990 in #conversation (Giveaway Universe): .reload profiles
+[2018-09-07 14:57:05] [INFO   ] __main__: 2018-09-07 14:57:05.832000: iWeeti in #conversation (Giveaway Universe): .cleanup
+[2018-09-07 14:57:05] [INFO   ] cogs.stats: 2018-09-07 14:57:05.832000: iWeeti#4990 in #conversation (Giveaway Universe): .cleanup
+[2018-09-07 14:58:05] [INFO   ] __main__: 2018-09-07 14:58:05.219000: iWeeti in #conversation (Giveaway Universe): .load profiles
+[2018-09-07 14:58:05] [INFO   ] cogs.stats: 2018-09-07 14:58:05.219000: iWeeti#4990 in #conversation (Giveaway Universe): .load profiles
+[2018-09-07 14:58:07] [INFO   ] __main__: 2018-09-07 14:58:07.465000: iWeeti in #conversation (Giveaway Universe): .profile
+[2018-09-07 14:58:07] [INFO   ] cogs.stats: 2018-09-07 14:58:07.465000: iWeeti#4990 in #conversation (Giveaway Universe): .profile
+[2018-09-07 14:59:18] [INFO   ] __main__: 2018-09-07 14:59:18.711000: iWeeti in #conversation (Giveaway Universe): .shell git commit -a -m "."
+[2018-09-07 14:59:18] [INFO   ] cogs.stats: 2018-09-07 14:59:18.711000: iWeeti#4990 in #conversation (Giveaway Universe): .shell git commit -a -m "."
