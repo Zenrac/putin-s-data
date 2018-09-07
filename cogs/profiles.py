@@ -160,7 +160,7 @@ class Profile():
     @commands.command()
     async def banners(self, ctx):
         if True:
-            e = discord.Embed(title="Invalid banner", color=discord.Color(0x1083a3))
+            e = discord.Embed(color=discord.Color(0x1083a3))
             e.add_field(name="Valid banners are", value=
                 '1: default\n'\
                 '2: Air balloons\n'\
