@@ -33,8 +33,8 @@ class Music:
                 c = self.bot.get_channel(c)
                 if c:
                     if c.members == 1:
-                        player.queue.clear()
-                        await player.disconnect()
+                        event.player.queue.clear()
+                        await event.player.disconnect()
                         return
                     embed = discord.Embed(colour=c.guild.me.top_role.colour, title='Now Playing', description=event.track.title)
                     embed.timestamp = datetime.datetime.utcnow()
@@ -47,6 +47,10 @@ class Music:
             if c:
                 c = self.bot.get_channel(c)
                 if c:
+                    if c.members == 1:
+                        event.player.queue.clear()
+                        await event.player.disconnect()
+                        return
                     await c.send('There is no more songs in the queue. Why not add some more?')
 
     @commands.command(aliases=['p', 'sing'])
