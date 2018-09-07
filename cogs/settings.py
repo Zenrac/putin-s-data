@@ -77,10 +77,17 @@ class Settings():
         data = await self.bot.pool.fetchrow(f'select id from settings where id={ctx.guild.id}')
         if data:
             await self.bot.pool.execute(f'update settings set advert=false where id={ctx.guild.id}')
+<<<<<<< HEAD
             return await ctx.send('Anti advertising is now enabled.')
         else:
             await self.bot.pool.execute(f'insert into settings (id, advert) values ({ctx.guild.id}, false)')
             return await ctx.send('Anti advertising is now enabled.')
+=======
+            return await ctx.send('Anti advertising is now disabled.')
+        else:
+            await self.bot.pool.execute(f'insert into settings (id, advert) values ({ctx.guild.id}, false)')
+            return await ctx.send('Anti advertising is now disabled.')
+>>>>>>> 31eafec60de97634fd16c1100966e373e4d2c68c
 
     @enable.command(name='message_edit')
     async def _message_edit(self, ctx):
@@ -99,7 +106,11 @@ class Settings():
             await self.bot.pool.execute(f'update settings set message_delete=true where id={ctx.guild.id}')
             return await ctx.send('Message delete logging is now enabled.')
         else:
+<<<<<<< HEAD
             await self.bot.pool.execute(f'insert into settings (id, mesage_delete) values ({ctx.guild.id}, true)')
+=======
+            await self.bot.pool.execute(f'insert into settings (id, message_delete) values ({ctx.guild.id}, true)')
+>>>>>>> 31eafec60de97634fd16c1100966e373e4d2c68c
             return await ctx.send('Message delete logging is now enabled.')
 
     @enable.command()
@@ -173,7 +184,11 @@ class Settings():
             await self.bot.pool.execute(f'update settings set message_delete=false where id={ctx.guild.id}')
             return await ctx.send('Message delete logging is now disabled.')
         else:
+<<<<<<< HEAD
             await self.bot.pool.execute(f'insert into settings (id, mesage_delete) values ({ctx.guild.id}, false)')
+=======
+            await self.bot.pool.execute(f'insert into settings (id, message_delete) values ({ctx.guild.id}, false)')
+>>>>>>> 31eafec60de97634fd16c1100966e373e4d2c68c
             return await ctx.send('Message delete logging is now disabled.')
 
     @disable.command(name="join")
