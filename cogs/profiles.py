@@ -1570,10 +1570,10 @@ class Profile():
 
         for i in range(times):
             await ctx.send(f'Wait' + '.'*i)
-            wait = random.randint(2, 7)
-            await asyncio.sleep(wait)
             if not i == times:
                 await ctx.trigger_typing()
+            wait = random.randint(2, 7)
+            await asyncio.sleep(wait)
 
         words = ['fire', 'shoot', 'now', 'boom']
 
