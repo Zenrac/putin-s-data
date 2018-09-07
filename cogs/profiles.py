@@ -1564,7 +1564,7 @@ class Profile():
             return await ctx.send('You need $100 to accept the callenge.')
 
         await self.edit_field(ctx, cash=cash[0]-100)
-        await self.edit_user_field(ctx, member, cash=cash[0]-100)
+        await self.edit_user_field(member, ctx, cash=cash[0]-100)
 
         times = random.randint(1, 5)
 
@@ -1592,7 +1592,7 @@ class Profile():
         query = """select cash from profiles where id=$1"""
         winner_cash = await self.bot.pool.fetchrow(query, winner.id)
 
-        await self.edit_user_field(ctx, winner, cash=winner_cash+200)
+        await self.edit_user_field(winner, ctx, cash=winner_cash+200)
         await ctx.send(f'Congrats {winner} you won $200.')
 
     @commands.command(aliases=['lb', 'leaderboards'])
