@@ -1603,9 +1603,9 @@ class Profile():
         else:
             await ctx.send('Wrong word.')
             if answer.author is ctx.author:
-                winner = ctx.author
-            else:
                 winner = answer.author
+            else:
+                winner = ctx.author
 
         query = """select cash from profiles where id=$1"""
         winner_cash = await self.bot.pool.fetchrow(query, winner.id)
