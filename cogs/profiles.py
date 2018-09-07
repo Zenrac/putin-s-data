@@ -114,7 +114,7 @@ class Profile():
         e.add_field(name=pet_title, value=pet, inline=True)
         #e.set_footer(text='Sorry guys for the database reset, message iWeeti#4990 and he will give you $10K to start with.')
         e.set_footer(text='Sorry guys for the database reset, message iWeeti#4990 and he will give you $10K to start with.')
-        banner = record['banner'] or 0:
+        banner = record['banner']:
             banners = {
                 0: 'https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_960_720.jpg',
                 1: 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_960_720.jpg',
@@ -132,6 +132,8 @@ class Profile():
                 13: 'https://cdn.pixabay.com/photo/2018/07/28/11/08/guitar-3567767_960_720.jpg',
                 14: 'https://cdn.pixabay.com/photo/2018/02/06/18/54/travel-3135436_960_720.jpg'
             }
+        if banner is None:
+            banner = 0
         e.set_image(url=banner)
         await ctx.send(embed=e)
 
