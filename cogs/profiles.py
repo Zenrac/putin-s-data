@@ -112,7 +112,12 @@ class Profile():
         pet = record['pet'] if record['pet'] else 'No pet'
         pet_title = 'Pet'
         e.add_field(name=pet_title, value=pet, inline=True)
+<<<<<<< HEAD
         #e.set_footer(text='Sorry guys for the database reset, message iWeeti#4990 and he will give you $10K to start with.')
+=======
+        e.set_footer(text='Sorry guys for the database reset, message iWeeti#4990 and he will give you $10K to start with.')
+        e.set_image(url='https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_960_720.jpg')
+>>>>>>> 61cc2fa78a2f19f262401d71ae298c292b7f2fdb
         await ctx.send(embed=e)
 
     async def edit_field(self, ctx, **fields):
