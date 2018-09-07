@@ -20,8 +20,8 @@ class StoreConfig():
                         _[2]) for _ in (
                             record['item_id'],
                             record['price'],
-                            record['seller_id']
-                            if record['id'] == self.id))
+                            record['seller_id'])
+                            if record['id'] == self.id)
         else:
             self.items = None
         return self.items
