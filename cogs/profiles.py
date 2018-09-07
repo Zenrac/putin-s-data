@@ -1541,6 +1541,8 @@ class Profile():
         query = """select cash from profiles where id=$1"""
         cash = await self.bot.pool.fetchrow(query, ctx.author.id)
 
+        await ctx.send(cash[0])
+
         if cash[0] < 100:
             return await ctx.send('You need $100 to challenge someone.')
 
@@ -1563,8 +1565,8 @@ class Profile():
         if _cash[0] < 100:
             return await ctx.send('You need $100 to accept the callenge.')
 
-        await self.edit_field(ctx, cash=cash)
-        await self.edit_field(ctx, member, cash=cash)
+        await self.edit_field(ctx, cash=cash[0]-100)
+        await self.edit_field(ctx, member, cash=cash[0]-100)
 
         times = random.randint(1, 5)
 
