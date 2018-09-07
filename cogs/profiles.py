@@ -1586,10 +1586,12 @@ class Profile():
 
         answer = await self.bot.wait_for('message', check=pred)
 
-        while not answer.clean_content.lower == word:
-            answer = await self.bot.wait_for('message', check=pred)
-
-        winner = answer.author
+        if no answer.clean_content.lower == word:
+            await ctx.send('Wrong word.')
+            if not answer.author is ctx.author:
+                winner = ctx.author
+            else:
+                winner = asnwer.author
 
         query = """select cash from profiles where id=$1"""
         winner_cash = await self.bot.pool.fetchrow(query, winner.id)
