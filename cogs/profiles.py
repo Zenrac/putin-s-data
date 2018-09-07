@@ -158,6 +158,29 @@ class Profile():
         await self.bot.pool.fetchrow(query, member.id, *fields.values())
 
     @commands.command()
+    async def banners(self, ctx):
+        e = discord.Embed(title="Invalid banner", color=discord.Color(0x1083a3))
+            e.add_field(name="Valid banners are", value=
+                '1: default\n'\
+                '2: Air balloons\n'\
+                '3: Blue eye\n'\
+                '4: Sunset\n'\
+                '5: Airplane\n'\
+                '6: Sunset 2\n'\
+                '7: Stars\n'\
+                '8: Questions\n'\
+                '9: Eyes\n'\
+                '10: Matrix\n'\
+                '11: Blue wave\n'\
+                '12: Purple flower\n'\
+                '13: Blue wave 2\n'\
+                '14: Guitar\n'\
+                '15: River\n',
+                inline=False
+                )
+        await ctx.send(embed=e)
+
+    @commands.command()
     async def banner(self, ctx, banner: int):
         if banner < 0 or banner > 15:
             e = discord.Embed(title="Invalid banner", color=discord.Color(0x1083a3))
