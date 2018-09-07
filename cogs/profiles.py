@@ -1569,9 +1569,9 @@ class Profile():
         times = random.randint(1, 5)
 
         for i in range(times):
+            await ctx.send(f'Wait' + '.'*i)
             wait = random.randint(2, 7)
             await asyncio.sleep(wait)
-            await ctx.send(f'Wait' + '.'*i)
 
         words = ['fire', 'shoot', 'now', 'boom']
 
