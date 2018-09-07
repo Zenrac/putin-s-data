@@ -58,19 +58,7 @@ class Admin:
         #modules = re.match(r'cogs/.*\.py$', x)
         x = x.replace('Merge made by the \'recursive\' strategy.', '')
         x = x.replace('From https://github.com/iWeeti/putin-s-data', '')
-        x = x.replace('* branch            master     -> FETCH_HEAD', '')
-        x = x.replace('master     -> origin/master', '')
-        x = x.replace('\n', '')
-        await msg.edit(content=f'```bash\n{x}```')
-        # pattern = r'cogs\/(.*)\.py'
-        # matches = re.match(pattern, x)
-        l = x.split('|')
-        l[0] = l[0].replace(' ', '')
-        l[0] = l[0].replace('.py', '')
-        try:
-            await ctx.invoke(self._reload, module=l[0].replace('/', '.'))
-        except Exception as e:
-            await ctx.send(e)
+        await msg.edit(content=f'```bash\n{x}\n```')
 
     @commands.command(hidden=True)
     @commands.has_permissions(ban_members=True)
