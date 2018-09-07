@@ -114,7 +114,25 @@ class Profile():
         e.add_field(name=pet_title, value=pet, inline=True)
         #e.set_footer(text='Sorry guys for the database reset, message iWeeti#4990 and he will give you $10K to start with.')
         e.set_footer(text='Sorry guys for the database reset, message iWeeti#4990 and he will give you $10K to start with.')
-        e.set_image(url='https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_960_720.jpg')
+        banner = record['banner'] or 0:
+            banners = {
+                0: 'https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_960_720.jpg',
+                1: 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_960_720.jpg',
+                2: 'https://cdn.pixabay.com/photo/2014/08/26/20/08/eye-428390_960_720.jpg',
+                3: 'https://cdn.pixabay.com/photo/2016/09/04/20/14/sunset-1645103_960_720.jpg', 
+                4: 'https://cdn.pixabay.com/photo/2018/08/30/13/21/travel-3642167_960_720.jpg',
+                5: 'https://cdn.pixabay.com/photo/2016/09/04/20/14/sunset-1645105_960_720.jpg',
+                6: 'https://cdn.pixabay.com/photo/2016/02/03/08/32/banner-1176676_960_720.jpg',
+                7: 'https://cdn.pixabay.com/photo/2015/12/13/09/40/banner-1090830_960_720.jpg',
+                8: 'https://cdn.pixabay.com/photo/2017/09/19/08/54/eyes-2764597_960_720.jpg',
+                9: 'https://cdn.pixabay.com/photo/2015/10/11/11/20/banner-982162_960_720.jpg',
+                10: 'https://cdn.pixabay.com/photo/2016/08/03/09/04/universe-1566161_960_720.jpg',
+                11: 'https://cdn.pixabay.com/photo/2017/03/06/20/48/water-lily-2122505_960_720.jpg',
+                12: 'https://cdn.pixabay.com/photo/2015/11/10/08/31/banner-1036483_960_720.jpg',
+                13: 'https://cdn.pixabay.com/photo/2018/07/28/11/08/guitar-3567767_960_720.jpg',
+                14: 'https://cdn.pixabay.com/photo/2018/02/06/18/54/travel-3135436_960_720.jpg'
+            }
+        e.set_image(url=banner)
         await ctx.send(embed=e)
 
     async def edit_field(self, ctx, **fields):
@@ -138,6 +156,32 @@ class Profile():
                  """
 
         await self.bot.pool.fetchrow(query, member.id, *fields.values())
+
+    @commands.command()
+    async def banner(self, ctx, banner: int):
+        if not banner < 15 or banner > 0:
+            e = discord.Embed(title="Invalid banner", color=discord.Color(0x1083a3))
+            e.add_field(name="Valid banners are", value=
+                '1: default'\
+                '2: Air balloons'\
+                '3: Blue eye'\
+                '4: Sunset'\
+                '5: Airplane'\
+                '6: Sunset 2'\
+                '7: Stars'\
+                '8: Questions'\
+                '9: Eyes'\
+                '10: Matrix'\
+                '11: Blue wave'\
+                '12: Purple flower'\
+                '13: Blue wave 2'\
+                '14: Guitar'\
+                '15: River',
+                inline=False
+                )
+            return await ctx.send(embed=e)
+        await self.edit_field(ctx, banner=banner - 1)
+        await ctx.send('Banner changed.')
 
     @profile.command(aliases=['תיאור'])
     async def description(self, ctx, *, DESC : str):
