@@ -1572,6 +1572,8 @@ class Profile():
             await ctx.send(f'Wait' + '.'*i)
             wait = random.randint(2, 7)
             await asyncio.sleep(wait)
+            if not i == times:
+                await ctx.trigger_typing()
 
         words = ['fire', 'shoot', 'now', 'boom']
 
