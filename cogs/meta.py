@@ -1055,42 +1055,6 @@ class Meta:
         e.set_footer(text='Created').timestamp = guild.created_at
         await ctx.send(embed=e)
 
-    async def say_permissions(self, member, channel):
-        permissions = channel.permissions_for(member)
-        entries = []
-        for attr in dir(permissions):
-            is_property = isinstance(getattr(type(permissions), attr), property)
-            if is_property:
-                entries.append((attr.replace('_', ' ').title(), getattr(permissions, attr)))
-
-        await formats.entry_to_code(self.bot, entries)
-
-    @commands.command(no_pm=True)
-    async def permissions(self, ctx, *, member : discord.Member = None):
-        if ctx.message.author.bot: return
-        """Shows a member's permissions.
-
-        You cannot use this in private messages. If no member is given then
-        the info returned will be yours.
-        """
-        channel = ctx.message.channel
-        if member is None:
-            member = ctx.message.author
-
-        await self.say_permissions(member, channel)
-
-    @commands.command(no_pm=True)
-    async def botpermissions(self, ctx):
-        """Shows the bot's permissions.
-        This is a good way of checking if the bot has the permissions needed
-        to execute the commands it wants to execute.
-        To execute this command you must have Manage Roles permissions or
-        have the Bot Admin role. You cannot use this in private messages.
-        """
-        channel = ctx.message.channel
-        member = ctx.message.guild.me
-        await self.say_permissions(member, channel)
-
     @commands.command()
     async def invite(self, ctx):
         if ctx.message.author.bot: return
@@ -1098,10 +1062,12 @@ class Meta:
         try:
             invite  = await ctx.channel.create_invite()
         except:
-            e = discord.Embed(title="Invite", description='I tried to create invite here but i couldn\'t,\nanyway you can invite me to your server [here](https://discordapp.com/api/oauth2/authorize?client_id=460846291300122635&permissions=8&scope=bot).')
+            e = discord.Embed(title="Invite", description='I tried to create invite here but i couldn\'t,\nanyway you can invite me to your server [here](https://discordapp.com/api/oauth2/authorize?client_id=460846291300122635&permissions=8&scope=bot).\n'\
+                                                          'And [here](https://discord.gg/Ry4JQRf) you can join the support server.')
             await ctx.send(embed=e)
             return
-        e = discord.Embed(title="Invite", description='Here\'s the invite to [here]({}).\nYou can invite me to your server [here](https://discordapp.com/api/oauth2/authorize?client_id=460846291300122635&permissions=8&scope=bot).'.format(invite))
+        e = discord.Embed(title="Invite", description=f'Here\'s the invite to [here]({invite}).\nYou can invite me to your server [here](https://discordapp.com/api/oauth2/authorize?client_id=460846291300122635&permissions=8&scope=bot).\n'\
+                                                          'And [here](https://discord.gg/Ry4JQRf) you can join the support server.')
         await ctx.send(embed=e)
 
     @commands.command(no_pm=True)
