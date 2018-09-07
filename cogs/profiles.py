@@ -1541,7 +1541,7 @@ class Profile():
         query = """select cash from profiles where id=$1"""
         cash = await self.bot.pool.fetchrow(query, ctx.author.id)
 
-        if cash < 100:
+        if cash[0] < 100:
             return await ctx.send('You need $100 to challenge someone.')
 
         def pred(m):
@@ -1560,7 +1560,7 @@ class Profile():
         query = """select cash from profiles where id=$1"""
         _cash = await self.bot.pool.fetchrow(query, ctx.author.id)
 
-        if _cash < 100:
+        if _cash[0] < 100:
             return await ctx.send('You need $100 to accept the callenge.')
 
         await self.edit_field(ctx, cash=cash)
