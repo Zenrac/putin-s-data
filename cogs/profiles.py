@@ -1529,6 +1529,68 @@ class Profile():
             await ctx.send(slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot))+'\n**{}** bet ${} {}'.format(ctx.message.author.display_name,amount, winning))
             await self.edit_field(ctx, cash=cash)
 
+    @commands.command()
+    async def challenge(self, ctx, *, member:discord.Member=None):
+        """Challenges another member to a shooting fight.
+        When you challenge someone you bet $100.
+        The winner gets the money back and the opponent's bet too.
+        So basically the winner get $200."""
+        if member is None:
+            return await ctx.send('You need to tell who to challenge.')
+
+        query = """select cash from profiles where id=$1"""
+        cash = await self.bot.pool.fetchrow(query, ctx.author.id)
+
+        if cash < 100:
+            return await ctx.send('You need $100 to challenge someone.')
+
+        def pred(m):
+            return m.author == member and m.channel == ctx.message.channel
+
+        await ctx.send(f'{ctx.author.display_name} would like to callenge {member.display_name}.\n'\
+                       f'{member.display_name} type `yes` in 20 seconds to accept the challenge.')
+
+        try:
+            answer = await self.bot.wait_for('message', timeout=20, check=pred)
+        except asyncio.TimeoutError:
+            return await ctx.send('No asnwer.')
+        if not answer.content.lower() in 'yes':
+            return await ctx.send('I\'ll take that as no.')
+
+        query = """select cash from profiles where id=$1"""
+        _cash = await self.bot.pool.fetchrow(query, ctx.author.id)
+
+        if _cash < 100:
+            return await ctx.send('You need $100 to accept the callenge.')
+
+        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, member, cash=cash)
+
+        times = random.randint(1, 5)
+
+        for i in range(times):
+            wait = random.randint(2, 7)
+            await asyncio.sleep(wait)
+            await ctx.send(f'Wait{'*'*i}')
+
+        words = ['fire', 'shoot', 'now', 'boom']
+
+        def pred(m):
+            return m.author == member or ctx.author and m.channel == ctx.channel
+
+        answer = await self.bot.wait_for('message', check=pred)
+
+        while not answer.lower in words:
+            answer = await self.bot.wait_for('message', check=pred)
+
+        winner = answer.author
+
+        query = """select cash from profiles where id=$1"""
+        winner_cash = await self.bot.pool.fetchrow(query, winner.id)
+
+        await self.edit_user_field(ctx, winner, cash=winner_cash+200)
+        await ctx.send(f'Congrats {winner} you won $200.')
+
     @commands.command(aliases=['lb', 'leaderboards'])
     async def leaderboard(self, ctx):
 
