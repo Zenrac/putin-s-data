@@ -1591,7 +1591,7 @@ class Profile():
 
         await ctx.send(f'{answer.author}: {answer.clean_content}')
 
-        if answer.clean_content.lower == word:
+        if str(answer.clean_content.lower.split()[0]) == str(word):
             if not answer.author is ctx.author:
                 winner = ctx.author
             else:
