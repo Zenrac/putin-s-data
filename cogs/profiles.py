@@ -112,8 +112,6 @@ class Profile():
         pet = record['pet'] if record['pet'] else 'No pet'
         pet_title = 'Pet'
         e.add_field(name=pet_title, value=pet, inline=True)
-        #e.set_footer(text='Sorry guys for the database reset, message iWeeti#4990 and he will give you $10K to start with.')
-        e.set_footer(text='Sorry guys for the database reset, message iWeeti#4990 and he will give you $10K to start with.')
         banner = record['banner'] or 0
         banners = {
             0: 'https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_960_720.jpg',
