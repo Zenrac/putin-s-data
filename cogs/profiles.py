@@ -1538,6 +1538,9 @@ class Profile():
         if member is None:
             return await ctx.send('You need to tell who to challenge.')
 
+        if member.bot:
+            return await ctx.send('You can\'t challenge a bot.')
+
         query = """select cash from profiles where id=$1"""
         cash = await self.bot.pool.fetchrow(query, ctx.author.id)
 
@@ -1586,7 +1589,12 @@ class Profile():
 
         answer = await self.bot.wait_for('message', check=pred)
 
-        if not answer.clean_content.lower == word:
+        if answer.clean_content.lower == word:
+            if not answer.author is ctx.author:
+                winner = ctx.author
+            else:
+                winner = asnwer.author
+        else:
             await ctx.send('Wrong word.')
             if not answer.author is ctx.author:
                 winner = ctx.author
