@@ -132,7 +132,7 @@ class Profile():
             13: 'https://cdn.pixabay.com/photo/2018/07/28/11/08/guitar-3567767_960_720.jpg',
             14: 'https://cdn.pixabay.com/photo/2018/02/06/18/54/travel-3135436_960_720.jpg'
         }
-        e.set_image(url=banner)
+        e.set_image(url=banners[banner])
         await ctx.send(embed=e)
 
     async def edit_field(self, ctx, **fields):
