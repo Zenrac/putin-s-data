@@ -91,7 +91,9 @@ class DBL():
             if has_server_count:
                 e.add_field(name="Server count:", value="{}".format(server_count), inline=True)
             if bot_date:
-                e.add_field(name="Approved at:", value="{}".format(bot_date), inline=True)
+                #e.add_field(name="Approved at:", value="{}".format(bot_date), inline=True)
+                e.set_footer(text="Approved at")
+                e.timestamp = bot_date
             if has_many_owners:
                 e.add_field(name="Owners:", value="{}".format(bot_owners), inline=True)
             else:
