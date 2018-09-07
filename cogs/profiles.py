@@ -1596,7 +1596,7 @@ class Profile():
         query = """select cash from profiles where id=$1"""
         winner_cash = await self.bot.pool.fetchrow(query, winner.id)
 
-        await self.edit_user_field(winner, ctx, cash=winner_cash+200)
+        await self.edit_user_field(winner, ctx, cash=winner_cash[0]+200)
         await ctx.send(f'Congrats {winner} you won $200.')
 
     @commands.command(aliases=['lb', 'leaderboards'])
