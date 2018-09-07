@@ -32,6 +32,10 @@ class Music:
             if c:
                 c = self.bot.get_channel(c)
                 if c:
+                    if c.members == 1:
+                        player.queue.clear()
+                        await player.disconnect()
+                        return
                     embed = discord.Embed(colour=c.guild.me.top_role.colour, title='Now Playing', description=event.track.title)
                     embed.timestamp = datetime.datetime.utcnow()
                     requester = await self.bot.get_user_info(event.track.requester)
@@ -382,6 +386,9 @@ class Music:
 
         if not player.queue:
             return await ctx.send('Nothing queued.')
+
+        if not index:
+            index = len(player.queue)
 
         if not ctx.author.voice or not ctx.author.voice.channel or player.connected_channel.id != ctx.author.voice.channel.id:
                 return await ctx.send('Join my voice channel!')
