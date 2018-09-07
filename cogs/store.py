@@ -10,7 +10,7 @@ class store(db.Table):
 class StoreConfig():
     __slots__ = ['bot', 'id', 'items']
 
-    def __init__(self, *, guild_id, bot, record=None)
+    def __init__(self, *, guild_id, bot, record=None):
         self.id = guild_id
         self.bot = bot
 
