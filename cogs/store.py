@@ -4,7 +4,7 @@ from .utils import db
 class store(db.Table):
     id = db.Column(db.Integer(big=True), primary_key=True)
     item_id = db.Column(db.Integer(big=False))
-    price = db.Column(db.Integer(db.Numeric(precision=1000)))
+    price = db.Column(db.Integer(db.Numeric()))
     seller_id = db.Column(db.Integer(big=True))
 
 class StoreConfig():
