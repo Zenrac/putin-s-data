@@ -1300,7 +1300,7 @@ class Profile():
                 try:
                     answer = await self.bot.wait_for('message', timeout=60, check=pred)
                 except asyncio.TimeoutError:
-                    return await ctx.send('No asnwer.')
+                    return await ctx.send('No answer.')
                 if answer.content in 'yes':
                     await self.edit_user_field(member, ctx, married=None)
                     await self.edit_field(ctx, married=None)
@@ -1544,7 +1544,7 @@ class Profile():
         query = """select cash from profiles where id=$1"""
         cash = await self.bot.pool.fetchrow(query, ctx.author.id)
 
-        if cash[0] is None:
+        if cash[0] is None or if cash is None:
             return await ctx.send('You don\'t have a profile yet.')
 
         if cash[0] < 100:
@@ -1559,7 +1559,7 @@ class Profile():
         try:
             answer = await self.bot.wait_for('message', timeout=20, check=pred)
         except asyncio.TimeoutError:
-            return await ctx.send('No asnwer.')
+            return await ctx.send('No answer.')
         if not answer.content.lower() in 'yes':
             return await ctx.send('I\'ll take that as no.')
 
@@ -1605,7 +1605,7 @@ class Profile():
             if answer.author is ctx.author:
                 winner = ctx.author
             else:
-                winner = asnwer.author
+                winner = answer.author
 
         query = """select cash from profiles where id=$1"""
         winner_cash = await self.bot.pool.fetchrow(query, winner.id)
