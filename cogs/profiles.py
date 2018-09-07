@@ -1572,7 +1572,10 @@ class Profile():
         if not _cash:
             return await ctx.send('You don\'t have a profile yet.')
 
-        if _cash[0] is None or _cash is None:
+        if _cash is None:
+            return await ctx.send('You don\'t have a profile yet.')
+
+        if _cash[0] is None:
             return await ctx.send('You don\'t have a profile yet.')
 
         if _cash[0] < 100:
