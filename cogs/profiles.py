@@ -1566,7 +1566,7 @@ class Profile():
             return await ctx.send('You need $100 to accept the callenge.')
 
         await self.edit_field(ctx, cash=cash[0]-100)
-        await self.edit_field(ctx, member, cash=cash[0]-100)
+        await self.edit_user_field(ctx, member, cash=cash[0]-100)
 
         times = random.randint(1, 5)
 
@@ -1577,12 +1577,16 @@ class Profile():
 
         words = ['fire', 'shoot', 'now', 'boom']
 
+        word = random.choice(words)
+
+        await ctx.send(f'Now quickly say ``{word}``')
+
         def pred(m):
             return m.author == member or ctx.author and m.channel == ctx.channel
 
         answer = await self.bot.wait_for('message', check=pred)
 
-        while not answer.lower in words:
+        while not answer.lower == word:
             answer = await self.bot.wait_for('message', check=pred)
 
         winner = answer.author
