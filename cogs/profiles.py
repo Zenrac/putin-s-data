@@ -1602,7 +1602,7 @@ class Profile():
                 winner = answer.author
         else:
             await ctx.send('Wrong word.')
-            if not answer.author is ctx.author:
+            if answer.author is ctx.author:
                 winner = ctx.author
             else:
                 winner = asnwer.author
