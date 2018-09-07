@@ -1569,8 +1569,6 @@ class Profile():
         query = """select cash from profiles where id=$1"""
         _cash = await self.bot.pool.fetchrow(query, member.id)
 
-        await ctx.send(_cash[0])
-
         if _cash[0] is None or _cash is None:
             return await ctx.send('You don\'t have a profile yet.')
 
