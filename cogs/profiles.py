@@ -1589,11 +1589,7 @@ class Profile():
 
         answer = await self.bot.wait_for('message', check=pred)
 
-        await ctx.send(f'{answer.author}: {answer.clean_content}')
-
-        await ctx.send(f'``{answer.clean_content}, {word}``')
-
-        if str(answer.clean_content.lower) == str(word):
+        if str(answer.clean_content.lower()) == str(word):
             if not answer.author is ctx.author:
                 winner = ctx.author
             else:
