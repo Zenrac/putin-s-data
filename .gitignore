@@ -7,7 +7,6 @@ loader.gif
 .vscode
 migrations
 sh.exe.stackdump
-cogs/settings.py
 putin.log
 __pycache__
 putin.log
