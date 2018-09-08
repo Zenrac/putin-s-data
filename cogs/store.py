@@ -39,7 +39,7 @@ class Store():
         if store.items:
             listings = []
             for _item in store.items():
-                _seller = await ctx.guild.get_memebr(record['seller_id'])
+                _seller = await ctx.guild.get_member(record['seller_id'])
                 seller = _seller.display_name
 
                 price = record['price']
