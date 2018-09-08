@@ -9,8 +9,8 @@ class StoreConfig():
         
         _items = []
         for _record in record:
-            # _items.append(tuple(_record['price'], _record['item_id'], _record['seller_id'], _record['selling_id']))
-            _items.append(str(type(_record)))
+            _items.append(tuple(_record['price'], _record['item_id'], _record['seller_id'], _record['selling_id']))
+            # _items.append(str(type(_record)))
             
         self._items = _items
 
@@ -25,7 +25,7 @@ class Store():
     async def get_store(self, guild_id, *, connection=None):
         connection = connection or self.bot.pool
         query = "SELECT * FROM store WHERE id=$1"
-        record = await connection.fetchrow(query, guild_id)
+        record = await connection.fetch(query, guild_id)
         _items = []
         for _record in record:
             _items.append(tuple(_record['price'], _record['item_id'], _record['seller_id'], _record['selling_id']))
