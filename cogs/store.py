@@ -144,7 +144,7 @@ class Store():
 
         cash = await ctx.db.fetchrow(f'select cash from profiles where id={ctx.author.id}')
 
-        if cash < price*quantity:
+        if cash[0] < price*quantity:
             return await ctx.send('You can\'t afford to buy that many.')
 
         await ctx.db.execute(f'update profiles set cash=cash-{price*quantity} where id={ctx.author.id}')
