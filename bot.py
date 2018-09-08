@@ -172,25 +172,25 @@ class Putin(commands.AutoShardedBot):
         if isinstance(error, commands.CommandOnCooldown):
             minutes, seconds = divmod(error.retry_after, 60)
             hours, minutes = divmod(minutes, 60)
-            if hours > 2:
-                hours = f'{round(hours)} hours'
+            if hours >= 2:
+                hours = f'{round(hours)} hours '
             elif hours == 0:
                 hours = ''
             else:
-                hours = f'{round(hours)} hour'
-            if minutes > 2:
-                minutes = f'{round(minutes)} minutes'
+                hours = f'{round(hours)} hour '
+            if minutes >= 2:
+                minutes = f'{round(minutes)} minutes '
             elif minutes == 0:
                 minutes = ''
             else:
-                minutes = f'{round(minutes)} minute'
-            if seconds > 2:
-                seconds = f'{round(seconds)} seconds'
+                minutes = f'{round(minutes)} minute '
+            if seconds >= 2:
+                seconds = f'{round(seconds)} seconds '
             elif seconds == 0:
                 seconds = ''
             else:
                 seconds = f'{seconds} second'
-            await ctx.send(f'This command is on cooldown for {hours} {minutes} {seconds}.')
+            await ctx.send(f'This command is on cooldown for {hours}{minutes}{seconds}.')
 
     async def on_ready(self):
         """This triggers when the bot is ready."""
