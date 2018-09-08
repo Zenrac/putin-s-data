@@ -107,7 +107,7 @@ class Mod():
         return '<cogs.Mod>'
 
     async def __error(self, ctx, error):
-        elif isinstance(error, commands.CommandInvokeError):
+        if isinstance(error, commands.CommandInvokeError):
             original = error.original
             if isinstance(original, discord.Forbidden):
                 await ctx.send('I do not have permission to execute this action.')
