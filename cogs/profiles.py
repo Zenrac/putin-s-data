@@ -353,12 +353,12 @@ class Profile():
               ':rose: Rose: Buy :inbox_tray:  $25, Sell :outbox_tray:  $19',
               ':champagne: Alcohol: Buy :inbox_tray:  $50, Sell :outbox_tray:  $38',
               ':medal: Bronze role: Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.',
-              ':medal: Silver role: Buy :inbox_tray:  $50000, Sell :outbox_tray: Can not sell.',
-              ':medal: Gold role: Buy :inbox_tray:  $1000000000, Sell :outbox_tray: Can not sell.',
-              ':medal: Blue role: Buy :inbox_tray:  $1000000000000, Sell :outbox_tray: Can not sell.',
-              ':third_place: Red role: Buy :inbox_tray:  $1000000000000000, Sell :outbox_tray: Can not sell.',
-              ':second_place: Black role: Buy :inbox_tray:  $1000000000000000000, Sell :outbox_tray: Can not sell.',
-              ':first_place: Green role: Buy :inbox_tray:  $1000000000000000000000, Sell :outbox_tray: Can not sell.',
+              ':medal: Silver role: Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.',
+              ':medal: Gold role: Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.',
+              ':medal: Blue role: Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.',
+              ':third_place: Red role: Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.',
+              ':second_place: Black role: Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.',
+              ':first_place: Green role: Buy :inbox_tray:  $10000, Sell :outbox_tray: Can not sell.',
               ':dog: Dog: Buy :inbox_tray:  $10000, Sell :outbox_tray:  $7500',
               ':cat2: Cat: Buy :inbox_tray:  $20000, Sell :outbox_tray:  $15000',
               ':mouse: Mouse: Buy :inbox_tray:  $5000, Sell :outbox_tray:  $4500',
@@ -999,7 +999,7 @@ class Profile():
         if profile is None:
             return await ctx.invoke(self.make)
         cash = profile['cash']
-        if cash < 50000:
+        if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'Putin Silver':
@@ -1025,7 +1025,7 @@ class Profile():
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 50000
+        cash -= 10000
         await self.edit_field(ctx, cash=cash)
 
     @buy.command()
@@ -1036,7 +1036,7 @@ class Profile():
         if profile is None:
             return await ctx.invoke(self.make)
         cash = profile['cash']
-        if cash < 1000000000:
+        if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'Putin Gold':
@@ -1062,7 +1062,7 @@ class Profile():
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 1000000000
+        cash -= 10000
         await self.edit_field(ctx, cash=cash)
 
 
@@ -1074,7 +1074,7 @@ class Profile():
         if profile is None:
             return await ctx.invoke(self.make)
         cash = profile['cash']
-        if cash < 1000000000000:
+        if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'Putin Blue':
@@ -1100,7 +1100,7 @@ class Profile():
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 1000000000000
+        cash -= 10000
         await self.edit_field(ctx, cash=cash)
 
     @buy.command()
@@ -1111,7 +1111,7 @@ class Profile():
         if profile is None:
             return await ctx.invoke(self.make)
         cash = profile['cash']
-        if cash < 1000000000000000:
+        if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'Putin Red':
@@ -1137,7 +1137,7 @@ class Profile():
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 1000000000000000
+        cash -= 10000
         await self.edit_field(ctx, cash=cash)
 
     @buy.command()
@@ -1148,7 +1148,7 @@ class Profile():
         if profile is None:
             return await ctx.invoke(self.make)
         cash = profile['cash']
-        if cash < 1000000000000000000:
+        if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'Putin Black':
@@ -1174,7 +1174,7 @@ class Profile():
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 1000000000000000000
+        cash -= 10000
         await self.edit_field(ctx, cash=cash)
 
     @buy.command()
@@ -1185,7 +1185,7 @@ class Profile():
         if profile is None:
             return await ctx.invoke(self.make)
         cash = profile['cash']
-        if cash < 1000000000000000000000:
+        if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'Putin Green':
@@ -1211,7 +1211,7 @@ class Profile():
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 1000000000000000000000
+        cash -= 10000
         await self.edit_field(ctx, cash=cash)
 
     @commands.command()

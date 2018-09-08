@@ -529,16 +529,21 @@ class Mod():
             pass
 
     @commands.command(no_pm = True)
-    @checks.has_permissions(manage_guild=True)
+    @checks.has_permissions(manage_channels=True)
     async def mute(self, ctx, *, user : discord.Member):
         """Mutes a user."""
         try:
             await user.edit(mute=True)
-            await ctx.send(':ballot_box_with_check: | {} muted {}.'.format(ctx.message.author.name, user.name))
+            role = discord.utils.get(ctx.guild.roles, name='Muted')
+            if not role:
+                permissions = discord.PermissionOverwrite()
+                permissions.send_messages = False
+                permissions.speak = False
+                role = await ctx.guild.create_role(name='Muted', permissions=permissions, mentionable=False, hoist=False)
+            await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
+            await ctx.send('Muted {}.'.format(ctx.message.author.name, user.name))
         except discord.Forbidden:
-            await ctx.send(':exclamation: | The bot does not have proper permissions.')
-        except discord.HTTPException:
-            await ctx.send(':exclamation: | Muting failed.')
+            await ctx.send('The bot does not have proper permissions.')
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_guild=True)
