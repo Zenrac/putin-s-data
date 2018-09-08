@@ -553,35 +553,13 @@ class Mod():
         """Unmutes a user."""
         try:
             await user.edit(mute=False)
-            await ctx.send(':ballot_box_with_check: | {} unmuted {}.'.format(ctx.message.author.mention, user.mention))
+            role = discord.utils.get(ctx.guild.roles, name='Muted')
+            await user.remove_roles(role, reason=f"Unmted by {ctx.author.display_name}(ID:{ctx.author.id})")
+            await ctx.send(f'Unmuted {user.display_name}.')
         except discord.Forbidden:
             await ctx.send(':exclamation: | The bot does not have proper permissions.')
         except discord.HTTPException:
             await ctx.send(':exclamation: | Unmuting failed.')
-
-    @commands.command(no_pm = True)
-    @checks.has_permissions(manage_guild=True)
-    async def deafen(self, ctx, *, user : discord.Member):
-        """Deafens a user."""
-        try:
-            await user.edit(deafen=True)
-            await ctx.send(':ballot_box_with_check: | {} deafened {}.'.format(ctx.message.author.mention, user.mention))
-        except discord.Forbidden:
-            await ctx.send(':exclamation: | The bot does not have proper permissions.')
-        except discord.HTTPException:
-            await ctx.send(':exclamation: | Deafening failed.')
-
-    @commands.command(no_pm = True)
-    @checks.has_permissions(manage_guild=True)
-    async def undeafen(self, ctx, *, user : discord.Member):
-        """Undeafens a user."""
-        try:
-            await user.edit(deafen=False)
-            await ctx.send(':ballot_box_with_check: | {} undeafened {}.'.format(ctx.message.author.mention, user.mention))
-        except discord.Forbidden:
-            await ctx.send(':exclamation: | The bot does not have proper permissions.')
-        except discord.HTTPException:
-            await ctx.send(':exclamation: | Undeafening failed.')
 
     async def _basic_cleanup_strategy(self, ctx, search):
         count = 0
