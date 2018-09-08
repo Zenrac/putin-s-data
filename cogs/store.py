@@ -114,7 +114,7 @@ class Store():
         if item_quantity[0] < quantity:
             return await ctx.send('You don\'t have that much.')
 
-        await ctx.db.execute(f'update profiles set {item_name}={item_name} - {quantity}')
+        await ctx.db.execute(f'update profiles set {item_name}={item_name} - {quantity} where id={ctx.author.id}')
 
         await ctx.send('Added listing.')
 
