@@ -170,8 +170,8 @@ class Putin(commands.AutoShardedBot):
         elif isinstance(error, commands.NotOwner):
             await ctx.send('Only my creator can use this command.')
         if isinstance(error, commands.CommandOnCooldown):
-            minutes, s = divmod(error.retry_after, 60)
-            hours, minutes = divmod(m, 60)
+            minutes, seconds = divmod(error.retry_after, 60)
+            hours, minutes = divmod(minutes, 60)
             if hours > 1:
                 hours = f'{hours} hours'
             elif hours == 0:
