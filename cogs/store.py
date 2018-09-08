@@ -105,7 +105,7 @@ class Store():
         }
         item_name = _items[items[item]]
 
-        item_quantity = await ctx.db.fetchrow(f'select {item_name} from profiles where id={ctx.author.id};')
+        item_quantity[0] = await ctx.db.fetchrow(f'select {item_name} from profiles where id={ctx.author.id};')
 
         if item_quantity < quantity:
             return await ctx.sednd('You don\'t have that much.')
