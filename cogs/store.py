@@ -14,7 +14,7 @@ class StoreConfig():
 
         self._items = None
 
-        self._foo = type(record)
+        self._foo = record
 
     @property
     def items(self):
@@ -22,7 +22,7 @@ class StoreConfig():
 
     @property
     def foo(self):
-        return self._foo
+        return self._foo['id']
     
     
 class Store():
