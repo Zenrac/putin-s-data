@@ -9,7 +9,8 @@ class StoreConfig():
         
         _items = []
         for _record in record:
-            _items.append(_record['id'], _record['price'], _record['item_id'], _record['seller_id'], _record['selling_id'])
+            # _items.append(_record['id'], _record['price'], _record['item_id'], _record['seller_id'], _record['selling_id'])
+            _items.append(type(_record))
 
         self._foo = record
 
