@@ -17,8 +17,7 @@ class StoreConfig():
 
     @property
     def items(self):
-        return self._items
-    
+        return self._items    
     
 class Store():
     def __init__(self, bot):
@@ -28,6 +27,7 @@ class Store():
         connection = connection or self.bot.pool
         query = "SELECT * FROM store WHERE id=$1"
         record = await connection.fetchrow(query, guild_id)
+        return record
         return StoreConfig(guild_id=guild_id, bot=self.bot, record=record)
     
     @commands.group(hidden=True)
@@ -38,6 +38,7 @@ class Store():
     @store.command()
     async def list(self, ctx):
         store = await self.get_store(ctx.guild.id)
+
         if store.items:
             await ctx.send(item for item in store.items)
         else:
