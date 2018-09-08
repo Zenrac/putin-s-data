@@ -1,25 +1,25 @@
 from discord.ext import commands
 
 class StoreConfig():
-    __slots__ = ['bot', 'id', 'items']
+    __slots__ = ['bot', 'id', '_items']
 
     def __init__(self, *, guild_id, bot, record=None):
         self.id = guild_id
         self.bot = bot
 
         if record:
-            self.items = ((_[0],
+            self._items = ((_[0],
                         _[1],
                         _[2]) for _ in (
                             record['item_id'],
                             record['price'],
                             record['seller_id']) if record['id'] == self.id)
         else:
-            self.items = None
+            self._items = None
 
     @property
     def items(self):
-        return self.items
+        return self._items
     
     
 class Store():
