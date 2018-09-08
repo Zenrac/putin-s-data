@@ -98,9 +98,9 @@ class Profile():
         if record['married']:
             married = await self.bot.get_user_info(record['married'])
             married = married.name
+            e.add_field(name=':heart: Married with', value=married, inline=True)
         else:
-            married = 'nobody...'
-        e.add_field(name=':heart: Married with', value=married, inline=True)
+            e.add_field(name=':broken_heart: Not married', value='\u200b', inline=True)
         picks = ':pick:{}'.format(record['picks']) if record['picks'] else ''
         rings = ':ring:{}'.format(record['rings']) if record['rings'] else ''
         diamonds = ':diamond_shape_with_a_dot_inside:{}'.format(record['diamonds']) if record['diamonds'] else ''
@@ -155,7 +155,7 @@ class Profile():
 
         await self.bot.pool.fetchrow(query, member.id, *fields.values())
 
-    @commands.command()
+    @commands.command(hidden=True)
     async def banners(self, ctx):
         if True:
             e = discord.Embed(color=discord.Color(0x1083a3))
@@ -181,7 +181,7 @@ class Profile():
 
     @commands.command()
     async def banner(self, ctx, banner: int):
-        if banner < 0 or banner > 15:
+        if banner < 0 or banner > 15 or banner is None:
             e = discord.Embed(title="Invalid banner", color=discord.Color(0x1083a3))
             e.add_field(name="Valid banners are", value=
                 '1: default\n'\
