@@ -8,8 +8,8 @@ class StoreConfig():
         self.bot = bot
         
         _items = []
-        for (record['id'], record['price'], record['item_id'], record['seller_id'], record['selling_id']) in record:
-            _items.append(id, price, item_id, seller_id, selling_id)
+        for _record in record:
+            _items.append(_record['id'], _record['price'], _record['item_id'], _record['seller_id'], _record['selling_id'])
 
         self._foo = record
 
