@@ -19,7 +19,7 @@ class StoreConfig():
             self.items = None
     
     def __str__(self):
-        return len(self.items) or 'Nothing listed at the moment.'
+        return [_ for _ in self.items] or 'Nothing listed at the moment.'
     
 class Store():
     def __init__(self, bot):
