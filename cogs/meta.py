@@ -143,6 +143,7 @@ class Meta:
     @commands.command()
     @checks.has_permissions(send_tts_messages=True)
     async def tts(self, ctx, *, text:str=None):
+        """Text to speech in the current text channel."""
         if text is None:
             return await ctx.send('You didn\'t tell me what to tts.')
 
