@@ -11,7 +11,6 @@ class StoreConfig():
         for index, _record in enumerate(record):
             # _items.append(_record['id'], _record['price'], _record['item_id'], _record['seller_id'], _record['selling_id'])
             _items.append(_record)
-            yield _items[index]
 
         self._items = _items
 
@@ -23,11 +22,15 @@ class Store():
     def __init__(self, bot):
         self.bot = bot
 
-    async def get_store(self, guild_id, *, connection=None):
+    async def get_store_items(self, guild_id, *, connection=None):
         connection = connection or self.bot.pool
         query = "SELECT * FROM store WHERE id=$1"
-        record = await connection.fetchrow(query, guild_id)
-        return StoreConfig(guild_id=guild_id, bot=self.bot, record=record)
+        records = await connection.fetchrow(query, guild_id)
+        _items = []
+        for _record in records:
+            _items.append(_record['id'], _record['price'], _record['item_id'], _record['seller_id'], _record['selling_id'])
+        return _items
+        # return StoreConfig(guild_id=guild_id, bot=self.bot, record=record)
     
     @commands.group(hidden=True)
     async def store(self, ctx):
