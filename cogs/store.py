@@ -16,7 +16,7 @@ class StoreConfig():
 
     @property
     def items(self):
-        return self._list
+        return self._items
     
 class Store():
     def __init__(self, bot):
