@@ -552,8 +552,10 @@ class Mod():
     async def unmute(self, ctx, *, user : discord.Member):
         """Unmutes a user."""
         try:
-            await user.edit(mute=False)
             role = discord.utils.get(ctx.guild.roles, name='Muted')
+            if not role in user.roles:
+                return await ctx.send('This member was not muted in the first place.')
+            await user.edit(mute=False)
             await user.remove_roles(role, reason=f"Unmted by {ctx.author.display_name}(ID:{ctx.author.id})")
             await ctx.send(f'Unmuted {user.display_name}.')
         except discord.Forbidden:
