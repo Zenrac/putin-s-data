@@ -101,7 +101,7 @@ class Store():
             5: 'alcohol'
         }
         item_name = _items[items[item]]
-        await ctx.db.execute(f'update profiles set {}={_items[items[item]]} - {quantity}')
+        await ctx.db.execute(f'update profiles set {item_name}={item_name} - {quantity}')
 
         await ctx.send('Added listing.')
 
