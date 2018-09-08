@@ -534,7 +534,7 @@ class Mod():
             await user.edit(mute=True)
             role = discord.utils.get(ctx.guild.roles, name='Muted')
             if not role:
-                permissions = discord.PermissionsOverwrite()
+                permissions = discord.PermissionOverwrite()
                 permissions.send_messages = False
                 permissions.send_tts_messages = False
                 permissions.speak = False
