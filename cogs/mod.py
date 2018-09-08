@@ -539,7 +539,7 @@ class Mod():
                 permissions.send_tts_messages = False
                 permissions.speak = False
                 await ctx.send(permissions)
-                role = await ctx.guild.create_role(name='Muted', permissions=permissions, mentionable=False, hoist=False)
+                role = await ctx.guild.create_role(name='Muted', mentionable=False, hoist=False)
                 for channel in ctx.guild.channels:
                     await channel.set_permissions(role, overwrite=permissions)
             await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
