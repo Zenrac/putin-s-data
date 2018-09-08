@@ -153,9 +153,9 @@ class Store():
 
         item_name = self._items[item_id]
 
-        # await ctx.db.execute(f'update profiles set {item_name}={item_name}+{quantity} where id={ctx.author.id}')
+        await ctx.db.execute(f'update profiles set {item_name}={item_name}+{quantity} where id={ctx.author.id}')
 
-        await ctx.send(f'update profiles set {item_name}={item_name}+{quantity} where id={ctx.author.id}')
+        # await ctx.send(f'update profiles set {item_name}={item_name}+{quantity} where id={ctx.author.id}')
 
         items = {
                     1: ':pick: Pickaxe',
