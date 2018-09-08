@@ -17,6 +17,8 @@ class StoreConfig():
                             if record['id'] == self.id)
         else:
             self.items = None
+    
+    def __str__(self):
         return self.items
     
 class Store():
@@ -37,7 +39,7 @@ class Store():
     @store.command()
     async def list(self, ctx):
         store = self.get_store(ctx.guild.id)
-        await ctx.send(sotre['items'])
+        await ctx.send(store['items'])
 
 def setup(bot):
     bot.add_cog(Store(bot))
