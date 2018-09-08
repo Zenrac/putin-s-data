@@ -1606,7 +1606,7 @@ class Profile():
         else:
             await ctx.send(f'Wrong word {answer.author.display_name}.')
             if answer.author is ctx.author:
-                winner = answer.author
+                winner = member
             else:
                 winner = ctx.author
 
