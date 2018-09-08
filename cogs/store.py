@@ -16,9 +16,14 @@ class StoreConfig():
                             record['seller_id']))
         else:
             self.items = None
+
+        self._items = []
+
+        for _ in self.items:
+            _items.append(_)
     
     def __str__(self):
-        return [_ for _ in self.items] or 'Nothing listed at the moment.'
+        return len(_items) or 'Nothing listed at the moment.'
     
 class Store():
     def __init__(self, bot):
