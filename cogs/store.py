@@ -22,6 +22,24 @@ class Store():
     def __init__(self, bot):
         self.bot = bot
 
+        self.items = {
+            'pick': 1,
+            'pickaxe': 1,
+            'ring': 2,
+            'diamond': 3,
+            'rose': 4,
+            'alcohol': 5,
+            'vodka': 5
+        }
+
+        self._items = {
+            1: 'picks',
+            2: 'rings',
+            3: 'diamonds',
+            4: 'roses',
+            5: 'alcohol'
+        }
+
     async def get_store(self, guild_id, *, connection=None):
         connection = connection or self.bot.pool
         query = "SELECT * FROM store WHERE id=$1"
@@ -62,7 +80,7 @@ class Store():
 
                 listings.append(f'{selling_id}: {quantity}x {item} ${price} {seller}')
 
-            e = discord.Embed(title=f"Listings for {ctx.guild.name}")
+            e = discord.Embed(title=f"Listings for {ctx.guild.name}", color=ctx.me.top_role.color)
 
             e.description = "\n".join(listings)
 
@@ -84,26 +102,12 @@ class Store():
 
         item = item.lower()
 
-        items = {
-            'pick': 1,
-            'pickaxe': 1,
-            'ring': 2,
-            'diamond': 3,
-            'rose': 4,
-            'alcohol': 5,
-            'vodka': 5
-        }
+        
 
-        await ctx.db.execute(f'insert into store(id, price, item_id, seller_id, quantity) values ({ctx.guild.id}, {price}, {items[item]}, {ctx.author.id}, {quantity});')
+        await ctx.db.execute(f'insert into store(id, price, item_id, seller_id, quantity) values ({ctx.guild.id}, {price}, {self.items[item]}, {ctx.author.id}, {quantity});')
 
-        _items = {
-            1: 'picks',
-            2: 'rings',
-            3: 'diamonds',
-            4: 'roses',
-            5: 'alcohol'
-        }
-        item_name = _items[items[item]]
+        
+        item_name = self._items[self.items[item]]
 
         item_quantity = await ctx.db.fetchrow(f'select {item_name} from profiles where id={ctx.author.id};')
 
@@ -113,6 +117,53 @@ class Store():
         await ctx.db.execute(f'update profiles set {item_name}={item_name} - {quantity}')
 
         await ctx.send('Added listing.')
+
+    @store.command()
+    async def buy(self, ctx, selling_id:int=None, quantity:int=1):
+        if selling_id is None:
+            return await ctx.send('You forgot to add the selling id of the item you want to buy.')
+
+        listing = await ctx.db.fetchrow(f'select * from store where selling_id={selling_id};')
+
+        if listing is None or listing[0] is None:
+            return await ctx.send('This listing was not found.')
+
+        listing_quantity = listing['quantity']
+        price = listing['price']
+        item_id = listing['item_id']
+        seller_id = listing['seller_id']
+
+        if quantity > listing_quantity:
+            return await ctx.send('There is not that many for sale.')
+        elif quantity < 1:
+            return await ctx.send('You can\'t buy negative amounts.')
+        elif quantity == listing_quantity:
+            await ctx.db.execute(f'delete from store where selling_id={selling_id}')
+        else:
+            await ctx.db.execute(f'update store set quantity=quantity-{quantity} where selling_id={selling_id}')
+
+        cash = await ctx.db.fetchrow(f'select cash from profiles where id={ctx.author.id}')
+
+        if cash < price*quantity:
+            return await ctx.send('You can\'t afford to buy that many.')
+
+        await ctx.db.execute(f'update profiles set cash=cash-{price*quantity} where id={ctx.author.id}')
+
+        await ctx.db.execute(f'update profiles set cash=cash+{price*quantity} where id={seller_id}')
+
+        item_name = self._items[item_id]
+
+        await ctx.db.execute(f'update profiles set {item_name}={item_name}+{quantity} where id={ctx.author.id}')
+
+        items = {
+                    1: ':pick: Pickaxe',
+                    2: ':ring: Ring',
+                    3: ':diamond_shape_with_a_dot_inside: Diamond',
+                    4: ':rose: Rose',
+                    5: ':champagne: Alcohol'
+                }
+
+        await ctx.send(f'Bought {quantity}x {items[item_id]} for ${price*quantity}.')
 
 def setup(bot):
     bot.add_cog(Store(bot))
