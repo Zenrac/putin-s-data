@@ -30,11 +30,13 @@ class Store():
     
     @commands.group(hidden=True)
     async def store(self, ctx):
+        """Store commands."""
         if ctx.invoked_subcommand is None:
             await ctx.show_help('store')
 
     @store.command()
     async def list(self, ctx):
+        """Shows all the current listings for the server."""
         store = await self.get_store(ctx.guild.id)
 
         if store.items:
@@ -67,6 +69,41 @@ class Store():
             await ctx.send(embed=e)
         else:
             await ctx.send('Nothing listed at the moment.')
+
+    @store.command()
+    async def sell(self, ctx, price: int=None, item:str=None, quantity:int=1):
+        """Adds a listing to the store."""
+        if price is None:
+            return await ctx.show_help('store sell')
+
+        if item is None:
+            return await ctx.send('Valid items are ``pickaxe``, ``ring``, ``diamond``, ``rose``, ``alcohol``.')
+
+        item = item.lower()
+
+        items = {
+            'pick': 1,
+            'pickaxe': 1,
+            'ring': 2,
+            'diamond': 3,
+            'rose': 4,
+            'alcohol': 5,
+            'vodka': 5
+        }
+
+        await ctx.db.execute(f'insert into store(id, price, item_id, seller_id, quantity) values ({ctx.guild.id}, {price}, {items[item]}, {ctx.author.id}, {quantity};')
+
+        _items = {
+            'picks': 1,
+            'rings': 2,
+            'diamonds': 3,
+            'roses': 4,
+            'alcohol': 5
+        }
+
+        await ctx.db.execute(f'update profiles set {_items[items[item]]}={_items[items[item]]}-{quantity}')
+
+        await ctx.send('Added listing.')
 
 def setup(bot):
     bot.add_cog(Store(bot))
