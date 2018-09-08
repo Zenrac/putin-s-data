@@ -87,6 +87,7 @@ class Profile():
 
         e = discord.Embed(title="Profile of {}".format(name),color=color)
         e.set_thumbnail(url=member.avatar_url)
+        
         keys = {
             ':writing_hand: Description': 'description',
             ':birthday: Birthday': 'bday',
@@ -95,23 +96,28 @@ class Profile():
         }
         for key, value in keys.items():
             e.add_field(name=key, value=str(record[value]) or 'N/A', inline=True)
+        
+        picks = ':pick:{}'.format(record['picks']) if record['picks'] else ''
+        rings = ':ring:{}'.format(record['rings']) if record['rings'] else ''
+        diamonds = ':diamond_shape_with_a_dot_inside:{}'.format(record['diamonds']) if record['diamonds'] else ''
+        roses = ':rose:{}'.format(record['roses']) if record['roses'] else ''
+        alcohol = ':champagne:{}'.format(record['alcohol']) if record['alcohol'] else ''
+        
+        inventory = picks + rings + diamonds + roses + alcohol
+        inventory = inventory if inventory else 'Nothing in inventory'
+        e.add_field(name=':handbag: Inventory', value=inventory, inline=True)
+        
+        pet = record['pet'] if record['pet'] else 'No pet'
+        pet_title = 'Pet'
+        e.add_field(name=pet_title, value=pet, inline=True)
+
         if record['married']:
             married = await self.bot.get_user_info(record['married'])
             married = married.name
             e.add_field(name=':heart: Married with', value=married, inline=True)
         else:
             e.add_field(name=':broken_heart: Not married', value='\u200b', inline=True)
-        picks = ':pick:{}'.format(record['picks']) if record['picks'] else ''
-        rings = ':ring:{}'.format(record['rings']) if record['rings'] else ''
-        diamonds = ':diamond_shape_with_a_dot_inside:{}'.format(record['diamonds']) if record['diamonds'] else ''
-        roses = ':rose:{}'.format(record['roses']) if record['roses'] else ''
-        alcohol = ':champagne:{}'.format(record['alcohol']) if record['alcohol'] else ''
-        inventory = picks + rings + diamonds + roses + alcohol
-        inventory = inventory if inventory else 'Nothing in inventory'
-        e.add_field(name=':handbag: Inventory', value=inventory, inline=True)
-        pet = record['pet'] if record['pet'] else 'No pet'
-        pet_title = 'Pet'
-        e.add_field(name=pet_title, value=pet, inline=True)
+        
         banner = record['banner'] or 0
         banners = {
             0: 'https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_960_720.jpg',
@@ -131,6 +137,7 @@ class Profile():
             14: 'https://cdn.pixabay.com/photo/2018/02/06/18/54/travel-3135436_960_720.jpg'
         }
         e.set_image(url=banners[banner])
+        
         await ctx.send(embed=e)
 
     async def edit_field(self, ctx, **fields):

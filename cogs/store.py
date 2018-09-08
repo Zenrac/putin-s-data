@@ -1,11 +1,4 @@
 from discord.ext import commands
-from .utils import db
-
-class store(db.Table):
-    id = db.Column(db.Integer(big=True), primary_key=True)
-    item_id = db.Column(db.Integer(big=False))
-    price = db.Column(db.Integer(db.Numeric()))
-    seller_id = db.Column(db.Integer(big=True))
 
 class StoreConfig():
     __slots__ = ['bot', 'id', 'items']
