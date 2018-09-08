@@ -8,12 +8,10 @@ class StoreConfig():
         self.bot = bot
 
         if record:
-            self._items = ((_[0],
-                        _[1],
-                        _[2]) for _ in (
-                            record['item_id'],
-                            record['price'],
-                            record['seller_id']) if record['id'] == self.id)
+            _items = []
+            for (id, price, item_id, seller_id, selling_id) in record['id'], record['price'], record['item_id'], record['seller_id'], record['selling_id']:
+                _items.append(id, price, item_id, seller_id, selling_id)
+            self._items = _items
         else:
             self._items = None
 
