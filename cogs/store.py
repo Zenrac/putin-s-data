@@ -125,13 +125,18 @@ class Store():
 
         listing = await ctx.db.fetchrow(f'select * from store where selling_id={selling_id};')
 
-        if listing is None or listing[0] is None:
+        if listing is None:
             return await ctx.send('This listing was not found.')
 
         listing_quantity = listing['quantity']
         price = listing['price']
         item_id = listing['item_id']
         seller_id = listing['seller_id']
+
+        cash = await ctx.db.fetchrow(f'select cash from profiles where id={ctx.author.id}')
+
+        if cash[0] < price*quantity:
+            return await ctx.send('You can\'t afford to buy that many.')
 
         if quantity > listing_quantity:
             return await ctx.send('There is not that many for sale.')
@@ -142,18 +147,15 @@ class Store():
         else:
             await ctx.db.execute(f'update store set quantity=quantity-{quantity} where selling_id={selling_id}')
 
-        cash = await ctx.db.fetchrow(f'select cash from profiles where id={ctx.author.id}')
-
-        if cash[0] < price*quantity:
-            return await ctx.send('You can\'t afford to buy that many.')
-
         await ctx.db.execute(f'update profiles set cash=cash-{price*quantity} where id={ctx.author.id}')
 
         await ctx.db.execute(f'update profiles set cash=cash+{price*quantity} where id={seller_id}')
 
         item_name = self._items[item_id]
 
-        await ctx.db.execute(f'update profiles set {item_name}={item_name}+{quantity} where id={ctx.author.id}')
+        # await ctx.db.execute(f'update profiles set {item_name}={item_name}+{quantity} where id={ctx.author.id}')
+
+        await ctx.send(f'update profiles set {item_name}={item_name}+{quantity} where id={ctx.author.id}')
 
         items = {
                     1: ':pick: Pickaxe',
