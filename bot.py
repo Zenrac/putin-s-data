@@ -172,20 +172,20 @@ class Putin(commands.AutoShardedBot):
         if isinstance(error, commands.CommandOnCooldown):
             minutes, seconds = divmod(error.retry_after, 60)
             hours, minutes = divmod(minutes, 60)
-            if hours > 1:
-                hours = f'{hours} hours'
+            if hours > 2:
+                hours = f'{round(hours)} hours'
             elif hours == 0:
                 hours = ''
             else:
-                hours = f'{hours} hour'
+                hours = f'{round(hours)} hour'
             if minutes > 2:
-                minutes = f'{minutes} minutes'
+                minutes = f'{round(minutes)} minutes'
             elif minutes == 0:
                 minutes = ''
             else:
-                minutes = f'{minutes} minute'
+                minutes = f'{round(minutes)} minute'
             if seconds > 2:
-                seconds = f'{seconds} seconds'
+                seconds = f'{round(seconds)} seconds'
             elif seconds == 0:
                 seconds = ''
             else:
