@@ -36,7 +36,7 @@ class Store():
 
     @store.command()
     async def list(self, ctx):
-        store = self.get_store()
+        store = self.get_store(ctx.guild.id)
         await ctx.send(sotre['items'])
 
 def setup(bot):
