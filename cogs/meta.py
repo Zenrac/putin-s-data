@@ -141,6 +141,17 @@ class Meta:
         self.client = clever.CleverBot(user='9FZVmdY47TEthPLe', key='zl3Fuk2Kx2Nis2YvbaIeMhMdoYRdKA7N', nick="Putin")
 
     @commands.command()
+    @checks.has_permissions(send_tts_messages=True)
+    async def tts(self, ctx, *, text:str=None):
+        if text is None:
+            return await ctx.send('You didn\'t tell me what to tts.')
+
+        try:
+            await ctx.send(text, tts=True)
+        except discord.Forbidden:
+            await ctx.send('I can not send tts messages here.')
+
+    @commands.command()
     async def ascii(self, ctx, *, text:str=None):
         if text is None:
             return await ctx.send("Please import text.")
