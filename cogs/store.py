@@ -26,6 +26,10 @@ class Store():
         connection = connection or self.bot.pool
         query = "SELECT * FROM store WHERE id=$1"
         record = await connection.fetchrow(query, guild_id)
+        _items = []
+        for _record in record:
+            _items.append(tuple(_record['price'], _record['item_id'], _record['seller_id'], _record['selling_id']))
+        return _items
         return StoreConfig(guild_id=guild_id, bot=self.bot, record=record)
     
     @commands.group(hidden=True)
