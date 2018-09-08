@@ -49,7 +49,7 @@ class Store():
 
                 items = {
                     1: ':pick: Pickaxe',
-                    2: ':rign: Ring',
+                    2: ':ring: Ring',
                     3: ':diamond_shape_with_a_dot_inside: Diamond',
                     4: ':rose: Rose',
                     5: ':champagne: Alcohol'
@@ -79,6 +79,9 @@ class Store():
         if item is None:
             return await ctx.send('Valid items are ``pickaxe``, ``ring``, ``diamond``, ``rose``, ``alcohol``.')
 
+        if quantity <= 0:
+            return await ctx.send('You can\'t sell negative amounts.')
+
         item = item.lower()
 
         items = {
@@ -101,6 +104,12 @@ class Store():
             5: 'alcohol'
         }
         item_name = _items[items[item]]
+
+        item_quantity = await ctx.db.fetchrow(f'select {item_name} from profiles where id={ctx.author.id};')
+
+        if item_quantity < quantity:
+            return await ctx.sednd('You don\'t have that much.')
+
         await ctx.db.execute(f'update profiles set {item_name}={item_name} - {quantity}')
 
         await ctx.send('Added listing.')
