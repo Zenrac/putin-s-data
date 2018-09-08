@@ -8,9 +8,10 @@ class StoreConfig():
         self.bot = bot
         
         _items = []
-        for _record in record:
+        for index, _record in enumerate(record):
             # _items.append(_record['id'], _record['price'], _record['item_id'], _record['seller_id'], _record['selling_id'])
             _items.append(_record)
+            yield _items[index]
 
         self._items = _items
 
