@@ -531,8 +531,10 @@ class Mod():
     async def mute(self, ctx, *, user : discord.Member):
         """Mutes a user."""
         try:
-            await user.edit(mute=True)
             role = discord.utils.get(ctx.guild.roles, name='Muted')
+            if not role in user.roles:
+                return await ctx.send('This member is already muted.')
+            await user.edit(mute=True)
             if not role:
                 permissions = discord.PermissionOverwrite()
                 permissions.send_messages = False
@@ -556,12 +558,10 @@ class Mod():
             if not role in user.roles:
                 return await ctx.send('This member was not muted in the first place.')
             await user.edit(mute=False)
-            await user.remove_roles(role, reason=f"Unmted by {ctx.author.display_name}(ID:{ctx.author.id})")
+            await user.remove_roles(role, reason=f"Unmuted by {ctx.author.display_name}(ID:{ctx.author.id})")
             await ctx.send(f'Unmuted {user.display_name}.')
         except discord.Forbidden:
-            await ctx.send(':exclamation: | The bot does not have proper permissions.')
-        except discord.HTTPException:
-            await ctx.send(':exclamation: | Unmuting failed.')
+            await ctx.send('The bot does not have proper permissions.')
 
     async def _basic_cleanup_strategy(self, ctx, search):
         count = 0

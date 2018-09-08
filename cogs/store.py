@@ -3,12 +3,12 @@ from discord.ext import commands
 class StoreConfig():
     __slots__ = ['bot', 'id', '_items']
 
-    def __init__(self, *, guild_id, bot, record=None):
+    def __init__(self, *, guild_id, bot, records=None):
         self.id = guild_id
         self.bot = bot
         
         def _items():
-            for _record in record:
+            for _record in records:
                 yield _record
 
         self._items = _items
@@ -37,8 +37,31 @@ class Store():
         store = await self.get_store(ctx.guild.id)
 
         if store.items:
-            for item in store.items():
-                await ctx.send(item)
+            listings = []
+            for _item in store.items():
+                _seller = await ctx.guild.get_memebr(record['seller_id'])
+                seller = _seller.display_name
+
+                price = record['price']
+
+                items = {
+                    1: ':pick: Pickaxe',
+                    2: ':rign: Ring',
+                    3: ':diamond_shape_with_a_dot_inside: Diamond',
+                    4: ':rose: Rose',
+                    5: ':champagne: Alcohol'
+                }
+                item = items[record['item_id']]
+
+                quantity = record['quantity']
+
+                listings.append(f'{quantity} {item} {price} {seller}')
+
+            e = discord.Embed(title=f"Listings for {ctx.guild.name}")
+
+            e.description = "\n".join(listings)
+
+            await ctx.send(embed=e)
         else:
             await ctx.send('Nothing listed at the moment.')
 
