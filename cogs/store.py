@@ -38,8 +38,8 @@ class Store():
 
     @store.command()
     async def list(self, ctx):
-        store = self.get_store(ctx.guild.id)
-        await ctx.send(store['items'])
+        store = await self.get_store(ctx.guild.id)
+        await ctx.send(store)
 
 def setup(bot):
     bot.add_cog(Store(bot))
