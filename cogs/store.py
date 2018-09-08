@@ -9,7 +9,7 @@ class StoreConfig():
         
         _items = []
         for _record in record:
-            _items.append(_record)
+            _items.append(tuple(_record['price'], _record['item_id'], _record['seller_id'], _record['selling_id']))
             
         self._items = _items
 
