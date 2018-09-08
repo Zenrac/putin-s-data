@@ -40,7 +40,10 @@ class Store():
     @store.command()
     async def list(self, ctx):
         store = await self.get_store(ctx.guild.id)
-        await ctx.send(store.items)
+        if store.items:
+            await ctx.send(store.items)
+        else:
+            await ctx.send('Nothing listed at the moment.')
 
 def setup(bot):
     bot.add_cog(Store(bot))
