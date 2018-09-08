@@ -1521,7 +1521,7 @@ class Profile():
             slot7 = random.choice(slot)
             slot8 = random.choice(slot)
             slot9 = random.choice(slot)
-            slot_machine = f'```╔════[SLOTS]════╗\n║  {slot1}   ║  {slot2}   ║  {slot3}  ║\n>   {slot4}   ║  {slot5}   ║  {slot6}  <\n║  {slot7}   ║   {slot8}  ║  {slot9}  ║\n╚════[SLOTS]════╝```'
+            slot_machine = f'```╔════[SLOTS]════╗\n║ {slot1} ║ {slot2} ║ {slot3} ║\n> {slot4} ║ {slot5} ║ {slot6} <\n║ {slot7}  ║  {slot8} ║ {slot9} ║\n╚════[SLOTS]════╝```'
             winning_times = 0
             if slot4 == slot5 and slot4 == slot6:
                 winning_times += 1
