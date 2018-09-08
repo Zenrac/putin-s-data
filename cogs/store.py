@@ -91,7 +91,7 @@ class Store():
             'vodka': 5
         }
 
-        await ctx.db.execute(f'insert into store(id, price, item_id, seller_id, quantity) values ({ctx.guild.id}, {price}, {items[item]}, {ctx.author.id}, {quantity};')
+        await ctx.db.execute(f'insert into store(id, price, item_id, seller_id, quantity) values ({ctx.guild.id}, {price}, {items[item]}, {ctx.author.id}, {quantity});')
 
         _items = {
             'picks': 1,
