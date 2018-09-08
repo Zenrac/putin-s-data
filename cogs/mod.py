@@ -532,9 +532,6 @@ class Mod():
         """Mutes a user."""
         try:
             role = discord.utils.get(ctx.guild.roles, name='Muted')
-            if role in user.roles:
-                return await ctx.send('This member is already muted.')
-            await user.edit(mute=True)
             if not role:
                 permissions = discord.PermissionOverwrite()
                 permissions.send_messages = False
@@ -544,6 +541,9 @@ class Mod():
                 role = await ctx.guild.create_role(name='Muted', mentionable=False, hoist=False)
                 for channel in ctx.guild.channels:
                     await channel.set_permissions(role, overwrite=permissions)
+            if role in user.roles:
+                return await ctx.send('This member is already muted.')
+            await user.edit(mute=True)
             await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
             await ctx.send('Muted {}.'.format(user.display_name))
         except discord.Forbidden:
