@@ -536,9 +536,7 @@ class Mod():
             await user.edit(mute=True)
             role = discord.utils.get(ctx.guild.roles, name='Muted')
             if not role:
-                permissions = discord.PermissionOverwrite()
-                permissions.send_messages = False
-                permissions.speak = False
+                permissions = discord.Permissions(permissions=1049664)
                 role = await ctx.guild.create_role(name='Muted', permissions=permissions, mentionable=False, hoist=False)
             await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
             await ctx.send('Muted {}.'.format(ctx.message.author.name, user.name))
