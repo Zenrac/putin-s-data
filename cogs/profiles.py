@@ -1511,7 +1511,7 @@ class Profile():
             await ctx.send('You don\'t have enough cash.')
         else:
             cash -= amount
-            slot = ['\U0001f352', '\U0001f4b0', '\U0001f34b', '\U0001f347', '\U00000037\U000020e3', '\U0001f353', '\U0001f34d']
+            slot = ['\U0001f352', '\U0001f4b0', '\U0001f34b', '\U0001f347', '\U0001f353', '\U0001f34d']
             slot1 = random.choice(slot)
             slot2 = random.choice(slot)
             slot3 = random.choice(slot)
@@ -1521,7 +1521,7 @@ class Profile():
             slot7 = random.choice(slot)
             slot8 = random.choice(slot)
             slot9 = random.choice(slot)
-            slot_machine = f'```╔════[SLOTS]════╗\n║ {slot1} ║ {slot2} ║ {slot3} ║\n> {slot4} ║ {slot5} ║ {slot6} <\n║ {slot7}  ║  {slot8} ║ {slot9} ║\n╚════[SLOTS]════╝```'
+            slot_machine = f'```╔════[SLOTS]════╗\n║ {slot1} ║ {slot2} ║ {slot3} ║\n> {slot4} ║ {slot5} ║ {slot6} <\n║ {slot7} ║ {slot8} ║ {slot9} ║\n╚════[SLOTS]════╝```'
             winning_times = 0
             if slot4 == slot5 and slot4 == slot6:
                 winning_times += 1
