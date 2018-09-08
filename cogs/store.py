@@ -58,7 +58,7 @@ class Store():
 
                 selling_id = record['selling_id']
 
-                listings.append(f'{selling_id}: {quantity}x {item} {price} {seller}')
+                listings.append(f'{selling_id}: {quantity}x {item} ${price} {seller}')
 
             e = discord.Embed(title=f"Listings for {ctx.guild.name}")
 

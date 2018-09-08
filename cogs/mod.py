@@ -532,7 +532,7 @@ class Mod():
         """Mutes a user."""
         try:
             role = discord.utils.get(ctx.guild.roles, name='Muted')
-            if not role in user.roles:
+            if role in user.roles:
                 return await ctx.send('This member is already muted.')
             await user.edit(mute=True)
             if not role:
