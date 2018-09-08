@@ -28,7 +28,7 @@ class Store():
         records = await connection.fetchrow(query, guild_id)
         _items = []
         for _record in records:
-            _items.append(_record['id'], _record['price'], _record['item_id'], _record['seller_id'], _record['selling_id'])
+            _items.append(str(_record['id']) + str(_record['price']) + str(_record['item_id']) + str(_record['seller_id']) + str(_record['selling_id']))
         return _items
         # return StoreConfig(guild_id=guild_id, bot=self.bot, record=record)
     
@@ -39,7 +39,9 @@ class Store():
 
     @store.command()
     async def list(self, ctx):
-        store = await self.get_store(ctx.guild.id)
+        items = await self.get_store_items(ctx.guild.id)
+
+        items = "\n".join(items)
 
         if store.items:
             await ctx.send(item for item in store.items)
