@@ -34,7 +34,7 @@ class Store():
         if ctx.invoked_subcommand is None:
             await ctx.show_help('store')
 
-    @commands.command()
+    @store.command()
     async def list(self, ctx):
         store = self.get_store()
         await ctx.send(sotre['items'])
