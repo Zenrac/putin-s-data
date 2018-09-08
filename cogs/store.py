@@ -39,7 +39,7 @@ class Store():
         store = await self.get_store(ctx.guild.id)
 
         if store.items:
-            await ctx.send(str(item for item in store.items))
+            await ctx.send(str(item[0] for item in store.items))
         else:
             await ctx.send('Nothing listed at the moment.')
 
