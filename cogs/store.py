@@ -1,7 +1,7 @@
 from discord.ext import commands
 
 class StoreConfig():
-    __slots__ = ['bot', 'id', '_items', '_foo']
+    __slots__ = ['bot', 'id', '_items']
 
     def __init__(self, *, guild_id, bot, record=None):
         self.id = guild_id
@@ -12,16 +12,11 @@ class StoreConfig():
             # _items.append(_record['id'], _record['price'], _record['item_id'], _record['seller_id'], _record['selling_id'])
             _items.append(type(_record))
 
-        self._foo = record
+        self._items = _items
 
     @property
     def items(self):
-        return self._items
-
-    @property
-    def foo(self):
-        return self._foo['id']
-    
+        return self._items    
     
 class Store():
     def __init__(self, bot):
@@ -41,8 +36,6 @@ class Store():
     @store.command()
     async def list(self, ctx):
         store = await self.get_store(ctx.guild.id)
-
-        await ctx.send(store.foo)
 
         if store.items:
             await ctx.send(item for item in store.items)
