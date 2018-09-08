@@ -1521,7 +1521,7 @@ class Profile():
             slot7 = random.choice(slot)
             slot8 = random.choice(slot)
             slot9 = random.choice(slot)
-            slot_machine = f'╔════[SLOTS]════╗\n║  {slot1}   ║  {slot2}   ║  {slot3}  ║\n>   {slot4}   ║  {slot5}   ║  {slot6}  <\n║  {slot7}   ║   {slot8}  ║  {slot9}  ║\n╚════[SLOTS]════╝'
+            slot_machine = f'```╔════[SLOTS]════╗\n║  {slot1}   ║  {slot2}   ║  {slot3}  ║\n>   {slot4}   ║  {slot5}   ║  {slot6}  <\n║  {slot7}   ║   {slot8}  ║  {slot9}  ║\n╚════[SLOTS]════╝```'
             winning_times = 0
             if slot4 == slot5 and slot4 == slot6:
                 winning_times += 1
@@ -1534,7 +1534,7 @@ class Profile():
             if slot7 == slot8 and slot7 == slot9:
                 winning_times += 1
 
-            await ctx.send(f'{slot_machine}\n**{ctx.message.author.display_name}** bet ${amount} {round(amount*int(winning_times/0.5))}')
+            await ctx.send(f'{slot_machine}\n**{ctx.message.author.display_name}** bet ${amount} and won ${round(amount*int(winning_times/0.5))}')
             await self.edit_field(ctx, cash=cash+round(amount*int(winning_times/0.5)))
 
     @commands.command()
