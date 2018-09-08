@@ -328,7 +328,8 @@ class Tags:
             ctx.message = name
             name = await converter.convert(ctx, name.content)
         except commands.BadArgument as e:
-            return await ctx.send(f'{e}. Redo the command "{ctx.prefix}tag make" to retry.')
+            # return await ctx.send(f'{e}. Redo the command "{ctx.prefix}tag make" to retry.')
+            pass
         finally:
             ctx.message = original
 

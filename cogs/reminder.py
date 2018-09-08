@@ -65,10 +65,6 @@ class Reminder:
     def __unload(self):
         self._task.cancel()
 
-    async def __error(self, ctx, error):
-        if isinstance(error, commands.BadArgument):
-            await ctx.send(error)
-
     async def get_active_timer(self, *, connection=None, days=7):
         query = "SELECT * FROM reminders WHERE expires < (CURRENT_DATE + $1::interval) ORDER BY expires LIMIT 1;"
         con = connection or self.bot.pool

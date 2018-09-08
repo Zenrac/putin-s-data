@@ -153,22 +153,22 @@ class Putin(commands.AutoShardedBot):
     async def on_command_error(self, ctx, error):
         """This triggers when an error occurs in a command."""
         if isinstance(error, commands.NoPrivateMessage):
-            await ctx.send(ctx.message.author, 'This command cannot be used in private messages.')
+            return await ctx.send(ctx.message.author, 'This command cannot be used in private messages.')
         elif isinstance(error, commands.DisabledCommand):
-            await ctx.send(ctx.message.author, 'Sorry. This command is disabled'
+            return await ctx.send(ctx.message.author, 'Sorry. This command is disabled'
                                                ' and cannot be used.')
         elif isinstance(error, commands.BadArgument):
-            await ctx.send(error)
+            return await ctx.send(error)
         elif isinstance(error, commands.MissingPermissions):
             missing_perms = error.missing_perms[0].replace('_', ' ')
-            await ctx.send(f'You do not have **{missing_perms}** permissions.'
+            return await ctx.send(f'You do not have **{missing_perms}** permissions.'
                            ' You need them to use this command.')
         elif isinstance(error, commands.BotMissingPermissions):
             missing_perms = ", ".join(_perms.replace('_', ' ') for _perms in error.missing_perms)
-            await ctx.send(f'You do not have **{missing_perms}** permissions.'
+            return await ctx.send(f'You do not have **{missing_perms}** permissions.'
                            ' You need them to use this command.')
         elif isinstance(error, commands.NotOwner):
-            await ctx.send('Only my creator can use this command.')
+            return await ctx.send('Only my creator can use this command.')
         if isinstance(error, commands.CommandOnCooldown):
             minutes, seconds = divmod(error.retry_after, 60)
             hours, minutes = divmod(minutes, 60)
@@ -190,7 +190,7 @@ class Putin(commands.AutoShardedBot):
                 seconds = ''
             else:
                 seconds = f'{seconds} second'
-            await ctx.send(f'This command is on cooldown for {hours}{minutes}{seconds}.')
+            return await ctx.send(f'This command is on cooldown for {hours}{minutes}{seconds}.')
 
     async def on_ready(self):
         """This triggers when the bot is ready."""

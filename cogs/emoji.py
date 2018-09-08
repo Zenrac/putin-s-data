@@ -83,10 +83,6 @@ class Emoji:
     def __unload(self):
         self._task.cancel()
 
-    async def __error(self, ctx, error):
-       if isinstance(error, commands.BadArgument):
-            await ctx.send(error)
-
     async def bulk_insert(self):
         try:
             while not self.bot.is_closed():

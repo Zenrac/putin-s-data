@@ -107,8 +107,6 @@ class Mod():
         return '<cogs.Mod>'
 
     async def __error(self, ctx, error):
-        if isinstance(error, commands.BadArgument):
-            await ctx.send(error)
         elif isinstance(error, commands.CommandInvokeError):
             original = error.original
             if isinstance(original, discord.Forbidden):
