@@ -105,9 +105,9 @@ class Store():
         }
         item_name = _items[items[item]]
 
-        item_quantity[0] = await ctx.db.fetchrow(f'select {item_name} from profiles where id={ctx.author.id};')
+        item_quantity = await ctx.db.fetchrow(f'select {item_name} from profiles where id={ctx.author.id};')
 
-        if item_quantity < quantity:
+        if item_quantity[0] < quantity:
             return await ctx.sednd('You don\'t have that much.')
 
         await ctx.db.execute(f'update profiles set {item_name}={item_name} - {quantity}')
