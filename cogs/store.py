@@ -94,14 +94,14 @@ class Store():
         await ctx.db.execute(f'insert into store(id, price, item_id, seller_id, quantity) values ({ctx.guild.id}, {price}, {items[item]}, {ctx.author.id}, {quantity});')
 
         _items = {
-            'picks': 1,
-            'rings': 2,
-            'diamonds': 3,
-            'roses': 4,
-            'alcohol': 5
+            1: 'picks',
+            2: 'rings',
+            3: 'diamonds',
+            4: 'roses',
+            5: 'alcohol'
         }
-
-        await ctx.db.execute(f'update profiles set {_items[items[item]]}={_items[items[item]]}-{quantity}')
+        item_name = _items[items[item]]
+        await ctx.db.execute(f'update profiles set {}={_items[items[item]]} - {quantity}')
 
         await ctx.send('Added listing.')
 
