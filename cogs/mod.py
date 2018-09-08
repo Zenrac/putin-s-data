@@ -539,7 +539,7 @@ class Mod():
                 permissions = discord.Permissions(permissions=1049664)
                 role = await ctx.guild.create_role(name='Muted', permissions=permissions, mentionable=False, hoist=False)
             await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
-            await ctx.send('Muted {}.'.format(ctx.message.author.name, user.name))
+            await ctx.send('Muted {}.'.format(user.display_name))
         except discord.Forbidden:
             await ctx.send('The bot does not have proper permissions.')
 
