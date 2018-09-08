@@ -44,6 +44,8 @@ class Store():
     async def list(self, ctx):
         store = await self.get_store(ctx.guild.id)
 
+        await ctx.send(store.foo)
+
         if store.items:
             await ctx.send(item for item in store.items)
         else:
