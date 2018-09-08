@@ -536,11 +536,14 @@ class Mod():
             await user.edit(mute=True)
             role = discord.utils.get(ctx.guild.roles, name='Muted')
             if not role:
-                permissions = discord.Permissions()
+                permissions = discord.PermissionsOverwrite()
                 permissions.send_messages = False
+                permissions.send_tts_messages = False
                 permissions.speak = False
                 await ctx.send(permissions)
                 role = await ctx.guild.create_role(name='Muted', permissions=permissions, mentionable=False, hoist=False)
+                for channel in ctx.guild.channels:
+                    await channel.set_permissions(role, overwrite=permissions)
             await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
             await ctx.send('Muted {}.'.format(user.display_name))
         except discord.Forbidden:
