@@ -1,7 +1,7 @@
 from discord.ext import commands
 
 class StoreConfig():
-    __slots__ = ['bot', 'id', '_items']
+    __slots__ = ['bot', 'id', '_items', '_foo']
 
     def __init__(self, *, guild_id, bot, record=None):
         self.id = guild_id
