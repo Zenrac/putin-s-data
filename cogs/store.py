@@ -24,8 +24,8 @@ class Store():
     async def get_store(self, guild_id, *, connection=None):
         connection = connection or self.bot.pool
         query = "SELECT * FROM store WHERE id=$1"
-        record = await connection.fetch(query, guild_id)
-        return StoreConfig(guild_id=guild_id, bot=self.bot, record=record)
+        records = await connection.fetch(query, guild_id)
+        return StoreConfig(guild_id=guild_id, bot=self.bot, records=records)
     
     @commands.group(hidden=True)
     async def store(self, ctx):
