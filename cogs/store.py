@@ -26,7 +26,6 @@ class Store():
         connection = connection or self.bot.pool
         query = "SELECT * FROM store WHERE id=$1"
         record = await connection.fetch(query, guild_id)
-        _items = []
         return StoreConfig(guild_id=guild_id, bot=self.bot, record=record)
     
     @commands.group(hidden=True)
@@ -39,7 +38,7 @@ class Store():
         store = await self.get_store(ctx.guild.id)
 
         if store.items:
-            await ctx.send(str(item[0] for item in store.items()))
+            await ctx.send(item for item in store.items())
         else:
             await ctx.send('Nothing listed at the moment.')
 
