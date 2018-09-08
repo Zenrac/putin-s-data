@@ -263,8 +263,8 @@ class Profile():
         """Mines with a chance of getting money and or diamond."""
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        # if profile is None:
-        #     return await ctx.invoke(self.make)
+        if profile is None:
+            return await ctx.invoke(self.make)
         picks = profile['picks']
         cash = profile['cash']
         diamonds = profile['diamonds']
