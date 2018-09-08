@@ -38,7 +38,7 @@ class Store():
 
         if store.items:
             listings = []
-            for _item in store.items():
+            for record in store.items():
                 _seller = await ctx.guild.get_member(record['seller_id'])
                 seller = _seller.display_name
 
