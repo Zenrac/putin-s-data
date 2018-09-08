@@ -1511,23 +1511,31 @@ class Profile():
             await ctx.send('You don\'t have enough cash.')
         else:
             cash -= amount
-            slot = [':four_leaf_clover:', ':moneybag:', ':cherries:', ':lemon:', ':grapes:', ':poop:', ':diamond_shape_with_a_dot_inside:', ':dollar:', ':money_with_wings:', ':slot_machine:', ':strawberry:']
-            slot_machine = '╔════[SLOTS]════╗\n║  {}   ║  {}   ║  {}  ║\n>   {}   ║  {}   ║  {}  <\n║  {}   ║   {}  ║  {}  ║\n╚════[SLOTS]════╝'
-            rand = random.randint(1,3)
-            if rand == 1:
-                winning = 'and lost everything.'
-            elif rand == 2:
-                win_amount = round(amount * 1.5)
-                winning = 'and won ${}'.format(win_amount)
-                cash += win_amount
-            else:
-                win_amount = round(amount * 2)
-                winning = 'and won ${}'.format(win_amount)
-                cash += win_amount
+            slot = ['\U0001f352', '\U0001f4b0', '\U0001f34b', '\U0001f347', '\U00000037\U000020e3', '\U0001f353', '\U0001f34d']
+            slot1 = random.choice(slot)
+            slot2 = random.choice(slot)
+            slot3 = random.choice(slot)
+            slot4 = random.choice(slot)
+            slot5 = random.choice(slot)
+            slot6 = random.choice(slot)
+            slot7 = random.choice(slot)
+            slot8 = random.choice(slot)
+            slot9 = random.choice(slot)
+            slot_machine = f'╔════[SLOTS]════╗\n║  {slot1}   ║  {slot2}   ║  {slot3}  ║\n>   {slot4}   ║  {slot5}   ║  {slot6}  <\n║  {slot7}   ║   {slot8}  ║  {slot9}  ║\n╚════[SLOTS]════╝'
+            winning_times = 0
+            if slot4 == slot5 and slot4 == slot6:
+                winning_times += 1
+            if slot1 == slot5 and slot1 == slot9:
+                winning_times += 1
+            if slot7 == slot5 and slot7 == slot3:
+                winning_times += 1
+            if slot1 == slot2 and slot1 == slot3:
+                winning_times += 1
+            if slot7 == slot8 and slot7 == slot9:
+                winning_times += 1
 
-
-            await ctx.send(slot_machine.format(random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot),random.choice(slot))+'\n**{}** bet ${} {}'.format(ctx.message.author.display_name,amount, winning))
-            await self.edit_field(ctx, cash=cash)
+            await ctx.send(f'{slot_machine}\n**{ctx.message.author.display_name}** bet ${amount} {round(amount*int(winning_times/0.5))}')
+            await self.edit_field(ctx, cash=cash+round(amount*int(winning_times/0.5)))
 
     @commands.command()
     async def challenge(self, ctx, *, member:discord.Member=None):
