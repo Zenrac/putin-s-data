@@ -1511,7 +1511,7 @@ class Profile():
             await ctx.send('You don\'t have enough cash.')
         else:
             cash -= amount
-            slot = ['\U0001f4b0', '\U0001f347', '\U0001f353']
+            slot = ['\U0001f352', '\U0001f347', '\U0001f353']
             slot1 = random.choice(slot)
             slot2 = random.choice(slot)
             slot3 = random.choice(slot)
