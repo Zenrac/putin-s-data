@@ -29,7 +29,7 @@ class Store():
         connection = connection or self.bot.pool
         query = "SELECT * FROM store WHERE id=$1"
         record = await connection.fetchrow(query, guild_id)
-        return record
+        # return record
         return StoreConfig(guild_id=guild_id, bot=self.bot, record=record)
     
     @commands.group(hidden=True)
