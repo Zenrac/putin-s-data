@@ -110,7 +110,7 @@ class Settings():
             await self.bot.pool.execute(f'update settings set log_join=true where id={ctx.guild.id}')
             return await ctx.send('Join logging is now enabled.')
         else:
-            await self.bot.pool.execute(f'insert into settings (id, join) values ({ctx.guild.id}, true)')
+            await self.bot.pool.execute(f'insert into settings (id, log_join) values ({ctx.guild.id}, true)')
             return await ctx.send('Join logging is now enabled.')
 
     @enable.command()
