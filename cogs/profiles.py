@@ -138,6 +138,7 @@ class Profile():
             14: 'https://cdn.pixabay.com/photo/2018/02/06/18/54/travel-3135436_960_720.jpg'
         }
         e.set_image(url=banners[banner])
+        e.add_field(name="Links", value=f"[Website](https://w-bot.ml/profile/?uid={member.id})")
         
         await ctx.send(embed=e)
 
