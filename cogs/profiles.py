@@ -151,7 +151,8 @@ class Profile():
                  """
 
         await self.bot.pool.execute(query, ctx.author.id, *fields.values())
-        await self.bot.pool.execute(f'update profiles set name="{ctx.author.name}#{ctx.author.discriminator}" pfp="{ctx.author.avatar_url_as(format='png', size=1024)}" where id={ctx.author.id}')
+        av = ctx.author.avatar_url_as(format='png', size=1024)
+        await self.bot.pool.execute(f'update profiles set name="{ctx.author.name}#{ctx.author.discriminator}" pfp="{av}" where id={ctx.author.id}')
 
     async def edit_user_field(self, member, ctx, **fields):
         keys = ', '.join(fields)
