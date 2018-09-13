@@ -67,7 +67,7 @@ class Profile():
     async def profile(self, ctx, *, member: DisambiguateMember = None):
         member = member or ctx.author
         av = member.avatar_url_as(format='png', size=1024)
-        await self.bot.pool.execute(f'update profiles set name="{member.name}#{member.discriminator}" pfp="{av}" where id={member.id}')
+        await self.bot.pool.execute(f'update profiles set name=\'{member.name}#{member.discriminator}\', pfp=\'{av}\' where id={member.id}')
         query = """select * from profiles where id=$1"""
         record = await self.bot.pool.fetchrow(query, member.id)
 
@@ -152,7 +152,7 @@ class Profile():
 
         await self.bot.pool.execute(query, ctx.author.id, *fields.values())
         av = ctx.author.avatar_url_as(format='png', size=1024)
-        await self.bot.pool.execute(f'update profiles set name="{ctx.author.name}#{ctx.author.discriminator}" pfp="{av}" where id={ctx.author.id}')
+        await self.bot.pool.execute(f'update profiles set name=\'{ctx.author.name}#{ctx.author.discriminator}\', pfp=\'{av}\' where id={ctx.author.id}')
 
     async def edit_user_field(self, member, ctx, **fields):
         keys = ', '.join(fields)
@@ -165,7 +165,7 @@ class Profile():
 
         await self.bot.pool.fetchrow(query, member.id, *fields.values())
         av = member.avatar_url_as(format='png', size=1024)
-        await self.bot.pool.execute(f'update profiles set name="{member.name}#{member.discriminator}" pfp="{av}" where id={member.id}')
+        await self.bot.pool.execute(f'update profiles set name=\'{member.name}#{member.discriminator}\', pfp=\'{av}\' where id={member.id}')
 
     @commands.command(hidden=True)
     async def banners(self, ctx):
