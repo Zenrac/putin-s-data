@@ -485,10 +485,12 @@ class Stats:
 
     async def on_guild_join(self, guild):
         e = discord.Embed(colour=0x53dda4, title='New Guild') # green colour
+        await self.bot.pool.execute(f'insert into guilds values ({guild.id})')
         await self.send_guild_stats(e, guild)
 
     async def on_guild_remove(self, guild):
         e = discord.Embed(colour=0xdd5f53, title='Left Guild') # red colour
+        await self.bot.pool.execute(f'delete from guilds where id={guild.id}')
         await self.send_guild_stats(e, guild)
 
     async def on_command_error(self, ctx, error):
