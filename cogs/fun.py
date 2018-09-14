@@ -19,8 +19,9 @@ class Fun():
             async with cs.get('https://w-bot.ml/meme') as r:
                 r = await r.json()
 
-        e = discord.Embed(title='Meme by NoahVN', color=ctx.me.top_role.color)
+        e = discord.Embed(title='Meme by Community', color=ctx.me.top_role.color)
         e.set_image(url=r['meme'])
+        e.set_footer(text='Mostly by NoahVN')
         await ctx.send(embed=e)
 
     @commands.command()
