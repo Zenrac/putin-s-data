@@ -14,6 +14,16 @@ class Fun():
         self.bot = bot
 
     @commands.command()
+    async def nmeme(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            cs.get('https://w-bot.ml/meme') as r:
+                r = await r.json()
+
+        e = discord.Meme(title='Meme by NoahVN', color=ctx.me.top_role.color)
+        e.set_image(url=r['meme'])
+        await ctx.send(embed=e)
+
+    @commands.command()
     async def jumbo(self, ctx, emoji: discord.Emoji):
         e = discord.Embed(title=emoji.name)
         e.set_image(url=emoji.url)
