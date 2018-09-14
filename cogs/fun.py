@@ -16,7 +16,7 @@ class Fun():
     @commands.command()
     async def nmeme(self, ctx):
         async with aiohttp.ClientSession() as cs:
-            cs.get('https://w-bot.ml/meme') as r:
+            async with cs.get('https://w-bot.ml/meme') as r:
                 r = await r.json()
 
         e = discord.Meme(title='Meme by NoahVN', color=ctx.me.top_role.color)
