@@ -615,7 +615,7 @@ class Mod():
         In order for this to work, the bot must have Kick Member permissions.
         To use this command you must have Kick Members permission.
         """
-        kick_perms = ctx.guild.permissoins_for(member)
+        kick_perms = ctx.channel.permissoins_for(member)
         if kick_perms.manage_guild or kick_perms.administrator:
             return await ctx.send('This member has manage server or administrator permissions.\n'\
                                   'I can\'t kick this member.')
