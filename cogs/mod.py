@@ -615,6 +615,10 @@ class Mod():
         In order for this to work, the bot must have Kick Member permissions.
         To use this command you must have Kick Members permission.
         """
+        kick_perms = ctx.guild.permissoins_for(member)
+        if kick_perms.manage_guild or kick_perms.administrator:
+            return await ctx.send('This member has manage server or administrator permissions.\n'\
+                                  'I can\'t kick this member.')
         if member is None:
             cmd = self.bot.get_command('help')
             return await ctx.invoke(cmd, command=ctx.command)
