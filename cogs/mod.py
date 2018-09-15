@@ -615,8 +615,8 @@ class Mod():
         In order for this to work, the bot must have Kick Member permissions.
         To use this command you must have Kick Members permission.
         """
-        kick_perms = ctx.channel.permissions_for(member)
-        if kick_perms.manage_guild or kick_perms.administrator:
+        _perms = ctx.channel.permissions_for(member)
+        if _perms.manage_guild or _perms.administrator:
             return await ctx.send('This member has manage server or administrator permissions.\n'\
                                   'I can\'t kick this member.')
         if member is None:
@@ -638,7 +638,10 @@ class Mod():
         In order for this to work, the bot must have Ban Member permissions.
         To use this command you must have Ban Members permission.
         """
-
+        _perms = ctx.channel.permissions_for(member)
+        if _perms.manage_guild or _perms.administrator:
+            return await ctx.send('This member has manage server or administrator permissions.\n'\
+                                  'I can\'t ban this member.')
         if reason is None:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
 
