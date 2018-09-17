@@ -7,7 +7,6 @@ from discord.utils import find, get
 import datetime
 import asyncio
 import aiohttp
-# from .utils import db
 
 class DisLogs:
     def __init__(self, bot):
@@ -53,12 +52,6 @@ class DisLogs:
         e.timestamp = datetime.datetime.utcnow()
 
         await send_channel.send(embed=e)
-
-    # async def post(content):
-    #     async with aiohttp.ClientSession() as session:
-    #         async with session.post("https://hastebin.com/documents",data=content.encode('utf-8')) as post:
-    #             post = await post.json()
-    #             return "https://hastebin.com/{}".format(post['key'])
 
     async def on_message_edit(self, before, after):
         if before.author.bot: return
