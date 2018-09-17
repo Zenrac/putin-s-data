@@ -31,40 +31,40 @@ class AFK:
 			h, m = divmod(m, 60)
 		if h:
 			if h >= 2:
-				hours = f'{h}hours '
+				hours = f'{h} hours '
 			elif h == 0:
 				hours = ''
 			else:
-				hours = f'{h}hour '
+				hours = f'{h} hour '
 			##########################
 			if m >= 2:
-				minutes = f'{m}minutes '
+				minutes = f'{m} minutes '
 			elif m == 0:
 				minutes = ''
 			else:
-				minutes = f'{m}minute '
+				minutes = f'{m} minute '
 			##########################
 			if s >= 2:
-				seconds = f'{s}seconds'
+				seconds = f'{s} seconds'
 			elif s == 0:
 				seconds = ''
 			else:
-				seconds = f'{s}second'
+				seconds = f'{s} second'
 			total_length = hours + minutes + seconds
 		else:
 			if m >= 2:
-				minutes = f'{m}minutes '
+				minutes = f'{m} minutes '
 			elif m == 0:
 				minutes = ''
 			else:
-				minutes = f'{m}minute '
+				minutes = f'{m} minute '
 			##########################
 			if s >= 2:
-				seconds = f'{s}seconds'
+				seconds = f'{s} seconds'
 			elif s == 0:
 				seconds = ''
 			else:
-				seconds = f'{s}second'
+				seconds = f'{s} second'
 			hours = ''
 		await self.bot.pool.execute(f'delete from afk where id={message.author.id};')
 		try:
