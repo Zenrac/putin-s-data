@@ -19,6 +19,19 @@ class AFK:
 
 	async def on_message(self, message):
 		if message.author.bot: return
+		if message.mentions:
+			mentions = []
+			reasons = []
+			for mention in message.mentions:
+				if isinstance(mention, discord.Member):
+					mentions.append(mention.display_name)
+					reason = await self.bot.pool.fetchrow(f'select reason from afk where id={mention.id}')
+					name = message.guild.get_member(mention.id)
+					reasons.append(reason[0], name)
+			mentions = ", ".join(mentions)
+			reasons = "\n".join(f'{name}: {reason}' for name, reason in reasons)
+			many = 'is' if len(mentions) == 1 else 'are'
+			await message.channel.send(f'{mention} {many} afk.\nReasons:\n```{reasons}```')
 		record = await self.bot.pool.fetchrow(f'select * from afk where id={message.author.id};')
 		if not record: return
 		if not record[0]: return
@@ -67,11 +80,9 @@ class AFK:
 				seconds = f'{s} second'
 			hours = ''
 		await self.bot.pool.execute(f'delete from afk where id={message.author.id};')
-		try:
-			await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
-									   f'I removed your afk status. You were afk for {hours}{minutes}{seconds}.')
-		except Exception as e:
-			await message.channel.send(e)
+		await message.channel.send(
+			f'Good to see you again {message.author.display_name}!\n'
+			f'I removed your afk status. You were afk for {hours}{minutes}{seconds}.')
 
 def setup(bot):
 	bot.add_cog(AFK(bot))
