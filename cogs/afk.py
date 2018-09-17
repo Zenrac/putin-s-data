@@ -19,6 +19,7 @@ class AFK:
 
 	async def on_message(self, message):
 		if message.author.bot: return
+		try:
 		if message.mentions:
 			mentions = []
 			reasons = []
@@ -32,6 +33,8 @@ class AFK:
 			reasons = "\n".join(f'{name}: {reason}' for name, reason in reasons)
 			many = 'is' if len(mentions) == 1 else 'are'
 			await message.channel.send(f'{mention} {many} afk.\nReasons:\n```{reasons}```')
+		except Exception as e:
+			await message.channel.send(e)
 		record = await self.bot.pool.fetchrow(f'select * from afk where id={message.author.id};')
 		if not record: return
 		if not record[0]: return
