@@ -21,7 +21,7 @@ class AFK:
 		try:
 			record = await self.bot.pool.execute(f'select reason, when from afk where id={message.author.id};')
 		except Exception as e:
-			if message.channel.id = 482188217400033280:
+			if message.channel.id == 482188217400033280:
 				await message.channel.send(e)
 		if not record: return
 		if not record[0]: return
