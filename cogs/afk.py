@@ -31,8 +31,8 @@ class AFK:
 					reasons.append((reason[0], name))
 			many = 'is' if len(mentions) == 1 else 'are'
 			s = '' if len(mentions) == 1 else 's'
-			mentions = ", ".join(mentions)
 			reasons = "\n".join(f'{name}: {reason}' for name, reason in reasons)
+			mentions = ", ".join(mentions)
 			await message.channel.send(f'{mention} {many} afk.\nReason{s}:\n```{reasons}```')
 		record = await self.bot.pool.fetchrow(f'select * from afk where id={message.author.id};')
 		if not record: return
