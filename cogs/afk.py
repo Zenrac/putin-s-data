@@ -15,7 +15,7 @@ class AFK:
 		if '@' in reason:
 			return await ctx.send('You can\'t have `@` in the reason.')
 		await ctx.db.execute(f'insert into afk values({ctx.author.id}, \'{reason}\', \'{when}\')')
-		await ctx.send(f'Have nice time away fromyour keyboard {ctx.author.display_name} :wave:')
+		await ctx.send(f'Have nice time away from your keyboard {ctx.author.display_name} :wave:')
 
 	async def on_message(self, message):
 		try:
@@ -23,13 +23,17 @@ class AFK:
 		except Exception as e:
 			if message.channel.id == 482188217400033280:
 				await message.channel.send(e)
-		if not record: return
-		if not record[0]: return
-		await self.bot.pool.execute(f'delete from afk where id={message.id};')
-		when = eval(record[2])
-		afktime = dtime.utcnow() - when
-		await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
-								   f'I removed your afk status. You were afk for {afktime}.')
+		try:
+			if not record: return
+			if not record[0]: return
+			await self.bot.pool.execute(f'delete from afk where id={message.id};')
+			when = eval(record[2])
+			afktime = dtime.utcnow() - when
+			await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
+									   f'I removed your afk status. You were afk for {afktime}.')
+		except Exception as e:
+			if message.channel.id == 482188217400033280:
+				await message.channel.send(e)
 
 def setup(bot):
 	bot.add_cog(AFK(bot))
