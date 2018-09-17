@@ -32,6 +32,7 @@ class AFK:
 						reasons.append((reason[0], name))
 				mentions = ", ".join(mentions)
 				reasons = "\n".join(f'{name}: {reason}' for name, reason in reasons)
+				await message.channel.send(len(mentions))
 				many = 'is' if len(mentions) == 1 else 'are'
 				await message.channel.send(f'{mention} {many} afk.\nReasons:\n```{reasons}```')
 		except Exception as e:
