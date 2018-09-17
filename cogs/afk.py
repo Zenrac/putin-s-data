@@ -26,9 +26,10 @@ class AFK:
 				await message.channel.send(e)
 		if not record: return
 		if not record[0]: return
-		await self.bot.pool.execute(f'delete from afk where id={message.author.id};')
 		when = eval(record[2])
 		afktime = dtime.utcnow() - when
+		if afktime.seconds = 0: return
+		await self.bot.pool.execute(f'delete from afk where id={message.author.id};')
 		await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
 								   f'I removed your afk status. You were afk for {afktime.seconds}.')
 
