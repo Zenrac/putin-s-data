@@ -25,8 +25,8 @@ class AFK:
 		when = eval(record[2])
 		afktime = dtime.utcnow() - when
 		if afktime.seconds == 0: return
-		m, s = divmod(round(total_length/1000), 60)
-        h = None
+		m, s = divmod(afktime.seconds, 60)
+		h = None
 		if m >= 60:
 			h, m = divmod(m, 60)
 		if h:
