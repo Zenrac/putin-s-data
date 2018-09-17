@@ -25,9 +25,49 @@ class AFK:
 		when = eval(record[2])
 		afktime = dtime.utcnow() - when
 		if afktime.seconds == 0: return
+		m, s = divmod(round(total_length/1000), 60)
+        h = None
+        if m >= 60:
+            h, m = divmod(m, 60)
+        if h:
+            if h >= 2:
+                hours = f'{h}hours '
+            elif h == 0:
+                hours = ''
+            else:
+                hours = f'{h}hour '
+            ##########################
+            if m >= 2:
+                minutes = f'{m}minutes '
+            elif m == 0:
+                minutes = ''
+            else:
+                minutes = f'{m}minute '
+            ##########################
+            if s >= 2:
+                seconds = f'{s}seconds'
+            elif s == 0:
+                seconds = ''
+            else:
+                seconds = f'{s}second'
+            total_length = hours + minutes + seconds
+        else:
+            if m >= 2:
+                minutes = f'{m}minutes '
+            elif m == 0:
+                minutes = ''
+            else:
+                minutes = f'{m}minute '
+            ##########################
+            if s >= 2:
+                seconds = f'{s}seconds'
+            elif s == 0:
+                seconds = ''
+            else:
+                seconds = f'{s}second'
 		await self.bot.pool.execute(f'delete from afk where id={message.author.id};')
 		await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
-								   f'I removed your afk status. You were afk for {afktime.seconds}.')
+								   f'I removed your afk status. You were afk for {hours}{minutes}{seconds}.')
 
 def setup(bot):
 	bot.add_cog(AFK(bot))
