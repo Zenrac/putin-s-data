@@ -19,11 +19,7 @@ class AFK:
 
 	async def on_message(self, message):
 		if message.author.bot: return
-		try:
-			record = await self.bot.pool.fetchrow(f'select * from afk where id={message.author.id};')
-		except Exception as e:
-			if message.channel.id == 482188217400033280:
-				await message.channel.send(e)
+		record = await self.bot.pool.fetchrow(f'select * from afk where id={message.author.id};')
 		if not record: return
 		if not record[0]: return
 		when = eval(record[2])
