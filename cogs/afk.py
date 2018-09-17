@@ -29,12 +29,12 @@ class AFK:
 		await self.bot.pool.execute(f'delete from afk where id={message.id};')
 		try:
 			when = eval(record[2])
-			afktime = dtime.utcnow() - when
-			await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
-									   f'I removed your afk status. You were afk for {afktime}.')
 		except Exception as e:
 			if message.channel.id == 482188217400033280:
 				await message.channel.send(e)
+		afktime = dtime.utcnow() - when
+		await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
+								   f'I removed your afk status. You were afk for {afktime.seconds}.')
 
 def setup(bot):
 	bot.add_cog(AFK(bot))
