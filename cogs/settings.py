@@ -263,7 +263,7 @@ class Settings():
                 await message.delete()
                 await message.channel.send('Don\'t advertise here dude.', delete_after=10)
                 try:
-                    send_channel = discord.utils.get(message.guild.text_channels, name='putin-logging')
+                    send_channel = discord.utils.get(message.guild.text_channels, name='W.Bot-logging')
                     await send_channel.send(f'{message.author.display_name} was advertising in {message.channel.mention} message content was:\n{message.clean_content}')
                 except:
                     return
@@ -274,7 +274,7 @@ class Settings():
                 await message.delete()
                 await message.channel.send('Don\'t advertise here dude.', delete_after=10)
                 try:
-                    send_channel = discord.utils.get(message.guild.text_channels, name='putin-logging')
+                    send_channel = discord.utils.get(message.guild.text_channels, name='W.Bot-logging')
                     await send_channel.send(f'{message.author.display_name} was advertising in {message.channel.mention} message content was:\n{message.clean_content}')
                 except:
                     return

@@ -21,7 +21,7 @@ class DisLogs:
     async def on_message_delete(self, message):
         if message.author.bot: return
         try:
-            send_channel = get(message.guild.text_channels, name='putin-logging')
+            send_channel = get(message.guild.text_channels, name='w-bot-logging')
         except:
             return
         if send_channel is None: return
@@ -56,7 +56,7 @@ class DisLogs:
     async def on_message_edit(self, before, after):
         if before.author.bot: return
         try:
-            send_channel = get(before.guild.text_channels, name='putin-logging')
+            send_channel = get(before.guild.text_channels, name='w-bot-logging')
         except:
             return
         if send_channel is None: return
@@ -73,7 +73,7 @@ class DisLogs:
 
     async def on_member_join(self, member):
         try:
-            send_channel = get(member.guild.text_channels, name='putin-logging')
+            send_channel = get(member.guild.text_channels, name='w-bot-logging')
         except:
             return
         if send_channel is None: return
@@ -95,7 +95,7 @@ class DisLogs:
         
     async def on_member_leave(self, member):
         try:
-            send_channel = get(member.guild.text_channels, name='putin-logging')
+            send_channel = get(member.guild.text_channels, name='w-bot-logging')
         except:
             return
         if send_channel is None: return
@@ -111,7 +111,7 @@ class DisLogs:
 
     async def on_member_remove(self, member):
         try:
-            send_channel = get(member.guild.text_channels, name='putin-logging')
+            send_channel = get(member.guild.text_channels, name='w-bot-logging')
         except:
             return
         if send_channel is None: return
@@ -140,7 +140,7 @@ class DisLogs:
 
     async def on_member_ban(self, guild, member):
         try:
-            send_channel = get(member.guild.text_channels, name='putin-logging')
+            send_channel = get(member.guild.text_channels, name='w-bot-logging')
         except:
             return
         if send_channel is None: return
@@ -163,7 +163,7 @@ class DisLogs:
 
     async def on_member_unban(self, guild, user):
         try:
-            send_channel = get(user.guild.text_channels, name='putin-logging')
+            send_channel = get(user.guild.text_channels, name='w-bot-logging')
         except:
             return
         if send_channel is None: return
@@ -185,7 +185,7 @@ class DisLogs:
 
     async def on_command(self, ctx):
         try:
-            channel = get(ctx.guild.channels, name='putin-logging')
+            channel = get(ctx.guild.channels, name='w-bot-logging')
         except:
             pass
         data = await self.bot.pool.fetchrow(f'select log_commands from settings where id={ctx.guild.id}')

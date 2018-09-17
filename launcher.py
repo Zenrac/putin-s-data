@@ -7,7 +7,7 @@ import discord
 import importlib
 import contextlib
 
-from bot import Putin, INITIAL_EXTENSIONS
+from bot import WBot, INITIAL_EXTENSIONS
 from cogs.utils.db import Table
 
 from pathlib import Path
@@ -31,7 +31,7 @@ def setup_logging():
 
         log = logging.getLogger()
         log.setLevel(logging.INFO)
-        handler = logging.FileHandler(filename='putin.log', encoding='utf-8', mode='w')
+        handler = logging.FileHandler(filename='WBot.log', encoding='utf-8', mode='w')
         dt_fmt = '%Y-%m-%d %H:%M:%S'
         fmt = logging.Formatter('[{asctime}] [{levelname:<7}] {name}: {message}', dt_fmt, style='{')
         handler.setFormatter(fmt)
@@ -56,7 +56,7 @@ def run_bot():
         # log.exception('Could not set up PostgreSQL. Exiting.')
         return
 
-    bot = Putin()
+    bot = WBot()
     bot.pool = pool
     bot.run()
 

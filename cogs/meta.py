@@ -138,7 +138,7 @@ class Meta:
         self.fortnite = Fortnite('274e0176-875b-400a-a7b4-fa2567990fda')
         self._spoiler_cache = LRU(128)
         self._spoiler_cooldown = SpoilerCooldown()
-        self.client = clever.CleverBot(user='9FZVmdY47TEthPLe', key='zl3Fuk2Kx2Nis2YvbaIeMhMdoYRdKA7N', nick="Putin")
+        self.client = clever.CleverBot(user='9FZVmdY47TEthPLe', key='zl3Fuk2Kx2Nis2YvbaIeMhMdoYRdKA7N', nick="W.Bot")
 
     @commands.command()
     @checks.has_permissions(send_tts_messages=True)

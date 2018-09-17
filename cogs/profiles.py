@@ -969,7 +969,7 @@ class Profile():
 
     @buy.command()
     async def bronze(self, ctx):
-        """Buys a Putin market Bronze role. You can not sell this after buying."""
+        """Buys a W.Bot market Bronze role. You can not sell this after buying."""
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
@@ -978,25 +978,25 @@ class Profile():
         if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
-            if role.name == 'Putin Bronze':
+            if role.name == 'W.Bot Bronze':
                 return await ctx.send('Why\'d you buy this role again?')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
         if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
         if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
         try:
-            role = discord.utils.get(ctx.guild.roles, name='Putin Bronze')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Bronze')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='Putin Bronze', color=discord.Color.from_rgb(145, 44, 7), reason='Putin Market Buyable role.', mentionable=False)
-                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-                    return await ctx.send('Bought Putin Bronze role.')
+                    role = await ctx.guild.create_role(name='W.Bot Bronze', color=discord.Color.from_rgb(145, 44, 7), reason='W.Bot Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+                    return await ctx.send('Bought W.Bot Bronze role.')
                 except discord.Forbidden:
                     return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
-            role = discord.utils.get(ctx.guild.roles, name='Putin Bronze')
-            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-            await ctx.send('Bought Putin Bronze role.')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Bronze')
+            await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+            await ctx.send('Bought W.Bot Bronze role.')
         except discord.Forbidden:
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
@@ -1006,7 +1006,7 @@ class Profile():
 
     @buy.command()
     async def silver(self, ctx):
-        """Buys a Putin market Silver role. You can not sell this after buying."""
+        """Buys a W.Bot market Silver role. You can not sell this after buying."""
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
@@ -1015,25 +1015,25 @@ class Profile():
         if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
-            if role.name == 'Putin Silver':
+            if role.name == 'W.Bot Silver':
                 return await ctx.send('Why\'d you buy this role again?')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
         if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
         if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
         try:
-            role = discord.utils.get(ctx.guild.roles, name='Putin Silver')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Silver')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='Putin Silver', color=discord.Color.from_rgb(144, 159, 165), reason='Putin Market Buyable role.', mentionable=False)
-                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-                    return await ctx.send('Bought Putin Silver role.')
+                    role = await ctx.guild.create_role(name='W.Bot Silver', color=discord.Color.from_rgb(144, 159, 165), reason='W.Bot Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+                    return await ctx.send('Bought W.Bot Silver role.')
                 except discord.Forbidden:
                     return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
-            role = discord.utils.get(ctx.guild.roles, name='Putin Silver')
-            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-            await ctx.send('Bought Putin Silver role.')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Silver')
+            await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+            await ctx.send('Bought W.Bot Silver role.')
         except discord.Forbidden:
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
@@ -1043,7 +1043,7 @@ class Profile():
 
     @buy.command()
     async def gold(self, ctx):
-        """Buys a Putin market Gold role. You can not sell this after buying."""
+        """Buys a W.Bot market Gold role. You can not sell this after buying."""
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
@@ -1052,25 +1052,25 @@ class Profile():
         if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
-            if role.name == 'Putin Gold':
+            if role.name == 'W.Bot Gold':
                 return await ctx.send('Why\'d you buy this role again?')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
         if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
         if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
         try:
-            role = discord.utils.get(ctx.guild.roles, name='Putin Gold')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Gold')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='Putin Gold', color=discord.Color.from_rgb(209, 150, 33), reason='Putin Market Buyable role.', mentionable=False)
-                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-                    return await ctx.send('Bought Putin Gold role.')
+                    role = await ctx.guild.create_role(name='W.Bot Gold', color=discord.Color.from_rgb(209, 150, 33), reason='W.Bot Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+                    return await ctx.send('Bought W.Bot Gold role.')
                 except discord.Forbidden:
                     return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
-            role = discord.utils.get(ctx.guild.roles, name='Putin Gold')
-            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-            await ctx.send('Bought Putin Gold role.')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Gold')
+            await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+            await ctx.send('Bought W.Bot Gold role.')
         except discord.Forbidden:
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
@@ -1081,7 +1081,7 @@ class Profile():
 
     @buy.command()
     async def blue(self, ctx):
-        """Buys a Putin market Blue role. You can not sell this after buying."""
+        """Buys a W.Bot market Blue role. You can not sell this after buying."""
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
@@ -1090,25 +1090,25 @@ class Profile():
         if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
-            if role.name == 'Putin Blue':
+            if role.name == 'W.Bot Blue':
                 return await ctx.send('Why\'d you buy this role again?')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
         if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
         if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
         try:
-            role = discord.utils.get(ctx.guild.roles, name='Putin Blue')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Blue')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='Putin Blue', color=discord.Color.from_rgb(66, 134, 244), reason='Putin Market Buyable role.', mentionable=False)
-                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-                    return await ctx.send('Bought Putin Blue role.')
+                    role = await ctx.guild.create_role(name='W.Bot Blue', color=discord.Color.from_rgb(66, 134, 244), reason='W.Bot Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+                    return await ctx.send('Bought W.Bot Blue role.')
                 except discord.Forbidden:
                     return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
-            role = discord.utils.get(ctx.guild.roles, name='Putin Blue')
-            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-            await ctx.send('Bought Putin Blue role.')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Blue')
+            await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+            await ctx.send('Bought W.Bot Blue role.')
         except discord.Forbidden:
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
@@ -1118,7 +1118,7 @@ class Profile():
 
     @buy.command()
     async def red(self, ctx):
-        """Buys a Putin market Red role. You can not sell this after buying."""
+        """Buys a W.Bot market Red role. You can not sell this after buying."""
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
@@ -1127,25 +1127,25 @@ class Profile():
         if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
-            if role.name == 'Putin Red':
+            if role.name == 'W.Bot Red':
                 return await ctx.send('Why\'d you buy this role again?')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
         if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
         if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
         try:
-            role = discord.utils.get(ctx.guild.roles, name='Putin Red')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Red')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='Putin Red', color=discord.Color.from_rgb(183, 14, 14), reason='Putin Market Buyable role.', mentionable=False)
-                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-                    return await ctx.send('Bought Putin Red role.')
+                    role = await ctx.guild.create_role(name='W.Bot Red', color=discord.Color.from_rgb(183, 14, 14), reason='W.Bot Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+                    return await ctx.send('Bought W.Bot Red role.')
                 except discord.Forbidden:
                     return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
-            role = discord.utils.get(ctx.guild.roles, name='Putin Red')
-            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-            await ctx.send('Bought Putin Red role.')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Red')
+            await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+            await ctx.send('Bought W.Bot Red role.')
         except discord.Forbidden:
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
@@ -1155,7 +1155,7 @@ class Profile():
 
     @buy.command()
     async def black(self, ctx):
-        """Buys a Putin market Black role. You can not sell this after buying."""
+        """Buys a W.Bot market Black role. You can not sell this after buying."""
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
@@ -1164,25 +1164,25 @@ class Profile():
         if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
-            if role.name == 'Putin Black':
+            if role.name == 'W.Bot Black':
                 return await ctx.send('Why\'d you buy this role again?')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
         if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
         if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
         try:
-            role = discord.utils.get(ctx.guild.roles, name='Putin Black')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Black')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='Putin Black', color=discord.Color.from_rgb(22, 22, 22), reason='Putin Market Buyable role.', mentionable=False)
-                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-                    return await ctx.send('Bought Putin Black role.')
+                    role = await ctx.guild.create_role(name='W.Bot Black', color=discord.Color.from_rgb(22, 22, 22), reason='W.Bot Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+                    return await ctx.send('Bought W.Bot Black role.')
                 except discord.Forbidden:
                     return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
-            role = discord.utils.get(ctx.guild.roles, name='Putin Black')
-            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-            await ctx.send('Bought Putin Black role.')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Black')
+            await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+            await ctx.send('Bought W.Bot Black role.')
         except discord.Forbidden:
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:
@@ -1192,7 +1192,7 @@ class Profile():
 
     @buy.command()
     async def green(self, ctx):
-        """Buys a Putin market Green role. You can not sell this after buying."""
+        """Buys a W.Bot market Green role. You can not sell this after buying."""
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if profile is None:
@@ -1201,25 +1201,25 @@ class Profile():
         if cash < 10000:
             return await ctx.send('You do not have enough money to buy this role.')
         for role in ctx.author.roles:
-            if role.name == 'Putin Green':
+            if role.name == 'W.Bot Green':
                 return await ctx.send('Why\'d you buy this role again?')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
         if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
         if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
         try:
-            role = discord.utils.get(ctx.guild.roles, name='Putin Green')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Green')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='Putin Green', color=discord.Color.from_rgb(101, 206, 41), reason='Putin Market Buyable role.', mentionable=False)
-                    await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-                    return await ctx.send('Bought Putin Green role.')
+                    role = await ctx.guild.create_role(name='W.Bot Green', color=discord.Color.from_rgb(101, 206, 41), reason='W.Bot Market Buyable role.', mentionable=False)
+                    await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+                    return await ctx.send('Bought W.Bot Green role.')
                 except discord.Forbidden:
                     return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
-            role = discord.utils.get(ctx.guild.roles, name='Putin Green')
-            await ctx.author.add_roles(role, reason='Putin Market Buyable role.')
-            await ctx.send('Bought Putin Green role.')
+            role = discord.utils.get(ctx.guild.roles, name='W.Bot Green')
+            await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
+            await ctx.send('Bought W.Bot Green role.')
         except discord.Forbidden:
             return await ctx.send('I couldn\'t add the role to you.')
         except Exception as e:

@@ -20,7 +20,7 @@ import config
 print("[INFO] Discord version: " + discord.__version__)
 
 DESCRIPTION = """
-Hello I am Putin. I hope to see you soon at Russia.
+Hello I am W.Bot. I hope to see you soon at Russia.
 """
 
 INITIAL_EXTENSIONS = [
@@ -61,7 +61,7 @@ def _prefix_callable(bot, msg):
         # base.append('.')
     return base
 
-class Putin(commands.AutoShardedBot):
+class WBot(commands.AutoShardedBot):
     """Discord bot made by iWeeti#4990."""
     def __init__(self):
         super().__init__(command_prefix=_prefix_callable,
@@ -122,7 +122,7 @@ class Putin(commands.AutoShardedBot):
         if guild.id == 421630709585805312:
             return
         try:
-            channel = await guild.create_text_channel('putin-logging')
+            channel = await guild.create_text_channel('w-bot-logging')
             overwrite = discord.PermissionOverwrite(read_messages=False)
             role = guild.default_role
             await channel.set_permissions(role, overwrite=overwrite)
@@ -231,12 +231,12 @@ class Putin(commands.AutoShardedBot):
     @commands.has_permissions(administrator=True)
     async def setup(self, ctx):
         """Sets up the logging channel."""
-        already = get(ctx.guild.channels, name='putin-logging')
+        already = get(ctx.guild.channels, name='w-bot-logging')
         if already:
             return await ctx.send('Seems that you already have a'
-                                  ' channel called ``putin-logging`` please'
+                                  ' channel called ``w-bot-logging`` please'
                                   ' delete it to set me up.')
-        channel = await ctx.guild.create_text_channel('putin-logging')
+        channel = await ctx.guild.create_text_channel('w-bot-logging')
         overwrite = discord.PermissionOverwrite(read_messages=False)
         role = ctx.guild.default_role
         await channel.set_permissions(role, overwrite=overwrite)
