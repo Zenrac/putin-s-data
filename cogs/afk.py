@@ -18,6 +18,7 @@ class AFK:
 		await ctx.send(f'Have nice time away from your keyboard {ctx.author.display_name} :wave:')
 
 	async def on_message(self, message):
+		if message.author.bot: return
 		try:
 			record = await self.bot.pool.execute(f'select * from afk where id={message.author.id};')
 		except Exception as e:
