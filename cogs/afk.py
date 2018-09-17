@@ -66,9 +66,11 @@ class AFK:
 			else:
 				seconds = f'{s}second'
 		await self.bot.pool.execute(f'delete from afk where id={message.author.id};')
-		await message.channel.send('Removed your afk.')
-			# f'Good to see you again {message.author.display_name}!\n'
-			# 					   f'I removed your afk status. You were afk for {hours}{minutes}{seconds}.')
+		try:
+			await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
+									   f'I removed your afk status. You were afk for {hours}{minutes}{seconds}.')
+		except Exception as e:
+			await message.channel.send(e)
 
 def setup(bot):
 	bot.add_cog(AFK(bot))
