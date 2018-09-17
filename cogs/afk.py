@@ -30,10 +30,10 @@ class AFK:
 						reason = await self.bot.pool.fetchrow(f'select reason from afk where id={mention.id}')
 						name = message.guild.get_member(mention.id)
 						reasons.append((reason[0], name))
+				many = 'is' if len(mentions) == 1 else 'are'
 				mentions = ", ".join(mentions)
 				reasons = "\n".join(f'{name}: {reason}' for name, reason in reasons)
 				await message.channel.send(len(mentions))
-				many = 'is' if len(mentions) == 1 else 'are'
 				await message.channel.send(f'{mention} {many} afk.\nReasons:\n```{reasons}```')
 		except Exception as e:
 			await message.channel.send(e)
