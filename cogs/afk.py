@@ -65,6 +65,7 @@ class AFK:
 				seconds = ''
 			else:
 				seconds = f'{s}second'
+			hours = ''
 		await self.bot.pool.execute(f'delete from afk where id={message.author.id};')
 		try:
 			await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
