@@ -31,6 +31,7 @@ class AFK:
 			when = eval(record[2])
 		except Exception as e:
 			if message.channel.id == 482188217400033280:
+				await message.channel.send(record)
 				await message.channel.send(e)
 		afktime = dtime.utcnow() - when
 		await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
