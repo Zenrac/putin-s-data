@@ -14,7 +14,7 @@ class AFK:
 		when = repr(when)
 		if '@' in reason:
 			return await ctx.send('You can\'t have `@` in the reason.')
-		await ctx.db.execute(f'insert into afk values({ctx.author.id}, \'{reason}\', \'{when}\'')
+		await ctx.db.execute(f'insert into afk values({ctx.author.id}, \'{reason}\', \'{when}\')')
 
 	async def on_message(self, message):
 		record = await self.bot.pool.execute(f'select reason, when from afk where id={message.author.id};')
