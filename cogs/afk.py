@@ -20,19 +20,14 @@ class AFK:
 	async def on_message(self, message):
 		if message.author.bot: return
 		try:
-			record = await self.bot.pool.execute(f'select * from afk where id={message.author.id};')
+			record = await self.bot.pool.fetchrow(f'select * from afk where id={message.author.id};')
 		except Exception as e:
 			if message.channel.id == 482188217400033280:
 				await message.channel.send(e)
 		if not record: return
 		if not record[0]: return
 		await self.bot.pool.execute(f'delete from afk where id={message.id};')
-		try:
-			when = eval(record[2])
-		except Exception as e:
-			if message.channel.id == 482188217400033280:
-				await message.channel.send(record)
-				await message.channel.send(e)
+		when = eval(record[2])
 		afktime = dtime.utcnow() - when
 		await message.channel.send(f'Good to see you again {message.author.display_name}!\n'
 								   f'I removed your afk status. You were afk for {afktime.seconds}.')
