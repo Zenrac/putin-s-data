@@ -29,7 +29,7 @@ class AFK:
 						mentions.append(mention.display_name)
 						reason = await self.bot.pool.fetchrow(f'select reason from afk where id={mention.id}')
 						name = message.guild.get_member(mention.id)
-						reasons.append(reason[0], name)
+						reasons.append((reason[0], name))
 				mentions = ", ".join(mentions)
 				reasons = "\n".join(f'{name}: {reason}' for name, reason in reasons)
 				many = 'is' if len(mentions) == 1 else 'are'
