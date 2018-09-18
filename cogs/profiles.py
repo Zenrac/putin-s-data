@@ -8,6 +8,7 @@ from .utils.paginator import Pages
 import datetime
 from datetime import datetime as dtime
 from datetime import timedelta
+from .utils import context
 
 class DisambiguateMember(commands.IDConverter):
     async def convert(self, ctx, argument):
@@ -1803,7 +1804,7 @@ class Profile():
 
     async def on_message(self, message):
         if message.author.bot: return
-        ctx = await self.bot.get_context(message)
+        ctx = await self.bot.get_context(message, cls=context.Context)
         profile = await self.get_profile(ctx, message.author.id)
         if not profile:
             return
