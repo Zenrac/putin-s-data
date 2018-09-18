@@ -88,7 +88,7 @@ class ProfileConfig:
     
     @property
     def is_ratelimited(self):
-        return eval(self.last_xp_time) >= dtime.utcnow() + timedelta(minutes=1)
+        return eval(self.last_xp_time) + timedelta(minutes=1) >= dtime.utcnow()
 
     async def edit_field(self, ctx, **fields):
         keys = ', '.join(fields)
