@@ -3,6 +3,10 @@ from googlesearch import search
 import wikipedia
 import urbandictionary as ud
 from urllib.parse import quote as uriquote
+from lxml import etree
+from lru import LRU
+import io
+import logging
 from .utils import checks
 
 class Search():
