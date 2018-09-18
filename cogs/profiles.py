@@ -68,7 +68,7 @@ class ProfileConfig:
         self.xp = record['experience']
         self.description = record['description']
         self.level = record['level']
-        self.last_xp_time = record['last_xp_time']
+        self.last_xp_time = record['last_xp_time'] or False
         self.married = record['married'] or 'Nobody...'
         self.cash = record['cash']
         self.picks = record['picks'] or ''
@@ -103,9 +103,25 @@ class ProfileConfig:
         await ctx.db.execute(f'update profiles set name=\'{ctx.author.name}#{ctx.author.discriminator}\','\
                                f'pfp=\'{av}\' where id={ctx.author.id}')
 
-    async def increase_xp(self):
+    async def increase_xp(self, ctx):
+        if self.is_ratelimited: return
+        if profile[0] == 0 or not profile[0]:
+            return await self.edit_field(ctx, experience=10)
+
+        if not self.last_xp_time:
+            _now = dtime.utcnow()
+            await self.edit_field(ctx, last_xp_time=repr(_now))
+        else:
+            last_xp_time = dtime.utcnow()
+            await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
         new_xp = self.xp  + random.randint(15, 25)
         await self.edit_field(self.ctx, experience=new_xp)
+        lvl = self.level
+        new_lvl = Profile._get_level_from_xp(exp)
+        await self.edit_field(ctx, level=new_lvl)
+        if new_lvl != lvl:
+            if self.announce_level:
+                await ctx.send(f'Good job {ctx.author.display_name} you just leveld up to level {new_lvl}!')
 
 
 class Profile():
@@ -127,7 +143,7 @@ class Profile():
 
     async def get_profile(self, ctx, id):
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
-        return ProfileConfig(ctx, record)
+        return ProfileConfig(ctx, record) or None
 
     @commands.group(invoke_without_command=True)
     async def profile(self, ctx, *, member: DisambiguateMember = None):
@@ -1774,37 +1790,17 @@ class Profile():
             member = ctx.author
 
         profile = await self.get_profile(ctx, member.id)
-        await ctx.send(f'You\'re on level {profile.level} and you have {profile.xp} experience.')
+
+        await ctx.send(f'{member.display_name} is on level {profile.level} and you have {profile.xp} experience.')
 
     async def on_message(self, message):
         if message.author.bot: return
-        query = """select experience, level, announce_level, last_xp_time from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, message.author.id)
         ctx = await self.bot.get_context(message)
+        profile = await self.get_profile(ctx, message.author.id)
         if not profile:
             return
-        if profile[0] == 0 or not profile[0]:
-            return await self.edit_field(ctx, experience=10)
-        last_xp_time = profile[3]
-        if not last_xp_time:
-            last_xp_time = dtime.utcnow()
-            await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
-        elif eval(last_xp_time) <= dtime.utcnow() + 60:
-            return
-        else:
-            last_xp_time = dtime.utcnow()
-            await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
-
-        exp = profile[0]
-        exp += random.randint(15, 25)
-        lvl = profile[1]
-        new_lvl = self._get_level_from_xp(exp)
-        await self.edit_field(ctx, experience=exp)
-        await self.edit_field(ctx, level=new_lvl)
-
-        if new_lvl != lvl:
-            if profile[2]:
-                await message.channel.send(f'Good job {message.author.display_name} you just leveld up to level {new_lvl}!')
+        
+        increased = await profile.increase_xp()
 
 def setup(bot):
     bot.add_cog(Profile(bot))
