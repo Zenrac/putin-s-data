@@ -65,6 +65,7 @@ class ProfileConfig:
         self.ctx = ctx
         self.id = record['id']
         self.xp = record['experience']
+        self.description = record['description']
         self.level = record['level']
         self.last_xp_time = record['last_xp_time']
         self.married = record['married'] or 'Nobody...'
@@ -84,7 +85,7 @@ class ProfileConfig:
         return f'Profile of {self.name}'
     
     @property
-    def is_rate_limited(self):
+    def is_ratelimited(self):
         return eval(self.last_xp_time) <= dtime.utcnow() + 60
 
     async def edit_field(self, ctx, **fields):
@@ -187,6 +188,7 @@ class Profile():
             14: 'https://cdn.pixabay.com/photo/2018/02/06/18/54/travel-3135436_960_720.jpg'
         }
         e.set_image(url=banners[banner])
+        e.set_footer(text=profile.is_ratelimited)
         e.add_field(name="Links", value=f"[Website](https://w-bot.ml/profile/?uid={member.id})")
         
         await ctx.send(embed=e)
