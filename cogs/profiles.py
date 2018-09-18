@@ -60,6 +60,38 @@ class DisambiguateMember(commands.IDConverter):
             raise commands.BadArgument("Could not find this member. Note this is case sensitive.")
         return result
 
+class ProfileConfig:
+    def __init__(self, ctx, record):
+        self.ctx = ctx
+        self.id = record['id']
+        self.xp = record['experience']
+        self.level = record['level']
+        self.last_xp_time = record['last_xp_time']
+    
+    @property
+    def is_rate_limited(self):
+        return eval(self.last_xp_time) <= dtime.utcnow() + 60
+
+    @staticmethod
+    async def edit_field(ctx, **fields):
+        keys = ', '.join(fields)
+        values = ', '.join(f'${2 + i}' for i in range(len(fields)))
+
+        query = f"""update profiles
+                    SET {keys} = {values}
+                    where id=$1;
+                 """
+
+        await self.ctx.execute(query, self.ctx.author.id, *fields.values())
+        av = self.ctx.author.avatar_url_as(format='png', size=1024)
+        await self.ctx.execute(f'update profiles set name=\'{self.ctx.author.name}#{self.ctx.author.discriminator}\','\
+                               f'pfp=\'{av}\' where id={self.ctx.author.id}')
+
+    async def increase_xp(self):
+        new_xp = self.xp  + random.randint(15, 25)
+        await self.edit_field(self.ctx, experience=new_xp)
+
+
 class Profile():
     def __init__(self, bot):
         self.bot = bot
@@ -76,6 +108,10 @@ class Profile():
             remaining_xp -= Profile._get_level_xp(level)
             level += 1
         return level
+
+    async def get_profile(self, id):
+        record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
+        return ProfileConfig(record)
 
     @commands.group(invoke_without_command=True)
     async def profile(self, ctx, *, member: DisambiguateMember = None):
@@ -1718,6 +1754,14 @@ class Profile():
     #     value = '\n'.join(f'{lookup[index]} **{_id}**: ``{exp}``' for (index, (_id, exp)) in enumerate(lb))
     #     e.add_field(name="Top global profiles by experience", value=value, inline=True)
     #     await ctx.send(embed=e)
+
+    @commands.command()
+    async def level(self, ctx, *, member:discord.Member=None):
+        if not member:
+            member = ctx.author
+
+        profile = await self.get_profile(member.id)
+        await ctx.send(f'You\'re on level {profile.level} and you have {profile.xp} experience.')
 
     async def on_message(self, message):
         if message.author.bot: return
