@@ -1719,7 +1719,7 @@ class Profile():
 
     async def on_message(self, message):
         if message.author.bot: return
-        query = """select experience, level from profiles where id=$1"""
+        query = """select experience, level, announce_level from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, message.author.id)
         ctx = await self.bot.get_context(message)
         if not profile:
@@ -1731,7 +1731,10 @@ class Profile():
         lvl = profile[1]
         new_lvl = self._get_level_from_xp(exp)
         await self.edit_field(ctx, experience=exp)
-        await self.edit_field(ctx, level=lvl)
+        await self.edit_field(ctx, level=new_lvl)
+        if new_lvl != lvl:
+            if profile[2]:
+                await message.channel.send(f'Good job {message.author.display_name} you just leveld up to level {new_lvl}!')
 
 def setup(bot):
     bot.add_cog(Profile(bot))
