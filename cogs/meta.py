@@ -20,7 +20,7 @@ import unicodedata
 from googletrans import Translator
 
 from pyfiglet import figlet_format
-
+import config
 
 from fortnite_python import Fortnite
 from fortnite_python.domain import Mode, Platform
@@ -155,6 +155,54 @@ class Meta:
         self._spoiler_cache = LRU(128)
         self._spoiler_cooldown = SpoilerCooldown()
         self.client = clever.CleverBot(user='9FZVmdY47TEthPLe', key='zl3Fuk2Kx2Nis2YvbaIeMhMdoYRdKA7N', nick="W.Bot")
+
+    @commands.command()
+    @commands.cooldown(rate=1, per=60.0, type=commands.BucketType.user)
+    async def feedback(self, ctx, *, content: str):
+        """Gives feedback about the bot.
+        This is a quick way to request features or bug fixes
+        without being in the bot's server.
+        The bot will communicate with you via PM about the status
+        of your request if possible.
+        You can only request feedback once a minute.
+        """
+
+        e = discord.Embed(title='Feedback', colour=0x738bd7)
+        channel = self.bot.get_channel(config.feedback)
+        if channel is None:
+            return
+
+        e.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
+        e.description = content
+        e.timestamp = ctx.message.created_at
+
+        if ctx.guild is not None:
+            e.add_field(name='Server', value=f'{ctx.guild.name} (ID: {ctx.guild.id})', inline=False)
+
+        e.add_field(name='Channel', value=f'{ctx.channel} (ID: {ctx.channel.id})', inline=False)
+        e.set_footer(text=f'Author ID: {ctx.author.id}')
+
+        await channel.send(embed=e)
+        await ctx.send(f'{ctx.tick(True)} Successfully sent feedback')
+
+    @commands.command()
+    @commands.is_owner()
+    async def dm(self, ctx, user_id: int, *, content: str):
+        user = self.bot.get_user(user_id)
+
+        fmt = content + '\n\n*This is a DM sent because you had previously requested feedback or I found a bug' \
+                        ' in a command you used, I do not monitor this DM.*'
+        try:
+            await user.send(fmt)
+        except:
+            await ctx.send(f'Could not DM user by ID {user_id}.')
+        else:
+            await ctx.send('DM successfully sent.')
+
+    @commands.command(hidden=True)
+    async def bored(self, ctx):
+        """boredom looms"""
+        await ctx.send('http://i.imgur.com/BuTKSzf.png')
 
     @commands.command(pass_context=True)
     @checks.mod_or_permissions(manage_messages=True)
