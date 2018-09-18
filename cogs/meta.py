@@ -1016,7 +1016,7 @@ class Meta:
             return await ctx.send('You didn\'t tell me what to suggest.')
         else:
             author = ctx.message.author
-            suggestion = self.bot.get_channel(484837399059365888)
+            suggestion = self.bot.get_channel(config.suggestions)
             embed = discord.Embed(title='Suggestion from: ', description='{}'.format(author.name), color=discord.Color.blue())
             embed.add_field(name="Command suggestion:", value=text, inline=True)
             await suggestion.send(embed=embed)

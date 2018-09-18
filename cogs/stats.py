@@ -9,10 +9,11 @@ import datetime
 import traceback
 import psutil
 import os
+import config
 
 log = logging.getLogger(__name__)
 
-LOGGING_CHANNEL = 482188217400033280
+LOGGING_CHANNEL = config.logging
 
 class Commands(db.Table):
     id = db.PrimaryKeyColumn()
