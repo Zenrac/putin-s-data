@@ -64,6 +64,19 @@ class Profile():
     def __init__(self, bot):
         self.bot = bot
 
+    @staticmethod
+    def _get_level_xp(n):
+        return 5*(n**2)+50*n+100
+
+    @staticmethod
+    def _get_level_from_xp(xp):
+        remaining_xp = int(xp)
+        level = 0
+        while remaining_xp >= Profile._get_level_xp(level):
+            remaining_xp -= Profile._get_level_xp(level)
+            level += 1
+        return level
+
     @commands.group(invoke_without_command=True)
     async def profile(self, ctx, *, member: DisambiguateMember = None):
         member = member or ctx.author
@@ -94,7 +107,8 @@ class Profile():
             ':writing_hand: Description': 'description',
             ':birthday: Birthday': 'bday',
             ':moneybag: Cash': 'cash',
-            ':zap: Experience': 'experience'
+            ':zap: Experience': 'experience',
+            ':medal: Level': 'level'
         }
         for key, value in keys.items():
             e.add_field(name=key, value=str(record[value]) or 'N/A', inline=True)
@@ -1704,19 +1718,6 @@ class Profile():
     #     value = '\n'.join(f'{lookup[index]} **{_id}**: ``{exp}``' for (index, (_id, exp)) in enumerate(lb))
     #     e.add_field(name="Top global profiles by experience", value=value, inline=True)
     #     await ctx.send(embed=e)
-
-    @staticmethod
-    def _get_level_xp(n):
-        return 5*(n**2)+50*n+100
-
-    @staticmethod
-    def _get_level_from_xp(xp):
-        remaining_xp = int(xp)
-        level = 0
-        while remaining_xp >= Profile._get_level_xp(level):
-            remaining_xp -= Profile._get_level_xp(level)
-            level += 1
-        return level
 
     async def on_message(self, message):
         if message.author.bot: return
