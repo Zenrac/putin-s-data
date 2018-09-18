@@ -1796,6 +1796,9 @@ class Profile():
 
         profile = await self.get_profile(ctx, member.id)
 
+        if not profile:
+            return await ctx.invoke(self.make)
+
         await ctx.send(f'{member.display_name} is on level {profile.level} and has {profile.xp} experience.')
 
     async def on_message(self, message):
