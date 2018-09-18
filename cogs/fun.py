@@ -12,6 +12,17 @@ import datetime
 class Fun():
     def __init__(self, bot):
         self.bot = bot
+        
+    @commands.command()
+    async def howgay(self, ctx, *, member:discord.Member=None):
+        if not member:
+            member = ctx.author
+            
+        gay = random.randint(0,100)
+        e = discord.Embed(title="How gay?", color=member.top_role.color)
+        e.descriotion=f"{member.display_name} is {gay}% gay."
+        
+        await ctx.send(embed=e)
 
     @commands.command()
     async def nmeme(self, ctx):
