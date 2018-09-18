@@ -116,7 +116,7 @@ class ProfileConfig:
             new_xp = self.xp  + random.randint(15, 25)
             await self.edit_field(self.ctx, experience=new_xp)
             lvl = self.level
-            new_lvl = Profile._get_level_from_xp(exp)
+            new_lvl = Profile._get_level_from_xp(self.xp)
             await self.edit_field(ctx, level=new_lvl)
             if new_lvl != lvl:
                 if self.announce_level:
