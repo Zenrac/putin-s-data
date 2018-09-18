@@ -160,7 +160,7 @@ class Profile():
         e.add_field(name=':zap: Experience', value=str(profile.xp))
         e.add_field(name=':medal: Level', value=str(profile.level))
         
-        inventory = profile.picks + profile.rings + profile.diamonds + profile.roses + profile.alcohol
+        inventory = str(profile.picks) + str(profile.rings) + str(profile.diamonds) + str(profile.roses) + str(profile.alcohol)
         inventory = inventory or 'Nothing in inventory'
         e.add_field(name=':handbag: Inventory', value=inventory)
         
