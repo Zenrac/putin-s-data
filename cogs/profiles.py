@@ -67,13 +67,27 @@ class ProfileConfig:
         self.xp = record['experience']
         self.level = record['level']
         self.last_xp_time = record['last_xp_time']
+        self.married = record['married'] or 'Nobody...'
+        self.cash = record['cash']
+        self.picks = record['picks'] or ''
+        self.rings = record['rings'] or ''
+        self.diamonds = record['diamonds'] or ''
+        self.roses = record['roses'] or ''
+        self.alcohol = record['roses'] or ''
+        self.banner = record['banner'] or 0
+        self.pet = record['pet'] or 'No pet'
+        self.name = record['name']
+        self.announce_level = record['announce_level']
+        self.bday = record['bday'] or '`.profile birthday <DD-MM-YYYY>`'
+
+    def __str__(self):
+        return f'Profile of {self.name}'
     
     @property
     def is_rate_limited(self):
         return eval(self.last_xp_time) <= dtime.utcnow() + 60
 
-    @staticmethod
-    async def edit_field(ctx, **fields):
+    async def edit_field(self, ctx, **fields):
         keys = ', '.join(fields)
         values = ', '.join(f'${2 + i}' for i in range(len(fields)))
 
@@ -129,48 +143,32 @@ class Profile():
                 await ctx.send('This member did not set up a profile yet.')
             return
 
+        profile = await self.get_profile(ctx, member.id)
+
         if isinstance(member, discord.Member):
-            name = member.display_name
             color = member.top_role.color
         else:
-            name = member.name
             color = 0xcc205c
 
-        e = discord.Embed(title="Profile of {}".format(name),color=color)
+        e = discord.Embed(title="Profile of {}".format(member.display_name), color=color)
         e.set_thumbnail(url=member.avatar_url)
         
-        keys = {
-            ':writing_hand: Description': 'description',
-            ':birthday: Birthday': 'bday',
-            ':moneybag: Cash': 'cash',
-            ':zap: Experience': 'experience',
-            ':medal: Level': 'level'
-        }
-        for key, value in keys.items():
-            e.add_field(name=key, value=str(record[value]) or 'N/A', inline=True)
+        e.add_field(name=':writing_hand: Description', value=profile.description)
+        e.add_field(name=':birthday: Birthday', value=profile.bday)
+        e.add_field(name=':moneybag: Cash', value=str(profile.cash))
+        e.add_field(name=':zap: Experience', value=str(profile.xp))
+        e.add_field(name=':medal: Level', value=str(profile.level))
         
-        picks = ':pick:{}'.format(record['picks']) if record['picks'] else ''
-        rings = ':ring:{}'.format(record['rings']) if record['rings'] else ''
-        diamonds = ':diamond_shape_with_a_dot_inside:{}'.format(record['diamonds']) if record['diamonds'] else ''
-        roses = ':rose:{}'.format(record['roses']) if record['roses'] else ''
-        alcohol = ':champagne:{}'.format(record['alcohol']) if record['alcohol'] else ''
+        inventory = profile.picks + profile.rings + profile.diamonds + profile.roses + profile.alcohol
+        inventory = inventory or 'Nothing in inventory'
+        e.add_field(name=':handbag: Inventory', value=inventory)
         
-        inventory = picks + rings + diamonds + roses + alcohol
-        inventory = inventory if inventory else 'Nothing in inventory'
-        e.add_field(name=':handbag: Inventory', value=inventory, inline=True)
-        
-        pet = record['pet'] if record['pet'] else 'No pet'
-        pet_title = 'Pet'
-        e.add_field(name=pet_title, value=pet, inline=True)
+        e.add_field(name='Pet', value=profile.pet)
 
-        if record['married']:
-            married = await self.bot.get_user_info(record['married'])
-            married = married.name
-            e.add_field(name=':heart: Married with', value=married, inline=True)
-        else:
-            e.add_field(name=':broken_heart: Not married', value='\u200b', inline=True)
+        married = ctx.guild.get_membed(profile.married) or await self.bot.get_user_info(profile.married)
+        e.add_field(name=':heart: Married with', value=married.display_name)
         
-        banner = record['banner'] or 0
+        banner = profile.banner
         banners = {
             0: 'https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_960_720.jpg',
             1: 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_960_720.jpg',
@@ -1730,7 +1728,7 @@ class Profile():
 
     #     value = '\n'.join(f'{lookup[index]} **{_id}**: ``${cash}``' for (index, (_id, cash)) in enumerate(lb))
     #     e.color = discord.Color.from_rgb(75, 38, 168)
-    #     e.add_field(name="Top global profiles by cash", value=value, inline=True)
+    #     e.add_field(name="Top global profiles by cash", value=value)
 
     #     query = """SELECT id as "_id", experience as "exp"
     #             FROM profiles
@@ -1752,7 +1750,7 @@ class Profile():
     #         lb.append((name, record['exp']))
 
     #     value = '\n'.join(f'{lookup[index]} **{_id}**: ``{exp}``' for (index, (_id, exp)) in enumerate(lb))
-    #     e.add_field(name="Top global profiles by experience", value=value, inline=True)
+    #     e.add_field(name="Top global profiles by experience", value=value)
     #     await ctx.send(embed=e)
 
     @commands.command()
