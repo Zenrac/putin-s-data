@@ -71,11 +71,11 @@ class ProfileConfig:
         self.last_xp_time = record['last_xp_time'] or False
         self.married = record['married'] or 'Nobody...'
         self.cash = record['cash']
-        self.picks = ':pick:' + str(record['picks']) or ''
-        self.rings = ':ring:' + str(record['rings']) or ''
-        self.diamonds = ':diamond_shape_with_a_dot_inside:' + str(record['diamonds']) or ''
-        self.roses = ':rose:' + str(record['roses']) or ''
-        self.alcohol = ':champagne:' + str(record['roses']) or ''
+        self.picks = record['picks'] or None
+        self.rings = record['rings'] or None
+        self.diamonds = record['diamonds'] or None
+        self.roses = record['roses'] or None
+        self.alcohol = record['roses'] or None
         self.banner = record['banner'] or 0
         self.pet = record['pet'] or 'No pet'
         self.name = record['name']
