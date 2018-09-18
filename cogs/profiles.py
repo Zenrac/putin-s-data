@@ -179,7 +179,7 @@ class Profile():
         
         picks = f':pick:{str(profile.picks)}' if profile.picks else ''
         rings = f':ring:{str(profile.rings)}' if profile.rings else ''
-        diamonds = f':diamond_shape_with_a_dot_inside:{str(profile.diamonds)}' if profile.dismonds else ''
+        diamonds = f':diamond_shape_with_a_dot_inside:{str(profile.diamonds)}' if profile.diamonds else ''
         roses = f':rose:{str(profile.roses)}' if profile.roses else ''
         alcohol = f':champagne:{str(profile.alcohol)}' if profile.acohol else ''
         inventory = picks + rings + diamonds + roses + alcohol
