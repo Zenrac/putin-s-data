@@ -92,8 +92,6 @@ class Lounge:
 
     @coliru.error
     async def coliru_error(self, ctx, error):
-        if isinstance(error, commands.BadArgument):
-            await ctx.send(error)
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(CodeBlock.missing_error)
 
