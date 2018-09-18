@@ -24,6 +24,7 @@ Hello I am W.Bot. I hope to see you soon at Russia.
 """
 
 INITIAL_EXTENSIONS = [
+    'cogs.lounge',
     'cogs.meta',
     'cogs.rng',
     'cogs.mod',
