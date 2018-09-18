@@ -37,7 +37,7 @@ def date(argument):
 
     for fmt in formats:
         try:
-            return datetime.strptime(argument, fmt)
+            return datetime.datetime.strptime(argument, fmt)
         except ValueError:
             continue
 
