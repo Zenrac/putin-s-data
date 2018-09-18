@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 
 from collections import OrderedDict, deque, Counter
 import os, datetime
+from datetime import datetime as dtime
 import io
 import re, asyncio
 from .utils import clever
@@ -37,7 +38,7 @@ def date(argument):
 
     for fmt in formats:
         try:
-            return datetime.datetime.strptime(argument, fmt)
+            return dtime.strptime(argument, fmt)
         except ValueError:
             continue
 
