@@ -166,7 +166,7 @@ class Profile():
         
         e.add_field(name='Pet', value=profile.pet)
 
-        married = ctx.guild.get_membed(profile.married) or await self.bot.get_user_info(profile.married)
+        married = ctx.guild.get_member(profile.married) or await self.bot.get_user_info(profile.married)
         e.add_field(name=':heart: Married with', value=married.display_name)
         
         banner = profile.banner
