@@ -1056,10 +1056,10 @@ class Meta:
         fmt = f'Text {text_channels} ({secret_channels} secret)\nVoice {voice_channels} ({secret_voice} locked)'
         e.add_field(name='Channels', value=fmt)
 
-        fmt = f'<:online:482810128395927574> {member_by_status["online"]} ' \
-              f'<:idle:482810128773545994> {member_by_status["idle"]} ' \
-              f'<:dnd:482810128786259968> {member_by_status["dnd"]} ' \
-              f'<:offline:482810128282681376> {member_by_status["offline"]}\n' \
+        fmt = f'<:online:491575367908458506> {member_by_status["online"]} ' \
+              f'<:idle:491575367484702762> {member_by_status["idle"]} ' \
+              f'<:dnd:491575367837024256> {member_by_status["dnd"]} ' \
+              f'<:offline:491575367673446401> {member_by_status["offline"]}\n' \
               f'Total: {guild.member_count}'
 
         e.add_field(name='Members', value=fmt)
