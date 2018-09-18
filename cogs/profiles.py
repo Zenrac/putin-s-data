@@ -71,11 +71,11 @@ class ProfileConfig:
         self.last_xp_time = record['last_xp_time'] or False
         self.married = record['married'] or 'Nobody...'
         self.cash = record['cash']
-        self.picks = record['picks'] or ''
-        self.rings = record['rings'] or ''
-        self.diamonds = record['diamonds'] or ''
-        self.roses = record['roses'] or ''
-        self.alcohol = record['roses'] or ''
+        self.picks = ':pickaxe:' + record['picks'] or ''
+        self.rings = ':ring:' + record['rings'] or ''
+        self.diamonds = ':diamond_shape_with_a_dot_inside:' + record['diamonds'] or ''
+        self.roses = ':rose:' + record['roses'] or ''
+        self.alcohol = ':champagne:' + record['roses'] or ''
         self.banner = record['banner'] or 0
         self.pet = record['pet'] or 'No pet'
         self.name = record['name']
@@ -1800,7 +1800,7 @@ class Profile():
         if not profile:
             return
         
-        increased = await profile.increase_xp()
+        await profile.increase_xp()
 
 def setup(bot):
     bot.add_cog(Profile(bot))
