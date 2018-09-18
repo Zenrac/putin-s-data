@@ -127,7 +127,7 @@ class ProfileConfig:
 
         except Exception as e:
             if ctx.channel.id == 482188217400033280:
-                await ctx..send(e)
+                await ctx.send(e)
 
 
 class Profile():
