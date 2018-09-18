@@ -6,6 +6,7 @@ import re
 import asyncio
 from .utils.paginator import Pages
 import datetime
+from datetime import datetime as dtime
 
 class DisambiguateMember(commands.IDConverter):
     async def convert(self, ctx, argument):
@@ -1719,19 +1720,29 @@ class Profile():
 
     async def on_message(self, message):
         if message.author.bot: return
-        query = """select experience, level, announce_level from profiles where id=$1"""
+        query = """select experience, level, announce_level, last_xp_time from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, message.author.id)
         ctx = await self.bot.get_context(message)
         if not profile:
             return
         if profile[0] == 0 or not profile[0]:
             return await self.edit_field(ctx, experience=10)
+        last_xp_time = profile[3]
+        if not last_xp_time:
+            pass
+        elif eval(last_xp_time) <= dtime.utcnow() + 60:
+            return
+        else:
+            last_xp_time = dtime.utcnow()
+            await self.edit_field(ctx, last_xp_time=last_xp_time)
+            
         exp = profile[0]
         exp += random.randint(1, 10)
         lvl = profile[1]
         new_lvl = self._get_level_from_xp(exp)
         await self.edit_field(ctx, experience=exp)
         await self.edit_field(ctx, level=new_lvl)
+
         if new_lvl != lvl:
             if profile[2]:
                 await message.channel.send(f'Good job {message.author.display_name} you just leveld up to level {new_lvl}!')
