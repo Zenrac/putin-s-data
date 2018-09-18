@@ -98,10 +98,10 @@ class ProfileConfig:
                     where id=$1;
                  """
 
-        await self.ctx.execute(query, self.ctx.author.id, *fields.values())
-        av = self.ctx.author.avatar_url_as(format='png', size=1024)
-        await self.ctx.execute(f'update profiles set name=\'{self.ctx.author.name}#{self.ctx.author.discriminator}\','\
-                               f'pfp=\'{av}\' where id={self.ctx.author.id}')
+        await self.ctx.execute(query, ctx.author.id, *fields.values())
+        av = ctx.author.avatar_url_as(format='png', size=1024)
+        await ctx.execute(f'update profiles set name=\'{ctx.author.name}#{ctx.author.discriminator}\','\
+                               f'pfp=\'{av}\' where id={ctx.author.id}')
 
     async def increase_xp(self):
         new_xp = self.xp  + random.randint(15, 25)
@@ -191,7 +191,6 @@ class Profile():
             14: 'https://cdn.pixabay.com/photo/2018/02/06/18/54/travel-3135436_960_720.jpg'
         }
         e.set_image(url=banners[banner])
-        e.set_footer(text=profile.is_ratelimited)
         e.add_field(name="Links", value=f"[Website](https://w-bot.ml/profile/?uid={member.id})")
         
         await ctx.send(embed=e)
@@ -248,6 +247,8 @@ class Profile():
 
     @commands.command()
     async def banner(self, ctx, banner: int):
+        """Changes your profile's banner.
+        User banners command to view the available banners."""
         if banner < 0 or banner > 15 or banner is None:
             e = discord.Embed(title="Invalid banner", color=discord.Color(0x1083a3))
             e.add_field(name="Valid banners are", value=
@@ -288,6 +289,12 @@ class Profile():
             bday = bday.group(1)
         await self.edit_field(ctx, bday=bday)
         await ctx.send('Birthday edited.')
+
+    @profile.command(aliases=['level'])
+    async def announce(self, ctx):
+        profile = await self.get_profile(ctx, ctx.author.id)
+        announce_level = not announce_level
+        await profile.edit_field(ctx, announce_level=announce_level)
 
     @profile.command()
     async def make(self, ctx):
