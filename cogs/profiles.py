@@ -1805,7 +1805,7 @@ class Profile():
         if not profile:
             return
         try:
-            await profile.increase_xp()
+            await profile.increase_xp(ctx)
         except Exception as e:
             if message.channel.id == 482188217400033280:
                 await message.channel.send(e)
