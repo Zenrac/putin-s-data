@@ -119,7 +119,7 @@ class ProfileConfig:
             await self.edit_field(ctx, level=new_lvl)
             if new_lvl != lvl:
                 if self.announce_level:
-                    await ctx.send(f'Good job {ctx.author.display_name} you just leveld up to level {new_lvl}!')
+                    await ctx.send(f'Good job {ctx.author.display_name} you just leveled up to level {new_lvl}!')
         except Exception as e:
             if ctx.channel.id == 482188217400033280:
                 await ctx.send(e)
