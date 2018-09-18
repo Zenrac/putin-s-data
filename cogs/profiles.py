@@ -1810,6 +1810,7 @@ class Profile():
         if not profile:
             return
         await profile.increase_xp(ctx)
+        await ctx.release()
 
 def setup(bot):
     bot.add_cog(Profile(bot))
