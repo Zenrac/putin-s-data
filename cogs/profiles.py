@@ -1805,12 +1805,13 @@ class Profile():
     async def on_message(self, message):
         if message.author.bot: return
         ctx = await self.bot.get_context(message, cls=context.Context)
-        await ctx.acquire()
-        profile = await self.get_profile(ctx, message.author.id)
-        if not profile:
-            return
-        await profile.increase_xp(ctx)
-        await ctx.release()
+        
+        async with ctx.acquire():
+            profile = await self.get_profile(ctx, message.author.id)
+            if not profile:
+                return
+
+            await profile.increase_xp(ctx)
 
 def setup(bot):
     bot.add_cog(Profile(bot))
