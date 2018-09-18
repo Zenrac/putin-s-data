@@ -98,9 +98,9 @@ class ProfileConfig:
                     where id=$1;
                  """
 
-        await self.ctx.execute(query, ctx.author.id, *fields.values())
+        await self.ctx.db.execute(query, ctx.author.id, *fields.values())
         av = ctx.author.avatar_url_as(format='png', size=1024)
-        await ctx.execute(f'update profiles set name=\'{ctx.author.name}#{ctx.author.discriminator}\','\
+        await ctx.db.execute(f'update profiles set name=\'{ctx.author.name}#{ctx.author.discriminator}\','\
                                f'pfp=\'{av}\' where id={ctx.author.id}')
 
     async def increase_xp(self):
