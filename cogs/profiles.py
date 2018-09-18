@@ -126,7 +126,7 @@ class ProfileConfig:
                 await ctx.send(e)
         if ctx.channel.id == 482188217400033280:
             await ctx.send(self.is_ratelimited)
-            await ctx.send(self.is_ratelimited())
+            # await ctx.send(self.is_ratelimited())
 
 class Profile():
     def __init__(self, bot):
