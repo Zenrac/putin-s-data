@@ -1729,13 +1729,14 @@ class Profile():
             return await self.edit_field(ctx, experience=10)
         last_xp_time = profile[3]
         if not last_xp_time:
-            pass
+            last_xp_time = dtime.utcnow()
+            await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
         elif eval(last_xp_time) <= dtime.utcnow() + 60:
             return
         else:
             last_xp_time = dtime.utcnow()
-            await self.edit_field(ctx, last_xp_time=last_xp_time)
-            
+            await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
+
         exp = profile[0]
         exp += random.randint(1, 10)
         lvl = profile[1]
