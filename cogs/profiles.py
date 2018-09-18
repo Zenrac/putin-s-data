@@ -155,13 +155,15 @@ class Profile():
 
         if record is None:
             if member == ctx.author:
-                await ctx.send('You didnt set up a profile yet.')
                 return await ctx.invoke(self.make)
             else:
                 await ctx.send('This member did not set up a profile yet.')
             return
 
         profile = await self.get_profile(ctx, member.id)
+
+        if not profile:
+            return await ctx.invoke(self.make)
 
         if isinstance(member, discord.Member):
             color = member.top_role.color
