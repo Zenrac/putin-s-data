@@ -173,7 +173,7 @@ class Profile():
         
         e.add_field(name=':writing_hand: Description', value=profile.description)
         e.add_field(name=':birthday: Birthday', value=profile.bday)
-        e.add_field(name=':moneybag: Cash', value=str(profile.cash))
+        e.add_field(name=':moneybag: Cash', value='$' + str(profile.cash))
         e.add_field(name=':zap: Experience', value=str(profile.xp))
         e.add_field(name=':medal: Level', value=str(profile.level))
         
