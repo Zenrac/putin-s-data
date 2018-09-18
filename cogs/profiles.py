@@ -168,8 +168,9 @@ class Profile():
 
         if not profile.married == 'Nobody...':
             married = ctx.guild.get_member(profile.married) or await self.bot.get_user_info(profile.married)
-        e.add_field(name=':heart: Married with', value=married.display_name)
-        
+            e.add_field(name=':heart: Married with', value=married.display_name)
+        else:
+            e.add_field(name=':heart: Married with', value=profile.married)        
         banner = profile.banner
         banners = {
             0: 'https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_960_720.jpg',
