@@ -7,6 +7,7 @@ import asyncio
 from .utils.paginator import Pages
 import datetime
 from datetime import datetime as dtime
+from datetime import timedelta
 
 class DisambiguateMember(commands.IDConverter):
     async def convert(self, ctx, argument):
@@ -86,7 +87,7 @@ class ProfileConfig:
     
     @property
     def is_ratelimited(self):
-        return eval(self.last_xp_time) <= dtime.utcnow() + 60
+        return eval(self.last_xp_time) <= dtime.utcnow() + timedelta(minutes=1)
 
     async def edit_field(self, ctx, **fields):
         keys = ', '.join(fields)
