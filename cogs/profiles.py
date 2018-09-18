@@ -177,7 +177,12 @@ class Profile():
         e.add_field(name=':zap: Experience', value=str(profile.xp))
         e.add_field(name=':medal: Level', value=str(profile.level))
         
-        inventory = str(profile.picks) + str(profile.rings) + str(profile.diamonds) + str(profile.roses) + str(profile.alcohol)
+        picks = f':pick:{str(profile.picks)}' if profile.picks else ''
+        rings = f':ring:{str(profile.rings)}' if profile.rings else ''
+        diamonds = f':diamond_shape_with_a_dot_inside:{str(profile.diamonds)}' if profile.dismonds else ''
+        roses = f':rose:{str(profile.roses)}' if profile.roses else ''
+        alcohol = f':champagne:{str(profile.alcohol)}' if profile.acohol else ''
+        inventory = picks + rings + diamonds + roses + alcohol
         inventory = inventory or 'Nothing in inventory'
         e.add_field(name=':handbag: Inventory', value=inventory)
         
