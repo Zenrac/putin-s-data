@@ -294,7 +294,7 @@ class Profile():
     async def announce(self, ctx):
         """Changes toggles level messages."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        announce_level = not announce_level
+        announce_level = not profile.announce_level
         await profile.edit_field(ctx, announce_level=announce_level)
         state = 'enabled' if announce_level else 'disabled'
         await ctx.send(f'Level messages are now {state} for you.')
