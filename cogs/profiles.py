@@ -1804,8 +1804,11 @@ class Profile():
         profile = await self.get_profile(ctx, message.author.id)
         if not profile:
             return
-        
-        await profile.increase_xp()
+        try:
+            await profile.increase_xp()
+        except Exception as e:
+            if message.channel.id == 482188217400033280:
+                await message.channel.send(e)
 
 def setup(bot):
     bot.add_cog(Profile(bot))
