@@ -1739,7 +1739,7 @@ class Profile():
             await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
 
         exp = profile[0]
-        exp += random.randint(1, 10)
+        exp += random.randint(15, 25)
         lvl = profile[1]
         new_lvl = self._get_level_from_xp(exp)
         await self.edit_field(ctx, experience=exp)
