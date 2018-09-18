@@ -140,6 +140,30 @@ class Meta:
         self._spoiler_cooldown = SpoilerCooldown()
         self.client = clever.CleverBot(user='9FZVmdY47TEthPLe', key='zl3Fuk2Kx2Nis2YvbaIeMhMdoYRdKA7N', nick="W.Bot")
 
+    @commands.command(pass_context=True)
+    @checks.mod_or_permissions(manage_messages=True)
+    async def nostalgia(self, ctx, date: date, *, channel: discord.TextChannel = None):
+        """Pins an old message from a specific date.
+        If a channel is not given, then pins from the channel the
+        command was ran on.
+        The format of the date must be either YYYY-MM-DD or YYYY/MM/DD.
+        """
+        channel = channel or ctx.channel
+
+        message = await channel.history(after=date, limit=1).flatten()
+
+        if len(message) == 0:
+            return await ctx.send('Could not find message.')
+
+        message = message[0]
+
+        try:
+            await message.pin()
+        except discord.HTTPException:
+            await ctx.send('Could not pin message.')
+        else:
+            await ctx.send('Pinned message.')
+
     @commands.command()
     @checks.has_permissions(send_tts_messages=True)
     async def tts(self, ctx, *, text:str=None):
