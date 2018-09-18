@@ -29,6 +29,21 @@ from lxml import etree
 from lru import LRU
 translator = Translator()
 
+def date(argument):
+    formats = (
+        '%Y/%m/%d',
+        '%Y-%m-%d',
+    )
+
+    for fmt in formats:
+        try:
+            return datetime.strptime(argument, fmt)
+        except ValueError:
+            continue
+
+    raise commands.BadArgument('Cannot convert to date. Expected YYYY/MM/DD or YYYY-MM-DD.')
+
+
 def can_use_spoiler():
     def predicate(ctx):
         if ctx.guild is None:
