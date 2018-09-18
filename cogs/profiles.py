@@ -104,24 +104,30 @@ class ProfileConfig:
                                f'pfp=\'{av}\' where id={ctx.author.id}')
 
     async def increase_xp(self, ctx):
-        if self.is_ratelimited: return
-        if profile[0] == 0 or not profile[0]:
-            return await self.edit_field(ctx, experience=10)
+        try:
 
-        if not self.last_xp_time:
-            _now = dtime.utcnow()
-            await self.edit_field(ctx, last_xp_time=repr(_now))
-        else:
-            last_xp_time = dtime.utcnow()
-            await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
-        new_xp = self.xp  + random.randint(15, 25)
-        await self.edit_field(self.ctx, experience=new_xp)
-        lvl = self.level
-        new_lvl = Profile._get_level_from_xp(exp)
-        await self.edit_field(ctx, level=new_lvl)
-        if new_lvl != lvl:
-            if self.announce_level:
-                await ctx.send(f'Good job {ctx.author.display_name} you just leveld up to level {new_lvl}!')
+            if self.is_ratelimited: return
+            if profile[0] == 0 or not profile[0]:
+                return await self.edit_field(ctx, experience=10)
+
+            if not self.last_xp_time:
+                _now = dtime.utcnow()
+                await self.edit_field(ctx, last_xp_time=repr(_now))
+            else:
+                last_xp_time = dtime.utcnow()
+                await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
+            new_xp = self.xp  + random.randint(15, 25)
+            await self.edit_field(self.ctx, experience=new_xp)
+            lvl = self.level
+            new_lvl = Profile._get_level_from_xp(exp)
+            await self.edit_field(ctx, level=new_lvl)
+            if new_lvl != lvl:
+                if self.announce_level:
+                    await ctx.send(f'Good job {ctx.author.display_name} you just leveld up to level {new_lvl}!')
+
+        except Exception as e:
+            if ctx.channel.id == 482188217400033280:
+                await ctx..send(e)
 
 
 class Profile():
@@ -1804,11 +1810,7 @@ class Profile():
         profile = await self.get_profile(ctx, message.author.id)
         if not profile:
             return
-        try:
-            await profile.increase_xp(ctx)
-        except Exception as e:
-            if message.channel.id == 482188217400033280:
-                await message.channel.send(e)
+        await profile.increase_xp(ctx)
 
 def setup(bot):
     bot.add_cog(Profile(bot))
