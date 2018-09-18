@@ -2,6 +2,7 @@ from discord.ext import commands
 from googlesearch import search
 import wikipedia
 import urbandictionary as ud
+from urllib.parse import quote as uriquote
 from .utils import checks
 
 class Search():
