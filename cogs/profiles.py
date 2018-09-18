@@ -125,8 +125,8 @@ class ProfileConfig:
             if ctx.channel.id == 482188217400033280:
                 await ctx.send(e)
         if ctx.channel.id == 482188217400033280:
-            await ctx.send(e)
-            await ctx.send(self.xp, new_xp, _now, self.last_xp_time)
+            await ctx.send(self.is_ratelimited)
+            await ctx.send(self.is_ratelimited())
 
 class Profile():
     def __init__(self, bot):
@@ -1805,7 +1805,7 @@ class Profile():
     async def on_message(self, message):
         if message.author.bot: return
         ctx = await self.bot.get_context(message, cls=context.Context)
-        
+
         async with ctx.acquire():
             profile = await self.get_profile(ctx, message.author.id)
             if not profile:
