@@ -1789,14 +1789,14 @@ class Profile():
     #     e.add_field(name="Top global profiles by experience", value=value)
     #     await ctx.send(embed=e)
 
-    @commands.command()
+    @commands.command(aliases=['rank'])
     async def level(self, ctx, *, member:discord.Member=None):
         if not member:
             member = ctx.author
 
         profile = await self.get_profile(ctx, member.id)
 
-        await ctx.send(f'{member.display_name} is on level {profile.level} and you have {profile.xp} experience.')
+        await ctx.send(f'{member.display_name} is on level {profile.level} and has {profile.xp} experience.')
 
     async def on_message(self, message):
         if message.author.bot: return
