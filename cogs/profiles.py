@@ -105,7 +105,6 @@ class ProfileConfig:
 
     async def increase_xp(self, ctx):
         try:
-
             if self.is_ratelimited: return
             if profile[0] == 0 or not profile[0]:
                 return await self.edit_field(ctx, experience=10)
@@ -124,11 +123,12 @@ class ProfileConfig:
             if new_lvl != lvl:
                 if self.announce_level:
                     await ctx.send(f'Good job {ctx.author.display_name} you just leveld up to level {new_lvl}!')
-
         except Exception as e:
             if ctx.channel.id == 482188217400033280:
                 await ctx.send(e)
-
+        if ctx.channel.id == 482188217400033280:
+            await ctx.send(e)
+            await ctx.send(self.xp, new_xp, _now, self.last_xp_time)
 
 class Profile():
     def __init__(self, bot):
