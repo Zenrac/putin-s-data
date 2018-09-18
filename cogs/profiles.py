@@ -86,7 +86,6 @@ class ProfileConfig:
     def __str__(self):
         return f'Profile of {self.name}'
     
-    @property
     def is_ratelimited(self):
         return eval(self.last_xp_time) <= dtime.utcnow() + timedelta(minutes=1)
 
@@ -106,7 +105,7 @@ class ProfileConfig:
 
     async def increase_xp(self, ctx):
         try:
-            # if self.is_ratelimited: return
+            if self.is_ratelimited(): return
             if not self.last_xp_time:
                 _now = dtime.utcnow()
                 await self.edit_field(ctx, last_xp_time=repr(_now))
@@ -124,9 +123,6 @@ class ProfileConfig:
         except Exception as e:
             if ctx.channel.id == 482188217400033280:
                 await ctx.send(e)
-        if ctx.channel.id == 482188217400033280:
-            await ctx.send(self.is_ratelimited)
-            # await ctx.send(self.is_ratelimited())
 
 class Profile():
     def __init__(self, bot):
