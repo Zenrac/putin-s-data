@@ -105,7 +105,7 @@ class ProfileConfig:
 
     async def increase_xp(self, ctx):
         try:
-            if self.is_ratelimited: return
+            # if self.is_ratelimited: return
             if profile[0] == 0 or not profile[0]:
                 return await self.edit_field(ctx, experience=10)
 
