@@ -109,9 +109,9 @@ class Profile():
             level += 1
         return level
 
-    async def get_profile(self, id):
+    async def get_profile(self, ctx, id):
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
-        return ProfileConfig(record)
+        return ProfileConfig(ctx, record)
 
     @commands.group(invoke_without_command=True)
     async def profile(self, ctx, *, member: DisambiguateMember = None):
@@ -1760,7 +1760,7 @@ class Profile():
         if not member:
             member = ctx.author
 
-        profile = await self.get_profile(member.id)
+        profile = await self.get_profile(ctx, member.id)
         await ctx.send(f'You\'re on level {profile.level} and you have {profile.xp} experience.')
 
     async def on_message(self, message):
