@@ -584,7 +584,7 @@ class Meta:
         except KeyError:
             pass
 
-        storage = self.bot.get_guild(329993146651901952).get_channel(480429414166036500)
+        storage = self.bot.get_guild(config.storage_guild).get_channel(config.storage_channel)
 
         # slow path requires 2 lookups
         # first is looking up the message_id of the original post
