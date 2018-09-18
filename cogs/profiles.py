@@ -1637,76 +1637,89 @@ class Profile():
         await self.edit_user_field(winner, ctx, cash=winner_cash[0]+200)
         await ctx.send(f'Congrats {winner} you won $200.')
 
-    @commands.command(aliases=['lb', 'leaderboards'])
-    async def leaderboard(self, ctx):
+    # @commands.command(aliases=['lb', 'leaderboards'])
+    # async def leaderboard(self, ctx):
 
-        await ctx.trigger_typing()
+    #     await ctx.trigger_typing()
 
-        lookup = (
-            '\N{FIRST PLACE MEDAL}',
-            '\N{SECOND PLACE MEDAL}',
-            '\N{THIRD PLACE MEDAL}',
-            '\N{SPORTS MEDAL}',
-            '\N{SPORTS MEDAL}'
-        )
+    #     lookup = (
+    #         '\N{FIRST PLACE MEDAL}',
+    #         '\N{SECOND PLACE MEDAL}',
+    #         '\N{THIRD PLACE MEDAL}',
+    #         '\N{SPORTS MEDAL}',
+    #         '\N{SPORTS MEDAL}'
+    #     )
 
-        query = """SELECT id as "_id", cash as "cash"
-                FROM profiles
-                ORDER BY "cash" DESC
-                LIMIT 5;
-        """
-        records = await ctx.bot.pool.fetch(query)
+    #     query = """SELECT id as "_id", cash as "cash"
+    #             FROM profiles
+    #             ORDER BY "cash" DESC
+    #             LIMIT 5;
+    #     """
+    #     records = await ctx.bot.pool.fetch(query)
 
-        e = discord.Embed(title='Leaderboard')
+    #     e = discord.Embed(title='Leaderboard')
 
-        async def get_name(_id):
-            user = await self.bot.get_user_info(_id)
-            if user is not None:
-                return user.name
-            else:
-                return 'Undefined'
+    #     async def get_name(_id):
+    #         user = await self.bot.get_user_info(_id)
+    #         if user is not None:
+    #             return user.name
+    #         else:
+    #             return 'Undefined'
 
-        lb = []
+    #     lb = []
 
-        for record in records:
-            try:
-                name = await get_name(record['_id'])
-            except:
-                name = 'Undefined'
-            if not record['cash']:
-                continue
-            lb.append((name, record['cash']))
+    #     for record in records:
+    #         try:
+    #             name = await get_name(record['_id'])
+    #         except:
+    #             name = 'Undefined'
+    #         if not record['cash']:
+    #             continue
+    #         lb.append((name, record['cash']))
 
-        value = '\n'.join(f'{lookup[index]} **{_id}**: ``${cash}``' for (index, (_id, cash)) in enumerate(lb))
-        e.color = discord.Color.from_rgb(75, 38, 168)
-        e.add_field(name="Top global profiles by cash", value=value, inline=True)
+    #     value = '\n'.join(f'{lookup[index]} **{_id}**: ``${cash}``' for (index, (_id, cash)) in enumerate(lb))
+    #     e.color = discord.Color.from_rgb(75, 38, 168)
+    #     e.add_field(name="Top global profiles by cash", value=value, inline=True)
 
-        query = """SELECT id as "_id", experience as "exp"
-                FROM profiles
-                ORDER BY "exp" DESC
-                LIMIT 5;
-        """
-        exps = await ctx.bot.pool.fetch(query)
+    #     query = """SELECT id as "_id", experience as "exp"
+    #             FROM profiles
+    #             ORDER BY "exp" DESC
+    #             LIMIT 5;
+    #     """
+    #     exps = await ctx.bot.pool.fetch(query)
 
-        lb = []
+    #     lb = []
 
-        for record in exps:
-            try:
-                name = await get_name(record['_id'])
-            except:
-                name = 'Undefined'
-            if not record['exp']:
-                print(record)
-                continue
-            lb.append((name, record['exp']))
+    #     for record in exps:
+    #         try:
+    #             name = await get_name(record['_id'])
+    #         except:
+    #             name = 'Undefined'
+    #         if not record['exp']:
+    #             print(record)
+    #             continue
+    #         lb.append((name, record['exp']))
 
-        value = '\n'.join(f'{lookup[index]} **{_id}**: ``{exp}``' for (index, (_id, exp)) in enumerate(lb))
-        e.add_field(name="Top global profiles by experience", value=value, inline=True)
-        await ctx.send(embed=e)
+    #     value = '\n'.join(f'{lookup[index]} **{_id}**: ``{exp}``' for (index, (_id, exp)) in enumerate(lb))
+    #     e.add_field(name="Top global profiles by experience", value=value, inline=True)
+    #     await ctx.send(embed=e)
+
+    @staticmethod
+    def _get_level_xp(n):
+        return 5*(n**2)+50*n+100
+
+    @staticmethod
+    def _get_level_from_xp(xp):
+        remaining_xp = int(xp)
+        level = 0
+        while remaining_xp >= Profile._get_level_xp(level):
+            remaining_xp -= Profile._get_level_xp(level)
+            level += 1
+        return level
 
     async def on_message(self, message):
         if message.author.bot: return
-        query = """select experience from profiles where id=$1"""
+        query = """select experience, level from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, message.author.id)
         ctx = await self.bot.get_context(message)
         if not profile:
@@ -1714,9 +1727,11 @@ class Profile():
         if profile[0] == 0 or not profile[0]:
             return await self.edit_field(ctx, experience=10)
         exp = profile[0]
-        add = random.randint(1, 10)
-        exp += add
+        exp += random.randint(1, 10)
+        lvl = profile[1]
+        new_lvl = self._get_level_from_xp(exp)
         await self.edit_field(ctx, experience=exp)
+        await self.edit_field(ctx, level=lvl)
 
 def setup(bot):
     bot.add_cog(Profile(bot))
