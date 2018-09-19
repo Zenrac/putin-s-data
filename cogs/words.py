@@ -32,8 +32,6 @@ class Blacklist:
 		if message.author.bot: return
 		ctx = await self.bot.get_context(message)
 		perms = await self.check_perms(ctx, message.author)
-		if message.channel.id == 491609962821451776:
-			await ctx.send(perms)
 		if perms: return
 		settings = await self.get_settings(ctx.guild.id)
 		settings.words = eval(settings.words)
