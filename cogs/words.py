@@ -34,19 +34,19 @@ class Blacklist:
 		settings.words = eval(settings.words)
 		if not settings.blacklist: return
 
-		ctx = await self.bot.get_context(message)
-		words = message.content.split()
-		for word in words:
-			if word.lower() in settings.words:
-				try:
+		try:
+			ctx = await self.bot.get_context(message)
+			words = message.content.split()
+			for word in words:
+				if word.lower() in settings.words:
 					try:
 						await message.delete()
 						await message.author.send(f'You are not allowed to say {word} in {ctx.guild}!')
-					except Exception as e:
-						await ctx.send(e)
-				except discord.Forbidden:
-					pass
-				break
+					except discord.Forbidden:
+						pass
+					break
+		except Exception as e:
+			await ctx.send(e)
 
 	@commands.group()
 	@checks.is_mod()
