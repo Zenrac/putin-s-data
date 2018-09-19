@@ -103,7 +103,7 @@ class Blacklist:
 
 		for word in words:
 			if not word in settings.words:
-				settings.words.remove(word)
+				settings.words.remove(str(word))
 				changes.append(f'Removed `{word}`')
 
 		await ctx.send(f'\n'.join(changes))
