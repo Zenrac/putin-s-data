@@ -86,9 +86,9 @@ class Blacklist:
 
 		await ctx.send(f'\n'.join(changes))
 
-	@blacklist.command(aliases=['add'])
+	@blacklist.command(aliases=['remove'])
 	@checks.is_mod()
-	async def blacklist_add(self, ctx, *, words:str):
+	async def blacklist_remove(self, ctx, *, words:str):
 		settings = await self.get_settings(ctx.guild.id)
 
 		if not settings.blacklist:
