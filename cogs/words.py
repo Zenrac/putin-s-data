@@ -43,19 +43,20 @@ class Blacklist:
 	@commands.group()
 	@checks.is_mod()
 	async def blacklist(self, ctx):
-		settings = await get_settings(ctx.guild.id)
+		if ctx.invoked_subcommand is None:
+			settings = await self.get_settings(ctx.guild.id)
 
-		if not settings.blacklist:
-			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
+			if not settings.blacklist:
+				return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
 
-		if not settings.words:
-			return await ctx.send(f'There is nothing in the word blaclist.\nUse `{ctx.prefix}blackist add <word>` to add a one.')
+			if not settings.words:
+				return await ctx.send(f'There is nothing in the word blaclist.\nUse `{ctx.prefix}blackist add <word>` to add a one.')
 
-		e = discord.Embed(
-			title="Blacklisted Words",
-			description="\n".join(settings.words),
-			color=ctx.author.top_role.color)
-		await ctx.send(embed=e)
+			e = discord.Embed(
+				title="Blacklisted Words",
+				description="\n".join(settings.words),
+				color=ctx.author.top_role.color)
+			await ctx.send(embed=e)
 
 	@blacklist.command(name='toggle')
 	@checks.is_mod()
