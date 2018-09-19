@@ -54,7 +54,7 @@ class Blacklist:
 				return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
 
 			if not settings.words:
-				return await ctx.send(f'There is nothing in the word blaclist.\nUse `{ctx.prefix}blackist add <word>` to add a one.')
+				return await ctx.send(f'There is nothing in the blacklist.\nUse `{ctx.prefix}blackist add <word>` to add a one.')
 
 			e = discord.Embed(
 				title="Blacklisted Words",
@@ -79,7 +79,7 @@ class Blacklist:
 		settings = await self.get_settings(ctx.guild.id)
 
 		if not settings.blacklist:
-			return await ctx.send(f'Blacklist is not enabled.\n`{ctx.prefix}blacklist toggle` to enable it.')
+			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
 
 		words = words.split()
 		changes = []
@@ -99,7 +99,7 @@ class Blacklist:
 		settings = await self.get_settings(ctx.guild.id)
 
 		if not settings.blacklist:
-			return await ctx.send(f'Blacklist is not enabled.\n`{ctx.prefix}blacklist toggle` to enable it.')
+			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
 
 		words = words.split()
 		changes = []
