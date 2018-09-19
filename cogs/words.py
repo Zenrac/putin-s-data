@@ -31,12 +31,13 @@ class Blacklist:
 	async def on_message(self, message):
 		if not check_perms(): return
 		settings = await self.get_settings(ctx.guild.id)
+		settings.words = eval(settings.words)
 		if not settings.blacklist: return
 
 		ctx = await self.bot.get_context(message)
 		words = message.content.split()
 		for word in words:
-			if word in settings.words:
+			if word.lower() in settings.words:
 				try:
 					await message.delete()
 					await message.author.send(f'You are not allowed to say {word} in {ctx.guild}!')
