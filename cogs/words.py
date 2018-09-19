@@ -6,7 +6,7 @@ class Settings:
 	def __init__(self, bot, record):
 		self.bot = bot
 		self.blacklist = record['blacklist'] or False
-		self.words = eval(record['blacklisted_wors']) or []
+		self.words = eval(record['blacklisted_words']) or []
 
 	async def toggle_blacklist(self, id):
 		self.blacklist = not self.blacklist
