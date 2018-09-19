@@ -15,12 +15,13 @@ class Fun():
         
     @commands.command()
     async def howgay(self, ctx, *, member:discord.Member=None):
+        """Tells you how gay you or someone else is."""
         if not member:
             member = ctx.author
             
         gay = random.randint(0,100)
         e = discord.Embed(title="How gay?", color=member.top_role.color)
-        e.descriotion=f"{member.display_name} is {gay}% gay."
+        e.description=f"{member.display_name} is {gay}% gay."
         
         await ctx.send(embed=e)
 
