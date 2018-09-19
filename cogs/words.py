@@ -78,7 +78,7 @@ class Blacklist:
 	@checks.is_mod()
 	async def blacklist_add(self, ctx, *, words:str):
 		settings = await self.get_settings(ctx.guild.id)
-		settings.words = eval(settings.words)
+		settings.words = eval(str(settings.words))
 
 		if not settings.blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
@@ -91,7 +91,7 @@ class Blacklist:
 				settings.words.append(word)
 				changes.append(f'Added `{word}`')
 
-		settings.words = eval(settings.words)
+		settings.words = eval(str(settings.words))
 		words = str(settings.words).replace('\'', '"')
 		await ctx.db.execute(f"update settings set blacklisted_words=\'str({words})\' where id={ctx.guild.id};")
 		await ctx.send(f'\n'.join(changes) or 'No changes.')
@@ -100,7 +100,7 @@ class Blacklist:
 	@checks.is_mod()
 	async def blacklist_remove(self, ctx, *, words:str):
 		settings = await self.get_settings(ctx.guild.id)
-		settings.words = eval(settings.words)
+		settings.words = eval(str(settings.words))
 
 		if not settings.blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
@@ -113,7 +113,7 @@ class Blacklist:
 				settings.words.remove(word)
 				changes.append(f'Removed `{word}`')
 
-		settings.words = eval(settings.words)
+		settings.words = eval(str(settings.words))
 		words = str(settings.words).replace('\'', '"')
 		await ctx.db.execute(f"update settings set blacklisted_words=\'str({words})\' where id={ctx.guild.id};")
 		await ctx.send(f'\n'.join(changes) or 'No changes.')
