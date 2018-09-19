@@ -31,10 +31,7 @@ class Blacklist:
 	async def on_message(self, message):
 		if message.author.bot: return
 		ctx = await self.bot.get_context(message)
-		try:
-			if not self.check_perms(ctx, message.author): return
-		except Exception as e:
-			await ctx.send(e)
+		if not await self.check_perms(ctx, message.author): return
 		settings = await self.get_settings(ctx.guild.id)
 		settings.words = eval(settings.words)
 		if not settings.blacklist: return
@@ -44,7 +41,7 @@ class Blacklist:
 			if word.lower() in settings.words:
 				try:
 					await message.delete()
-					await message.author.send(f'You are not allowed to say {word} in {ctx.guild}!')
+					await message.author.send(f'You are not allowed to say ``{word}`` in {ctx.guild}!')
 				except discord.Forbidden:
 					pass
 				break
