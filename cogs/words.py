@@ -91,7 +91,7 @@ class Blacklist:
 
 		words = str(words).replace('\'', '"')
 		await ctx.db.execute(f"update settings set blacklisted_words=\'str({words})\' where id={ctx.guild.id};")
-		await ctx.send(f'\n'.join(changes))
+		await ctx.send(f'\n'.join(changes) or 'No changes.')
 
 	@blacklist.command(name='remove')
 	@checks.is_mod()
