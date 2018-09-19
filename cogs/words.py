@@ -109,10 +109,12 @@ class Blacklist:
 
 		for word in words:
 			if not word in settings.words:
-				settings.words.remove(str(word))
+				settings.words.remove(word)
 				changes.append(f'Removed `{word}`')
 
-		await ctx.send(f'\n'.join(changes))
+		words = str(settings.words).replace('\'', '"')
+		await ctx.db.execute(f"update settings set blacklisted_words=\'str({words})\' where id={ctx.guild.id};")
+		await ctx.send(f'\n'.join(changes) or 'No changes.')
 
 def setup(bot):
 	bot.add_cog(Blacklist(bot))
