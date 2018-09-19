@@ -5,12 +5,13 @@ from .utils import checks
 class Settings:
 	def __init__(self, bot, record):
 		self.bot = bot
+		self.id = record['id']
 		self.blacklist = record['blacklist'] or False
 		self.words = eval(str(record['blacklisted_words'])) or []
 
-	async def toggle_blacklist(self, id):
+	async def toggle_blacklist(self):
 		self.blacklist = not self.blacklist
-		await self.bot.pool.execute(f'update settings set blacklist={self.blacklist};')
+		await self.bot.pool.execute(f'update settings set blacklist={self.blacklist} where id={self.id};')
 
 class Blacklist:
 	def __init__(self, bot):
