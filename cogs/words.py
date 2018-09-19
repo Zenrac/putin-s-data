@@ -31,7 +31,8 @@ class Blacklist:
 	async def on_message(self, message):
 		if message.author.bot: return
 		ctx = await self.bot.get_context(message)
-		if not await self.check_perms(ctx, message.author): return
+		perms = await self.check_perms(ctx, message.author)
+		if not perms: return
 		settings = await self.get_settings(ctx.guild.id)
 		settings.words = eval(settings.words)
 		if not settings.blacklist: return
