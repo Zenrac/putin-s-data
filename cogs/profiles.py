@@ -623,7 +623,7 @@ class Profile():
             if amount > profile.picks:
                 return await ctx.send(f'{ctx.tick(False)} You don\'t have that many pickaxes.')
             await self.edit_field(ctx, cash=profile.cash + amount * 75)
-            await self.edit_field(ctx, picks=picks - amount)
+            await self.edit_field(ctx, picks=profile.picks - amount)
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :pick:')
 
     @sell.command(name='ring')
@@ -639,7 +639,7 @@ class Profile():
             if amount > profile.rings:
                 return await ctx.send(f'{ctx.tick(False)} You don\'t have that many rings.')
             await self.edit_field(ctx, cash=profile.cash + amount * 150)
-            await self.edit_field(ctx, rings=rings - amount)
+            await self.edit_field(ctx, rings=profile.rings - amount)
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :ring:')
 
     @sell.command(name='diamond')
@@ -688,11 +688,9 @@ class Profile():
             await ctx.send(f'{ctx.tick(False)} You don\'t have any alcohol.')
         else:
             if amount > profile.alcohol:
-                return await ctx.send('You don\'t have that much alcohol.')
-            cash += amount * 38
-            alcohol -= amount
-            await self.edit_field(ctx, alcohol=alcohol)
-            await self.edit_field(ctx, cash=cash)
+                return await ctx.send(f'{ctx.tick(False)} You don\'t have that much alcohol.')
+            await self.edit_field(ctx, cash=profile.cash + amount * 38)
+            await self.edit_field(ctx, alcohol=profile.alcohol - amount)
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :champagne:')
 
     @commands.command()
@@ -701,19 +699,17 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
-            return
-        alcohol = profile['alcohol']
-        if alcohol == 0:
+        if profile.alcohol == 0:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any alcohol.')
         else:
-            alcohol -= 1
-            await self.edit_field(ctx, alcohol=alcohol)
+            await self.edit_field(ctx, alcohol=profile.alcohol - 1)
             await ctx.send('You drank :champagne: and got drunk.')
 
     @commands.group(invoke_without_command=True)
     async def buy(self, ctx):
         """Use ``(prefix)help buy`` for more information."""
-        print("buying")
+        if ctx.invoked_subcommand is None:
+            await ctx.show_help('buy')
 
     @buy.command()
     async def dog(self, ctx):
