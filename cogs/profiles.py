@@ -693,7 +693,7 @@ class Profile():
             alcohol -= amount
             await self.edit_field(ctx, alcohol=alcohol)
             await self.edit_field(ctx, cash=cash)
-            await ctx.send(f'{ctx.tick(True)} Sold {}x :champagne:'.format(amount))
+            await ctx.send(f'{ctx.tick(True)} Sold {amount}x :champagne:')
 
     @commands.command()
     async def drink(self, ctx):
