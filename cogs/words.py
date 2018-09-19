@@ -49,6 +49,7 @@ class Blacklist:
 	async def blacklist(self, ctx):
 		if ctx.invoked_subcommand is None:
 			settings = await self.get_settings(ctx.guild.id)
+			settings.words = eval(settings.words)
 
 			if not settings.blacklist:
 				return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
