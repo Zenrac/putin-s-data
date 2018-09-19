@@ -29,7 +29,7 @@ class Blacklist:
 		return _perms.manage_messages
 
 	async def on_message(self, message):
-		# if not check_perms(): return
+		if not check_perms(): return
 		ctx = await self.bot.get_context(message)
 		settings = await self.get_settings(ctx.guild.id)
 		settings.words = eval(settings.words)
