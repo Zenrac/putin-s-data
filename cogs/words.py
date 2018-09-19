@@ -8,7 +8,7 @@ class Settings:
 		self.bot = bot
 		self.id = record['id']
 		self.blacklist = record['blacklist'] or False
-		self.words = eval(str(record['blacklisted_words'])) or []
+		self.words = eval(str(record['blacklisted_words']).replace('"', '\'')) or []
 
 	async def toggle_blacklist(self):
 		self.blacklist = not self.blacklist
