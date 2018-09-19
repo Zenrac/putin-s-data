@@ -88,6 +88,7 @@ class Blacklist:
 				settings.words.append(word)
 				changes.append(f'Added `{word}`')
 
+		await ctx.db.execute(f'update settings set blacklisted_words=\'{settings.words}\' where id={ctx.guild.id};')
 		await ctx.send(f'\n'.join(changes))
 
 	@blacklist.command(name='remove')
