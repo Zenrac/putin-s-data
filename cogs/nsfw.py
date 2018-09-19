@@ -92,6 +92,8 @@ class NSFW():
         Arguments:
         `arg` : int  
         The post ID"""
+        if not ctx.channel.is_nsfw:
+            return await ctx.send('This is not a nsfw channel.')
         await ctx.trigger_typing()
         arg = str(arg)
         apilink = 'https://e621.net/post/show.json?id=' + arg
