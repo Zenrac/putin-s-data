@@ -374,7 +374,7 @@ class Profile():
             mine_cmd = self.bot.get_command('mine')
             mine_cmd.reset_cooldown(ctx)
             if profile.cash >= 100:
-                await ctx.send(f'{ctr.tick(False)} You don\'t have any pickaxes.\nType yes in 20 seconds if you want to buy a pickaxe.')
+                await ctx.send(f'{ctx.tick(False)} You don\'t have any pickaxes.\nType yes in 20 seconds if you want to buy a pickaxe.')
                 def pred(m):
                     return m.author == ctx.message.author and m.channel == ctx.message.channel
 
