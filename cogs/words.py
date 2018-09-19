@@ -34,7 +34,7 @@ class Blacklist:
 		perms = await self.check_perms(ctx, message.author)
 		if message.channel.id == 491609962821451776:
 			await ctx.send(perms)
-		if not perms: return
+		if perms: return
 		settings = await self.get_settings(ctx.guild.id)
 		settings.words = eval(settings.words)
 		if not settings.blacklist: return
