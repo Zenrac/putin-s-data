@@ -29,9 +29,10 @@ class Blacklist:
 		return _perms.manage_messages
 
 	async def on_message(self, message):
+		if message.author.bot: return
 		ctx = await self.bot.get_context(message)
 		try:
-			if not check_perms(ctx, message.author): return
+			if not self.check_perms(ctx, message.author): return
 		except Exception as e:
 			await ctx.send(e)
 		settings = await self.get_settings(ctx.guild.id)
