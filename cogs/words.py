@@ -57,7 +57,7 @@ class Blacklist:
 			color=ctx.author.top_role.color)
 		await ctx.send(embed=e)
 
-	@blacklist.command(aliases=['toggle'])
+	@blacklist.command(name='toggle')
 	@checks.is_mod()
 	async def blacklist_toggle(self, ctx):
 		settings = await self.get_settings(ctx.guild.id)
@@ -68,7 +68,7 @@ class Blacklist:
 
 		await ctx.send(f'Blacklist is now {state}.')
 
-	@blacklist.command(aliases=['add'])
+	@blacklist.command(name='add')
 	@checks.is_mod()
 	async def blacklist_add(self, ctx, *, words:str):
 		settings = await self.get_settings(ctx.guild.id)
@@ -86,7 +86,7 @@ class Blacklist:
 
 		await ctx.send(f'\n'.join(changes))
 
-	@blacklist.command(aliases=['remove'])
+	@blacklist.command(name='remove')
 	@checks.is_mod()
 	async def blacklist_remove(self, ctx, *, words:str):
 		settings = await self.get_settings(ctx.guild.id)
