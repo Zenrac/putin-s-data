@@ -10,6 +10,7 @@ import io
 import copy
 from typing import Union
 import re
+from .utils import context
 
 import datetime
 from collections import Counter
@@ -49,7 +50,7 @@ class Admin:
     @commands.is_owner()
     async def shell(self, ctx, *, code:str):
         x = await self.run_cmd(code)
-        await ctx.send(f'```bash\n{x}```')
+        await ctx.send(f'```bash\n{x}\n```')
 
     @commands.command(hidden=True)
     async def update(self, ctx):
@@ -59,20 +60,6 @@ class Admin:
         x = x.replace('Merge made by the \'recursive\' strategy.', '')
         x = x.replace('From https://github.com/iWeeti/putin-s-data', '')
         await msg.edit(content=f'```bash\n{x}\n```')
-
-    @commands.command(hidden=True)
-    @commands.has_permissions(ban_members=True)
-    async def idban(self, ctx, id:int=None, *, reason:str):
-        if not reason:
-            reason = 'No reason specified.'
-        if id is None:
-            return await ctx.send('You need to tell who to ban.')
-        try:
-            member = await self.bot.get_user_info(id)
-            await ctx.guild.ban(member, reason=reason)
-            await ctx.send(f'Banned {member.display_name}')
-        except discord.Forbidden:
-            await ctx.send('I do not have permissions to ban.')
         
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
@@ -151,7 +138,7 @@ class Admin:
         else:
             value = stdout.getvalue()
             try:
-                await ctx.message.add_reaction('\u2705')
+                await ctx.message.add_reaction(ctx.tick(True))
             except:
                 pass
 
@@ -303,7 +290,7 @@ class Admin:
         msg = copy.copy(ctx.message)
         msg.author = who
         msg.content = ctx.prefix + command
-        new_ctx = await self.bot.get_context(msg)
+        new_ctx = await self.bot.get_context(msg, class=context.Context)
         new_ctx.bot.pool = self.bot.pool
         await self.bot.invoke(new_ctx)
 
