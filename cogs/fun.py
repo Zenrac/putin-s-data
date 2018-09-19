@@ -13,6 +13,10 @@ class Fun():
     def __init__(self, bot):
         self.bot = bot
         
+    @commands.command(hidden=False, aliases=['reee'])
+    async def ree(self, ctx):
+        await ctx.send('**FUCKING NORMIES** ***REEEEEEEEEEEEEEEEEEEEEEEEEEE***')
+        
     @commands.command()
     async def howgay(self, ctx, *, member:discord.Member=None):
         """Tells you how gay you or someone else is."""
