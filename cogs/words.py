@@ -39,8 +39,11 @@ class Blacklist:
 		for word in words:
 			if word.lower() in settings.words:
 				try:
-					await message.delete()
-					await message.author.send(f'You are not allowed to say {word} in {ctx.guild}!')
+					try:
+						await message.delete()
+						await message.author.send(f'You are not allowed to say {word} in {ctx.guild}!')
+					except Exception as e:
+						await ctx.send(e)
 				except discord.Forbidden:
 					pass
 				break
