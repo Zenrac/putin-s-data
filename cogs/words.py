@@ -22,7 +22,7 @@ class Blacklist:
 
 	async def check_perms(self, ctx, member):
 		_perms = ctx.channel.permissions_for(member)
-        return _perms.manage_messages
+		return _perms.manage_messages
 
 	async def on_message(self, message):
 		if not check_perms(): return
