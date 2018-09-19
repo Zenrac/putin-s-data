@@ -290,7 +290,7 @@ class Admin:
         msg = copy.copy(ctx.message)
         msg.author = who
         msg.content = ctx.prefix + command
-        new_ctx = await self.bot.get_context(msg, class=context.Context)
+        new_ctx = await self.bot.get_context(msg, cls=context.Context)
         new_ctx.bot.pool = self.bot.pool
         await self.bot.invoke(new_ctx)
 
