@@ -20,6 +20,10 @@ class Fun():
             member = ctx.author
             
         gay = random.randint(0,100)
+        
+        if member.id == 285042740738392064:
+            gay = 100
+        
         e = discord.Embed(title="How gay?", color=member.top_role.color)
         e.description=f"{member.display_name} is {gay}% gay."
         
