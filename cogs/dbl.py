@@ -7,6 +7,7 @@ import discord
 import config
 
 class DBL():
+    """Commands related to [discordbots.org](https://discordbots.org)"""
     def __init__(self, bot):
         self.bot = bot
         self.token = config.dbl_token
@@ -15,12 +16,11 @@ class DBL():
 
     async def update_stats(self):
         while True:
-            await asyncio.sleep(1800)
             try:
                 await self.dblpy.post_server_count()
-                print('posted server count')
             except Exception as e:
                 print(e)
+            await asyncio.sleep(1800)
 
     @commands.command()
     async def botinfo(self, ctx, *, member: discord.Member=None):
@@ -32,6 +32,8 @@ class DBL():
             await ctx.send('That is not a bot...')
             return
         data = await self.dblpy.get_bot_info(bot_id=int(member.id))
+        if not data:
+            return await ctx.send(f'{ctx.tick(False)} This bot is not in discordbots.org\'s database.')
         if data:
             if not 'server_count' in data:
                 server_count = 'Not Posted'
@@ -122,7 +124,7 @@ class DBL():
             # e.add_field(name="")
             await ctx.send(embed=e)
         else:
-            await ctx.send('The bot is not in the databse of discordbots.org')
+            await ctx.send('The bot is not in the database of discordbots.org')
 
     @commands.command()
     async def dbl(self, ctx, member: discord.Member=None):
@@ -135,65 +137,10 @@ class DBL():
             # await ctx.send(':red_circle: **WOOP WOOP** :red_circle: **WE GOT AN IDIOT OVER HERE TRYING TO VIEW THE BOT PAGE OF A USER!**')
             return
         url = await self.dblpy.generate_widget_large(bot_id=int(member.id))
+        if not url:
+            return await ctx.send(f'{ctx.tick(False)} This bot is not in discordbots.org\'s database.')
         e = discord.Embed(title="Discord Bot List", description="Info for {}:".format(member.name), color=discord.Color.green())
         e.set_image(url=url)
-        await ctx.send(embed=e)
-
-    @commands.command()
-    # @commands.is_owner()
-    async def widget(self, ctx, bot: discord.Member=None):
-        if bot is None:
-            await ctx.send('You need to specify a bot.')
-            return
-        if not bot.bot:
-            await ctx.send('That\'s not a bot.')
-            return
-        data = await self.dblpy.get_bot_info(bot_id=int(bot.id))
-        # await ctx.send(data)
-        bot_name = bot.name.replace(' ', '%20')
-        if not 'server_count' in data:
-            server_count = 0
-        else:
-            server_count = data['server_count']
-        votes = data['points']
-        # print(bot_name + votes)
-        owner = data['owners']
-        ownerr = await self.bot.get_user_info(int(owner[0]))
-        owner_name = ownerr.name + '[h]' + ownerr.discriminator
-        status = str(bot.status)
-        statuss = None
-        if status in 'online':
-            statuss = 0
-        if status in 'idle':
-            statuss = 1
-        if status in 'dnd':
-            statuss = 2
-        if status in 'offline':
-            statuss = 3
-        if status in 'streaming':
-            statuss = 4
-        # print(statuss)
-        avatar_hash = bot.avatar
-        bot_id = str(bot.id)
-        avatar = bot_id + '|' + avatar_hash
-        if data['certifiedBot'] is True:
-            certified = 'true'
-        else:
-            certified = 'false'
-        # await ctx.send(certified)
-        base = 'http://172.96.162.194:4006/widget?name='
-        sserver_count = '&server_count='
-        vvotes = '&votes='
-        oowner = '&owner='
-        aavatar = '&avatar='
-        sstatus = '&status='
-        ccertified = '&certified='
-        call = base + bot_name + sserver_count + str(server_count) + vvotes + str(votes) + oowner + str(owner_name) + sstatus + str(statuss) + aavatar + avatar + ccertified + certified
-        async with aiohttp.ClientSession() as cs:
-            async with cs.get(call) as res:
-                pass
-        e = discord.Embed(title="Custom widget api made by ThatTonybo#1234", color=discord.Color.blue())
-        e.set_image(url=call)
         await ctx.send(embed=e)
 
 def setup(bot):

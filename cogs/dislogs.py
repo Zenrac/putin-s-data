@@ -8,6 +8,22 @@ import datetime
 import asyncio
 import aiohttp
 
+class Settings:
+    def __init__(self, bot, record):
+        self.bot = bot
+        self.message_delete = record['message_delete'] or False
+        self.message_edit = record['message_edit'] or False
+        self.join = record['log_join'] or False
+        self.leave = record['leave'] or False
+        self.kick = record['kick'] or False
+        self.ban = record['ban'] or False
+        self.welcome = record['welcome_enabled'] or False
+        self.welcome_channel = record['welcome_channel']
+        self.commands = record['log_commands']
+        self.unban = record['unban']
+        self.buy_roles = record['buy_roles']
+        self.advert = record['advert']
+
 class DisLogs:
     def __init__(self, bot):
         self.bot = bot
@@ -17,6 +33,10 @@ class DisLogs:
             async with session.post("https://hastebin.com/documents",data=content.encode('utf-8')) as post:
                 post = await post.json()
                 return "https://hastebin.com/{}".format(post['key'])
+
+    async def get_settings(self, id):
+        record = self.bot.pool.fetchrow(f'select * from settings where id={id}')
+        return Settings(self.bot, record)
 
     async def on_message_delete(self, message):
         if message.author.bot: return

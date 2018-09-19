@@ -4,11 +4,15 @@ from datetime import datetime as dtime
 import datetime
 
 class AFK:
+	"""AFK status commands."""
 	def __init__(self, bot):
 		self.bot = bot
 
 	@commands.command()
 	async def afk(self, ctx, *, reason=None):
+		"""Sets your afk status reason is optional.
+		This means that if someone mentions you they get
+		a message that you are afk."""
 		if reason is None:
 			reason = 'No reason specified.'
 		when = dtime.utcnow()
