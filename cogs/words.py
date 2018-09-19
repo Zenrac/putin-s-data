@@ -109,7 +109,7 @@ class Blacklist:
 		changes = []
 
 		for word in words:
-			if not word in settings.words:
+			if word in settings.words:
 				settings.words.remove(word)
 				changes.append(f'Removed `{word}`')
 
