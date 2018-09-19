@@ -78,6 +78,7 @@ class Blacklist:
 	@checks.is_mod()
 	async def blacklist_add(self, ctx, *, words:str):
 		settings = await self.get_settings(ctx.guild.id)
+		settings.words = eval(settings.words)
 
 		if not settings.blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
@@ -98,6 +99,7 @@ class Blacklist:
 	@checks.is_mod()
 	async def blacklist_remove(self, ctx, *, words:str):
 		settings = await self.get_settings(ctx.guild.id)
+		settings.words = eval(settings.words)
 
 		if not settings.blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
