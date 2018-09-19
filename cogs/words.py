@@ -18,6 +18,8 @@ class Blacklist:
 
 	async def get_settings(self, id):
 		record = await self.bot.pool.fetchrow(f'select * from settings where id={id}')
+		if record is None:
+			await self.bot.pool.execute(f'insert into settings (id) values ({id})')
 		return Settings(self.bot, record)
 
 	async def check_perms(self, ctx, member):
