@@ -224,7 +224,7 @@ class DisLogs:
         if channel is None: return
         await channel.send(f'``{ctx.author}`` ran ``{ctx.prefix}{ctx.command}`` in {ctx.channel.mention}.')
         
-    @commands.commad(hidden=True)
+    @commands.group(hidden=True)
     @checks.is_mod()
     async def welcome(self, ctx):
         if ctx.invoked_subcommand is None:
