@@ -16,22 +16,6 @@ class Fun():
     @commands.command(hidden=False, aliases=['reee'])
     async def ree(self, ctx):
         await ctx.send('**FUCKING NORMIES** ***REEEEEEEEEEEEEEEEEEEEEEEEEEE***')
-        
-    @commands.command()
-    async def howgay(self, ctx, *, member:discord.Member=None):
-        """Tells you how gay you or someone else is."""
-        if not member:
-            member = ctx.author
-            
-        gay = random.randint(0,100)
-        
-        if member.id == 285042740738392064:
-            gay = 100
-        
-        e = discord.Embed(title="How gay?", color=member.top_role.color)
-        e.description=f"{member.display_name} is {gay}% gay."
-        
-        await ctx.send(embed=e)
 
     @commands.command()
     async def nmeme(self, ctx):

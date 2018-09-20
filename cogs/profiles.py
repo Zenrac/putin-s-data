@@ -1572,5 +1572,27 @@ class Profile():
 
             await profile.increase_xp(ctx)
 
+    @commands.command()
+    async def howgay(self, ctx, *, member:discord.Member=None):
+        """Tells you how gay you or someone else is."""
+        if not member:
+            member = ctx.author
+
+        profile = await self.get_profile(ctx, member.id)
+        if profile.gay:
+            e = discord.Embed(title="How gay?", color=member.top_role.color)
+            e.description=f"{member.display_name} is {profile.gay}% gay."
+        else
+            gay = random.randint(0,100)
+            
+            if member.id == 285042740738392064:
+                gay = 100
+            
+            e = discord.Embed(title="How gay?", color=member.top_role.color)
+            e.description=f"{member.display_name} is {gay}% gay."
+            await profile.edit_field(ctx, gay=gay)
+        
+        await ctx.send(embed=e)
+
 def setup(bot):
     bot.add_cog(Profile(bot))
