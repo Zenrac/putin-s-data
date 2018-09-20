@@ -82,6 +82,7 @@ class ProfileConfig:
         self.name = record['name']
         self.announce_level = record['announce_level']
         self.bday = record['bday'] or '`.profile birthday <DD-MM-YYYY>`'
+        self.gey = record['gay'] or None
 
     def __str__(self):
         return f'Profile of {self.name}'
@@ -1581,7 +1582,7 @@ class Profile():
         if profile.gay:
             e = discord.Embed(title="How gay?", color=member.top_role.color)
             e.description=f"{member.display_name} is {profile.gay}% gay."
-        else
+        else:
             gay = random.randint(0,100)
             
             if member.id == 285042740738392064:
