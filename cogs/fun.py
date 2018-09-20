@@ -367,23 +367,6 @@ class Fun():
         await ctx.send(random.choice(coins))
 
     @commands.command()
-    async def ping(self, ctx):
-        """Sends a ping message."""
-        if not ctx.message.author.bot:
-            await ctx.send('I am not that kind of bot :smile:')
-
-    @commands.command(hidden=True)
-    async def pingg(self, ctx):
-        try:
-            await self.bot.delete_message(ctx.message)
-        except:
-            pass
-        before = time.monotonic()
-        message = await ctx.say("Pong!")
-        ping = (time.monotonic() - before) * 1000
-        await self.bot.edit_message(message, f"Pong!  `{int(ping)}ms`")
-
-    @commands.command()
     async def party(self, ctx):
         """Display a random party image."""
         partys =['https://media.giphy.com/media/3rgXBQIDHkFNniTNRu/giphy.gif', 'https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif',
