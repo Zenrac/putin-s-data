@@ -82,7 +82,7 @@ class ProfileConfig:
         self.name = record['name']
         self.announce_level = record['announce_level']
         self.bday = record['bday'] or '`.profile birthday <DD-MM-YYYY>`'
-        self.gey = record['gay'] or None
+        self.gay = record['gay'] or None
 
     def __str__(self):
         return f'Profile of {self.name}'
