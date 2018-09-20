@@ -1278,7 +1278,7 @@ class Profile():
         m_profile = await self.bot.pool.fetchrow(ctx, member.id)
         if m_profile is None:
             return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
-        await profile..edit_field(ctx, rings=profile.rings - amount)
+        await profile.edit_field(ctx, rings=profile.rings - amount)
         await m_profile.edit_field(ctx, rings=m_profile.rings + amount)
         await ctx.send(f'{ctx.tick(True)} Gave {amount}x :ring: to {member.display_name}.')
 
@@ -1335,7 +1335,7 @@ class Profile():
         m_profile = await self.bot.pool.fetchrow(ctx, member.id)
         if m_profile is None:
             return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
-        await profile..edit_field(ctx, alcohol=profile.alcohol - amount)
+        await profile.edit_field(ctx, alcohol=profile.alcohol - amount)
         await m_profile.edit_field(ctx, alcohol=m_profile.alcohol + amount)
         await ctx.send(f'{ctx.tick(True)} Gave :champagne: to {member.display_name}.')
 

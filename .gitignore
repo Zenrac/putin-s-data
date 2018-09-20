@@ -11,3 +11,4 @@ wbot.log
 __pycache__
 wbot.log
 prev_events.log
+cogs/__pycache__
