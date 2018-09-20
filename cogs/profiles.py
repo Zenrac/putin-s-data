@@ -1372,11 +1372,9 @@ class Profile():
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
-        cash = int(profile['cash'])
         if profile.cash < amount:
             await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         else:
-            cash -= amount
             slot = ['\U0001f352', '\U0001f347', '\U0001f353']
             slot1 = random.choice(slot)
             slot2 = random.choice(slot)
@@ -1388,20 +1386,14 @@ class Profile():
             slot8 = random.choice(slot)
             slot9 = random.choice(slot)
             slot_machine = f'```╔════[SLOTS]════╗\n║ {slot1} ║ {slot2} ║ {slot3} ║\n> {slot4} ║ {slot5} ║ {slot6} <\n║ {slot7} ║ {slot8} ║ {slot9} ║\n╚════[SLOTS]════╝```'
-            winning_times = 0
-            if slot4 == slot5 and slot4 == slot6:
-                winning_times += 1
-            if slot1 == slot5 and slot1 == slot9:
-                winning_times += 1
-            if slot7 == slot5 and slot7 == slot3:
-                winning_times += 1
-            if slot1 == slot2 and slot1 == slot3:
-                winning_times += 1
-            if slot7 == slot8 and slot7 == slot9:
-                winning_times += 1
+            chance = random.randint(1, 3)
+            if chance is not 3:
+                winning_times = 1
+            else:
+                winning_times = 0
 
             await ctx.send(f'{slot_machine}\n**{ctx.message.author.display_name}** bet ${amount} and won ${round(amount*int(winning_times/0.5))}')
-            await self.edit_field(ctx, cash=profile.cash+round(amount*int(winning_times/0.5)))
+            await profile.edit_field(ctx, cash=profile.cash+round(amount*int(winning_times/0.5)))
 
     @commands.command()
     async def challenge(self, ctx, *, member:discord.Member=None):
