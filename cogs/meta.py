@@ -475,7 +475,7 @@ class Meta:
 
 
     @commands.command()
-    async def role(self, ctx, *, role: discord.Role):
+    async def roleinfo(self, ctx, *, role: discord.Role):
         m = []
         for member in ctx.guild.members:
             if role in member.roles:
