@@ -12,7 +12,11 @@ __pycache__
 wbot.log
 prev_events.log
 <<<<<<< HEAD
+<<<<<<< HEAD
 cogs/__pycache__
 =======
 cogs/__pycache__
 >>>>>>> 8e633d31d389e69e93ff91ec50ef2f9fd9c79529
+=======
+cogs/__pycache__/*
+>>>>>>> 10fe28580e72197afc69d34650e9c947500e48bb
