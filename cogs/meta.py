@@ -202,8 +202,7 @@ class Meta:
             publishedat = pa.replace("T", " ").replace("Z", " ").replace("-", "/").replace("{'", "").replace("'}", "")
             embed = discord.Embed(title=re['title'], description=re['description'], url=re['url'])
             embed.set_thumbnail(url=re['urlToImage'])
-            embed.set_footer(text=f"© {re['source']['name']} & NewsAPI | Published at")
-            embed.timestamp = publishedat
+            embed.set_footer(text=f"© {re['source']['name']} & NewsAPI | Published at {publishedat[:-4]}")
 
             await ctx.send(embed=embed, content=f":newspaper: Here\'s a popular story from the News.")
         except:
@@ -227,8 +226,7 @@ class Meta:
             publishedat = pa.replace("T", " ").replace("Z", " ").replace("-", "/").replace("{'", "").replace("'}", "")
             embed = discord.Embed(title=re['title'], description=re['description'], url=re['url'])
             embed.set_thumbnail(url=re['urlToImage'])
-            embed.set_footer(text=f"© {re['source']['name']} & NewsAPI | Published at")
-            embed.timestamp = publishedat
+            embed.set_footer(text=f"© {re['source']['name']} & NewsAPI | Published at {publishedat[:-4]}")
 
             await ctx.send(embed=embed, content=f":newspaper: Here\'s what I found for **\"{query}\"** in the **News**..")
         except:
