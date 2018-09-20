@@ -934,9 +934,9 @@ class Mod():
 
         try:
             await member.edit(nick=nick)
-            await ctx.send(f"{ctx.tick(True)} {ctx.author.display_name} changed ``{member.display_name}``\'s username.".format(, ))
+            await ctx.send(f"{ctx.tick(True)} Changed ``{member.display_name}``\'s username.")
         except discord.Forbidden:
-            await ctx.send(f'{ctx.tick(False)} The bot does not have permissions to change nicknames.')
+            await ctx.send(f'{ctx.tick(False)} I do not have permissions to change nicknames.')
         except discord.HTTPException:
             await ctx.send(f'{ctx.tick(False)} Changing nickname failed.')
 
