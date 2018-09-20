@@ -228,7 +228,7 @@ class Meta:
             embed.set_thumbnail(url=re['urlToImage'])
             embed.set_footer(text=f"© {re['source']['name']} & NewsAPI | Published at {publishedat[:-4]}")
 
-            await ctx.send(embed=embed, content=f":newspaper: Here\'s what I found for **\"{query}\"** in the **News**..")
+            await ctx.send(embed=embed, content=f":newspaper: Here\'s what I found for \"{query}\" in the News.")
         except:
             await ctx.send(f"{ctx.tick(False)} I couldn't find any article that matched your query..")
 
