@@ -24,7 +24,7 @@ class Settings:
         self.buy_roles = record['buy_roles']
         self.advert = record['advert']
         
-    async def edit_field(**fields)
+    async def edit_field(**fields):
         pass
 
 class DisLogs:
