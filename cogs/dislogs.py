@@ -7,6 +7,7 @@ from discord.utils import find, get
 import datetime
 import asyncio
 import aiohttp
+from .utils import checks
 
 class Settings:
     def __init__(self, bot, record):
