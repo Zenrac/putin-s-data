@@ -1283,7 +1283,7 @@ class Profile():
         await ctx.send(f'{ctx.tick(True)} Gave {amount}x :ring: to {member.display_name}.')
 
     @itemtransfer.command(name='diamond')
-    async def give_diamond(self, ctx, member : discord.Member = None, amount:int):
+    async def give_diamond(self, ctx, member : discord.Member = None, amount:int=None):
         """Gives your diamond to another member."""
         if member is None:
             return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
@@ -1302,7 +1302,7 @@ class Profile():
         await ctx.send(f'{ctx.tick(True)} Gave {amount}x :diamond_shape_with_a_dot_inside: to {member.display_name}.')
 
     @itemtransfer.command(name='rose')
-    async def give_rose(self, ctx, member : discord.Member = None, amount:int):
+    async def give_rose(self, ctx, member : discord.Member = None, amount:int=None):
         """Gives your rose to another member."""
         if member is None:
             return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
@@ -1321,7 +1321,7 @@ class Profile():
         await ctx.send(f'{ctx.tick(True)} Gave {amount}x :rose: to {member.display_name}.')
 
     @itemtransfer.command(name='alcohol', aliases=['vodka'])
-    async def give_alcohol(self, ctx, member : discord.Member = None, amount:int):
+    async def give_alcohol(self, ctx, member : discord.Member = None, amount:int=None):
         """Gives your alcohol to another member."""
         if member is None:
             return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
