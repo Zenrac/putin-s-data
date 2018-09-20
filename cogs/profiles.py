@@ -1212,7 +1212,7 @@ class Profile():
     @commands.command()
     async def divorce(self, ctx):
         """Divorces with a member."""
-        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
         if married == 'Nobody...':
@@ -1220,7 +1220,7 @@ class Profile():
         married = ctx.guild.get_member(profile.married)
         if not married:
             return await ctx.send(f'{ctx.tick(False)} The member you are married with is not in this server.')
-        m_profile = await self.bot.pool.fetchrow(ctx, profile.married)
+        m_profile = await self.get_profile(ctx, profile.married)
 
         await ctx.send(f'{ctx.message.author.display_name} would like to get divorced with {member.display_name}.\n'\
                        f'{member.display_name} type yes in 60 seconds if you want to get divorced.')
@@ -1249,14 +1249,14 @@ class Profile():
         """Gives your pickaxe to another member."""
         if member is None:
             msg = await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
-        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
         if not amount or amount < 0:
             amount = 1
         if profile.picks < amount:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough pickaxes.')
-        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        m_profile = await self.get_profile(ctx, member.id)
         if m_profile is None:
             return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
         await profile.edit_field(ctx, picks=profile.picks - amount)
@@ -1268,14 +1268,14 @@ class Profile():
         """Gives your ring to another member."""
         if member is None:
             return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
-        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
         if not amount or amount < 0:
             amount = 1
         if profile.rings < amount:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough rings.')
-        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        m_profile = await self.get_profile(ctx, member.id)
         if m_profile is None:
             return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
         await profile.edit_field(ctx, rings=profile.rings - amount)
@@ -1287,14 +1287,14 @@ class Profile():
         """Gives your diamond to another member."""
         if member is None:
             return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
-        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
         if not amount or amount < 0:
             amount = 1
         if profile.diamonds < amount:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough diamonds.')
-        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        m_profile = await self.get_profile(ctx, member.id)
         if m_profile is None:
             return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
         await profile.edit_field(ctx, diamonds=profile.diamonds - amount)
@@ -1306,14 +1306,14 @@ class Profile():
         """Gives your rose to another member."""
         if member is None:
             return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
-        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
         if not amount or amount < 0:
             amount = 1
         if roses < amount:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough roses.')
-        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        m_profile = await self.get_profile(ctx, member.id)
         if m_profile is None:
             return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
         await profile.edit_field(ctx, roses=profile.roses - amount)
@@ -1325,14 +1325,14 @@ class Profile():
         """Gives your alcohol to another member."""
         if member is None:
             return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
-        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
         if not amount or amount < 0:
             amount = 1
         if alcohol == 0:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough alcohol.')
-        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        m_profile = await self.get_profile(ctx, member.id)
         if m_profile is None:
             return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
         await profile.edit_field(ctx, alcohol=profile.alcohol - amount)
@@ -1342,7 +1342,7 @@ class Profile():
     @commands.command(aliases=['moneytransfer'])
     async def givemoney(self, ctx, member:discord.Member=None, amount:int=None):
         """Gives the amount you specify from your money to the member you specify."""      
-        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)        
         if ctx.author.id == member.id:
@@ -1355,7 +1355,7 @@ class Profile():
             return await ctx.invoke(self.make)
         if profile.cash <= amount:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough money to give.')
-        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        m_profile = await self.get_profile(ctx, member.id)
         if m_profile is None:
             return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
         await profile.edit_field(ctx, cash=profile.cash - amount)
