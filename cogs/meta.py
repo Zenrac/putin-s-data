@@ -166,7 +166,7 @@ class Meta:
             async with aiohttp.ClientSession() as cs:
                 async with cs.get(f"http://www.omdbapi.com/?t={mv}&apikey=e82f2fc2") as r:
                     r = await r.json()
-            imdb_url = "https://www.imdb.com/title/" + r['imdbID'] or imdb_url = "https://www.imdb.com/404"
+            imdb_url = f"https://www.imdb.com/title/{r['imdbID']}" or imdb_url = "https://www.imdb.com/404"
             if r['Metascore'] == 'N/A':
                 meta = "Not Rated"
             else:
