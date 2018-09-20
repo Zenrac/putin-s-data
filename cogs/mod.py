@@ -490,9 +490,9 @@ class Mod():
         self.get_guild_config.invalidate(self, ctx.guild.id)
         await ctx.send(f'{ctx.tick(True)} Updated mentionspam ignore list.')
 
-    @commands.command()
+    @commands.command(aliases=['togglerole'])
     @checks.is_mod()
-    async def _role(self, ctx, member:discord.Member=None, role:discord.Role=None, *, reason:str=None):
+    async def role(self, ctx, member:discord.Member=None, role:discord.Role=None, *, reason:str=None):
         if not member:
             return await ctx.send(f'{ctx.tick(False)} You need to specify a member.')
 
@@ -514,6 +514,11 @@ class Mod():
         except discord.Forbidden:
             return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
         await ctx.send(f'{ctx.tick(True)} Added {role.name} to {member.display_name}.')
+
+    @commands.command()
+    @checks.is_mod()
+    async def addrole(self, ctx, *, rolename:str=None):
+        await ctx.guild.create_role(name=rolename)
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_channels=True)
