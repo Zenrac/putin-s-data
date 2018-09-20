@@ -363,7 +363,7 @@ class Fun():
     @commands.command()
     async def coin(self, ctx):
         """Flips a coin."""
-        coins = [':flag_ru: Heads', ':flag_us: Tails']
+        coins = [f'{ctx.tick(True)} Heads', f'{ctx.tick(False)} Tails']
         await ctx.send(random.choice(coins))
 
     @commands.command()
