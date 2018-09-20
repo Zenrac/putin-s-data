@@ -203,13 +203,13 @@ class Meta:
             embed = discord.Embed(title=re['title'], description=re['description'], url=re['url'])
             embed.set_thumbnail(url=re['urlToImage'])
             embed.set_footer(text=f"© {re['source']['name']} & NewsAPI | Published at")
-            embed.timestamp = publishedat[:-4]
+            embed.timestamp = publishedat
 
             await ctx.send(embed=embed, content=f":newspaper: Here\'s a popular story from the News.")
         except:
             await ctx.send(
-                f"{ctx.tick(False)} There was an issue getting the news article.\n'\
-                'Check back in a few hours.")
+                f"{ctx.tick(False)} There was an issue getting the news article.\n"\
+                "Check back in a few hours.")
 
     @commands.command()
     async def article(self, ctx, *, query:str=None):#03d8e32c7dd349e3b9efe0338e08e890
@@ -228,7 +228,7 @@ class Meta:
             embed = discord.Embed(title=re['title'], description=re['description'], url=re['url'])
             embed.set_thumbnail(url=re['urlToImage'])
             embed.set_footer(text=f"© {re['source']['name']} & NewsAPI | Published at")
-            embed.timestamp = publishedat[:-4]
+            embed.timestamp = publishedat
 
             await ctx.send(embed=embed, content=f":newspaper: Here\'s what I found for **\"{query}\"** in the **News**..")
         except:
