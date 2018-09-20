@@ -510,7 +510,7 @@ class Mod():
             return await ctx.send(f'{ctx.tick(True)} Removed {role.name} from {member.display_name}.')
 
         try:
-            await memebr.add_roles(role, reason=reason)
+            await member.add_roles(role, reason=reason)
         except discord.Forbidden:
             return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
         await ctx.send(f'{ctx.tick(True)} Added {role.name} to {member.display_name}.')
