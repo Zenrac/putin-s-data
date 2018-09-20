@@ -23,6 +23,9 @@ class Settings:
         self.unban = record['unban']
         self.buy_roles = record['buy_roles']
         self.advert = record['advert']
+        
+    async def edit_field(**fields)
+        pass
 
 class DisLogs:
     def __init__(self, bot):
@@ -220,6 +223,23 @@ class DisLogs:
         if not data[0]: return
         if channel is None: return
         await channel.send(f'``{ctx.author}`` ran ``{ctx.prefix}{ctx.command}`` in {ctx.channel.mention}.')
+        
+    @commands.commad(hidden=True)
+    @checks.is_mod()
+    async def welcome(self, ctx):
+        if ctx.invoked_subcommand is None:
+            await ctx.show_help('welcome')
+
+    @welcome.command(hidden=True, name='toggle')
+    @checks.is_mod()
+    async def welcome_toggle(self, ctx, *, channel:discord.TextChannel=None):
+        """Toggles welcome messages."""
+        if not channel:
+            return await ctx.send(f'{ctx.tick(False)} You need to mention a channel to toggle.')
+        settings = await self.get_settings(ctx.guild.id)
+        settings.welcome = not settings.welcome
+        state = 'enabled' if settings.welcome else 'disabled'
+        await ctx.send(f'Welcome message is now enabled.')
 
 def setup(bot):
     bot.add_cog(DisLogs(bot))

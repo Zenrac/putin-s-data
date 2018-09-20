@@ -870,8 +870,6 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        roses = profile['roses']
         if amount is None or amount < 0:
             amount = 1
         if profile.cash < amount * 25:
