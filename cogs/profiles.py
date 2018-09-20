@@ -71,7 +71,7 @@ class ProfileConfig:
         self.level = record['level']
         self.last_xp_time = record['last_xp_time'] or False
         self.married = record['married'] or 'Nobody...'
-        self.cash = record['cash']
+        self.cash = record['cash'] or 0
         self.picks = record['picks'] or 0
         self.rings = record['rings'] or 0
         self.diamonds = record['diamonds'] or 0
@@ -487,7 +487,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
-        if not profile.pet:
+        if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
         if profile.pet != ':dog: Dog':
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
@@ -503,7 +503,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
-        if not profile.pet:
+        if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
         if profile.pet != ':cat2: Cat':
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
@@ -519,7 +519,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
-        if not profile.pet:
+        if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
         if profile.pet != ':mouse: Mouse':
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
@@ -535,7 +535,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
-        if not profile.pet:
+        if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
         if profile.pet != ':hamster: Hamster':
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
@@ -551,7 +551,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
-        if not profile.pet:
+        if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
         if profile.pet != ':rabbit: Rabbit':
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
@@ -567,7 +567,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
-        if not profile.pet:
+        if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
         if profile.pet != ':dragon: Dragon':
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
@@ -583,7 +583,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
-        if not profile.pet:
+        if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
         if profile.pet != ':bear: Bear':
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
@@ -599,7 +599,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
-        if not profile.pet:
+        if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
         if profile.pet != ':pig2: Pig':
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
@@ -627,7 +627,7 @@ class Profile():
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :pick:')
 
     @sell.command(name='ring')
-    async def rin(self, ctx, amount : int = None):
+    async def rin(self, ctx, amount:int=None):
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
