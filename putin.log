@@ -1,11 +1,155 @@
-[2018-09-09 16:42:29] [INFO   ] discord.client: logging in using static token
-[2018-09-09 16:42:30] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
-[2018-09-09 16:42:31] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-v1h0, discord-sessions-prd-1-1 (Session ID: d29f72ce9e4c8f7b4837cc879985592d).
-[2018-09-09 16:43:10] [INFO   ] __main__: 2018-09-09 16:43:10.781000: Goddess of Hentai in #bot-commands (Giveaway Universe): .loot
-[2018-09-09 16:43:10] [INFO   ] cogs.stats: 2018-09-09 16:43:10.781000: Goddess of Hentai#6344 in #bot-commands (Giveaway Universe): .loot
-[2018-09-09 16:43:29] [INFO   ] __main__: 2018-09-09 16:43:29.873000: Goddess of Hentai in #bot-commands (Giveaway Universe): .help
-[2018-09-09 16:43:29] [INFO   ] cogs.stats: 2018-09-09 16:43:29.873000: Goddess of Hentai#6344 in #bot-commands (Giveaway Universe): .help
-[2018-09-09 16:45:28] [INFO   ] __main__: 2018-09-09 16:45:28.174000: Goddess of Hentai in #bot-commands (Giveaway Universe): .daily
-[2018-09-09 16:45:28] [INFO   ] cogs.stats: 2018-09-09 16:45:28.174000: Goddess of Hentai#6344 in #bot-commands (Giveaway Universe): .daily
-[2018-09-09 16:45:39] [INFO   ] __main__: 2018-09-09 16:45:38.870000: Goddess of Hentai in #bot-commands (Giveaway Universe): .mine
-[2018-09-09 16:45:39] [INFO   ] cogs.stats: 2018-09-09 16:45:38.870000: Goddess of Hentai#6344 in #bot-commands (Giveaway Universe): .mine
+[2018-09-17 13:39:16] [INFO   ] discord.client: logging in using static token
+[2018-09-17 13:39:17] [INFO   ] discord.gateway: Shard ID 0 has sent the IDENTIFY payload.
+[2018-09-17 13:39:17] [INFO   ] discord.gateway: Shard ID 0 has connected to Gateway: gateway-prd-main-d3vr, discord-sessions-prd-1-30 (Session ID: f16f6d060d62f3436c883185776b77bf).
+[2018-09-17 13:39:58] [INFO   ] __main__: 2018-09-17 13:39:58.393000: iWeeti in #bot-commands (Giveaway Universe): .update
+[2018-09-17 13:39:58] [INFO   ] cogs.stats: 2018-09-17 13:39:58.393000: iWeeti#8031 in #bot-commands (Giveaway Universe): .update
+[2018-09-17 13:40:02] [INFO   ] __main__: 2018-09-17 13:40:02.029000: iWeeti in #bot-commands (Giveaway Universe): .r
+[2018-09-17 13:40:02] [INFO   ] cogs.stats: 2018-09-17 13:40:02.029000: iWeeti#8031 in #bot-commands (Giveaway Universe): .r
+[2018-09-17 13:40:07] [INFO   ] __main__: 2018-09-17 13:40:07.411000: iWeeti in #bot-commands (Giveaway Universe): .reload dislogs
+[2018-09-17 13:40:07] [INFO   ] cogs.stats: 2018-09-17 13:40:07.411000: iWeeti#8031 in #bot-commands (Giveaway Universe): .reload dislogs
+[2018-09-17 13:40:12] [INFO   ] __main__: 2018-09-17 13:40:12.044000: iWeeti in #bot-commands (Giveaway Universe): .reload mod
+[2018-09-17 13:40:12] [INFO   ] cogs.stats: 2018-09-17 13:40:12.044000: iWeeti#8031 in #bot-commands (Giveaway Universe): .reload mod
+[2018-09-17 13:40:16] [INFO   ] __main__: 2018-09-17 13:40:16.600000: iWeeti in #bot-commands (Giveaway Universe): .reload fun
+[2018-09-17 13:40:16] [INFO   ] cogs.stats: 2018-09-17 13:40:16.600000: iWeeti#8031 in #bot-commands (Giveaway Universe): .reload fun
+[2018-09-17 13:40:55] [INFO   ] __main__: 2018-09-17 13:40:55.933000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:40:55] [INFO   ] cogs.stats: 2018-09-17 13:40:55.933000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:41:11] [INFO   ] __main__: 2018-09-17 13:41:10.941000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql delete * from adk
+[2018-09-17 13:41:11] [INFO   ] cogs.stats: 2018-09-17 13:41:10.941000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql delete * from adk
+[2018-09-17 13:41:17] [INFO   ] __main__: 2018-09-17 13:41:17.598000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql delete * from afk
+[2018-09-17 13:41:17] [INFO   ] cogs.stats: 2018-09-17 13:41:17.598000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql delete * from afk
+[2018-09-17 13:41:26] [INFO   ] __main__: 2018-09-17 13:41:26.360000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql delete from afk
+[2018-09-17 13:41:26] [INFO   ] cogs.stats: 2018-09-17 13:41:26.360000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql delete from afk
+[2018-09-17 13:41:34] [INFO   ] __main__: 2018-09-17 13:41:33.984000: iWeeti in #putin-guild-and-error-log (Putin support server): .help afk
+[2018-09-17 13:41:34] [INFO   ] cogs.stats: 2018-09-17 13:41:33.984000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .help afk
+[2018-09-17 13:41:38] [INFO   ] __main__: 2018-09-17 13:41:38.559000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:41:38] [INFO   ] cogs.stats: 2018-09-17 13:41:38.559000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:42:14] [INFO   ] __main__: 2018-09-17 13:42:13.946000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:42:14] [INFO   ] cogs.stats: 2018-09-17 13:42:13.946000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:42:17] [INFO   ] __main__: 2018-09-17 13:42:17.532000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:42:17] [INFO   ] cogs.stats: 2018-09-17 13:42:17.532000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:42:19] [INFO   ] __main__: 2018-09-17 13:42:19.717000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:42:19] [INFO   ] cogs.stats: 2018-09-17 13:42:19.717000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:43:03] [INFO   ] __main__: 2018-09-17 13:43:03.190000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:43:03] [INFO   ] cogs.stats: 2018-09-17 13:43:03.190000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:43:09] [INFO   ] __main__: 2018-09-17 13:43:09.185000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:43:09] [INFO   ] cogs.stats: 2018-09-17 13:43:09.185000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:43:12] [INFO   ] __main__: 2018-09-17 13:43:12.363000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:43:12] [INFO   ] cogs.stats: 2018-09-17 13:43:12.363000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:43:18] [INFO   ] __main__: 2018-09-17 13:43:18.796000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:43:18] [INFO   ] cogs.stats: 2018-09-17 13:43:18.796000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:43:22] [INFO   ] __main__: 2018-09-17 13:43:22.031000: iWeeti in #putin-guild-and-error-log (Putin support server): .help afk
+[2018-09-17 13:43:22] [INFO   ] cogs.stats: 2018-09-17 13:43:22.031000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .help afk
+[2018-09-17 13:43:27] [INFO   ] __main__: 2018-09-17 13:43:27.129000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk hm
+[2018-09-17 13:43:27] [INFO   ] cogs.stats: 2018-09-17 13:43:27.129000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk hm
+[2018-09-17 13:43:31] [INFO   ] __main__: 2018-09-17 13:43:31.854000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk :7
+[2018-09-17 13:43:31] [INFO   ] cogs.stats: 2018-09-17 13:43:31.854000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk :7
+[2018-09-17 13:43:40] [INFO   ] __main__: 2018-09-17 13:43:40.099000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:43:40] [INFO   ] cogs.stats: 2018-09-17 13:43:40.099000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:44:12] [INFO   ] __main__: 2018-09-17 13:44:12.105000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql delete from afk
+[2018-09-17 13:44:12] [INFO   ] cogs.stats: 2018-09-17 13:44:12.105000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql delete from afk
+[2018-09-17 13:44:15] [INFO   ] __main__: 2018-09-17 13:44:15.118000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk hm
+[2018-09-17 13:44:15] [INFO   ] cogs.stats: 2018-09-17 13:44:15.118000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk hm
+[2018-09-17 13:45:47] [INFO   ] __main__: 2018-09-17 13:45:47.738000: 🖤  Ziv  🖤 in #conversation (Giveaway Universe): .ban <@!235051454304354304> spam
+[2018-09-17 13:45:47] [INFO   ] cogs.stats: 2018-09-17 13:45:47.738000: 🖤  Ziv  🖤#9304 in #conversation (Giveaway Universe): .ban <@!235051454304354304> spam
+[2018-09-17 13:46:09] [INFO   ] __main__: 2018-09-17 13:46:09.785000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:46:09] [INFO   ] cogs.stats: 2018-09-17 13:46:09.785000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:46:13] [INFO   ] __main__: 2018-09-17 13:46:13.371000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:46:13] [INFO   ] cogs.stats: 2018-09-17 13:46:13.371000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:46:30] [INFO   ] __main__: 2018-09-17 13:46:30.790000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:46:30] [INFO   ] cogs.stats: 2018-09-17 13:46:30.790000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:46:35] [INFO   ] __main__: 2018-09-17 13:46:34.960000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:46:35] [INFO   ] cogs.stats: 2018-09-17 13:46:34.960000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:46:43] [INFO   ] __main__: 2018-09-17 13:46:43.856000: iWeeti in #putin-guild-and-error-log (Putin support server): .unload afk
+[2018-09-17 13:46:43] [INFO   ] cogs.stats: 2018-09-17 13:46:43.856000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .unload afk
+[2018-09-17 13:48:15] [INFO   ] __main__: 2018-09-17 13:48:15.363000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:48:15] [INFO   ] cogs.stats: 2018-09-17 13:48:15.363000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:48:22] [INFO   ] __main__: 2018-09-17 13:48:22.109000: iWeeti in #putin-guild-and-error-log (Putin support server): .load afk
+[2018-09-17 13:48:22] [INFO   ] cogs.stats: 2018-09-17 13:48:22.109000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .load afk
+[2018-09-17 13:48:27] [INFO   ] __main__: 2018-09-17 13:48:27.196000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:48:27] [INFO   ] cogs.stats: 2018-09-17 13:48:27.196000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:48:34] [INFO   ] __main__: 2018-09-17 13:48:34.574000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:48:34] [INFO   ] cogs.stats: 2018-09-17 13:48:34.574000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:48:45] [INFO   ] __main__: 2018-09-17 13:48:45.688000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql delete from afk
+[2018-09-17 13:48:45] [INFO   ] cogs.stats: 2018-09-17 13:48:45.688000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql delete from afk
+[2018-09-17 13:48:46] [INFO   ] __main__: 2018-09-17 13:48:46.736000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:48:46] [INFO   ] cogs.stats: 2018-09-17 13:48:46.736000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:49:53] [INFO   ] __main__: 2018-09-17 13:49:53.466000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:49:53] [INFO   ] cogs.stats: 2018-09-17 13:49:53.466000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:49:55] [INFO   ] __main__: 2018-09-17 13:49:55.619000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:49:55] [INFO   ] cogs.stats: 2018-09-17 13:49:55.619000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:50:07] [INFO   ] __main__: 2018-09-17 13:50:07.411000: iWeeti in #putin-guild-and-error-log (Putin support server): .unload afk
+[2018-09-17 13:50:07] [INFO   ] cogs.stats: 2018-09-17 13:50:07.411000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .unload afk
+[2018-09-17 13:50:36] [INFO   ] __main__: 2018-09-17 13:50:36.247000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:50:36] [INFO   ] cogs.stats: 2018-09-17 13:50:36.247000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:50:38] [INFO   ] __main__: 2018-09-17 13:50:38.928000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:50:39] [INFO   ] cogs.stats: 2018-09-17 13:50:38.928000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:51:44] [INFO   ] __main__: 2018-09-17 13:51:44.752000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:51:44] [INFO   ] cogs.stats: 2018-09-17 13:51:44.752000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:51:51] [INFO   ] __main__: 2018-09-17 13:51:51.037000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:51:51] [INFO   ] cogs.stats: 2018-09-17 13:51:51.037000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:51:53] [INFO   ] __main__: 2018-09-17 13:51:53.068000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:51:53] [INFO   ] cogs.stats: 2018-09-17 13:51:53.068000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:52:49] [INFO   ] __main__: 2018-09-17 13:52:48.923000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:52:49] [INFO   ] cogs.stats: 2018-09-17 13:52:48.923000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:52:52] [INFO   ] __main__: 2018-09-17 13:52:52.381000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:52:52] [INFO   ] cogs.stats: 2018-09-17 13:52:52.381000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:53:36] [INFO   ] __main__: 2018-09-17 13:53:36.548000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:53:36] [INFO   ] cogs.stats: 2018-09-17 13:53:36.548000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:53:39] [INFO   ] __main__: 2018-09-17 13:53:39.844000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:53:39] [INFO   ] cogs.stats: 2018-09-17 13:53:39.844000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:53:44] [INFO   ] __main__: 2018-09-17 13:53:44.043000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:53:44] [INFO   ] cogs.stats: 2018-09-17 13:53:44.043000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:54:25] [INFO   ] __main__: 2018-09-17 13:54:25.246000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:54:25] [INFO   ] cogs.stats: 2018-09-17 13:54:25.246000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:54:28] [INFO   ] __main__: 2018-09-17 13:54:28.476000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:54:28] [INFO   ] cogs.stats: 2018-09-17 13:54:28.476000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:54:48] [INFO   ] __main__: 2018-09-17 13:54:48.342000: iWeeti in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:54:48] [INFO   ] cogs.stats: 2018-09-17 13:54:48.342000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .sql select * from afk
+[2018-09-17 13:55:18] [INFO   ] __main__: 2018-09-17 13:55:18.306000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:55:18] [INFO   ] cogs.stats: 2018-09-17 13:55:18.306000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:55:23] [INFO   ] __main__: 2018-09-17 13:55:23.244000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:55:23] [INFO   ] cogs.stats: 2018-09-17 13:55:23.244000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:55:34] [INFO   ] __main__: 2018-09-17 13:55:34.852000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk hm
+[2018-09-17 13:55:34] [INFO   ] cogs.stats: 2018-09-17 13:55:34.852000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk hm
+[2018-09-17 13:55:42] [INFO   ] __main__: 2018-09-17 13:55:42.767000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:55:42] [INFO   ] cogs.stats: 2018-09-17 13:55:42.767000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:56:47] [INFO   ] __main__: 2018-09-17 13:56:47.071000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:56:47] [INFO   ] cogs.stats: 2018-09-17 13:56:47.071000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:56:49] [INFO   ] __main__: 2018-09-17 13:56:49.221000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:56:49] [INFO   ] cogs.stats: 2018-09-17 13:56:49.221000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:57:05] [INFO   ] __main__: 2018-09-17 13:57:05.016000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:57:05] [INFO   ] cogs.stats: 2018-09-17 13:57:05.016000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:57:07] [INFO   ] __main__: 2018-09-17 13:57:07.452000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:57:07] [INFO   ] cogs.stats: 2018-09-17 13:57:07.452000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:57:17] [INFO   ] __main__: 2018-09-17 13:57:17.460000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:57:17] [INFO   ] cogs.stats: 2018-09-17 13:57:17.460000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:57:19] [INFO   ] __main__: 2018-09-17 13:57:19.250000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:57:19] [INFO   ] cogs.stats: 2018-09-17 13:57:19.250000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:57:23] [INFO   ] __main__: 2018-09-17 13:57:23.419000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:57:23] [INFO   ] cogs.stats: 2018-09-17 13:57:23.419000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 13:57:33] [INFO   ] __main__: 2018-09-17 13:57:33.408000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk hm
+[2018-09-17 13:57:33] [INFO   ] cogs.stats: 2018-09-17 13:57:33.408000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk hm
+[2018-09-17 13:59:08] [INFO   ] __main__: 2018-09-17 13:59:08.396000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:59:08] [INFO   ] cogs.stats: 2018-09-17 13:59:08.396000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:59:11] [INFO   ] __main__: 2018-09-17 13:59:11.251000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:59:11] [INFO   ] cogs.stats: 2018-09-17 13:59:11.251000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:59:14] [INFO   ] __main__: 2018-09-17 13:59:14.797000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:59:14] [INFO   ] cogs.stats: 2018-09-17 13:59:14.797000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 13:59:21] [INFO   ] __main__: 2018-09-17 13:59:20.907000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 13:59:21] [INFO   ] cogs.stats: 2018-09-17 13:59:20.907000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 14:00:55] [INFO   ] __main__: 2018-09-17 14:00:55.678000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 14:00:55] [INFO   ] cogs.stats: 2018-09-17 14:00:55.678000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 14:01:00] [INFO   ] __main__: 2018-09-17 14:01:00.465000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 14:01:00] [INFO   ] cogs.stats: 2018-09-17 14:01:00.465000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 14:02:02] [INFO   ] __main__: 2018-09-17 14:02:02.206000: iWeeti in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 14:02:02] [INFO   ] cogs.stats: 2018-09-17 14:02:02.206000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .update
+[2018-09-17 14:02:07] [INFO   ] __main__: 2018-09-17 14:02:07.388000: iWeeti in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 14:02:07] [INFO   ] cogs.stats: 2018-09-17 14:02:07.388000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .reload afk
+[2018-09-17 14:02:10] [INFO   ] __main__: 2018-09-17 14:02:10.426000: iWeeti in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 14:02:10] [INFO   ] cogs.stats: 2018-09-17 14:02:10.426000: iWeeti#8031 in #putin-guild-and-error-log (Putin support server): .afk
+[2018-09-17 14:08:17] [INFO   ] __main__: 2018-09-17 14:08:16.955000: iWeeti in #conversation (Giveaway Universe): .update
+[2018-09-17 14:08:17] [INFO   ] cogs.stats: 2018-09-17 14:08:16.955000: iWeeti#8031 in #conversation (Giveaway Universe): .update
+[2018-09-17 14:08:33] [INFO   ] __main__: 2018-09-17 14:08:33.847000: iWeeti in #conversation (Giveaway Universe): .shell systemctl restart bot
+[2018-09-17 14:08:33] [INFO   ] cogs.stats: 2018-09-17 14:08:33.847000: iWeeti#8031 in #conversation (Giveaway Universe): .shell systemctl restart bot
+[2018-09-17 14:08:33] [INFO   ] discord.client: Cleaning up event loop.
+[2018-09-17 14:08:34] [INFO   ] discord.gateway: Websocket closed with 1000 (), cannot reconnect.
