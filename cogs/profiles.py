@@ -417,7 +417,7 @@ class Profile():
         if profile is None:
             return await ctx.invoke(self.make)
         found = random.randint(100,150)
-        await self.edit_field(ctx, cash=profile.cash + found)
+        await profile.edit_field(ctx, cash=profile.cash + found)
         await ctx.send(
             f'You got ${found} from daily and you have ${cash} in total.\n'\
             f'**Come get your daily again after 24h.**')
@@ -438,7 +438,7 @@ class Profile():
         if profile is None:
             return await ctx.invoke(self.make)
         found = random.randint(20,50)
-        await self.edit_field(ctx, cash=profile.cash + found)
+        await profile.edit_field(ctx, cash=profile.cash + found)
         await ctx.send(
             f'{ctx.author.display_name} found ${found}, and has now ${profile.cash}\n'\
             '**You can loot again in 3 minutes!**')
@@ -493,8 +493,8 @@ class Profile():
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
                            f'Your pet is {profile.pet}.')
         else:
-            await self.edit_field(ctx, cash=profile.cash + 7500)            
-            await self.edit_field(ctx, pet=None)            
+            await profile.edit_field(ctx, cash=profile.cash + 7500)            
+            await profile.edit_field(ctx, pet=None)            
             await ctx.send(f'{ctx.tick(True)} Sold :dog:')
 
     @sell.command(name='cat')
@@ -509,8 +509,8 @@ class Profile():
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
                            f'Your pet is {profile.pet}.')
         else:
-            await self.edit_field(ctx, cash=profile.cash + 15000)
-            await self.edit_field(ctx, pet=None)
+            await profile.edit_field(ctx, cash=profile.cash + 15000)
+            await profile.edit_field(ctx, pet=None)
             await ctx.send(f'{ctx.tick(True)} Sold :cat2:')
 
     @sell.command(name='mouse')
@@ -525,8 +525,8 @@ class Profile():
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
                            f'Your pet is {profile.pet}.')
         else:
-            await self.edit_field(ctx, cash=profile.cash + 4500)            
-            await self.edit_field(ctx, pet=None)            
+            await profile.edit_field(ctx, cash=profile.cash + 4500)            
+            await profile.edit_field(ctx, pet=None)            
             await ctx.send(f'{ctx.tick(True)} Sold :mouse:')
 
     @sell.command(name='hamster')
@@ -541,8 +541,8 @@ class Profile():
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
                            f'Your pet is {profile.pet}.')
         else:
-            await self.edit_field(ctx, cash=profile.cash + 4500)            
-            await self.edit_field(ctx, pet=None)            
+            await profile.edit_field(ctx, cash=profile.cash + 4500)            
+            await profile.edit_field(ctx, pet=None)            
             await ctx.send(f'{ctx.tick(True)} Sold :hamster:')
 
     @sell.command(name='rabbit')
@@ -557,8 +557,8 @@ class Profile():
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
                            f'Your pet is {profile.pet}.')
         else:
-            await self.edit_field(ctx, cash=profile.cash + 7500)            
-            await self.edit_field(ctx, pet=None)            
+            await profile.edit_field(ctx, cash=profile.cash + 7500)            
+            await profile.edit_field(ctx, pet=None)            
             await ctx.send(f'{ctx.tick(True)} Sold :rabbit:')
 
     @sell.command(name='dragon')
@@ -573,8 +573,8 @@ class Profile():
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
                            f'Your pet is {profile.pet}.')
         else:
-            await self.edit_field(ctx, cash=profile.cash + 75000000000000)            
-            await self.edit_field(ctx, pet=None)            
+            await profile.edit_field(ctx, cash=profile.cash + 75000000000000)            
+            await profile.edit_field(ctx, pet=None)            
             await ctx.send(f'{ctx.tick(True)} Sold :dragon:')
 
     @sell.command(name='bear')
@@ -589,8 +589,8 @@ class Profile():
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
                            f'Your pet is {profile.pet}.')
         else:
-            await self.edit_field(ctx, cash=profile.cash + 75000)            
-            await self.edit_field(ctx, pet=None)            
+            await profile.edit_field(ctx, cash=profile.cash + 75000)            
+            await profile.edit_field(ctx, pet=None)            
             await ctx.send(f'{ctx.tick(True)} Sold :bear:')
 
     @sell.command(name='pig')
@@ -605,8 +605,8 @@ class Profile():
             await ctx.send(f'{ctx.tick(False)} You do not have this pet.' \
                            f'Your pet is {profile.pet}.')
         else:
-            await self.edit_field(ctx, cash=profile.cash + 37500)            
-            await self.edit_field(ctx, pet=None)            
+            await profile.edit_field(ctx, cash=profile.cash + 37500)            
+            await profile.edit_field(ctx, pet=None)            
             await ctx.send(f'{ctx.tick(True)} Sold :pig2:')
 
     @sell.command(name='pick')
@@ -622,8 +622,8 @@ class Profile():
         else:
             if amount > profile.picks:
                 return await ctx.send(f'{ctx.tick(False)} You don\'t have that many pickaxes.')
-            await self.edit_field(ctx, cash=profile.cash + amount * 75)
-            await self.edit_field(ctx, picks=profile.picks - amount)
+            await profile.edit_field(ctx, cash=profile.cash + amount * 75)
+            await profile.edit_field(ctx, picks=profile.picks - amount)
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :pick:')
 
     @sell.command(name='ring')
@@ -638,8 +638,8 @@ class Profile():
         else:
             if amount > profile.rings:
                 return await ctx.send(f'{ctx.tick(False)} You don\'t have that many rings.')
-            await self.edit_field(ctx, cash=profile.cash + amount * 150)
-            await self.edit_field(ctx, rings=profile.rings - amount)
+            await profile.edit_field(ctx, cash=profile.cash + amount * 150)
+            await profile.edit_field(ctx, rings=profile.rings - amount)
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :ring:')
 
     @sell.command(name='diamond')
@@ -655,8 +655,8 @@ class Profile():
         else:
             if amount > profile.diamonds:
                 return await ctx.send(f'{ctx.tick(False)} You don\'t have that many diamonds.')
-            await self.edit_field(ctx, cash=profile.cash + amount * 1500)
-            await self.edit_field(ctx, diamonds=profile.diamonds - amount)
+            await profile.edit_field(ctx, cash=profile.cash + amount * 1500)
+            await profile.edit_field(ctx, diamonds=profile.diamonds - amount)
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :diamond_shape_with_a_dot_inside:')
 
     @sell.command(name='rose')
@@ -672,8 +672,8 @@ class Profile():
         else:
             if amount > profile.roses:
                 return await ctx.send(f'{ctx.tick(False)} You don\'t have that many roses.')
-            await self.edit_field(ctx, cash=profile.cash + amount * 19)
-            await self.edit_field(ctx, roses=profile.roses - amount)
+            await profile.edit_field(ctx, cash=profile.cash + amount * 19)
+            await profile.edit_field(ctx, roses=profile.roses - amount)
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :rose:')
 
     @sell.command(name='alcohol', aliases=['vodka'])
@@ -689,8 +689,8 @@ class Profile():
         else:
             if amount > profile.alcohol:
                 return await ctx.send(f'{ctx.tick(False)} You don\'t have that much alcohol.')
-            await self.edit_field(ctx, cash=profile.cash + amount * 38)
-            await self.edit_field(ctx, alcohol=profile.alcohol - amount)
+            await profile.edit_field(ctx, cash=profile.cash + amount * 38)
+            await profile.edit_field(ctx, alcohol=profile.alcohol - amount)
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :champagne:')
 
     @commands.command()
@@ -702,7 +702,7 @@ class Profile():
         if profile.alcohol == 0:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any alcohol.')
         else:
-            await self.edit_field(ctx, alcohol=profile.alcohol - 1)
+            await profile.edit_field(ctx, alcohol=profile.alcohol - 1)
             await ctx.send('You drank :champagne: and got drunk.')
 
     @commands.group(invoke_without_command=True)
