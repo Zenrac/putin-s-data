@@ -112,6 +112,12 @@ class DisLogs:
             e.set_footer(text="If you want to see who invited him/her enable audits logs.")
         e.timestamp = datetime.datetime.utcnow()
         await send_channel.send(embed=e)
+
+        settings = await self.get_settings(member.guild.id)
+        if settings.welcome:
+            ch = get(member.guild.text_channels, id=welcome_channel)
+            e = discord.Embed(title="Welcome", member.top_role.color)
+            e.set_image(url=f'https://kaan.ga/api/welcome/{member.display_name}/{member.id}/{member.avatar}')
         
     async def on_member_leave(self, member):
         try:
