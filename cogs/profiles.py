@@ -1360,7 +1360,7 @@ class Profile():
             return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
         await profile.edit_field(ctx, cash=profile.cash - amount)
         await m_profile.edit_field(ctx, cash=m_profile.cash + amount)
-        await ctx.send(f'{ctx.tick(False)} {ctx.author.display_name} gave ${amount} to {member.display_name}.')
+        await ctx.send(f'{ctx.tick(True)} {ctx.author.display_name} gave ${amount} to {member.display_name}.')
 
     @commands.group(aliases=['סלוט'])
     @commands.cooldown(1, 2, commands.BucketType.user)
