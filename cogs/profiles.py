@@ -627,13 +627,13 @@ class Profile():
             await ctx.send(f'{ctx.tick(True)} Sold {amount}x :pick:')
 
     @sell.command(name='ring')
-    async def rin(self, ctx, amount:int=None):
+    async def sell_ring(self, ctx, amount:int=None):
         profile = await self.get_profile(ctx, ctx.author.id)
         if profile is None:
             return await ctx.invoke(self.make)
         if amount is None:
             amout = 1
-        if profile.rings == 0:
+        if profile.rings == 0 or not profile.rings:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any rings.')
         else:
             if amount > profile.rings:
