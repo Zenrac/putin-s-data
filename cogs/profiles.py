@@ -1368,8 +1368,7 @@ class Profile():
         if amount < 10:
             await ctx.send('You can\'t bet less than $10.')
             return
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
+        profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
         if profile.cash < amount:
