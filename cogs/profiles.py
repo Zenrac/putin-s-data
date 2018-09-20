@@ -419,7 +419,7 @@ class Profile():
         found = random.randint(100,150)
         await profile.edit_field(ctx, cash=profile.cash + found)
         await ctx.send(
-            f'You got ${found} from daily and you have ${cash} in total.\n'\
+            f'You got ${found} from daily and you have ${profile.cash} in total.\n'\
             f'**Come get your daily again after 24h.**')
 
     @commands.command(aliases=['balance', 'כסף', 'בנק'])
