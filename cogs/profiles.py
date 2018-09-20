@@ -1245,7 +1245,7 @@ class Profile():
             await ctx.show_help('giveitem')
 
     @itemtransfer.command(name='pick')
-    async def give_pick(self, ctx, member : discord.Member = None, amount:int):
+    async def give_pick(self, ctx, member:discord.Member=None, amount:int):
         """Gives your pickaxe to another member."""
         if member is None:
             msg = await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
