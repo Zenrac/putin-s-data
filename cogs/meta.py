@@ -156,9 +156,122 @@ class Meta:
         self._spoiler_cooldown = SpoilerCooldown()
         self.client = clever.CleverBot(user='9FZVmdY47TEthPLe', key='zl3Fuk2Kx2Nis2YvbaIeMhMdoYRdKA7N', nick="W.Bot")
 
+    @commands.command(aliases=['IMDb'])
+    async def imdb(self, ctx, *, title= None):
+        """Search a movie/series on IMDb"""
+        if title is None:
+            return await ctx.send(f"{ctx.tick(False)} Please include the series/movie title!")
+        try:
+            mv = title.replace(" ", "+")
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(f"http://www.omdbapi.com/?t={mv}&apikey=e82f2fc2") as r:
+                    r = await r.json()
+            imdb_url = "https://www.imdb.com/title/" + r['imdbID'] or imdb_url = "https://www.imdb.com/404"
+            if r['Metascore'] == 'N/A':
+                meta = "Not Rated"
+            else:
+                meta = r['Metascore'] + "/100"
+            meta = meta or 'Not rated'
+            imd = r['imdbRating'] or imd = "Not Rated"
+            e = discord.Embed(
+                title=r['Title'],
+                url=imdb_url)
+            e.add_field(name="Release..", value=f"{r['Released']} ({r['Year']})")
+            e.add_field(name="Avg. Duration", value=r['Runtime'])
+            e.add_field(name="Starring..", value=r['Actors'])
+            e.add_field(name="Language(s)..", value=r['Language'])
+            e.add_field(name="Rated..", value=r['Rated'])
+            e.add_field(name="Seasons..", value=r['totalSeasons'])
+            e.set_thumbnail(url=r['Poster'])
+            e.set_footer(text=f"🏷️ {r['Genre']}")
+            await ctx.send(embed=e)
+
+        except Exception as e:
+            await ctx.send(f"{ctx.tick(False)} I couldn't find that movie or series..")
+
+    @commands.command(aliases=['today'])
+    async def news(self, ctx):#03d8e32c7dd349e3b9efe0338e08e890
+        """Get a popular story from the News"""
+        try:
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(f"https://newsapi.org/v2/top-headlines?country=us&apiKey=03d8e32c7dd349e3b9efe0338e08e890") as r:
+                    r = await r.json()
+        
+            re = r['articles'][0]
+            pa = re['publishedAt']
+            publishedat = pa.replace("T", " ").replace("Z", " ").replace("-", "/").replace("{'", "").replace("'}", "")
+            embed = discord.Embed(title=re['title'], description=re['description'], url=re['url'])
+            embed.add_field(name="Published at..", value=publishedat[:-4]) # these brakcets annoyed me so I removed them
+            embed.set_thumbnail(url=re['urlToImage'])
+            embed.set_footer(text=f"© {re['source']['name']} & NewsAPI")
+
+            await ctx.send(embed=embed, content=f":newspaper: Here\'s a popular story from the News.")
+        except:
+            await ctx.send(
+                f"{ctx.tick(False)} There was an issue getting the news article.\n'\
+                'Check back in a few hours.")
+
+    @commands.command()
+    async def article(self, ctx, *, query:str=None):#03d8e32c7dd349e3b9efe0338e08e890
+        """Search for an article of the News"""
+        if query is None:
+            return await ctx.show_help('article')
+        try:
+            q = query.replace(" ", "%20")
+            async with aiohttp.ClientSession() as cs:
+                async with cs.get(f"https://newsapi.org/v2/everything?q={q}&apiKey=03d8e32c7dd349e3b9efe0338e08e890") as r:
+                    r = await r.json()
+            
+            re = r['articles'][0]
+            pa = re['publishedAt']
+            publishedat = pa.replace("T", " ").replace("Z", " ").replace("-", "/").replace("{'", "").replace("'}", "")
+            embed = discord.Embed(title=re['title'], description=re['description'], url=re['url'])
+            embed.add_field(name="Published at..", value=publishedat[:-4]) # these brakcets annoyed me so I removed them
+            embed.set_thumbnail(url=re['urlToImage'])
+            embed.set_footer(text=f"© {re['source']['name']} & NewsAPI")
+
+            await ctx.send(embed=embed, content=f":newspaper: Here\'s what I found for **\"{query}\"** in the **News**..")
+        except:
+            await ctx.send(f"{ctx.tick(False)} I couldn't find any article that matched your query..")
+
+    @commands.command(aliases=['mapimage'])
+    async def map(self, ctx, *, location):#app_id=HKvIwMJ55iDxTJdHr03l&app_code=CZiIfYufln4tXB4UU9mbZA
+        """Get a custom map image"""
+        embed = discord.Embed()
+        ct = location.replace(" ", "+").replace(",", "")
+        embed.set_image(
+            url=f"https://image.maps.api.here.com/mia/1.6/mapview?&z=12&i"\
+                f"=1&app_id=HKvIwMJ55iDxTJdHr03l&app_code=CZiIfYufln4tXB4UU9mbZA&ci={ct}&&&")
+        if not embed.image:
+            return await ctx.send(f'{ctx.tick(False)} This location was not found.')
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def weather(self, ctx, *, location):
+        """Weather in a specified location"""
+        async with aiohttp.ClientSession(headers={'Accept': 'application/json'}) as session:
+            async with session.get(f"https://api.openweathermap.org/data/2.5/weather?q={location}&APPID=f8f21ceb5e624851c948c33ffbe43f1d&units=Imperial") as get:
+                resp = await get.json()
+                if get.status == 404:
+                    return await ctx.send(f'{ctx.tick(False)} Couldn\'t find that place.')
+                w = resp['main']['temp']
+                c = resp['sys']['country']
+                i = c.replace("A", "a").replace("B", "b").replace("C", "c").replace("D", "d").replace("E", "e").replace("F", "f").replace("G", "g").replace("H", "h").replace("I", "i").replace("J", "j").replace("K", "k").replace("L", "l").replace("M", "m").replace("N", "n").replace("O", "o").replace("P", "p").replace("Q", "q").replace("R", "r").replace("S", "s").replace("T", "t").replace("U", "u").replace("V", "v").replace("W", "w").replace("X", "x").replace("Y", "y").replace("Z", "z")
+                flag = f"http://fotw.fivestarflags.com/images/{i[:-1]}/{i}.gif"
+                icon = "http://openweathermap.org/img/w/" + resp['weather'][0]['icon'] + ".png"
+                embed = discord.Embed(description=f"{resp['weather'][0]['description']}")
+                embed.set_author(name=f"{resp['name']}, {resp['sys']['country']}", icon_url=icon)
+                embed.add_field(name="Temperature", value=f"{resp['main']['temp']}°F")
+                embed.add_field(name="Weather", value=resp['weather'][0]['main'])
+                embed.add_field(name="Humidity", value=f"{resp['main']['humidity']}%")
+                embed.add_field(name="Wind Speed", value=f"{resp['wind']['speed']}mph")
+                embed.set_thumbnail(url=flag)
+                await ctx.send(embed=embed)
+
+
     @commands.command()
     @commands.cooldown(rate=1, per=60.0, type=commands.BucketType.user)
-    async def feedback(self, ctx, *, content: str):
+    async def feedback(self, ctx, *, content:str=None):
         """Gives feedback about the bot.
         This is a quick way to request features or bug fixes
         without being in the bot's server.
@@ -166,6 +279,9 @@ class Meta:
         of your request if possible.
         You can only request feedback once a minute.
         """
+
+        if not content:
+            return await ctx.show_help('feedback')
 
         e = discord.Embed(title='Feedback', colour=0x738bd7)
         channel = self.bot.get_channel(config.feedback)
