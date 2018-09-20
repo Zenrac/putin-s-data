@@ -1347,7 +1347,7 @@ class Profile():
             return await ctx.invoke(self.make)        
         if ctx.author.id == member.id:
             return await ctx.send('Na ah..')
-        if amount < 0 or not amount:
+        if not amount or amount < 0:
             amount = 1      
         if not member:
             return await ctx.send(f'{ctx.tick(False)} You didn\'t tell me who to give the money to.')
