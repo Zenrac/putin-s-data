@@ -99,7 +99,7 @@ class ProfileConfig:
                     where id=$1;
                  """
 
-        await self.ctx.db.execute(query, ctx.author.id, *fields.values())
+        await self.ctx.db.execute(query, self.id, *fields.values())
         av = ctx.author.avatar_url_as(format='png', size=1024)
         await ctx.db.execute(f'update profiles set name=\'{ctx.author.name}#{ctx.author.discriminator}\','\
                                f'pfp=\'{av}\' where id={ctx.author.id}')
@@ -368,7 +368,7 @@ class Profile():
     async def mine(self, ctx):
         """Mines with a chance of getting money and or diamond."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.picks == 0:
             mine_cmd = self.bot.get_command('mine')
@@ -414,7 +414,7 @@ class Profile():
     async def daily(self, ctx):
         """Gets your daily money."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         found = random.randint(100,150)
         await profile.edit_field(ctx, cash=profile.cash + found)
@@ -426,7 +426,7 @@ class Profile():
     async def money(self, ctx):
         """Shows your money amount."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         await ctx.send(f'You have ${profile.cash}')
 
@@ -435,7 +435,7 @@ class Profile():
     async def loot(self, ctx):
         """Loots money from messages."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         found = random.randint(20,50)
         await profile.edit_field(ctx, cash=profile.cash + found)
@@ -485,7 +485,7 @@ class Profile():
     async def _dog(self, ctx):
         """Sells a dog."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
@@ -501,7 +501,7 @@ class Profile():
     async def _cat(self, ctx):
         """Sells a dog."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
@@ -517,7 +517,7 @@ class Profile():
     async def _mouse(self, ctx):
         """Sells a mouse."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
@@ -533,7 +533,7 @@ class Profile():
     async def _hamster(self, ctx):
         """Sells a mouse."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
@@ -549,7 +549,7 @@ class Profile():
     async def _rabbit(self, ctx):
         """Sells a mouse."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
@@ -565,7 +565,7 @@ class Profile():
     async def _dragon(self, ctx):
         """Sells a dragon."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
@@ -581,7 +581,7 @@ class Profile():
     async def _bear(self, ctx):
         """Sells a mouse."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
@@ -597,7 +597,7 @@ class Profile():
     async def _pig(self, ctx):
         """Sells a mouse."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.pet == 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You don\'t have a pet.')
@@ -613,9 +613,9 @@ class Profile():
     async def pic(self, ctx, amount : int = None):
         """Sells a pickaxe."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
-        if amount is None:
+        if amount is None or amount < 0:
             amount = 1
         if profile.picks == 0:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any pickaxes.')
@@ -629,9 +629,9 @@ class Profile():
     @sell.command(name='ring')
     async def sell_ring(self, ctx, amount:int=None):
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
-        if amount is None:
+        if amount is None or amount < 0:
             amount = 1
         if profile.rings == 0:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any rings.')
@@ -646,9 +646,9 @@ class Profile():
     async def diamon(self, ctx, amount : int = None):
         """Sells a diamond."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
-        if amount is None:
+        if amount is None or amount < 0:
             amount = 1
         if profile.diamonds == 0:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any diamonds.')
@@ -663,9 +663,9 @@ class Profile():
     async def ros(self, ctx, amount : int = None):
         """Sells a rose."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
-        if amount is None:
+        if amount is None or amount < 0:
             amount = 1
         if profile.roses == 0:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any roses.')
@@ -680,9 +680,9 @@ class Profile():
     async def alcoho(self, ctx, amount : int = None):
         """Sells alcohol."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
-        if amount is None:
+        if amount is None or amount < 0:
             amount = 1
         if profile.alcohol == 0:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any alcohol.')
@@ -697,7 +697,7 @@ class Profile():
     async def drink(self, ctx):
         """Drinks alcohol."""
         profile = await self.get_profile(ctx, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         if profile.alcohol == 0:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any alcohol.')
@@ -714,811 +714,653 @@ class Profile():
     @buy.command()
     async def dog(self, ctx):
         """Buys a dog."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        pet = profile['pet']
-        if pet:
-            return await ctx.send(f'You have a {pet} already.')
-        if 10000 > cash:
-            return await ctx.send('You don\'t have enough money.')
-        cash -= 10000
-        pet = ':dog: Dog'
-        await self.edit_field(ctx, cash=cash)
-        await self.edit_field(ctx, pet=pet)
-        await ctx.send('Bought :dog:')
+        if profile.pet:
+            return await ctx.send(f'{ctx.tick(False)} You have a {profile.pet} already.')
+        if profile.cash < 10000:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - 10000)
+        await profile.edit_field(ctx, pet=':dog: Dog')
+        await ctx.send(f'{ctx.tick(True)} Bought :dog:')
 
     @buy.command()
     async def cat(self, ctx):
         """Buys a cat."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        pet = profile['pet']
-        if pet:
-            return await ctx.send(f'You have a {pet} already.')
-        if 20000 > cash:
-            return await ctx.send('You don\'t have enough money.')
-        cash -= 20000
-        pet = ':cat2: Cat'
-        await self.edit_field(ctx, cash=cash)
-        await self.edit_field(ctx, pet=pet)
-        await ctx.send('Bought :cat2:')
+        if profile.pet:
+            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+        if profile.cash < 20000:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - 20000)
+        await profile.edit_field(ctx, pet=':cat2: Cat')
+        await ctx.send(f'{ctx.tick(True)} Bought :cat2:')
 
     @buy.command()
     async def mouse(self, ctx):
-        """Buys a mouse."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        pet = profile['pet']
-        if pet:
-            return await ctx.send(f'You have a {pet} already.')
-        if 5000 > cash:
-            return await ctx.send('You don\'t have enough money.')
-        cash -= 5000
-        pet = ':mouse: Mouse'
-        await self.edit_field(ctx, cash=cash)
-        await self.edit_field(ctx, pet=pet)
-        await ctx.send('Bought :mouse:')
+        if profile.pet:
+            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+        if profile.cash < 5000:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - 5000)
+        await profile.edit_field(ctx, pet=':mouse: Mouse')
+        await ctx.send(f'{ctx.tick(True)} Bought :mouse:')
 
     @buy.command()
     async def hamster(self, ctx):
         """Buys a hamster."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        pet = profile['pet']
-        if pet:
-            return await ctx.send(f'You have a {pet} already.')
-        if 15000 > cash:
-            return await ctx.send('You don\'t have enough money.')
-        cash -= 11250
-        pet = ':hamster: Hamster'
-        await self.edit_field(ctx, cash=cash)
-        await self.edit_field(ctx, pet=pet)
-        await ctx.send('Bought :hamster:')
+        if profile.pet:
+            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+        if profile.cash < 15000:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - 15000)
+        await profile.edit_field(ctx, pet=':hamster: Hamster')
+        await ctx.send(f'{ctx.tick(True)} Bought :hamster:')
 
     @buy.command()
     async def rabbit(self, ctx):
         """Buys a rabbit."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        pet = profile['pet']
-        if pet:
-            return await ctx.send(f'You have a {pet} already.')
-        if 10000 > cash:
-            return await ctx.send('You don\'t have enough money.')
-        cash -= 10000
-        pet = ':rabbit: Rabbit'
-        await self.edit_field(ctx, cash=cash)
-        await self.edit_field(ctx, pet=pet)
-        await ctx.send('Bought :rabbit:')
+        if profile.pet:
+            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+        if profile.cash < 10000:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - 10000)
+        await profile.edit_field(ctx, pet=':rabbit: Rabbit')
+        await ctx.send(f'{ctx.tick(True)} Bought :rabbit:')
 
     @buy.command()
     async def bear(self, ctx):
         """Buys a bear."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        pet = profile['pet']
-        if pet:
-            return await ctx.send(f'You have a {pet} already.')
-        if 100000 > cash:
-            return await ctx.send('You don\'t have enough money.')
-        cash -= 100000
-        pet = ':bear: Bear'
-        await self.edit_field(ctx, cash=cash)
-        await self.edit_field(ctx, pet=pet)
-        await ctx.send('Bought :bear:')
+        if profile.pet:
+            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+        if profile.cash < 100000:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - 100000)
+        await profile.edit_field(ctx, pet=':bear: Bear')
+        await ctx.send(f'{ctx.tick(True)} Bought :bear:')
 
     @buy.command()
     async def dragon(self, ctx):
         """Buys a dragon."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        pet = profile['pet']
-        if pet:
-            return await ctx.send(f'You have a {pet} already.')
-        if 100000000000000 > cash:
-            return await ctx.send('You don\'t have enough money.')
-        cash -= 100000000000000
-        pet = ':dragon: Dragon'
-        await self.edit_field(ctx, cash=cash)
-        await self.edit_field(ctx, pet=pet)
-        await ctx.send('Bought :dragon:')
+        if profile.pet:
+            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+        if profile.cash < 100000000000000:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - 100000000000000)
+        await profile.edit_field(ctx, pet=':dragon: Dragon')
+        await ctx.send(f'{ctx.tick(True)} Bought :dragon:')
 
     @buy.command()
     async def pig(self, ctx):
         """Buys a pig."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        pet = profile['pet']
-        if pet:
-            return await ctx.send(f'You have a {pet} already.')
-        if 50000 > cash:
-            return await ctx.send('You don\'t have enough money.')
-        cash -= 50000
-        pet = ':pig2: Pig'
-        await self.edit_field(ctx, cash=cash)
-        await self.edit_field(ctx, pet=pet)
-        await ctx.send('Bought :pig2:')
+        if profile.pet:
+            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+        if profile.cash < 50000:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - 50000)
+        await profile.edit_field(ctx, pet=':pig2: Pig')
+        await ctx.send(f'{ctx.tick(True)} Bought :pig2:')
 
     @buy.command()
     async def pick(self, ctx, amount : int = None):
         """Buys a pickaxe."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        if amount is None:
-            amount =1
-        cash = profile['cash']
-        picks = profile['picks']
-        if amount*100 > cash:
-            await ctx.send('You don\'t have enough money.')
-            return
-        if cash >= 100:
-            cash -= amount * 100
-            picks += amount
-            if amount is None:
-                amount = 1
-            await ctx.send('Bought {}x :pick:'.format(amount))
-            await self.edit_field(ctx, cash=cash)
-            await self.edit_field(ctx, picks=picks)
-        else:
-            await ctx.send('You don\'t have enough cash.')
+        if amount is None or amount < 0:
+            amount = 1
+        if profile.cash < amount * 100:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await ctx.send(f'{ctx.tick(True)} Bought {amount}x :pick:')
+        await profile.edit_field(ctx, cash=profile.cash + amount * 100)
+        await profile.edit_field(ctx, picks=profile.picks + amount)
 
     @buy.command()
     async def ring(self, ctx, amount : int = None):
         """Buys a ring."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        rings = profile['rings']
-        cash = profile['cash']
-        if amount is None:
+        if amount is None or amount < 0:
             amount = 1
-        if amount*200 > cash:
-            await ctx.send('You don\'t have enough money.')
-            return
-        if cash >= 200:
-            cash -= amount * 200
-            rings += amount
-            await ctx.send('Bought {}x :ring:'.format(amount))
-            await self.edit_field(ctx, cash=cash)
-            await self.edit_field(ctx, rings=rings)
-        else:
-            await ctx.send('You don\'t have enough cash.')
+        if profile.cash < amount*200:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await ctx.send(f'{ctx.tick(True)} Bought {amount}x :ring:')
+        await profile.edit_field(ctx, cash=profile.cash - amount * 200)
+        await profile.edit_field(ctx, rings=profile.rings + amount)
 
     @buy.command()
     async def diamond(self, ctx, amount : int = None):
         """Buys a diamond."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        diamonds = profile['diamonds']
-        if amount is None:
+        if amount is None or amount < 0:
             amount = 1
-        if amount*2000 > cash:
-            await ctx.send('You don\'t have enough money.')
-            return
-        if cash >= amount*2000:
-            cash -= amount * 2000
-            diamonds += amount
-            await self.edit_field(ctx, cash=cash)
-            await self.edit_field(ctx, diamonds=diamonds)
-            await ctx.send('Bought {}x :diamond_shape_with_a_dot_inside:'.format(amount))
-        else:
-            await ctx.send('You don\'t have enough cash.')
+        if profile.cash < amount * 2000:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - amount * 2000)
+        await profile.edit_field(ctx, diamonds=profile.diamonds + amount)
+        await ctx.send(f'{ctx.tick(True)} Bought {amount}x :diamond_shape_with_a_dot_inside:')
 
     @buy.command()
     async def rose(self, ctx, amount : int = None):
         """Buys a rose."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
         cash = profile['cash']
         roses = profile['roses']
-        if amount is None:
+        if amount is None or amount < 0:
             amount = 1
-        if amount*25 > cash:
-            await ctx.send('You don\'t have enough money.')
-            return
-        if cash >= 25:
-            cash -= amount * 25
-            roses += amount
-            await self.edit_field(ctx, cash=cash)
-            await self.edit_field(ctx, roses=roses)
-            await ctx.send('Bought {}x :rose:'.format(amount))
-        else:
-            await ctx.send('You don\'t have enough cash.')
+        if profile.cash < amount * 25:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - amount * 25)
+        await profile.edit_field(ctx, roses=profile.roses + amount)
+        await ctx.send(f'{ctx.tick(True)} Bought {amount}x :rose:')
 
     @buy.command(aliases=['vodka'])
     async def alcohol(self, ctx, amount : int = None):
         """Buys alcohol."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        alcohol = profile['alcohol']
-        if amount is None:
+        if amount is None or amount < 0:
             amount = 1
-        if amount*50 > cash:
-            await ctx.send('You don\'t have enough money.')
-            return
-        if cash >= 50:
-            cash -= amount * 50
-            alcohol += amount
-            await self.edit_field(ctx, cash=cash)
-            await self.edit_field(ctx, alcohol=alcohol)
-            await ctx.send('Bought {}x :champagne:'.format(amount))
-        else:
-            await ctx.send('You don\'t have enough cash.')
+        if profile.cash < amount*50:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
+        await profile.edit_field(ctx, cash=profile.cash - amount * 50)
+        await profile.edit_field(ctx, alcohol=profile.alcohol + amount)
+        await ctx.send(f'{ctx.tick(True)} Bought {amount}x :champagne:')
 
     @buy.command()
     async def bronze(self, ctx):
         """Buys a W.Bot market Bronze role. You can not sell this after buying."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        if cash < 10000:
-            return await ctx.send('You do not have enough money to buy this role.')
+        if profile.cash < 10000:
+            return await ctx.send(f'{ctx.tick(False)} You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'W.Bot Bronze':
-                return await ctx.send('Why\'d you buy this role again?')
+                return await ctx.send(f'{ctx.tick(False)} Why\'d you buy this role again?')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
-        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
-        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data: return await ctx.send(f'{ctx.tick(False)} This guild hasn\'t enabled role buying.')
         try:
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Bronze')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='W.Bot Bronze', color=discord.Color.from_rgb(145, 44, 7), reason='W.Bot Market Buyable role.', mentionable=False)
+                    role = await ctx.guild.create_role(
+                        name='W.Bot Bronze',
+                        color=discord.Color.from_rgb(145, 44, 7),
+                        reason='W.Bot Market Buyable role.',
+                        mentionable=False)
                     await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-                    return await ctx.send('Bought W.Bot Bronze role.')
+                    return await ctx.send(f'{ctx.tick(True)} Bought W.Bot Bronze role.')
                 except discord.Forbidden:
-                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                    return await ctx.send(
+                        f'{ctx.tick(False)} It seems that buyable roles are enabled.\n'\
+                        'But I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Bronze')
             await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-            await ctx.send('Bought W.Bot Bronze role.')
+            await ctx.send(f'{ctx.tick(True)} Bought W.Bot Bronze role.')
         except discord.Forbidden:
-            return await ctx.send('I couldn\'t add the role to you.')
+            return await ctx.send(f'{ctx.tick(False)} I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 10000
-        await self.edit_field(ctx, cash=cash)
+        await profile.edit_field(ctx, cash=profile.cash - 10000)
 
     @buy.command()
     async def silver(self, ctx):
         """Buys a W.Bot market Silver role. You can not sell this after buying."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        if cash < 10000:
-            return await ctx.send('You do not have enough money to buy this role.')
+        if profile.cash < 10000:
+            return await ctx.send(f'{ctx.tick(False)} You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'W.Bot Silver':
-                return await ctx.send('Why\'d you buy this role again?')
+                return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
-        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
-        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data: return await ctx.send(f'{ctx.tick(False)} This guild hasn\'t enabled role buying.')
         try:
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Silver')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='W.Bot Silver', color=discord.Color.from_rgb(144, 159, 165), reason='W.Bot Market Buyable role.', mentionable=False)
+                    role = await ctx.guild.create_role(
+                        name='W.Bot Silver',
+                        color=discord.Color.from_rgb(144, 159, 165),
+                        reason='W.Bot Market Buyable role.',
+                        mentionable=False)
                     await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-                    return await ctx.send('Bought W.Bot Silver role.')
+                    return await ctx.send(f'{ctx.tick(True)} Bought W.Bot Silver role.')
                 except discord.Forbidden:
-                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                    return await ctx.send(
+                        f'{ctx.tick(False)} It seems that buyable roles are enabled.\n'\
+                        'But I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Silver')
             await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-            await ctx.send('Bought W.Bot Silver role.')
+            await ctx.send(f'{ctx.tick(True)} Bought W.Bot Silver role.')
         except discord.Forbidden:
-            return await ctx.send('I couldn\'t add the role to you.')
+            return await ctx.send(f'{ctx.tick(False)} I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 10000
-        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, cash=profile.cash - 10000)
 
     @buy.command()
     async def gold(self, ctx):
         """Buys a W.Bot market Gold role. You can not sell this after buying."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        if cash < 10000:
-            return await ctx.send('You do not have enough money to buy this role.')
+        if profile.cash < 10000:
+            return await ctx.send(f'{ctx.tick(False)} You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'W.Bot Gold':
-                return await ctx.send('Why\'d you buy this role again?')
+                return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
-        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
-        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data: return await ctx.send(f'{ctx.tick(False)} This guild hasn\'t enabled role buying.')
         try:
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Gold')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='W.Bot Gold', color=discord.Color.from_rgb(209, 150, 33), reason='W.Bot Market Buyable role.', mentionable=False)
+                    role = await ctx.guild.create_role(
+                        name='W.Bot Gold',
+                        color=discord.Color.from_rgb(209, 150, 33),
+                        reason='W.Bot Market Buyable role.',
+                        mentionable=False)
                     await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-                    return await ctx.send('Bought W.Bot Gold role.')
+                    return await ctx.send(f'{ctx.tick(True)} Bought W.Bot Gold role.')
                 except discord.Forbidden:
-                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                    return await ctx.send(
+                        f'{ctx.tick(False)} It seems that buyable roles are enabled.\n'\
+                        'But I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Gold')
             await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-            await ctx.send('Bought W.Bot Gold role.')
+            await ctx.send(f'{ctx.tick(True)} Bought W.Bot Gold role.')
         except discord.Forbidden:
-            return await ctx.send('I couldn\'t add the role to you.')
+            return await ctx.send(f'{ctx.tick(False)} I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 10000
-        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, cash=profile.cash - 10000)
 
 
     @buy.command()
     async def blue(self, ctx):
         """Buys a W.Bot market Blue role. You can not sell this after buying."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        if cash < 10000:
-            return await ctx.send('You do not have enough money to buy this role.')
+        if profile.cash < 10000:
+            return await ctx.send(f'{ctx.tick(False)} You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'W.Bot Blue':
-                return await ctx.send('Why\'d you buy this role again?')
+                return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
-        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
-        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data: return await ctx.send(f'{ctx.tick(False)} This guild hasn\'t enabled role buying.')
         try:
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Blue')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='W.Bot Blue', color=discord.Color.from_rgb(66, 134, 244), reason='W.Bot Market Buyable role.', mentionable=False)
+                    role = await ctx.guild.create_role(
+                        name='W.Bot Blue',
+                        color=discord.Color.from_rgb(66, 134, 244),
+                        reason='W.Bot Market Buyable role.',
+                        mentionable=False)
                     await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-                    return await ctx.send('Bought W.Bot Blue role.')
+                    return await ctx.send(f'{ctx.tick(True)} Bought W.Bot Blue role.')
                 except discord.Forbidden:
-                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                    return await ctx.send(
+                        f'{ctx.tick(False)} It seems that buyable roles are enabled.\n'\
+                        'But I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Blue')
             await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-            await ctx.send('Bought W.Bot Blue role.')
+            await ctx.send(f'{ctx.tick(True)} Bought W.Bot Blue role.')
         except discord.Forbidden:
-            return await ctx.send('I couldn\'t add the role to you.')
+            return await ctx.send(f'{ctx.tick(False)} I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 10000
-        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, cash=profile.cash - 10000)
 
     @buy.command()
     async def red(self, ctx):
         """Buys a W.Bot market Red role. You can not sell this after buying."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        if cash < 10000:
-            return await ctx.send('You do not have enough money to buy this role.')
+        if profile.cash < 10000:
+            return await ctx.send(f'{ctx.tick(False)} You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'W.Bot Red':
-                return await ctx.send('Why\'d you buy this role again?')
+                return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
-        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
-        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data: return await ctx.send(f'{ctx.tick(False)} This guild hasn\'t enabled role buying.')
         try:
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Red')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='W.Bot Red', color=discord.Color.from_rgb(183, 14, 14), reason='W.Bot Market Buyable role.', mentionable=False)
+                    role = await ctx.guild.create_role(
+                        name='W.Bot Red',
+                        color=discord.Color.from_rgb(183, 14, 14),
+                        reason='W.Bot Market Buyable role.',
+                        mentionable=False)
                     await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-                    return await ctx.send('Bought W.Bot Red role.')
+                    return await ctx.send(f'{ctx.tick(True)} Bought W.Bot Red role.')
                 except discord.Forbidden:
-                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                    return await ctx.send(
+                        f'{ctx.tick(False)} It seems that buyable roles are enabled.\n'\
+                        'But I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Red')
             await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-            await ctx.send('Bought W.Bot Red role.')
+            await ctx.send(f'{ctx.tick(True)} Bought W.Bot Red role.')
         except discord.Forbidden:
-            return await ctx.send('I couldn\'t add the role to you.')
+            return await ctx.send(f'{ctx.tick(False)} I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 10000
-        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, cash=profile.cash - 10000)
 
     @buy.command()
     async def black(self, ctx):
         """Buys a W.Bot market Black role. You can not sell this after buying."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        if cash < 10000:
-            return await ctx.send('You do not have enough money to buy this role.')
+        if profile.cash < 10000:
+            return await ctx.send(f'{ctx.tick(False)} You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'W.Bot Black':
-                return await ctx.send('Why\'d you buy this role again?')
+                return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
-        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
-        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data: return await ctx.send(f'{ctx.tick(False)} This guild hasn\'t enabled role buying.')
+        if not data[0]: return await ctx.send(f'{ctx.tick(False)} This guild hasn\'t enabled role buying.')
         try:
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Black')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='W.Bot Black', color=discord.Color.from_rgb(22, 22, 22), reason='W.Bot Market Buyable role.', mentionable=False)
+                    role = await ctx.guild.create_role(
+                        name='W.Bot Black',
+                        color=discord.Color.from_rgb(22, 22, 22), 
+                        reason='W.Bot Market Buyable role.',
+                        mentionable=False)
                     await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-                    return await ctx.send('Bought W.Bot Black role.')
+                    return await ctx.send(f'{ctx.tick(True)} Bought W.Bot Black role.')
                 except discord.Forbidden:
-                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                    return await ctx.send(
+                        f'{ctx.tick(False)} It seems that buyable roles are enabled.\n'\
+                        'But I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Black')
             await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-            await ctx.send('Bought W.Bot Black role.')
+            await ctx.send(f'{ctx.tick(True)} Bought W.Bot Black role.')
         except discord.Forbidden:
-            return await ctx.send('I couldn\'t add the role to you.')
+            return await ctx.send(f'{ctx.tick(False)} I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 10000
-        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, cash=profile.cash - 10000)
 
     @buy.command()
     async def green(self, ctx):
         """Buys a W.Bot market Green role. You can not sell this after buying."""
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        profile = await self.get_profile(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        if cash < 10000:
-            return await ctx.send('You do not have enough money to buy this role.')
+        if profile.cash < 10000:
+            return await ctx.send(f'{ctx.tick(False)} You do not have enough money to buy this role.')
         for role in ctx.author.roles:
             if role.name == 'W.Bot Green':
-                return await ctx.send('Why\'d you buy this role again?')
+                return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         data = await self.bot.pool.fetchrow(f'select buy_roles from settings where id={ctx.guild.id}')
-        if not data: return await ctx.send('This guild hasn\'t enabled role buying.')
-        if not data[0]: return await ctx.send('This guild hasn\'t enabled role buying.')
+        if not data: return await ctx.send(f'{ctx.tick(False)} This guild hasn\'t enabled role buying.')
         try:
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Green')
             if not role:
                 try:
-                    role = await ctx.guild.create_role(name='W.Bot Green', color=discord.Color.from_rgb(101, 206, 41), reason='W.Bot Market Buyable role.', mentionable=False)
+                    role = await ctx.guild.create_role(
+                        name='W.Bot Green',
+                        color=discord.Color.from_rgb(101, 206, 41),
+                        reason='W.Bot Market Buyable role.',
+                        mentionable=False)
                     await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-                    return await ctx.send('Bought W.Bot Green role.')
+                    return await ctx.send(f'{ctx.tick(True)} Bought W.Bot Green role.')
                 except discord.Forbidden:
-                    return await ctx.send('It seems that buyable roles are enable but I could not create it or I couldn\'t add it to you.')
+                    return await ctx.send(
+                        f'{ctx.tick(False)} It seems that buyable roles are enabled.\n'\
+                        'But I could not create it or I couldn\'t add it to you.')
                 except Exception as e:
                     print(e)
             role = discord.utils.get(ctx.guild.roles, name='W.Bot Green')
             await ctx.author.add_roles(role, reason='W.Bot Market Buyable role.')
-            await ctx.send('Bought W.Bot Green role.')
+            await ctx.send(f'{ctx.tick(True)} Bought W.Bot Green role.')
         except discord.Forbidden:
-            return await ctx.send('I couldn\'t add the role to you.')
+            return await ctx.send(f'{ctx.tick(False)} I couldn\'t add the role to you.')
         except Exception as e:
             print(e)
-        cash -= 10000
-        await self.edit_field(ctx, cash=cash)
+        await self.edit_field(ctx, cash=profile.cash - 10000)
 
     @commands.command()
     async def marry(self, ctx, *, member : discord.Member = None):
         """Marrys a member."""
         if member is None:
-                await ctx.message.delete()
-                msg = await ctx.send('You did not enter a user to propose.')
-                await asyncio.sleep(10)
-                await msg.delete()
-                return
-        if member:
-            if ctx.message.author.id == member.id:
-                await ctx.send('You can\'t marry yourself.')
-                return
-            if member.bot:
-                await ctx.send('You can\'t marry a bot.')
-                return
-            else:
-                query = """select * from profiles where id=$1"""
-                profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-                if profile is None:
-                    return await ctx.invoke(self.make)
-                rings = profile['rings']
-                married = profile['married']
-                if married:
-                    await ctx.send('You are already married with {}.'.format(married))
-                    return
-                query = """select * from profiles where id=$1"""
-                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-                if member_profile is None:
-                    await ctx.send('That user does not have a profile.')
-                member_married = member_profile['married']
-                if member_married:
-                    member_married_name = await self.bot.get_user_info(member_married)
-                    await ctx.send('That user is already married with {}.'.format(member_married_name))
-                    return
-                if rings >= 2:
-                    rings -= 2
-                    await ctx.send('{} proposed {}.\n{} type yes or no in 60 seconds.'.format(ctx.message.author.display_name, member.display_name, member.mention))
-                    def pred(m):
-                        return m.author == member and m.channel == ctx.message.channel
-                    try:
-                        answer = await self.bot.wait_for('message', timeout=60, check=pred)
-                    except asyncio.TimeoutError:
-                        return await ctx.send('No answer.')
-                    if answer.content.lower() in 'yes':
-                        await self.edit_field(ctx, rings=rings)
-                        await self.edit_user_field(member, ctx, married=ctx.message.author.id)
-                        await self.edit_field(ctx, married=member.id)
-                        await ctx.send(':heart: | {} is now married with {}'.format(ctx.message.author.display_name, member.name))
-                    elif answer.content.lower() in 'no':
-                        await ctx.send('Proposing denied..')
-                    else:
-                        await ctx.send('I\'ll take that as a no.')
-                else:
-                    await ctx.send('You need 2 rings to propose.')
+            return await ctx.send(f'{ctx.tick(False)} You did not enter a user to propose.')
+        if ctx.author.id == member.id:
+            return await ctx.send(f'{ctx.tick(False)} You can\'t marry yourself.')
+        if member.bot:
+            return await ctx.send(f'{ctx.tick(False)} You can\'t marry a bot.')
+
+        profile = await self.get_profile(ctx, ctx.author.id)
+
+        if not profile:
+            return await ctx.invoke(self.make)
+        if profile.married == 'Nobody...':
+            return await ctx.send(f'{ctx.tick(False)} You\'re already married with {profile.married}.')
+        m_profile = await self.get_profile(ctx, ctx.author.id)
+        if m_profile is None:
+            await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
+        if m_profile.married == 'Nobody...':
+            member_married_name = ctx.guild.get_member(m_profile.married) or await self.bot.get_user_info(member_married)
+            return await ctx.send(f'That user is already married with {member_married_name}.')
+        if not rings >= 2:
+            return await ctx.send(f'{ctx.tick(False)} You need 2 rings to propose.')
+        await ctx.send(f'{ctx.author.display_name} proposed {member.display_name}.\n'\
+                       f'{member.display_name} type yes or no in 60 seconds.')
+        def pred(m):
+            return m.author == member and m.channel == ctx.message.channel
+        try:
+            answer = await self.bot.wait_for('message', timeout=60, check=pred)
+        except asyncio.TimeoutError:
+            return await ctx.send('No answer.')
+        if answer.content.lower() in 'yes':
+            await profile.edit_field(ctx, rings=profile.rings - 2)
+            await profile.edit_field(ctx, married=member.id)
+            await m_profile.edit_field(ctx, married=ctx.message.author.id)
+            await ctx.send(f':heart: {ctx.author.display_name} is now married with {member.display_name}')
         else:
-            await ctx.send('User not found.')
+            await ctx.send('I\'ll take that as a no.')
 
     @commands.command()
-    async def divorce(self, ctx, *, member : discord.Member = None):
+    async def divorce(self, ctx):
         """Divorces with a member."""
-        if member is None:
-            return await ctx.send('You didn\'t tell me who you want to divorce with.')
+        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        if not profile:
+            return await ctx.invoke(self.make)
+        if married == 'Nobody...':
+            return await ctx.send(f'{ctx.tick(False)} You weren\'t married in the first place.')
+        married = ctx.guild.get_member(profile.married)
+        if not married:
+            return await ctx.send(f'{ctx.tick(False)} The member you are married with is not in this server.')
+        m_profile = await self.bot.pool.fetchrow(ctx, profile.married)
+
+        await ctx.send(f'{ctx.message.author.display_name} would like to get divorced with {member.display_name}.\n'\
+                       f'{member.display_name} type yes in 60 seconds if you want to get divorced.')
+        def pred(m):
+            return m.author == member and m.channel == ctx.message.channel
+
+        try:
+            answer = await self.bot.wait_for('message', timeout=60, check=pred)
+        except asyncio.TimeoutError:
+            return await ctx.send('No answer.')
+        if answer.content in 'yes':
+            await profile.edit_field(ctx, married=None)
+            await m_profile.edit_field(member, ctx, married=None)
+            await ctx.send(f':broken_heart: {ctx.author.display_name} got divorced with {member.display_name}.')
         else:
-            query = """select * from profiles where id=$1"""
-            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-            if profile is None:
-                return await ctx.invoke(self.make)
-            married = profile['married']
-            if not married:
-                await ctx.send('You weren\'t married in the first place.')
-                return
-            query = """select * from profiles where id=$1"""
-            m_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-
-            if m_profile is None:
-                msg = await ctx.send('That user does not have a profle.')
-            m_married = m_profile['married']
-            if member.id == married:
-                await ctx.send('{} would like to get divorced with {}.\n{} type yes in 60 seconds if you want to get divorced.'.format(ctx.message.author.display_name, member.display_name, member.mention))
-                def pred(m):
-                    return m.author == member and m.channel == ctx.message.channel
-
-                try:
-                    answer = await self.bot.wait_for('message', timeout=60, check=pred)
-                except asyncio.TimeoutError:
-                    return await ctx.send('No answer.')
-                if answer.content in 'yes':
-                    await self.edit_user_field(member, ctx, married=None)
-                    await self.edit_field(ctx, married=None)
-                    await ctx.send(':broken_heart: | {} got divorced with {}.'.format(ctx.message.author.display_name, member.display_name))
-                else:
-                    await ctx.send('I\'ll take that as no.')
-            else:
-                await ctx.send('You are not married with that user.')
+            await ctx.send('I\'ll take that as no.')
 
     @commands.group(aliases=['giveitem'])
     async def itemtransfer(self, ctx):
         """Use ``(prefix)help itemtransfer`` for more information."""
+        if ctx.invoked_subcommand is None:
+            await ctx.show_help('giveitem')
 
     @itemtransfer.command(name='pick')
-    async def ppick(self, ctx, member : discord.Member = None):
+    async def give_pick(self, ctx, member : discord.Member = None, amount:int):
         """Gives your pickaxe to another member."""
-        try:
-            await ctx.message.delete()
-        except:
-            pass
         if member is None:
-            msg = await ctx.send('You didn\'t tell who to give the item.')
-            await asyncio.sleep(10)
-            await msg.delete()
-        else:
-            query = """select * from profiles where id=$1"""
-            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-            if profile is None:
-                return await ctx.invoke(self.make)
-            picks = profile['picks']
-            if picks == 0:
-                await ctx.send(f'{ctx.tick(False)} You don\'t have any pickaxes.')
-            else:
-                picks -= 1
-                query = """select * from profiles where id=$1"""
-                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-                if member_profile is None:
-                    await ctx.send('That user does not have a profile.')
-                member_picks = member_profile['picks'] + 1
-                await self.edit_field(ctx, picks=picks)
-                await self.edit_user_field(member, ctx, picks=member_picks)
-                await ctx.send('Gave :pick: to {}.'.format(member.display_name))
+            msg = await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
+        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        if not profile:
+            return await ctx.invoke(self.make)
+        if not amount or amount < 0:
+            amount = 1
+        if profile.picks < amount:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough pickaxes.')
+        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        if m_profile is None:
+            return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
+        await profile.edit_field(ctx, picks=profile.picks - amount)
+        await m_profile.edit_field(ctx, picks=m_profile.picks + amount)
+        await ctx.send(f'{ctx.tick(True)} Gave {amount}x :pick: to {member.display_name}.')
 
     @itemtransfer.command(name='ring')
-    async def rring(self, ctx, *, member : discord.Member = None):
+    async def give_ring(self, ctx, member : discord.Member = None, amount:int):
         """Gives your ring to another member."""
-        try:
-            await ctx.message.delete()
-        except:
-            pass
         if member is None:
-            msg = await ctx.send('You didn\'t tell who to give the item.')
-            await asyncio.sleep(10)
-            await msg.delete()
-        else:
-            query = """select * from profiles where id=$1"""
-            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-            if profile is None:
-                return await ctx.invoke(self.make)
-            rings = profile['rings']
-            if rings == 0:
-                msg = await ctx.send(f'{ctx.tick(False)} You don\'t have any rings.')
-                await asyncio.sleep(10)
-                await msg.delete()
-            else:
-                rings -= 1
-                query = """select * from profiles where id=$1"""
-                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-                if member_profile is None:
-                    await ctx.send('That user does not have a profile.')
-                member_rings = member_profile['rings'] + 1
-                await self.edit_field(ctx, rings=rings)
-                await self.edit_user_field(member, ctx, rings=member_rings)
-                await ctx.send('Gave :ring: to {}.'.format(member.display_name))
+            return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
+        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        if not profile:
+            return await ctx.invoke(self.make)
+        if not amount or amount < 0:
+            amount = 1
+        if profile.rings < amount:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough rings.')
+        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        if m_profile is None:
+            return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
+        await profile..edit_field(ctx, rings=profile.rings - amount)
+        await m_profile.edit_field(ctx, rings=m_profile.rings + amount)
+        await ctx.send(f'{ctx.tick(True)} Gave {amount}x :ring: to {member.display_name}.')
 
     @itemtransfer.command(name='diamond')
-    async def ddiamond(self, ctx, *, member : discord.Member = None):
+    async def give_diamond(self, ctx, member : discord.Member = None, amount:int):
         """Gives your diamond to another member."""
-        try:
-            await ctx.message.delete()
-        except:
-            pass
         if member is None:
-            msg = await ctx.send('You didn\'t tell who to give the item.')
-            await asyncio.sleep(10)
-            await msg.delete()
-        else:
-            query = """select * from profiles where id=$1"""
-            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-            if profile is None:
-                return await ctx.invoke(self.make)
-            diamonds = profile['diamonds']
-            if diamonds == 0:
-                msg = await ctx.send(f'{ctx.tick(False)} You don\'t have any diamonds.')
-                await asyncio.sleep(10)
-                await msg.delete()
-            else:
-                diamonds -=1
-                query = """select * from profiles where id=$1"""
-                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-                if member_profile is None:
-                    await ctx.send('That user does not have a profile.')
-                member_diamonds = member_profile['diamonds'] + 1
-                await self.edit_field(ctx, diamonds=diamonds)
-                await self.edit_user_field(member, ctx, diamonds=member_diamonds)
-                await ctx.send('Gave :diamond_shape_with_a_dot_inside: to {}.'.format(member.display_name))
+            return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
+        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        if not profile:
+            return await ctx.invoke(self.make)
+        if not amount or amount < 0:
+            amount = 1
+        if profile.diamonds < amount:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough diamonds.')
+        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        if m_profile is None:
+            return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
+        await profile.edit_field(ctx, diamonds=profile.diamonds - amount)
+        await m_profile.edit_field(ctx, diamonds=m_profile.diamonds + amount)
+        await ctx.send(f'{ctx.tick(True)} Gave {amount}x :diamond_shape_with_a_dot_inside: to {member.display_name}.')
 
     @itemtransfer.command(name='rose')
-    async def rrose(self, ctx, *, member : discord.Member = None):
+    async def give_rose(self, ctx, member : discord.Member = None, amount:int):
         """Gives your rose to another member."""
-        try:
-            await ctx.message.delete()
-        except:
-            pass
         if member is None:
-            msg = await ctx.send('You didn\'t tell who to give the item.')
-        else:
-            query = """select * from profiles where id=$1"""
-            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-            if profile is None:
-                return await ctx.invoke(self.make)
-            roses = profile['roses']
-            if roses == 0:
-                msg = await ctx.send(f'{ctx.tick(False)} You don\'t have any roses.')
-            else:
-                roses -=1
-                query = """select * from profiles where id=$1"""
-                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-                if member_profile is None:
-                    await ctx.send('That user does not have a profile.')
-                member_roses = member_profile['roses'] + 1
-                await self.edit_field(ctx, roses=roses)
-                await self.edit_user_field(member, ctx, roses=member_roses)
-                await ctx.send('Gave :rose: to {}.'.format(member.display_name))
-
-    @itemtransfer.command(name='alcohol')
-    async def aalcohol(self, ctx, *, member : discord.Member = None):
-        """Gives your alcohol to another member."""
-        try:
-            await ctx.message.delete()
-        except:
-            pass
-        if member is None:
-            msg = await ctx.send('You didn\'t tell who to give the item.')
-        else:
-            query = """select * from profiles where id=$1"""
-            profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-            if profile is None:
-                return await ctx.invoke(self.make)
-            alcohol = profile['alcohol']
-            if alcohol == 0:
-                msg = await ctx.send(f'{ctx.tick(False)} You don\'t have any alcohol.')
-            else:
-                alcohol -=1
-                query = """select * from profiles where id=$1"""
-                member_profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-                if member_profile is None:
-                    await ctx.send('That user does not have a profile.')
-                member_alcohol = member_profile['alcohol'] + 1
-                await self.edit_field(ctx, alcohol=alcohol)
-                await self.edit_user_field(member, ctx, alcohol=member_alcohol)
-                await ctx.send('Gave :champagne: to {}.'.format(member.display_name))
-
-    @commands.command(aliases=['givemoney'])
-    # @commands.is_owner()
-    async def moneytransfer(self, ctx, amount : int, *, member : discord.Member = None):
-        """Gives the amount you specify from your money to the member you specify."""
-        if ctx.author.id == member.id:
-            return await ctx.send('Why\'d you give yourself money from yourself?')
-        if amount < 1:
-            await ctx.send('You can\'t transfer less than $1.')
-            return
-        if not member:
-            return await ctx.send('You didn\'t tell me who to give the money to.')
-        query = """select * from profiles where id=$1"""
-        profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+            return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
+        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        if not profile:
             return await ctx.invoke(self.make)
-        cash = profile['cash']
-        if cash <= amount:
-            msg = await ctx.send('You don\'t have enough money to give.')
-        else:
-            cash -= amount
-            query = """select * from profiles where id=$1"""
-            member_profile = await self.bot.pool.fetchrow(query, member.id)
-            if member_profile is None:
-                return await ctx.send('That user does not have a profile.')
-            member_cash = member_profile['cash']
-            member_cash += amount
-            await self.edit_field(ctx, cash=cash)
-            await self.edit_user_field(member, ctx, cash=member_cash)
-            await ctx.send('{} gave ${} to {}.'.format(ctx.author.display_name, amount, member.display_name))
+        if not amount or amount < 0:
+            amount = 1
+        if roses < amount:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough roses.')
+        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        if m_profile is None:
+            return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
+        await profile.edit_field(ctx, roses=profile.roses - amount)
+        await m_profile.edit_field(ctx, roses=m_profile.roses + amount)
+        await ctx.send(f'{ctx.tick(True)} Gave {amount}x :rose: to {member.display_name}.')
+
+    @itemtransfer.command(name='alcohol', aliases=['vodka'])
+    async def give_alcohol(self, ctx, member : discord.Member = None, amount:int):
+        """Gives your alcohol to another member."""
+        if member is None:
+            return await ctx.send(f'{ctx.tick(False)} You didn\'t tell who to give the item.')
+        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        if not profile:
+            return await ctx.invoke(self.make)
+        if not amount or amount < 0:
+            amount = 1
+        if alcohol == 0:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough alcohol.')
+        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        if m_profile is None:
+            return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
+        await profile..edit_field(ctx, alcohol=profile.alcohol - amount)
+        await m_profile.edit_field(ctx, alcohol=m_profile.alcohol + amount)
+        await ctx.send(f'{ctx.tick(True)} Gave :champagne: to {member.display_name}.')
+
+    @commands.command(aliases=['moneytransfer'])
+    async def givemoney(self, ctx, member:discord.Member=None, amount:int=None):
+        """Gives the amount you specify from your money to the member you specify."""      
+        profile = await self.bot.pool.fetchrow(ctx, ctx.author.id)
+        if not profile:
+            return await ctx.invoke(self.make)        
+        if ctx.author.id == member.id:
+            return await ctx.send('Na ah..')
+        if amount < 0:
+            amount 1      
+        if not member:
+            return await ctx.send(f'{ctx.tick(False)} You didn\'t tell me who to give the money to.')
+        if not profile:
+            return await ctx.invoke(self.make)
+        if profile.cash <= amount:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have enough money to give.')
+        m_profile = await self.bot.pool.fetchrow(ctx, member.id)
+        if m_profile is None:
+            return await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
+        await profile.edit_field(ctx, cash=profile.cash - amount)
+        await m_profile.edit_field(ctx, cash=m_profile.cash + amount)
+        await ctx.send(f'{ctx.tick(False)} {ctx.author.display_name} gave ${amount} to {member.display_name}.')
 
     @commands.group(aliases=['סלוט'])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -1530,11 +1372,11 @@ class Profile():
             return
         query = """select * from profiles where id=$1"""
         profile = await self.bot.pool.fetchrow(query, ctx.author.id)
-        if profile is None:
+        if not profile:
             return await ctx.invoke(self.make)
         cash = int(profile['cash'])
-        if cash < amount:
-            await ctx.send('You don\'t have enough cash.')
+        if profile.cash < amount:
+            await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         else:
             cash -= amount
             slot = ['\U0001f352', '\U0001f347', '\U0001f353']
@@ -1561,7 +1403,7 @@ class Profile():
                 winning_times += 1
 
             await ctx.send(f'{slot_machine}\n**{ctx.message.author.display_name}** bet ${amount} and won ${round(amount*int(winning_times/0.5))}')
-            await self.edit_field(ctx, cash=cash+round(amount*int(winning_times/0.5)))
+            await self.edit_field(ctx, cash=profile.cash+round(amount*int(winning_times/0.5)))
 
     @commands.command()
     async def challenge(self, ctx, *, member:discord.Member=None):
@@ -1609,8 +1451,8 @@ class Profile():
         if _cash[0] < 100:
             return await ctx.send('You need $100 to accept the callenge.')
 
-        await self.edit_field(ctx, cash=cash[0]-100)
-        await self.edit_user_field(member, ctx, cash=cash[0]-100)
+        await self.edit_field(ctx, cash=profile.cash[0]-100)
+        await self.edit_user_field(member, ctx, cash=profile.cash[0]-100)
 
         times = random.randint(1, 5)
 
@@ -1650,72 +1492,72 @@ class Profile():
         await self.edit_user_field(winner, ctx, cash=winner_cash[0]+200)
         await ctx.send(f'Congrats {winner} you won $200.')
 
-    # @commands.command(aliases=['lb', 'leaderboards'])
-    # async def leaderboard(self, ctx):
+    @commands.command(aliases=['lb', 'leaderboards'])
+    async def leaderboard(self, ctx):
 
-    #     await ctx.trigger_typing()
+        await ctx.trigger_typing()
 
-    #     lookup = (
-    #         '\N{FIRST PLACE MEDAL}',
-    #         '\N{SECOND PLACE MEDAL}',
-    #         '\N{THIRD PLACE MEDAL}',
-    #         '\N{SPORTS MEDAL}',
-    #         '\N{SPORTS MEDAL}'
-    #     )
+        lookup = (
+            '\N{FIRST PLACE MEDAL}',
+            '\N{SECOND PLACE MEDAL}',
+            '\N{THIRD PLACE MEDAL}',
+            '\N{SPORTS MEDAL}',
+            '\N{SPORTS MEDAL}'
+        )
 
-    #     query = """SELECT id as "_id", cash as "cash"
-    #             FROM profiles
-    #             ORDER BY "cash" DESC
-    #             LIMIT 5;
-    #     """
-    #     records = await ctx.bot.pool.fetch(query)
+        query = """SELECT id as "_id", cash as "cash"
+                FROM profiles
+                ORDER BY "cash" DESC
+                LIMIT 5;
+        """
+        records = await ctx.bot.pool.fetch(query)
 
-    #     e = discord.Embed(title='Leaderboard')
+        e = discord.Embed(title='Leaderboard')
 
-    #     async def get_name(_id):
-    #         user = await self.bot.get_user_info(_id)
-    #         if user is not None:
-    #             return user.name
-    #         else:
-    #             return 'Undefined'
+        async def get_name(_id):
+            user = await self.bot.get_user_info(_id)
+            if user is not None:
+                return user.name
+            else:
+                return 'Undefined'
 
-    #     lb = []
+        lb = []
 
-    #     for record in records:
-    #         try:
-    #             name = await get_name(record['_id'])
-    #         except:
-    #             name = 'Undefined'
-    #         if not record['cash']:
-    #             continue
-    #         lb.append((name, record['cash']))
+        for record in records:
+            try:
+                name = await get_name(record['_id'])
+            except:
+                name = 'Undefined'
+            if not record['cash']:
+                continue
+            lb.append((name, record['cash']))
 
-    #     value = '\n'.join(f'{lookup[index]} **{_id}**: ``${cash}``' for (index, (_id, cash)) in enumerate(lb))
-    #     e.color = discord.Color.from_rgb(75, 38, 168)
-    #     e.add_field(name="Top global profiles by cash", value=value)
+        value = '\n'.join(f'{lookup[index]} **{_id}**: ``${cash}``' for (index, (_id, cash)) in enumerate(lb))
+        e.color = discord.Color.from_rgb(75, 38, 168)
+        e.add_field(name="Top global profiles by cash", value=value)
 
-    #     query = """SELECT id as "_id", experience as "exp"
-    #             FROM profiles
-    #             ORDER BY "exp" DESC
-    #             LIMIT 5;
-    #     """
-    #     exps = await ctx.bot.pool.fetch(query)
+        query = """SELECT id as "_id", experience as "exp"
+                FROM profiles
+                ORDER BY "exp" DESC
+                LIMIT 5;
+        """
+        exps = await ctx.bot.pool.fetch(query)
 
-    #     lb = []
+        lb = []
 
-    #     for record in exps:
-    #         try:
-    #             name = await get_name(record['_id'])
-    #         except:
-    #             name = 'Undefined'
-    #         if not record['exp']:
-    #             print(record)
-    #             continue
-    #         lb.append((name, record['exp']))
+        for record in exps:
+            try:
+                name = await get_name(record['_id'])
+            except:
+                name = 'Undefined'
+            if not record['exp']:
+                print(record)
+                continue
+            lb.append((name, record['exp']))
 
-    #     value = '\n'.join(f'{lookup[index]} **{_id}**: ``{exp}``' for (index, (_id, exp)) in enumerate(lb))
-    #     e.add_field(name="Top global profiles by experience", value=value)
-    #     await ctx.send(embed=e)
+        value = '\n'.join(f'{lookup[index]} **{_id}**: ``{exp}``' for (index, (_id, exp)) in enumerate(lb))
+        e.add_field(name="Top global profiles by experience", value=value)
+        await ctx.send(embed=e)
 
     @commands.command(aliases=['rank'])
     async def level(self, ctx, *, member:discord.Member=None):
