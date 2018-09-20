@@ -264,19 +264,6 @@ class Mod():
         if config.broadcast_channel:
             await config.broadcast_channel.send(embed=e)
 
-    @commands.command()
-    @checks.is_mod()
-    async def unrole(self, ctx, member:discord.Member=None, *, role:discord.Role=None):
-        if not member:
-            return await ctx.send('You forgot to give me the user or role.')
-        if not role:
-            return await ctx.send('You forgot to give me the user or role.')
-        try:
-            await member.remove_roles(role)
-            return await ctx.send(f'{ctx.tick(True)} Removed {role.name} role from {member.display_name}.')
-        except discord.Forbidden:
-            await ctx.send(f'{ctx.tick(False)}I don\'t have permissions to remove roles.')
-
     @commands.command(aliases=['newmembers'])
     @commands.guild_only()
     async def newusers(self, ctx, *, count=5):
@@ -337,7 +324,7 @@ class Mod():
         try:
             await ctx.guild.edit(verification_level=discord.VerificationLevel.high)
         except discord.HTTPException:
-            await ctx.send('\N{WARNING SIGN} Could not set verification level.')
+            await ctx.send(f'{ctx.tick(False)}\N{WARNING SIGN} Could not set verification level.')
 
         query = """INSERT INTO guild_mod_config (id, raid_mode, broadcast_channel)
                    VALUES ($1, $2, $3) ON CONFLICT (id)
@@ -348,7 +335,7 @@ class Mod():
 
         await ctx.db.execute(query, ctx.guild.id, RaidMode.on.value, channel.id)
         self.get_guild_config.invalidate(self, ctx.guild.id)
-        await ctx.send(f'Raid mode enabled. Broadcasting join messages to {channel.mention}.')
+        await ctx.send(f'{ctx.tick(True)} Raid mode enabled. Broadcasting join messages to {channel.mention}.')
 
     @raid.command(name='off', aliases=['disable', 'disabled'])
     @checks.is_mod()
@@ -362,7 +349,7 @@ class Mod():
         try:
             await ctx.guild.edit(verification_level=discord.VerificationLevel.low)
         except discord.HTTPException:
-            await ctx.send('\N{WARNING SIGN} Could not set verification level.')
+            await ctx.send(f'{ctx.tick(False)} \N{WARNING SIGN} Could not set verification level.')
 
         query = """INSERT INTO guild_mod_config (id, raid_mode, broadcast_channel)
                    VALUES ($1, $2, NULL) ON CONFLICT (id)
@@ -374,7 +361,7 @@ class Mod():
         await ctx.db.execute(query, ctx.guild.id, RaidMode.off.value)
         self._recently_kicked.pop(ctx.guild.id, None)
         self.get_guild_config.invalidate(self, ctx.guild.id)
-        await ctx.send('Raid mode disabled. No longer broadcasting join messages.')
+        await ctx.send(f'{ctx.tick(True)}Raid mode disabled. No longer broadcasting join messages.')
 
     @raid.command(name='strict')
     @checks.is_mod()
@@ -393,12 +380,12 @@ class Mod():
         channel = channel or ctx.channel
 
         if not ctx.me.guild_permissions.kick_members:
-            return await ctx.send('\N{NO ENTRY SIGN} I do not have permissions to kick members.')
+            return await ctx.send(f'{ctx.tick(False)} \N{NO ENTRY SIGN} I do not have permissions to kick members.')
 
         try:
             await ctx.guild.edit(verification_level=discord.VerificationLevel.high)
         except discord.HTTPException:
-            await ctx.send('\N{WARNING SIGN} Could not set verification level.')
+            await ctx.send(f'{ctx.tick(False)}\N{WARNING SIGN} Could not set verification level.')
 
         query = """INSERT INTO guild_mod_config (id, raid_mode, broadcast_channel)
                    VALUES ($1, $2, $3) ON CONFLICT (id)
@@ -409,7 +396,7 @@ class Mod():
 
         await ctx.db.execute(query, ctx.guild.id, RaidMode.strict.value, ctx.channel.id)
         self.get_guild_config.invalidate(self, ctx.guild.id)
-        await ctx.send(f'Raid mode enabled strictly. Broadcasting join messages to {channel.mention}.')
+        await ctx.send(f'{ctx.tick(True)} Raid mode enabled strictly. Broadcasting join messages to {channel.mention}.')
 
     @commands.group(invoke_without_command=True)
     @commands.guild_only()
@@ -455,7 +442,7 @@ class Mod():
                 """
         await ctx.db.execute(query, ctx.guild.id, count)
         self.get_guild_config.invalidate(self, ctx.guild.id)
-        await ctx.send(f'Now auto-banning members that mention more than {count} users.')
+        await ctx.send(f'{ctx.tick(True)} Now auto-banning members that mention more than {count} users.')
 
     @mentionspam.command(name='ignore', aliases=['bypass'])
     @commands.guild_only()
@@ -474,12 +461,12 @@ class Mod():
                 """
 
         if len(channels) == 0:
-            return await ctx.send('Missing channels to ignore.')
+            return await ctx.send(f'{ctx.tick(False)} Missing channels to ignore.')
 
         channel_ids = [c.id for c in channels]
         await ctx.db.execute(query, ctx.guild.id, channel_ids)
         self.get_guild_config.invalidate(self, ctx.guild.id)
-        await ctx.send(f'Mentions are now ignored on {", ".join(c.mention for c in channels)}.')
+        await ctx.send(f'{ctx.tick(True)} Mentions are now ignored on {", ".join(c.mention for c in channels)}.')
 
     @mentionspam.command(name='unignore', aliases=['protect'])
     @commands.guild_only()
@@ -501,30 +488,32 @@ class Mod():
 
         await ctx.db.execute(query, ctx.guild.id, [c.id for c in channels])
         self.get_guild_config.invalidate(self, ctx.guild.id)
-        await ctx.send('Updated mentionspam ignore list.')
+        await ctx.send(f'{ctx.tick(True)} Updated mentionspam ignore list.')
 
     @commands.command()
-    @checks.has_permissions(manage_guild=True)
-    async def createrole(self, ctx, role : str = None):
-        """Creates a role to the guild."""
-        if role is None:
-            await ctx.send('You did not tell me what is the role\'s name.')
-        else:
-            await ctx.guild.create_role(name=role)
-            await ctx.send('I created the role {}.'.format('@' + role))
+    @checks.is_mod()
+    async def _role(self, ctx, member:discord.Member=None, role:discord.Role=None, *, reason:str=None):
+        if not member:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify a member.')
 
-    @commands.command()
-    @checks.has_permissions(manage_guild=True)
-    async def addrole(self, ctx, member: discord.Member = None, role: discord.Role = None, reason: str = None):
-        if member is None:
-            return await ctx.send('You didn\'t give me the member.')
-        if role is None:
-            return await ctx.send('You didn\'t give me the role.')
+        if not role:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify a role.')
+
+        if not reason:
+            reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
+
+        if role in member.roles:
+            try:
+                await member.remove_roles(role, reason=reason)
+            except discord.Forbidden:
+                return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
+            return await ctx.send(f'{ctx.tick(True)} Removed {role.name} from {member.display_name}.')
+
         try:
-            await member.add_roles(roles=role, reason=reason)
-            await ctx.send('Role added.')
-        except:
-            pass
+            await memebr.add_roles(role, reason=reason)
+        except discord.Forbidden:
+            return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
+        await ctx.send(f'{ctx.tick(True)} Added {role.name} to {member.display_name}.')
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_channels=True)
@@ -542,12 +531,12 @@ class Mod():
                 for channel in ctx.guild.channels:
                     await channel.set_permissions(role, overwrite=permissions)
             if role in user.roles:
-                return await ctx.send('This member is already muted.')
+                return await ctx.send(f'{ctx.tick(False)} This member is already muted.')
             await user.edit(mute=True)
             await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
-            await ctx.send('Muted {}.'.format(user.display_name))
+            await ctx.send(f'{ctx.tick(True)} Muted {}.'.format(user.display_name))
         except discord.Forbidden:
-            await ctx.send('The bot does not have proper permissions.')
+            await ctx.send(f'{ctx.tick(False)} The bot does not have proper permissions.')
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_guild=True)
@@ -556,12 +545,12 @@ class Mod():
         try:
             role = discord.utils.get(ctx.guild.roles, name='Muted')
             if not role in user.roles:
-                return await ctx.send('This member was not muted in the first place.')
+                return await ctx.send(f'{ctx.tick(False)} This member was not muted in the first place.')
             await user.edit(mute=False)
             await user.remove_roles(role, reason=f"Unmuted by {ctx.author.display_name}(ID:{ctx.author.id})")
-            await ctx.send(f'Unmuted {user.display_name}.')
+            await ctx.send(f'{ctx.tick(True)} Unmuted {user.display_name}.')
         except discord.Forbidden:
-            await ctx.send('The bot does not have proper permissions.')
+            await ctx.send(f'{ctx.tick(False)} The bot does not have proper permissions.')
 
     async def _basic_cleanup_strategy(self, ctx, search):
         count = 0
@@ -599,7 +588,7 @@ class Mod():
 
         spammers = await strategy(ctx, search)
         deleted = sum(spammers.values())
-        messages = [f'{deleted} message{" was" if deleted == 1 else "s were"} removed.']
+        messages = [f'{ctx.tick(True)} {deleted} message{" was" if deleted == 1 else "s were"} removed.']
         if deleted:
             messages.append('')
             spammers = sorted(spammers.items(), key=lambda t: t[1], reverse=True)
@@ -615,10 +604,11 @@ class Mod():
         In order for this to work, the bot must have Kick Member permissions.
         To use this command you must have Kick Members permission.
         """
-        _perms = ctx.channel.permissions_for(member)
-        if _perms.manage_guild or _perms.administrator:
-            return await ctx.send('This member has manage server or administrator permissions.\n'\
-                                  'I can\'t kick this member.')
+        if isinstance(member, discord.Member):
+            _perms = ctx.channel.permissions_for(member)
+            if _perms.manage_guild or _perms.administrator:
+                return await ctx.send(f'{ctx.tick(False)}This member has manage server or administrator permissions.\n'\
+                                      'I can\'t kick this member.')
         if member is None:
             cmd = self.bot.get_command('help')
             return await ctx.invoke(cmd, command=ctx.command)
@@ -626,7 +616,7 @@ class Mod():
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
 
         await member.kick(reason=reason)
-        await ctx.send('\N{OK HAND SIGN}')
+        await ctx.send(ctx.tick(True))
 
     @commands.command()
     @commands.guild_only()
@@ -638,15 +628,16 @@ class Mod():
         In order for this to work, the bot must have Ban Member permissions.
         To use this command you must have Ban Members permission.
         """
-        _perms = ctx.channel.permissions_for(member)
-        if _perms.manage_guild or _perms.administrator:
-            return await ctx.send('This member has manage server or administrator permissions.\n'\
-                                  'I can\'t ban this member.')
+        if isinstance(member, discord.Member):
+            _perms = ctx.channel.permissions_for(member)
+            if _perms.manage_guild or _perms.administrator:
+                return await ctx.send(f'{ctx.tick(False)} This member has manage server or administrator permissions.\n'\
+                                      'I can\'t ban this member.')
         if reason is None:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
 
         await ctx.guild.ban(discord.Object(id=member), reason=reason)
-        await ctx.send('\N{OK HAND SIGN}')
+        await ctx.send(ctx.tick(True))
 
     @commands.command()
     @commands.guild_only()
@@ -664,7 +655,7 @@ class Mod():
         for member_id in members:
             await ctx.guild.ban(discord.Object(id=member_id), reason=reason)
 
-        await ctx.send('\N{OK HAND SIGN}')
+        await ctx.send(ctx.tick(True))
 
     @commands.command()
     @commands.guild_only()
@@ -684,7 +675,7 @@ class Mod():
         obj = discord.Object(id=member)
         await ctx.guild.ban(obj, reason=reason)
         await ctx.guild.unban(obj, reason=reason)
-        await ctx.send('\N{OK HAND SIGN}')
+        await ctx.send(ctx.tick(True))
 
     @commands.command()
     @commands.guild_only()
@@ -702,9 +693,9 @@ class Mod():
 
         await ctx.guild.unban(member.user, reason=reason)
         if member.reason:
-            await ctx.send(f'Unbanned {member.user} (ID: {member.user.id}), previously banned for {member.reason}.')
+            await ctx.send(f'{ctx.tick(True)} Unbanned {member.user} (ID: {member.user.id}), previously banned for {member.reason}.')
         else:
-            await ctx.send(f'Unbanned {member.user} (ID: {member.user.id}).')
+            await ctx.send(f'{ctx.tick(True)} Unbanned {member.user} (ID: {member.user.id}).')
 
 
     @commands.group()
@@ -753,9 +744,13 @@ class Mod():
         to_send = '\n'.join(messages)
 
         if len(to_send) > 2000:
-            await ctx.send(f'Successfully purged {deleted} messages.', delete_after=10)
+            await ctx.send(f'{ctx.tick(True)} Successfully purged {deleted} messages.', delete_after=10)
+            await asyncio.sleep(10)
+            await ctx.message.delete()
         else:
             await ctx.send(to_send, delete_after=10)
+            await ctx.message.delete()
+            await asyncio.sleep(10)
 
     @purge.command()
     async def embeds(self, ctx, search=100):
@@ -920,10 +915,10 @@ class Mod():
 
         args.search = max(0, min(2000, args.search)) # clamp from 0-2000
         await self.do_removal(ctx, args.search, predicate, before=args.before, after=args.after)
-    @commands.command(no_pm = True)
-    @checks.has_permissions(manage_nicknames=True)
-    async def setnickname(self, ctx, user : discord.Member = None, *, nick: str = None):
 
+    @commands.command(no_pm = True, aliases=['setnickname', 'setname'])
+    @checks.has_permissions(manage_nicknames=True)
+    async def setnick(self, ctx, user : discord.Member = None, *, nick: str = None):
         """Changes the nickname of a user
 
         To use this command you must have the Managae Nicknames permissions.
@@ -931,20 +926,19 @@ class Mod():
 
         This command cannot be used in a private message."""
 
-        if user is None:
-            await ctx.send(':exclamation: | {} you did not tell me whose nickname to change.'.format(ctx.message.author.mention))
-            return
+        if member is None:
+            return await ctx.send(f'{ctx.tick(False)} You did not tell me whose nickname to change.')
 
         if nick is None:
-            await ctx.send(':exclamation: | {} you did not tell me what to change the {}\'s nickname.'.format(ctx.message.author.mention, user.name))
+            return await ctx.send(f'{ctx.tick(false)} You did not tell me what to change the {member.display_name}\'s nickname.')
 
         try:
-            await user.edit(nick=nick)
-            await ctx.send(":ballot_box_with_check: | {} changed ``{}``\'s username.".format(ctx.message.author.display_name, user.display_name))
+            await member.edit(nick=nick)
+            await ctx.send(f"{ctx.tick(True)} {ctx.author.display_name} changed ``{member.display_name}``\'s username.".format(, ))
         except discord.Forbidden:
-            await ctx.send(':exclamation: | The bot does not have permissions to change nicknames.')
+            await ctx.send(f'{ctx.tick(False)} The bot does not have permissions to change nicknames.')
         except discord.HTTPException:
-            await ctx.send(':exclamation: | Changing nickname failed.')
+            await ctx.send(f'{ctx.tick(False)} Changing nickname failed.')
 
 def setup(bot):
     m = Mod(bot)
