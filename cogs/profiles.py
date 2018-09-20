@@ -440,7 +440,7 @@ class Profile():
         found = random.randint(20,50)
         await self.edit_field(ctx, cash=profile.cash + found)
         await ctx.send(
-            f'{ctx.author.display_name} found ${found}, and has now ${cash}\n'\
+            f'{ctx.author.display_name} found ${found}, and has now ${profile.cash}\n'\
             '**You can loot again in 3 minutes!**')
 
     @commands.command(aliases=['shop'])
