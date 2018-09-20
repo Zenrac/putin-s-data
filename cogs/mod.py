@@ -534,7 +534,7 @@ class Mod():
                 return await ctx.send(f'{ctx.tick(False)} This member is already muted.')
             await user.edit(mute=True)
             await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
-            await ctx.send(f'{ctx.tick(True)} Muted {}.'.format(user.display_name))
+            await ctx.send(f'{ctx.tick(True)} Muted {user.display_name}.')
         except discord.Forbidden:
             await ctx.send(f'{ctx.tick(False)} The bot does not have proper permissions.')
 
