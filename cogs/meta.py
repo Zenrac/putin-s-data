@@ -172,7 +172,7 @@ class Meta:
             else:
                 meta = r['Metascore'] + "/100"
             meta = meta or 'Not rated'
-            imd = r['imdbRating'] or imd = "Not Rated"
+            imd = r['imdbRating'] or "Not Rated"
             e = discord.Embed(
                 title=r['Title'],
                 url=imdb_url)
