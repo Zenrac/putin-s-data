@@ -467,12 +467,11 @@ class Meta:
         await ctx.send(embed=e)
 
     @commands.command(hidden=True)
-    async def realping(self, ctx):
+    async def ping(self, ctx):
         before = time.monotonic()
         message = await ctx.send("Pong")
         ping = (time.monotonic() - before) * 1000
         await message.edit(content=f"My ping\nMSG :: {int(ping)}ms\nAPI :: {round(self.bot.latency * 100)}ms")
-
 
     @commands.command()
     async def roleinfo(self, ctx, *, role: discord.Role):
@@ -484,7 +483,6 @@ class Meta:
             return await ctx.send(f'There is {len(m)} members with that role, because there is too many I can\'t display their names.')
         e = discord.Embed(title=f"{len(m)} members have the role {role.name}.", description=", ".join(_.display_name for _ in m))
         await ctx.send(embed=e)
-
 
     @commands.command()
     async def lyrics(self, ctx):
@@ -1301,32 +1299,7 @@ class Meta:
     def format_message(self, message):
         return 'On {0.timestamp}, {0.author} said {0.content}'.format(message)
 
-    # @commands.command(hidden=True)
-    # async def mentions(self, ctx, channel : discord.TextChannel = None, context : int = 3):
-    #     if ctx.message.author.bot: return
-    #     """Tells you when you were mentioned in a channel.
-    #     If a channel is not given, then it tells you when you were mentioned in a
-    #     the current channel. The context is an integer that tells you how many messages
-    #     before should be shown. The context cannot be greater than 5 or lower than 0.
-    #     """
-    #     if channel is None:
-    #         channel = ctx.message.channel
-
-    #     context = min(5, max(0, context))
-
-    #     author = ctx.message.author
-    #     previous = deque(maxlen=context)
-    #     async for message in self.bot.logs_from(channel, limit=100):
-    #         previous.append(message)
-    #         if author in message.mentions or message.mention_everyone:
-    #             # we're mentioned so..
-    #             try:
-    #                 await self.bot.whisper('\n'.join(map(self.format_message, previous)))
-    #             except discord.HTTPException:
-    #                 await self.bot.whisper('An error happened while fetching mentions.')
-
     @commands.command(rest_is_raw=True)
-    # @commands.is_owner()
     async def echo(self, ctx, *, content):
         """Says what you say."""
         if ctx.message.author.bot: return
