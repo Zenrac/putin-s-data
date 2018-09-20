@@ -1385,8 +1385,8 @@ class Profile():
             slot8 = random.choice(slot)
             slot9 = random.choice(slot)
             slot_machine = f'```╔════[SLOTS]════╗\n║ {slot1} ║ {slot2} ║ {slot3} ║\n> {slot4} ║ {slot5} ║ {slot6} <\n║ {slot7} ║ {slot8} ║ {slot9} ║\n╚════[SLOTS]════╝```'
-            chance = random.randint(1, 3)
-            if chance is not 3:
+            chance = random.randint(1, 2)
+            if chance is not 2:
                 winning_times = 1
             else:
                 winning_times = 0
