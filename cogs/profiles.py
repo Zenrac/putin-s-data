@@ -632,8 +632,8 @@ class Profile():
         if profile is None:
             return await ctx.invoke(self.make)
         if amount is None:
-            amout = 1
-        if profile.rings == 0 or not profile.rings:
+            amount = 1
+        if profile.rings == 0:
             await ctx.send(f'{ctx.tick(False)} You don\'t have any rings.')
         else:
             if amount > profile.rings:
