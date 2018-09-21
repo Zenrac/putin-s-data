@@ -403,7 +403,7 @@ class Profile():
                 found = random.randint(40, 200)
                 await self.edit_field(ctx, cash=profile.cash + found)
                 await ctx.send(
-                    f'{ctx.author.display_name} found ${found} and has now ${cash}\n'\
+                    f'{ctx.author.display_name} found ${found} and has now ${profile.cash}\n'\
                     f'**You can mine again in 5 minutes!**')
                 if diamond_chance == 1:
                     await ctx.send('You lucky, you found a diamond.')
