@@ -65,7 +65,7 @@ class DisambiguateMember(commands.IDConverter):
 class ProfileConfig:
     def __init__(self, ctx, record):
         self.ctx = ctx
-        self.id = record['id']
+        self.id = record['id'] or None
         self.xp = record['experience']
         self.description = record['description']
         self.level = record['level']
@@ -115,7 +115,7 @@ class ProfileConfig:
             else:
                 last_xp_time = dtime.utcnow()
                 await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
-            new_xp = self.xp  + random.randint(15, 25)
+            new_xp = self.xp + random.randint(15, 25)
             await self.edit_field(self.ctx, experience=new_xp)
             lvl = self.level
             new_lvl = Profile._get_level_from_xp(self.xp)
@@ -1569,17 +1569,17 @@ class Profile():
 
     async def on_message(self, message):
         if message.author.bot: return
-        ctx = await self.bot.get_context(message, cls=context.Context)
+        try:
+            ctx = await self.bot.get_context(message, cls=context.Context)
 
-        async with ctx.acquire():
-            profile = await self.get_profile(ctx, message.author.id)
-            if not profile:
-                return
-            try:
-                await profile.increase_xp(ctx)
-            except Exception as e:
-                if message.channel.id == 491609962821451776:
-                    await message.channel.send(e)#
+            async with ctx.acquire():
+                profile = await self.get_profile(ctx, message.author.id)
+                if not profile:
+                    return
+                    await profile.increase_xp(ctx)
+        except Exception as e:
+            if message.channel.id == 491609962821451776:
+                await message.channel.send(e)#
 
     @commands.command()
     async def howgay(self, ctx, *, member:discord.Member=None):
