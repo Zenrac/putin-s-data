@@ -65,7 +65,7 @@ class DisambiguateMember(commands.IDConverter):
 class ProfileConfig:
     def __init__(self, ctx, record):
         self.ctx = ctx
-        self.id = record['id'] or None
+        self.id = record['id']
         self.xp = record['experience']
         self.description = record['description']
         self.level = record['level']
@@ -82,6 +82,7 @@ class ProfileConfig:
         self.name = record['name']
         self.announce_level = record['announce_level']
         self.bday = record['bday'] or '`.profile birthday <DD-MM-YYYY>`'
+        self.gay = record['gay'] or None
 
     def __str__(self):
         return f'Profile of {self.name}'
@@ -145,8 +146,14 @@ class Profile():
 
     async def get_profile(self, ctx, id):
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
+<<<<<<< HEAD
         profile = ProfileConfig(ctx, record)
         return profile or None
+=======
+        if not record['id']:
+            return None
+        return ProfileConfig(ctx, record) or None
+>>>>>>> 9f59244ad50305340bb3e0b195a782ced8e5dbad
 
     @commands.group(invoke_without_command=True)
     async def profile(self, ctx, *, member: DisambiguateMember = None):
@@ -403,7 +410,7 @@ class Profile():
                 found = random.randint(40, 200)
                 await self.edit_field(ctx, cash=profile.cash + found)
                 await ctx.send(
-                    f'{ctx.author.display_name} found ${found} and has now ${cash}\n'\
+                    f'{ctx.author.display_name} found ${found} and has now ${profile.cash}\n'\
                     f'**You can mine again in 5 minutes!**')
                 if diamond_chance == 1:
                     await ctx.send('You lucky, you found a diamond.')
@@ -1582,7 +1589,7 @@ class Profile():
         if profile.gay:
             e = discord.Embed(title="How gay?", color=member.top_role.color)
             e.description=f"{member.display_name} is {profile.gay}% gay."
-        else
+        else:
             gay = random.randint(0,100)
             
             if member.id == 285042740738392064:
