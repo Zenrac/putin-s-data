@@ -146,14 +146,13 @@ class Profile():
 
     async def get_profile(self, ctx, id):
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
-<<<<<<< HEAD
+
         profile = ProfileConfig(ctx, record)
         return profile or None
-=======
+
         if not record['id']:
             return None
         return ProfileConfig(ctx, record) or None
->>>>>>> 9f59244ad50305340bb3e0b195a782ced8e5dbad
 
     @commands.group(invoke_without_command=True)
     async def profile(self, ctx, *, member: DisambiguateMember = None):
