@@ -148,8 +148,6 @@ class Profile():
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
         if not record['id']:
             return None
-        if profile is None:
-            return None
         return ProfileConfig(ctx, record) or None
 
     @commands.group(invoke_without_command=True)
