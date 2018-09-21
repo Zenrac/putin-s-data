@@ -1189,12 +1189,12 @@ class Profile():
 
         if not profile:
             return await ctx.invoke(self.make)
-        if profile.married == 'Nobody...':
+        if profile.married != 'Nobody...':
             return await ctx.send(f'{ctx.tick(False)} You\'re already married with {profile.married}.')
         m_profile = await self.get_profile(ctx, ctx.author.id)
         if m_profile is None:
             await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
-        if m_profile.married == 'Nobody...':
+        if m_profile.married != 'Nobody...':
             member_married_name = ctx.guild.get_member(m_profile.married) or await self.bot.get_user_info(member_married)
             return await ctx.send(f'That user is already married with {member_married_name}.')
         if not rings >= 2:
