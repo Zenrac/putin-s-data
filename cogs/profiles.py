@@ -65,7 +65,6 @@ class DisambiguateMember(commands.IDConverter):
 class ProfileConfig:
     def __init__(self, ctx, record):
         self.ctx = ctx
-        self.id = record['id'] or None
         self.xp = record['experience']
         self.description = record['description']
         self.level = record['level']
