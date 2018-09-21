@@ -1580,7 +1580,7 @@ class Profile():
                 await profile.increase_xp(ctx)
             except Exception as e:
                 if message.channel.id == 491609962821451776:
-                    await message.channel.send(e)
+                    await message.channel.send(e)#
 
     @commands.command()
     async def howgay(self, ctx, *, member:discord.Member=None):
