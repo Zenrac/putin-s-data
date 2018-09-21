@@ -146,9 +146,14 @@ class Profile():
 
     async def get_profile(self, ctx, id):
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
+<<<<<<< HEAD
+        profile = ProfileConfig(ctx, record)
+        return profile or None
+=======
         if not record['id']:
             return None
         return ProfileConfig(ctx, record) or None
+>>>>>>> 9f59244ad50305340bb3e0b195a782ced8e5dbad
 
     @commands.group(invoke_without_command=True)
     async def profile(self, ctx, *, member: DisambiguateMember = None):
@@ -1184,12 +1189,12 @@ class Profile():
 
         if not profile:
             return await ctx.invoke(self.make)
-        if profile.married == 'Nobody...':
+        if profile.married != 'Nobody...':
             return await ctx.send(f'{ctx.tick(False)} You\'re already married with {profile.married}.')
         m_profile = await self.get_profile(ctx, ctx.author.id)
         if m_profile is None:
             await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
-        if m_profile.married == 'Nobody...':
+        if m_profile.married != 'Nobody...':
             member_married_name = ctx.guild.get_member(m_profile.married) or await self.bot.get_user_info(member_married)
             return await ctx.send(f'That user is already married with {member_married_name}.')
         if not rings >= 2:
@@ -1571,8 +1576,11 @@ class Profile():
             profile = await self.get_profile(ctx, message.author.id)
             if not profile:
                 return
-
-            await profile.increase_xp(ctx)
+            try:
+                await profile.increase_xp(ctx)
+            except Exception as e:
+                if message.channel.id == 491609962821451776:
+                    await message.channel.send(e)
 
     @commands.command()
     async def howgay(self, ctx, *, member:discord.Member=None):

@@ -306,27 +306,6 @@ class Fun():
         else:
             await ctx.send("{} has definetely **NOT** hugged {} ever.".format(ctx.message.author.mention, member.mention))
 
-    # @commands.command()
-    # async def meme(self, ctx):
-    #     if ctx.message.author.bot: return
-    #     """Displays a random meme."""
-    #     memes =['https://i.imgur.com/hpB7qvi.png', 'https://i.imgur.com/vJ2TQwr.png',
-    #             'https://i.imgur.com/m64uuhm.png', 'https://i.imgur.com/mMDZhos.png',
-    #             'https://i.imgur.com/D2YNENN.png', 'https://media.giphy.com/media/aFTt8wvDtqKCQ/giphy.gif', 'https://cdn.discordapp.com/attachments/282515949318438922/462688857335398430/lataus.jpg', 'https://cdn.discordapp.com/attachments/282515949318438922/462688861588291584/VRdyI5E.jpg',
-    #             'https://i.imgur.com/aNGHGzt.jpg', 'https://i.imgur.com/UWHgThx.jpg', 'https://cdn.discordapp.com/attachments/282515949318438922/462688863148572697/582aaf2853fa9.jpeg', 'https://cdn.discordapp.com/attachments/282515949318438922/462688863886770177/588fc19e69d58.jpeg', 'https://cdn.discordapp.com/attachments/282515949318438922/462688865325678593/aDx3G4B_700b.jpg', 'https://cdn.discordapp.com/attachments/282515949318438922/462688866189443094/b25.jpg',
-    #             'https://cdn.discordapp.com/attachments/282515949318438922/462688869414862868/images_1.jpg','https://cdn.discordapp.com/attachments/282515949318438922/462688869389959169/eaf.png','https://cdn.discordapp.com/attachments/282515949318438922/462688871029932034/images.jpg',
-    #             'https://media.giphy.com/media/3oKIPmlzy5iyOyOyzK/giphy.gif', 'https://media.giphy.com/media/26gs6vEzlpaxuYgso/giphy.gif','https://cdn.discordapp.com/attachments/290395754126770186/462676227858104330/IMG_20180518_193134.png']
-    #     meme = random.choice(memes)
-    #     try:
-    #         await self.bot.delete_message(ctx.message)
-    #     except:
-    #         pass
-    #     await ctx.send(':rofl: | Here is a meme for you {}.'.format(ctx.message.author.mention))
-    #     embed = discord.Embed(title="", description='', color = discord.Color.green())
-    #     embed.set_footer(text="Requested by: {}.".format(ctx.message.author), icon_url=ctx.message.author.avatar_url)
-    #     embed.set_image(url=meme)
-    #     await ctx.send(embed=embed)
-
     @commands.command()
     async def meme(self, ctx):
         """Displays a random meme from reddit."""
@@ -336,6 +315,8 @@ class Fun():
                 acc = "https://api.reddit.com/r/" + random.choice(accounts)
                 async with session.get(acc) as get:
                     resp = await get.json()
+                    if get.status == 404:
+                        return await ctx.send(f'{ctx.tick(False)} I couldn\'t get a meme try again...')
                     posts = resp['data']['children']
                     memes = [x['data']['url'] for x in posts if 'url' in x['data']]
                     embed = discord.Embed(colour=0xff6a00)

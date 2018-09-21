@@ -471,7 +471,7 @@ class Meta:
         before = time.monotonic()
         message = await ctx.send("Pong")
         ping = (time.monotonic() - before) * 1000
-        await message.edit(content=f"My ping\nMSG :: {int(ping)}ms\nAPI :: {round(self.bot.latency * 100)}ms")
+        await message.edit(content=f"My ping\nMessage edit :: {int(ping)}ms\nLATENCY :: {round(self.bot.latency * 100)}ms")
 
     @commands.command()
     async def roleinfo(self, ctx, *, role: discord.Role):
