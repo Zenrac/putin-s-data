@@ -51,6 +51,8 @@ class Random:
         async with aiohttp.ClientSession() as cs:
             async with cs.get('http://api.lenny.today/v1/random?limit=1') as res:
                 data = await res.json()
+            if res.status == 404:
+                await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
         await ctx.send(data[0]['face'])
 
     @commands.command()
@@ -67,6 +69,8 @@ class Random:
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://api.chewey-bot.ga/space') as res:
                 r = await res.json()
+            if res.status == 404:
+                await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
         e = discord.Embed(title="Space", color=discord.Color.blue())
         e.set_image(url=r['data'])
         e.set_footer(text="Powered by api.chewey-bot.ga")
@@ -78,6 +82,8 @@ class Random:
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://api.chewey-bot.ga/cat') as res:
                 r = await res.json()
+            if res.status == 404:
+                await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
         e = discord.Embed(title="Cat", color=discord.Color.blue())
         e.set_image(url=r['data'])
         e.set_footer(text="Powered by api.chewey-bot.ga")
@@ -85,10 +91,12 @@ class Random:
 
     @commands.command()
     async def dog(self, ctx):
-        """Gives you a birb image."""
+        """Gives you a dog image."""
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://api.chewey-bot.ga/dog') as res:
                 r = await res.json()
+            if res.status == 404:
+                await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
         e = discord.Embed(title="Dog", color=discord.Color.blue())
         e.set_image(url=r['data'])
         e.set_footer(text="Powered by api.chewey-bot.ga")
@@ -100,6 +108,8 @@ class Random:
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://api.chewey-bot.ga/birb') as res:
                 r = await res.json()
+            if res.status == 404:
+                await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
         e = discord.Embed(title="Birb", color=discord.Color.blue())
         e.set_image(url=r['data'])
         e.set_footer(text="Powered by api.chewey-bot.ga")
@@ -111,6 +121,8 @@ class Random:
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://api.chewey-bot.ga/nature') as res:
                 r = await res.json()
+            if res.status == 404:
+                await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
         e = discord.Embed(title="Nature", color=discord.Color.blue())
         e.set_image(url=r['data'])
         e.set_footer(text="Powered by api.chewey-bot.ga")
@@ -122,6 +134,8 @@ class Random:
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://api.chewey-bot.ga/fantasy-art') as res:
                 r = await res.json()
+            if res.status == 404:
+                await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
         e = discord.Embed(title="Fantsy art", color=discord.Color.blue())
         e.set_image(url=r['data'])
         e.set_footer(text="Powered by api.chewey-bot.ga")
@@ -133,6 +147,8 @@ class Random:
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://api.chewey-bot.ga/plane') as res:
                 r = await res.json()
+            if res.status == 404:
+                await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
         e = discord.Embed(title="Plane", color=discord.Color.blue())
         e.set_image(url=r['data'])
         e.set_footer(text="Powered by api.chewey-bot.ga")
@@ -144,6 +160,8 @@ class Random:
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://api.chewey-bot.ga/otter') as res:
                 r = await res.json()
+            if res.status == 404:
+                await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
         e = discord.Embed(title="Otter", color=discord.Color.blue())
         e.set_image(url=r['data'])
         e.set_footer(text="Powered by api.chewey-bot.ga")
