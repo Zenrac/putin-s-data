@@ -110,27 +110,23 @@ class ProfileConfig:
                                f'pfp=\'{av}\' where id={ctx.author.id}')
 
     async def increase_xp(self, ctx):
-        try:
-            # if self.is_ratelimited:
-            #     return
-            if not self.last_xp_time:
-                _now = dtime.utcnow()
-                await self.edit_field(ctx, last_xp_time=repr(_now))
-            else:
-                last_xp_time = dtime.utcnow()
-                await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
-            new_xp = self.xp + random.randint(15, 25)
-            await self.edit_field(self.ctx, experience=new_xp)
-            lvl = self.level
-            new_lvl = Profile._get_level_from_xp(self.xp)
-            await self.edit_field(ctx, level=new_lvl)
-            if new_lvl != lvl:
-                if self.announce_level and not ctx.guild.id == 264445053596991498:
-                    await ctx.send(f'Good job {ctx.author.display_name} you just leveled up to level {new_lvl}!')
-        except Exception as e:
-            if ctx.channel.id == 482188217400033280:
-                await ctx.send(e)
-
+        if self.is_ratelimited:
+            return
+        if not self.last_xp_time:
+            _now = dtime.utcnow()
+            await self.edit_field(ctx, last_xp_time=repr(_now))
+        else:
+            last_xp_time = dtime.utcnow()
+            await self.edit_field(ctx, last_xp_time=repr(last_xp_time))
+        new_xp = self.xp + random.randint(15, 25)
+        await self.edit_field(self.ctx, experience=new_xp)
+        lvl = self.level
+        new_lvl = Profile._get_level_from_xp(self.xp)
+        await self.edit_field(ctx, level=new_lvl)
+        if new_lvl != lvl:
+            if self.announce_level and not ctx.guild.id == 264445053596991498:
+                await ctx.send(f'Good job {ctx.author.display_name} you just leveled up to level {new_lvl}!')
+                
 class Profile():
     def __init__(self, bot):
         self.bot = bot
