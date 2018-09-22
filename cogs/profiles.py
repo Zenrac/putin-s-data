@@ -66,9 +66,9 @@ class ProfileConfig:
     def __init__(self, ctx, record):
         self.ctx = ctx
         self.id = record['id'] or None
-        self.xp = record['experience']
-        self.description = record['description']
-        self.level = record['level']
+        self.xp = record['experience'] or 0
+        self.description = record['description'] or f'`{ctx.prefix}profile description <text>`'
+        self.level = record['level'] or 0
         self.last_xp_time = record['last_xp_time'] or False
         self.married = record['married'] or 'Nobody...'
         self.cash = record['cash'] or 0
@@ -79,8 +79,8 @@ class ProfileConfig:
         self.alcohol = record['roses'] or 0
         self.banner = record['banner'] or 0
         self.pet = record['pet'] or 'No pet'
-        self.name = record['name']
-        self.announce_level = record['announce_level']
+        self.name = record['name'] or ctx.author.display_name
+        self.announce_level = record['announce_level'] or False
         self.bday = record['bday'] or '`.profile birthday <DD-MM-YYYY>`'
         self.gay = record['gay'] or None
 
@@ -147,8 +147,8 @@ class Profile():
     async def get_profile(self, ctx, id):
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
         profile = ProfileConfig(ctx, record)
-        if not record['id']:
-            return None
+        if not record:
+            await ctx.db.execute(f'insert into profiles values ({ctx.author.id})')
         return ProfileConfig(ctx, record) or None
 
     @commands.group(invoke_without_command=True)
