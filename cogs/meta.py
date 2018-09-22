@@ -164,8 +164,28 @@ class Meta:
 
     @commands.command()
     async def speedtest(self, ctx):
-        x = await run_cmd('speedtest-cli --simple --share')
+        x = await self.run_cmd('speedtest-cli --simple --share')
         await ctx.send(f'```\n{x}\n```')
+
+    @commands.command()
+    async def doc(self, ctx, *, command:str=None):
+        if not command:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify a command.')
+        await ctx.send(inspect.getdoc(bot.get_command(command).callback))
+
+    @commands.command()
+    async def source(self, ctx, *, command:str=None):
+        if not command:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify a command.')
+        source = inspect.getsource(bot.get_command(command).callback)
+        fmt = f'```py\n'\
+              f'{source}\n'\
+              f'```'
+        if len(fmt) > 2000:
+            fp = io.BytesIO(fmt.encode('utf-8'))
+            await ctx.send('Too long to output...', file=discord.File(fp, 'source.txt'))
+        else:
+            await ctx.send(fmt)
 
     @commands.command(aliases=['IMDb'])
     async def imdb(self, ctx, *, title= None):
