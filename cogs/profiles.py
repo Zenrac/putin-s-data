@@ -63,9 +63,9 @@ class DisambiguateMember(commands.IDConverter):
         return result
 
 class ProfileConfig:
-    def __init__(self, ctx, record):
+    def __init__(self, bot, id,  ctx, record):
         self.ctx = ctx
-        self.id = record['id'] or None
+        self.id = id
         self.xp = record['experience'] or 0
         self.description = record['description'] or f'`{ctx.prefix}profile description <text>`'
         self.level = record['level'] or 0
@@ -150,7 +150,7 @@ class Profile():
         if record is None and id == ctx.author.id:
             await ctx.db.execute(f'insert into profiles values ({ctx.author.id})')
             record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
-        return ProfileConfig(ctx, record) or None
+        return ProfileConfig(ctx, self.bot, id, record)
 
     @commands.group(invoke_without_command=True)
     async def profile(self, ctx, *, member: DisambiguateMember = None):
