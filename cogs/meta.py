@@ -188,8 +188,9 @@ class Meta:
               f'{source}\n'\
               f'```'
         if len(fmt) > 2000:
+            fmt = fmt.strip('```').replace('py', '', 1)
             fp = io.BytesIO(fmt.encode('utf-8'))
-            await ctx.send('Too long to output...', file=discord.File(fp, 'source.txt'))
+            await ctx.send('Too long to output...', file=discord.File(fp, f'{command}.py'))
         else:
             await ctx.send(fmt)
 
