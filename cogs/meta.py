@@ -171,13 +171,19 @@ class Meta:
     async def doc(self, ctx, *, command:str=None):
         if not command:
             return await ctx.send(f'{ctx.tick(False)} You need to specify a command.')
-        await ctx.send(inspect.getdoc(bot.get_command(command).callback))
+        try:
+            await ctx.send(inspect.getdoc(self.bot.get_command(command).callback))
+        except:
+            await ctx.send(f'{ctx.tick(False)} Command not found...')
 
     @commands.command()
     async def source(self, ctx, *, command:str=None):
         if not command:
             return await ctx.send(f'{ctx.tick(False)} You need to specify a command.')
-        source = inspect.getsource(bot.get_command(command).callback)
+        try:
+            source = inspect.getsource(self.bot.get_command(command).callback)
+        except:
+            await ctx.send(f'{ctx.tick(False)} Command not found...')
         fmt = f'```py\n'\
               f'{source}\n'\
               f'```'
