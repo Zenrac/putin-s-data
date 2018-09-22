@@ -283,7 +283,7 @@ class Admin:
         else:
             await ctx.send(fmt)
 
-    @commands.command(name='runas', hidden=True)
+    @commands.command(name='runas', aliases=['sudo'], hidden=True)
     @commands.is_owner()
     async def _run_as(self, ctx, who: Union[discord.Member, discord.User], *, command: str):
         """Run a command as another user."""

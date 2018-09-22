@@ -146,14 +146,10 @@ class Profile():
 
     async def get_profile(self, ctx, id):
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
-<<<<<<< HEAD
         profile = ProfileConfig(ctx, record)
-        return profile or None
-=======
         if not record['id']:
             return None
         return ProfileConfig(ctx, record) or None
->>>>>>> 9f59244ad50305340bb3e0b195a782ced8e5dbad
 
     @commands.group(invoke_without_command=True)
     async def profile(self, ctx, *, member: DisambiguateMember = None):
@@ -1221,7 +1217,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
-        if married == 'Nobody...':
+        if profile.married == 'Nobody...':
             return await ctx.send(f'{ctx.tick(False)} You weren\'t married in the first place.')
         married = ctx.guild.get_member(profile.married)
         if not married:
@@ -1572,7 +1568,7 @@ class Profile():
         if message.author.bot: return
         try:
             ctx = await self.bot.get_context(message, cls=context.Context)
-
+            
             async with ctx.acquire():
                 profile = await self.get_profile(ctx, message.author.id)
                 if not profile:
