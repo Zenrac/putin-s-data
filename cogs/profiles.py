@@ -147,7 +147,7 @@ class Profile():
     async def get_profile(self, ctx, id):
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
         profile = ProfileConfig(ctx, record)
-        if not record and id == ctx.author.id:
+        if record is None and id == ctx.author.id:
             await ctx.db.execute(f'insert into profiles values ({ctx.author.id})')
             record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
         return ProfileConfig(ctx, record) or None
