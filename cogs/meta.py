@@ -531,7 +531,7 @@ class Meta:
             if not player.current:
                 return await ctx.send(f'{ctx.tick(False)} Nothing playing at the moment.')
             current = player.current
-            song = player.current.split(' - ')
+            song = player.current.title.split(' - ')
             artist_name = song[0]
             try:
                 track_name = song[1]
