@@ -111,8 +111,8 @@ class ProfileConfig:
 
     async def increase_xp(self, ctx):
         try:
-            if self.is_ratelimited:
-                return
+            # if self.is_ratelimited:
+            #     return
             if not self.last_xp_time:
                 _now = dtime.utcnow()
                 await self.edit_field(ctx, last_xp_time=repr(_now))
