@@ -528,7 +528,7 @@ class Meta:
         """Gives you lyrics for a song from Google's Genius.com."""
         if artist_name == 'np':
             player = self.bot.lavalink.players.get(ctx.guild.id)
-            if player.current:
+            if not player.current:
                 return await ctx.send(f'{ctx.tick(False)} Nothing playing at the moment.')
             current = player.current
             song = player.current.split(' - ')
