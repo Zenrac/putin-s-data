@@ -736,7 +736,7 @@ class Profile():
         if not profile:
             return await ctx.invoke(self.make)
         if profile.pet:
-            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+            return await ctx.send(f'{ctx.tick(False)} You have a {profile.pet} already.')
         if profile.cash < 20000:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         await profile.edit_field(ctx, cash=profile.cash - 20000)
@@ -749,7 +749,7 @@ class Profile():
         if not profile:
             return await ctx.invoke(self.make)
         if profile.pet:
-            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+            return await ctx.send(f'{ctx.tick(False)} You have a {profile.pet} already.')
         if profile.cash < 5000:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         await profile.edit_field(ctx, cash=profile.cash - 5000)
@@ -763,7 +763,7 @@ class Profile():
         if not profile:
             return await ctx.invoke(self.make)
         if profile.pet:
-            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+            return await ctx.send(f'{ctx.tick(False)} You have a {profile.pet} already.')
         if profile.cash < 15000:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         await profile.edit_field(ctx, cash=profile.cash - 15000)
@@ -777,7 +777,7 @@ class Profile():
         if not profile:
             return await ctx.invoke(self.make)
         if profile.pet:
-            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+            return await ctx.send(f'{ctx.tick(False)} You have a {profile.pet} already.')
         if profile.cash < 10000:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         await profile.edit_field(ctx, cash=profile.cash - 10000)
@@ -791,7 +791,7 @@ class Profile():
         if not profile:
             return await ctx.invoke(self.make)
         if profile.pet:
-            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+            return await ctx.send(f'{ctx.tick(False)} You have a {profile.pet} already.')
         if profile.cash < 100000:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         await profile.edit_field(ctx, cash=profile.cash - 100000)
@@ -805,7 +805,7 @@ class Profile():
         if not profile:
             return await ctx.invoke(self.make)
         if profile.pet:
-            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+            return await ctx.send(f'{ctx.tick(False)} You have a {profile.pet} already.')
         if profile.cash < 100000000000000:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         await profile.edit_field(ctx, cash=profile.cash - 100000000000000)
@@ -819,7 +819,7 @@ class Profile():
         if not profile:
             return await ctx.invoke(self.make)
         if profile.pet:
-            return await ctx.send(f'{ctx.tick(False)} You have a {pet} already.')
+            return await ctx.send(f'{ctx.tick(False)} You have a {profile.pet} already.')
         if profile.cash < 50000:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         await profile.edit_field(ctx, cash=profile.cash - 50000)
