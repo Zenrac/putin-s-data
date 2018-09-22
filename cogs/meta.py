@@ -156,6 +156,17 @@ class Meta:
         self._spoiler_cooldown = SpoilerCooldown()
         self.client = clever.CleverBot(user='9FZVmdY47TEthPLe', key='zl3Fuk2Kx2Nis2YvbaIeMhMdoYRdKA7N', nick="W.Bot")
 
+    async def run_cmd(self, cmd: str) -> str:
+            process =\
+                await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+            results = await process.communicate()
+            return "".join(x.decode("utf-8") for x in results)
+
+    @commands.command()
+    async def speedtest(self, ctx):
+        x = await run_cmd('speedtest-cli --simple --share')
+        await ctx.send(f'```\n{x}\n```')
+
     @commands.command(aliases=['IMDb'])
     async def imdb(self, ctx, *, title= None):
         """Search a movie/series on IMDb"""
