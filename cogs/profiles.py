@@ -1570,19 +1570,13 @@ class Profile():
 
     async def on_message(self, message):
         if message.author.bot: return
-        try:
-            ctx = await self.bot.get_context(message, cls=context.Context)
-            
-            async with ctx.acquire():
-                profile = await self.get_profile(ctx, message.author.id)
-                if not profile:
-                    return
-                    await profile.increase_xp(ctx)
-            if message.channel.id == 491609962821451776:
-                await ctx.send('updated xp')
-        except Exception as e:
-            if message.channel.id == 491609962821451776:
-                await message.channel.send(e)#
+        ctx = await self.bot.get_context(message, cls=context.Context)
+        
+        async with ctx.acquire():
+            profile = await self.get_profile(ctx, message.author.id)
+            if not profile:
+                return
+            await profile.increase_xp(ctx)
 
     @commands.command()
     async def howgay(self, ctx, *, member:discord.Member=None):
