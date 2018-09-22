@@ -28,6 +28,7 @@ from osuapi import OsuApi, AHConnector
 
 from lxml import etree
 from lru import LRU
+
 translator = Translator()
 
 def date(argument):
@@ -522,11 +523,23 @@ class Meta:
         e = discord.Embed(title=f"{len(m)} members have the role {role.name}.", description=", ".join(_.display_name for _ in m))
         await ctx.send(embed=e)
 
-    @commands.command()
-    async def lyrics(self, ctx):
+    @commands.commands()
+    async def lyrics(self, ctx, artist_name=None):
         """Gives you lyrics for a song from Google's Genius.com."""
-        artist_name = None
-        track_name = None
+        if artist_name == 'np':
+            player = self.bot.lavalink.players.get(ctx.guild.id)
+            if player.current:
+                return await ctx.send(f'{ctx.tick(False)} Nothing playing at the moment.')
+            current = player.current
+            song = player.current.split(' - ')
+            artist_name = song[0]
+            try:
+                track_name = song[1]
+            except KeyError:
+                track_name = None
+                return await ctx.send(f'{ctx.tick(False)} Couldn\'t get lyrics for the current song...')
+
+        track_name = track_name or None
         if artist_name is None:
             await ctx.send('What is the artist\'s name?\nYou have 1 minute to say it.')
             def pred(m):
