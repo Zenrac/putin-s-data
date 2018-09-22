@@ -99,6 +99,10 @@ class ProfileConfig:
                     SET {keys} = {values}
                     where id=$1;
                  """
+        _values = [_ for _ in fields.values()]
+
+        for index, key in enumerate(fields):
+            self.__dict__[key] = _values[index]
 
         await self.ctx.db.execute(query, self.id, *fields.values())
         av = ctx.author.avatar_url_as(format='png', size=1024)
