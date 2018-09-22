@@ -181,7 +181,7 @@ class Meta:
         if not command:
             return await ctx.send(f'{ctx.tick(False)} You need to specify a command.')
         try:
-            source = inspect.getsource(self.bot.get_command(command).callback)
+            source = inspect.getsource(self.bot.get_command(command).callback).replace('`', '')
         except:
             await ctx.send(f'{ctx.tick(False)} Command not found...')
         fmt = f'```py\n'\
