@@ -145,10 +145,11 @@ class Profile():
         return level
 
     async def get_profile(self, ctx, id):
+        if not id:
+            id = ctx.author.id
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
-        profile = ProfileConfig(self.bot, id, ctx, record)
         if record is None and id == ctx.author.id:
-            await ctx.db.execute(f'insert into profiles values ({ctx.author.id})')
+            await ctx.db.execute(f'insert into profiles values ({id})')
             record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
         return ProfileConfig(self.bot, id, ctx, record)
 
