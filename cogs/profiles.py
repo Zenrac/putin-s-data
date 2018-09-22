@@ -147,7 +147,7 @@ class Profile():
     async def get_profile(self, ctx, id):
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
         profile = ProfileConfig(ctx, record)
-	if not record['id']:
+        if not record['id']:
             return None
         return ProfileConfig(ctx, record) or None
 
