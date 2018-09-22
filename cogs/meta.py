@@ -523,7 +523,7 @@ class Meta:
         e = discord.Embed(title=f"{len(m)} members have the role {role.name}.", description=", ".join(_.display_name for _ in m))
         await ctx.send(embed=e)
 
-    @commands.commands()
+    @commands.command()
     async def lyrics(self, ctx, artist_name=None):
         """Gives you lyrics for a song from Google's Genius.com."""
         if artist_name == 'np':
