@@ -1193,7 +1193,7 @@ class Profile():
         if m_profile.married != 'Nobody...':
             member_married_name = ctx.guild.get_member(m_profile.married) or await self.bot.get_user_info(member_married)
             return await ctx.send(f'That user is already married with {member_married_name}.')
-        if not rings >= 2:
+        if not profile.rings >= 2:
             return await ctx.send(f'{ctx.tick(False)} You need 2 rings to propose.')
         await ctx.send(f'{ctx.author.display_name} proposed {member.display_name}.\n'\
                        f'{member.display_name} type yes or no in 60 seconds.')
