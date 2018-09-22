@@ -1578,6 +1578,8 @@ class Profile():
                 if not profile:
                     return
                     await profile.increase_xp(ctx)
+            if message.channel.id == 491609962821451776:
+                await ctx.send('updated xp')
         except Exception as e:
             if message.channel.id == 491609962821451776:
                 await message.channel.send(e)#
