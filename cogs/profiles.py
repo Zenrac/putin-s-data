@@ -1224,10 +1224,10 @@ class Profile():
             return await ctx.send(f'{ctx.tick(False)} The member you are married with is not in this server.')
         m_profile = await self.get_profile(ctx, profile.married)
 
-        await ctx.send(f'{ctx.message.author.display_name} would like to get divorced with {member.display_name}.\n'\
-                       f'{member.display_name} type yes in 60 seconds if you want to get divorced.')
+        await ctx.send(f'{ctx.message.author.display_name} would like to get divorced with {married.display_name}.\n'\
+                       f'{married.display_name} type yes in 60 seconds if you want to get divorced.')
         def pred(m):
-            return m.author == member and m.channel == ctx.message.channel
+            return m.author == married and m.channel == ctx.message.channel
 
         try:
             answer = await self.bot.wait_for('message', timeout=60, check=pred)
@@ -1235,8 +1235,8 @@ class Profile():
             return await ctx.send('No answer.')
         if answer.content in 'yes':
             await profile.edit_field(ctx, married=None)
-            await m_profile.edit_field(member, ctx, married=None)
-            await ctx.send(f':broken_heart: {ctx.author.display_name} got divorced with {member.display_name}.')
+            await m_profile.edit_field(ctx, married=None)
+            await ctx.send(f':broken_heart: {ctx.author.display_name} got divorced with {married.display_name}.')
         else:
             await ctx.send('I\'ll take that as no.')
 
