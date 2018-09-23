@@ -1,7 +1,7 @@
 from .utils import checks
 
 from discord.ext import commands
-from datetime import datetime as dtime
+from datetime import datetime
 import discord
 import base64
 
@@ -47,7 +47,7 @@ class Warns:
 
 	@commands.command()
 	@checks.is_mod()
-	async def warn(self, ctx, member:discord.Member=None, warn:str=None):
+	async def warn(self, ctx, member:discord.Member=None, *, warn:str=None):
 		if not member:
 			return await ctx.send(f'{ctx.tick(False)} You forgot to tell me who to warn.')
 		if not warn:
