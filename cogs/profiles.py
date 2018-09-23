@@ -806,7 +806,7 @@ class Profile():
         profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
             return await ctx.invoke(self.make)
-        if profile.pet != 'No pet'::
+        if profile.pet != 'No pet':
             return await ctx.send(f'{ctx.tick(False)} You have a {profile.pet} already.')
         if profile.cash < 100000000000000:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
