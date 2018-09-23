@@ -53,9 +53,9 @@ class Warns:
 		if not warn:
 			warn = f'{member.display_name} (ID:{member.id}) warned by {ctx.author.display_name} (ID:{ctx.author.id})'
 
-		await self.create_warn(ctx, member.id, reason)
+		warn = await self.create_warn(ctx, member.id, reason)
 
-		warn = await self.get_warn()
+		await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
 
 def setup(bot):
 	bot.add_cog(Warns(bot))
