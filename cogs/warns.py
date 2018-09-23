@@ -50,14 +50,15 @@ class Warns:
 	@commands.group()
 	@checks.is_mod()
 	async def warn(self, ctx, member:discord.Member=None, *, warn:str=None):
-		if not member:
-			return await ctx.send(f'{ctx.tick(False)} You forgot to tell me who to warn.')
-		if not warn:
-			warn = f'{member.display_name} (ID:{member.id}) warned by {ctx.author.display_name} (ID:{ctx.author.id})'
+		if ctx.invoked_subcommand is None:
+			if not member:
+				return await ctx.send(f'{ctx.tick(False)} You forgot to tell me who to warn.')
+			if not warn:
+				warn = f'{member.display_name} (ID:{member.id}) warned by {ctx.author.display_name} (ID:{ctx.author.id})'
 
-		warn = await self.create_warn(ctx, member, warn)
+			warn = await self.create_warn(ctx, member, warn)
 
-		await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
+			await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
 
 	@warn.command()
 	async def show(self, ctx, id:str=None):
