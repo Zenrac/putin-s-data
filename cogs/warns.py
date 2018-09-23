@@ -47,7 +47,7 @@ class Warns:
 		record = await self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', str(id))
 		return Warn(self.bot, ctx, record)
 
-	@commands.group()
+	@commands.command()
 	@checks.is_mod()
 	async def warn(self, ctx, member:discord.Member=None, *, warn:str=None):
 		if ctx.invoked_subcommand is None:
@@ -60,9 +60,8 @@ class Warns:
 
 			await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
 
-	@warn.command()
-	async def warn_show(self, ctx, id:str=None):
-		await ctx.send('gg')
+	@commands.command()
+	async def showwarn(self, ctx, id:str=None):
 		warn = await self.get_warn(ctx, id)
 
 		if not warn:
