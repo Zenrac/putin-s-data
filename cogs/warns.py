@@ -26,7 +26,7 @@ class Warns:
 	def __init__(self, bot):
 		self.bot = bot
 
-	async def get_warn(self, id, ctx):
+	async def get_warn(self, ctx, id):
 		record = self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', id)
 		if not record:
 			return None
@@ -47,7 +47,7 @@ class Warns:
 		record = await self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', str(id))
 		return Warn(self.bot, ctx, record)
 
-	@commands.command()
+	@commands.group()
 	@checks.is_mod()
 	async def warn(self, ctx, member:discord.Member=None, *, warn:str=None):
 		if not member:
@@ -58,6 +58,27 @@ class Warns:
 		warn = await self.create_warn(ctx, member, warn)
 
 		await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
+
+	@warn.command()
+	async def show(self, ctx, id:str=None):
+		warn = await self.get(ctx, id)
+
+		if not warn:
+			return await ctx.send(f'{ctx.tick(False)} Warn not found.')
+
+		warned = ctx.guild.get_member(warn.member_id)
+		if not warned:
+			return await ctx.send(f'{ctx.tick(False)} Warned member not found.')
+		warner = ctx.guild.get_member(warn.warner_id) or await self.bot.get_user_info(warn.warner_id)
+
+		e = discord.Embed(description=warn.warn, colour=warned.top_role.color)
+		e.set_author(name=warner.display_name, icon_url=warner.avatar_url)
+
+		await ctx.send(embed=e)
+
+	@commands.command()
+	async def warns(self, ctx, member:discord.Member=None):
+
 
 def setup(bot):
 	bot.add_cog(Warns(bot))
