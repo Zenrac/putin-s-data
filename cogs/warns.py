@@ -78,7 +78,7 @@ class Warns:
 
 	@commands.command()
 	async def warns(self, ctx, member:discord.Member=None):
-
+		pass
 
 def setup(bot):
 	bot.add_cog(Warns(bot))
