@@ -1446,8 +1446,8 @@ class Profile():
         if _cash[0] < 100:
             return await ctx.send('You need $100 to accept the callenge.')
 
-        await self.edit_field(ctx, cash=profile.cash[0]-100)
-        await self.edit_user_field(member, ctx, cash=profile.cash[0]-100)
+        await self.edit_field(ctx, cash=cash[0]-100)
+        await self.edit_user_field(member, ctx, cash=cash[0]-100)
 
         times = random.randint(1, 5)
 
