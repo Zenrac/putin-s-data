@@ -15,6 +15,7 @@ class AFK:
 		a message that you are afk."""
 		if reason is None:
 			reason = 'No reason specified.'
+		reason = reason.replace("'", "\'")
 		when = dtime.utcnow()
 		when = repr(when)
 		if '@' in reason:
