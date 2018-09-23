@@ -1407,22 +1407,25 @@ class Profile():
         The winner gets the money back and the opponent's bet too.
         So basically the winner gets $200."""
         if member is None:
-            return await ctx.send('You need to tell who to challenge.')
+            return await ctx.send(f'{ctx.tick(False)} You need to tell who to challenge.')
 
         if member.bot:
-            return await ctx.send('You can\'t challenge a bot.')
+            return await ctx.send(f'{ctx.tick(False)} You can\'t challenge a bot.')
+
+        if member.id == ctx.author.id:
+            return await ctx.send(f'{ctx.tick(False)} You can\'t challenge yourself.')
 
         query = """select cash from profiles where id=$1"""
         cash = await self.bot.pool.fetchrow(query, ctx.author.id)
 
         if not cash:
-            return await ctx.send('You don\'t have a profile yet.')
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have a profile yet.')
 
         if cash[0] is None or cash is None:
-            return await ctx.send('You don\'t have a profile yet.')
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have a profile yet.')
 
         if cash[0] < 100:
-            return await ctx.send('You need $100 to challenge someone.')
+            return await ctx.send(f'{ctx.tick(False)} You need $100 to challenge someone.')
 
         def pred(m):
             return m.author == member and m.channel == ctx.message.channel
@@ -1441,10 +1444,10 @@ class Profile():
         _cash = await self.bot.pool.fetchrow(query, member.id)
 
         if _cash is None or _cash[0] is None:
-            return await ctx.send('You don\'t have a profile yet.')
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have a profile yet.')
 
         if _cash[0] < 100:
-            return await ctx.send('You need $100 to accept the callenge.')
+            return await ctx.send(f'{ctx.tick(False)} You need $100 to accept the callenge.')
 
         await self.edit_field(ctx, cash=cash[0]-100)
         await self.edit_user_field(member, ctx, cash=cash[0]-100)
@@ -1475,7 +1478,7 @@ class Profile():
             else:
                 winner = answer.author
         else:
-            await ctx.send(f'Wrong word {answer.author.display_name}.')
+            await ctx.send(f'{ctx.tick(False)} Wrong word {answer.author.display_name}.')
             if answer.author is ctx.author:
                 winner = member
             else:
