@@ -32,7 +32,7 @@ class Warns:
 			return None
 		return Warn(self.bot, ctx, record)
 
-	async def create_warn(self, ctx, member_id, reason):
+	async def create_warn(self, ctx, member, reason):
 		now = datetime.utcnow()
 		id_int = now.year + now.second + now.minute + now.hour + member_id
 		id = base64.b64encode(str(id_int).encode('utf-8'))
@@ -40,7 +40,7 @@ class Warns:
 				INSERT INTO warns (id, guild_id, member_id, warner_id, reason)
 				VALUES ($1, $2, $3, $4, $5);
 				"""
-		await self.bot.pool.execute(query, id, ctx.guild_id, member_id, ctx.author.id, reason)
+		await self.bot.pool.execute(query, id, ctx.guild.id, member.id, ctx.author.id, reason)
 
 		record = await self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', id)
 		return Warn(self.bot, ctx, record)
@@ -53,7 +53,7 @@ class Warns:
 		if not warn:
 			warn = f'{member.display_name} (ID:{member.id}) warned by {ctx.author.display_name} (ID:{ctx.author.id})'
 
-		warn = await self.create_warn(ctx, member.id, warn)
+		warn = await self.create_warn(ctx, member, warn)
 
 		await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
 
