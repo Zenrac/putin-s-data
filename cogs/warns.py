@@ -61,8 +61,8 @@ class Warns:
 			await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
 
 	@warn.command()
-	async def show(self, ctx, id:str=None):
-		warn = await self.get(ctx, id)
+	async def warn_show(self, ctx, id:str=None):
+		warn = await self.get_warn(ctx, id)
 
 		if not warn:
 			return await ctx.send(f'{ctx.tick(False)} Warn not found.')
