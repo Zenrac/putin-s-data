@@ -1,7 +1,7 @@
 from .utils import checks
 
 from discord.ext import commands
-from dtime import datetime
+from datetime import dtime
 import discord
 import base64
 
