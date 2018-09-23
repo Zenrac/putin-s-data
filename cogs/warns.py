@@ -47,8 +47,8 @@ class Warns:
 		record = await self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', str(id))
 		return Warn(self.bot, ctx, record)
 
-	@commands.group()
 	@checks.is_mod()
+	@commands.group()
 	async def warn(self, ctx, member:discord.Member=None, *, warn:str=None):
 		if ctx.invoked_subcommand is None:
 			if not member:
