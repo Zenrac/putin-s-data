@@ -42,7 +42,7 @@ class Warns:
 				"""
 		await self.bot.pool.execute(query, id, ctx.guild.id, member.id, ctx.author.id, reason)
 
-		record = await self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', id)
+		record = await self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', str(id))
 		return Warn(self.bot, ctx, record)
 
 	@commands.command()
