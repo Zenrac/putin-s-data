@@ -1405,7 +1405,7 @@ class Profile():
         """Challenges another member to a shooting fight.
         When you challenge someone you bet $100.
         The winner gets the money back and the opponent's bet too.
-        So basically the winner get $200."""
+        So basically the winner gets $200."""
         if member is None:
             return await ctx.send('You need to tell who to challenge.')
 
