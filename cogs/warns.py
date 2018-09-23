@@ -60,7 +60,7 @@ class Warns:
 
 			await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
 
-	@_warn.command(name='show')
+	@commands.command(name='warnshow')
 	async def warn_show(self, ctx, id:str=None):
 		# await ctx.send('gg')
 		warn = await self.get_warn(ctx, id)
