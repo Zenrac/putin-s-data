@@ -68,13 +68,17 @@ class Warns:
 		if not warn:
 			return await ctx.send(f'{ctx.tick(False)} Warn not found.')
 
+		if not warn.guild_id == ctx.guild.id:
+			return await ctx.send(f'{ctx.tick(False)} This warning was not set in this guild.')
+
 		warned = ctx.guild.get_member(warn.member_id)
 		if not warned:
 			return await ctx.send(f'{ctx.tick(False)} Warned member not found.')
 		warner = ctx.guild.get_member(warn.warner_id) or await self.bot.get_user_info(warn.warner_id)
 
 		e = discord.Embed(description=warn.warn, colour=warned.top_role.color)
-		e.set_author(name=warner.display_name, icon_url=warner.avatar_url)
+		e.set_author(name=warned.display_name, icon_url=warned.avatar_url)
+		e.set_footer(text=f'Warned by {warner.display_name}', icon_url=warner.avatar_url)
 
 		await ctx.send(embed=e)
 
