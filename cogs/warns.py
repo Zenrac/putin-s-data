@@ -62,6 +62,7 @@ class Warns:
 
 	@warn.command()
 	async def warn_show(self, ctx, id:str=None):
+		await ctx.send('gg')
 		warn = await self.get_warn(ctx, id)
 
 		if not warn:
