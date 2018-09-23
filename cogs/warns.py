@@ -36,11 +36,13 @@ class Warns:
 		now = datetime.utcnow()
 		id_int = now.year + now.second + now.minute + now.hour + member.id
 		id = base64.b64encode(str(id_int).encode('utf-8'))
+		id = str(id).replace('b\'', '', 1)
+		id = id.strip("'")
 		query = """
 				INSERT INTO warns (id, guild_id, member_id, warner_id, warn)
 				VALUES ($1, $2, $3, $4, $5);
 				"""
-		await self.bot.pool.execute(query, str(id), ctx.guild.id, member.id, ctx.author.id, reason)
+		await self.bot.pool.execute(query, id, ctx.guild.id, member.id, ctx.author.id, reason)
 
 		record = await self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', str(id))
 		return Warn(self.bot, ctx, record)
