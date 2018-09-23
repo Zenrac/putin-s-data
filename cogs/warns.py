@@ -53,7 +53,7 @@ class Warns:
 		if not warn:
 			warn = f'{member.display_name} (ID:{member.id}) warned by {ctx.author.display_name} (ID:{ctx.author.id})'
 
-		warn = await self.create_warn(ctx, member.id, reason)
+		warn = await self.create_warn(ctx, member.id, warn)
 
 		await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
 
