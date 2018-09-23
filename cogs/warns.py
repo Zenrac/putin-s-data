@@ -26,13 +26,13 @@ class Warns:
 	def __init__(self, bot):
 		self.bot = bot
 
-	async def get_warn(self, id, ctx=ctx):
+	async def get_warn(self, id, ctx):
 		record = self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', id)
 		if not record:
 			return None
 		return Warn(self.bot, ctx, record)
 
-	async def create_warn(self, guild_id, member_id, warner_id, reason, ctx=ctx):
+	async def create_warn(self, ctx, member_id, reason):
 		now = datetime.utcnow()
 		id_int = now.year + now.second + now.minute + now.hour + member_id
 		id = base64.b64encode(str(id_int).encode('utf-8'))
@@ -40,10 +40,10 @@ class Warns:
 				INSERT INTO warns (id, guild_id, member_id, warner_id, reason)
 				VALUES ($1, $2, $3, $4, $5);
 				"""
-		await self.bot.pool.execute(query, id, guild_id, member_id, warner_id, reason)
+		await self.bot.pool.execute(query, id, ctx.guild_id, member_id, ctx.author.id, reason)
 
 		record = await self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', id)
-		return Warn(self.bot, ctx, )
+		return Warn(self.bot, ctx, record)
 
 	@commands.command()
 	@checks.is_mod()
@@ -53,7 +53,7 @@ class Warns:
 		if not warn:
 			warn = f'{member.display_name} (ID:{member.id}) warned by {ctx.author.display_name} (ID:{ctx.author.id})'
 
-		await self.create_warn(ctx.guild.id, member.id, ctx.author.id, reason)
+		await self.create_warn(ctx, member.id, reason)
 
 		warn = await self.get_warn()
 
