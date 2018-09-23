@@ -48,7 +48,7 @@ class Warns:
 		return Warn(self.bot, ctx, record)
 
 	@commands.group()
-	# @checks.is_mod()
+	@checks.is_mod()
 	async def warn(self, ctx, member:discord.Member=None, *, warn:str=None):
 		if ctx.invoked_subcommand is None:
 			if not member:
