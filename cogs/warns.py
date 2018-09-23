@@ -34,7 +34,7 @@ class Warns:
 
 	async def create_warn(self, ctx, member, reason):
 		now = datetime.utcnow()
-		id_int = now.year + now.second + now.minute + now.hour + member_id
+		id_int = now.year + now.second + now.minute + now.hour + member.id
 		id = base64.b64encode(str(id_int).encode('utf-8'))
 		query = """
 				INSERT INTO warns (id, guild_id, member_id, warner_id, reason)
