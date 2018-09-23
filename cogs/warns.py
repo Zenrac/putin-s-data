@@ -27,7 +27,7 @@ class Warns:
 		self.bot = bot
 
 	async def get_warn(self, ctx, id):
-		record = self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', id)
+		record = await self.bot.pool.fetchrow('SELECT * FROM warns WHERE id=$1;', id)
 		if not record:
 			return None
 		return Warn(self.bot, ctx, record)
@@ -60,7 +60,7 @@ class Warns:
 
 			await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
 
-	@commands.command(name='showwarn')
+	@_warn.command(name='showwarn')
 	async def warn_show(self, ctx, id:str=None):
 		# await ctx.send('gg')
 		warn = await self.get_warn(ctx, id)
