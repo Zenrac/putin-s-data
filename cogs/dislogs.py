@@ -12,7 +12,6 @@ from .utils import checks, context
 class Settings:
     def __init__(self, bot, record):
         self.bot = bot
-        self.ctx = ctx
         self.message_delete = record['message_delete'] or False
         self.message_edit = record['message_edit'] or False
         self.join = record['log_join'] or False
