@@ -51,26 +51,22 @@ class DisLogs:
         if send_channel is None: return
         data = await self.bot.pool.fetchrow(f'select message_delete from settings where id={message.guild.id}')
         if not data: return
-        if not data[0]: return
+
         try:
             deleted = []
             async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
                 count = entry.extra.count
-                if entry.extra.count >= 2:
-                    deleted.append((entry.user.display_name, entry.extra.channel.name, message.content, 
-                                    message.edited_at if message.edited_at else message.created_at))
+                deleted.append(tuple(entry.user.display_name, entry.extra.channel.name, message.content, 
+                                message.edited_at if message.edited_at else message.created_at))
             if count >= 2:
                 url = await self.post("\n\n\n".join(f'{_[0]} in {_[1]} at {_[3]}\n  {_[2]}' for _ in deleted))
                 e = discord.Embed(description=f"Bulk message delete in {message.channel.mention}", color=discord.Color.red())
                 e.add_field(name='Messages', value=f'[Click here to see the messages.]({url})')
                 e.timestamp = datetime.datetime.utcnow()
                 return await send_channel.send(embed=e)
-            else:
-                pass
         except discord.Forbidden:
             pass
-        except Exception as e:
-            print(e)
+            
         e = discord.Embed(description=f'{message.content}\n\nHas been deleted in {message.channel.mention}.', color=discord.Color.red())
         e.set_author(name=message.author.name, icon_url=message.author.avatar_url)
         e.timestamp = datetime.datetime.utcnow()
