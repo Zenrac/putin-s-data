@@ -108,8 +108,11 @@ class ProfileConfig:
 
         await self.ctx.db.execute(query, self.id, *fields.values())
         av = ctx.author.avatar_url_as(format='png', size=1024)
-        await ctx.db.execute(f'update profiles set name=\'{ctx.author.name}#{ctx.author.discriminator}\','\
-                               f'pfp=\'{av}\' where id={ctx.author.id}')
+        try:
+            await ctx.db.execute(f'update profiles set name=\'{ctx.author.name}#{ctx.author.discriminator}\','\
+                                 f'pfp=\'{av}\' where id={ctx.author.id}')
+        except:
+            pass
 
     async def increase_xp(self, ctx):
         if self.is_ratelimited:

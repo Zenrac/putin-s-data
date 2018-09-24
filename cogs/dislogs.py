@@ -24,9 +24,6 @@ class Settings:
         self.unban = record['unban']
         self.buy_roles = record['buy_roles']
         self.advert = record['advert']
-        
-    async def edit_field(self, **fields):
-        pass
 
 class DisLogs:
     def __init__(self, bot):
