@@ -98,7 +98,7 @@ class Settings():
         settings = await self.get_settings(ctx.guild.id)
         settings.advert = not settings.advert
         await settings.edit_field(advert=settings.advert)
-        state = 'enabled' if settings.anti else 'disabled'
+        state = 'enabled' if settings.advert else 'disabled'
         await ctx.send(f'{ctx.tick(True)} Anti advertising is now {state}.')
 
     @commands.group()
