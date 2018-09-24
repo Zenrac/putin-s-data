@@ -517,19 +517,18 @@ class Stats:
         e.timestamp = datetime.datetime.utcnow()
         await self.logging_ch.send(embed=e)
 
-old_on_error = commands.Bot.on_error
+    old_on_error = commands.Bot.on_error
 
-async def on_error(self, event, *args, **kwargs):
-    e = discord.Embed(title='Event Error', colour=0xa32952)
-    e.add_field(name='Event', value=event)
-    e.description = f'```py\n{traceback.format_exc()}\n```'
-    e.timestamp = datetime.datetime.utcnow()
+    async def on_error(self, event, *args, **kwargs):
+        e = discord.Embed(title='Event Error', colour=0xa32952)
+        e.add_field(name='Event', value=event)
+        e.description = f'```py\n{traceback.format_exc()}\n```'
+        e.timestamp = datetime.datetime.utcnow()
 
-    hook = self.get_cog('Stats').logging_ch
-    try:
-        await hook.send(embed=e)
-    except:
-        pass
+        try:
+            await self.logging_ch.send(embed=e)
+        except:
+            pass
 
 def setup(bot):
     if not hasattr(bot, 'command_stats'):
