@@ -464,6 +464,16 @@ class Stats:
         e.add_field(name='Top Users', value='\n'.join(value), inline=False)
         await ctx.send(embed=e)
 
+    @property
+    def error_ch(self):
+        ch = self.bot.get_channel(491609962821451776)
+        return ch
+
+    @property
+    def guild_ch(self):
+        ch = self.bot.get_channel(493774827610439690)
+        return ch
+
     async def send_guild_stats(self, e, guild):
         e.add_field(name='Name', value=guild.name)
         e.add_field(name='ID', value=guild.id)
@@ -482,42 +492,41 @@ class Stats:
         if guild.me:
             e.timestamp = guild.me.joined_at
 
-        await self.logging_ch.send(embed=e)
+        await self.guild_ch.send(embed=e)
 
     async def on_guild_join(self, guild):
-        e = discord.Embed(colour=0x53dda4, title='New Guild') # green colour
-        await self.bot.pool.execute(f'insert into guilds values ({guild.id})')
+        e = discord.Embed(colour=0x53dda4, title='New Guild')
         await self.send_guild_stats(e, guild)
 
     async def on_guild_remove(self, guild):
-        e = discord.Embed(colour=0xdd5f53, title='Left Guild') # red colour
-        await self.bot.pool.execute(f'delete from guilds where id={guild.id}')
+        e = discord.Embed(colour=0xdd5f53, title='Left Guild')
         await self.send_guild_stats(e, guild)
 
     async def on_command_error(self, ctx, error):
-        ignored = (commands.NoPrivateMessage, commands.DisabledCommand, commands.CheckFailure,
-                   commands.CommandNotFound, commands.UserInputError, discord.Forbidden, commands.CommandOnCooldown)
-        error = getattr(error, 'original', error)
+        try:
+            ignored = (commands.NoPrivateMessage, commands.DisabledCommand, commands.CheckFailure,
+                       commands.CommandNotFound, commands.UserInputError, discord.Forbidden, commands.CommandOnCooldown)
+            error = getattr(error, 'original', error)
 
-        if isinstance(error, ignored):
-            return
+            if isinstance(error, ignored):
+                return
 
-        e = discord.Embed(title='Command Error', colour=0xcc3366)
-        e.add_field(name='Name', value=ctx.command.qualified_name)
-        e.add_field(name='Author', value=f'{ctx.author} (ID: {ctx.author.id})')
+            e = discord.Embed(title='Command Error', colour=0xcc3366)
+            e.add_field(name='Name', value=ctx.command.qualified_name)
+            e.add_field(name='Author', value=f'{ctx.author} (ID: {ctx.author.id})')
 
-        fmt = f'Channel: {ctx.channel} (ID: {ctx.channel.id})'
-        if ctx.guild:
-            fmt = f'{fmt}\nGuild: {ctx.guild} (ID: {ctx.guild.id})'
+            fmt = f'Channel: {ctx.channel} (ID: {ctx.channel.id})'
+            if ctx.guild:
+                fmt = f'{fmt}\nGuild: {ctx.guild} (ID: {ctx.guild.id})'
 
-        e.add_field(name='Location', value=fmt, inline=False)
+            e.add_field(name='Location', value=fmt, inline=False)
 
-        exc = ''.join(traceback.format_exception(type(error), error, error.__traceback__, chain=False))
-        e.description = f'```py\n{exc}\n```'
-        e.timestamp = datetime.datetime.utcnow()
-        await self.logging_ch.send(embed=e)
-
-    old_on_error = commands.Bot.on_error
+            exc = ''.join(traceback.format_exception(type(error), error, error.__traceback__, chain=False))
+            e.description = f'```py\n{exc}\n```'
+            e.timestamp = datetime.datetime.utcnow()
+            await self.error_ch.send(embed=e)
+        except Exception as e:
+            print(e)
 
     async def on_error(self, event, *args, **kwargs):
         e = discord.Embed(title='Event Error', colour=0xa32952)
@@ -525,10 +534,7 @@ class Stats:
         e.description = f'```py\n{traceback.format_exc()}\n```'
         e.timestamp = datetime.datetime.utcnow()
 
-        try:
-            await self.logging_ch.send(embed=e)
-        except:
-            pass
+        await self.error_ch.send(embed=e)
 
 def setup(bot):
     if not hasattr(bot, 'command_stats'):
