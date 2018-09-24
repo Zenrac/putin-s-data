@@ -59,7 +59,7 @@ class Settings():
                 name="Logging",
                 value="Toggles a logging module.\n"\
                       "``logging <module>``\n"\
-                      "Valid modules are: ``kick``, ``ban``, ``join``, ``leave``, ``commands``, ``message_edit``, ``message_delete``",
+                      "Valid modules are: ``kick``, ``ban``, ``leave``, ``commands``, ``message_edit``, ``message_delete``",
                        inline=True)
             embed.add_field(
                 name="Prefix",
@@ -79,6 +79,10 @@ class Settings():
                 name="Anti advertising",
                 value="Toggles anti advertising\n"\
                       "``antiadvert``")
+            embed.add_field(
+                name="Anti raid",
+                value=""
+            )
             embed.set_footer(text="For more information search across the help menu.")
 
             await ctx.send(embed=embed)
@@ -172,11 +176,10 @@ class Settings():
         await ctx.send(f'{ctx.tick(True)} Command logging is now {state}.')
 
     async def on_message(self, message):
-        if message.author.bot: return
-        data = await self.bot.pool.fetchrow(f'select advert from settings where id={message.guild.id}')
-        if not data: return
-        if not data[0]: return
         ctx = await self.bot.get_context(message)
+        settings = await self.get_settings(ctx.guild.id)
+        if not settings: return
+        if not settings.advert: return
         resolved = ctx.author.guild_permissions
         if getattr(resolved, 'manage_messages', None) == True: return
         if 'https://discord.gg/' in message.content:

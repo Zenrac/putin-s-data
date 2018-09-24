@@ -204,7 +204,7 @@ class DisLogs:
     async def welcome_channel(self, ctx, channel:discord.TextChannel=None):
         settings = await self.get_settings(ctx.guild.id)
         if not settings.welcome:
-            return await ctx.send(f'{ctx.tick(False)} Welcome messages are not enabled. Run `.welcome toggle` to enable them.')
+            return await ctx.send(f'{ctx.tick(False)} Welcome messages are not enabled. Run `{ctx.prefix}welcome toggle` to enable them.')
         if not channel:
             return await ctx.send(f'{ctx.tick(False)} You forgot to mention the channel to send welcome messages.')
         await settings.edit_field(welcome_channel=channel.id)
