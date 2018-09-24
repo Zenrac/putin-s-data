@@ -183,7 +183,8 @@ class Settings():
             try:
                 await message.delete()
                 await message.channel.send('Don\'t advertise here dude.', delete_after=10)
-                
+            except discord.Forbidden:
+                pass
         elif 'discord.gg/' in message.content:
             try:
                 await message.delete()
