@@ -32,6 +32,8 @@ class AFK:
 				if isinstance(mention, discord.Member):
 					mentions.append(mention.display_name)
 					reason = await self.bot.pool.fetchrow(f'select reason from afk where id={mention.id}')
+					if not reason:
+						continue
 					name = message.guild.get_member(mention.id)
 					reasons.append((reason[0], name))
 			many = 'is' if len(mentions) == 1 else 'are'
