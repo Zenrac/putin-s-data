@@ -196,7 +196,7 @@ class DisLogs:
 
     @welcome.command(name='channel')
     @checks.is_mod()
-    async def welcome_channel(self, ctx, channel:discord.TextChannel:None):
+    async def welcome_channel(self, ctx, channel:discord.TextChannel=None):
         if not channel:
             return await ctx.send(f'{ctx.tick(False)} You forgot to mention the channel to send welcome messages.')
         settings = await self.get_settings(ctx.guild.id)
