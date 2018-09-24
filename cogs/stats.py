@@ -544,7 +544,3 @@ def setup(bot):
         bot.socket_stats = Counter()
 
     bot.add_cog(Stats(bot))
-    commands.Bot.on_error = on_error
-
-def teardown(bot):
-    commands.Bot.on_error = old_on_error
