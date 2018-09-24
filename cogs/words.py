@@ -100,8 +100,8 @@ class Blacklist:
 				settings.words.append(word)
 				changes.append(f'Added `{word}`')
 
-		words = str(settings.words).replace('\'', '"')
-		await ctx.db.execute(f"update settings set blacklisted_words=\'{words.replace("'", "\'")}\' where id={ctx.guild.id};")
+		words = str(settings.words).replace("'", '"')
+		await ctx.db.execute(f"update settings set blacklisted_words=\'{words}\' where id={ctx.guild.id};")
 		await ctx.send(f'\n'.join(changes) or 'No changes.')
 
 	@blacklist.command(name='remove')
@@ -121,8 +121,8 @@ class Blacklist:
 				settings.words.remove(word)
 				changes.append(f'Removed `{word}`')
 
-		words = str(settings.words).replace('\'', '"')
-		await ctx.db.execute(f"update settings set blacklisted_words=\'{words.replace("'", "\'")}\' where id={ctx.guild.id};")
+		words = str(settings.words).replace("'", '"')
+		await ctx.db.execute(f"update settings set blacklisted_words=\'{words}\' where id={ctx.guild.id};")
 		await ctx.send(f'\n'.join(changes) or 'No changes.')
 
 def setup(bot):
