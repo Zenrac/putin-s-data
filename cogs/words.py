@@ -103,7 +103,6 @@ class Blacklist:
 
 		_words = settings.words + _words
 		_words = '["' + '", "'.join(_words) + '"]'
-		await ctx.send(f"update settings set blacklisted_words=\'{_words}\' where id={ctx.guild.id};")
 		await ctx.db.execute(f"update settings set blacklisted_words=\'{_words}\' where id={ctx.guild.id};")
 		await ctx.send(f'\n'.join(changes) or 'No changes.')
 
@@ -118,13 +117,14 @@ class Blacklist:
 
 		words = words.replace("'", "\'").split()
 		changes = []
+		_words = settings.words
 
 		for word in words:
 			if word in settings.words:
-				settings.words.remove(word)
+				_words.remove(word)
 				changes.append(f'Removed `{word}`')
 
-		words = str(settings.words).replace("'", '"')
+		_words = '["' + '", "'.join(_words) + '"]'
 		await ctx.db.execute(f"update settings set blacklisted_words=\'{words}\' where id={ctx.guild.id};")
 		await ctx.send(f'\n'.join(changes) or 'No changes.')
 
