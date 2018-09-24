@@ -31,10 +31,12 @@ class AFK:
 			for mention in message.mentions:
 				if isinstance(mention, discord.Member):
 					mentions.append(mention.display_name)
-					reason = await self.bot.pool.fetchrow(f'select reason from afk where id={mention.id}')
+					reason, since = await self.bot.pool.fetchrow(f'select reason, since from afk where id={mention.id}')
 					if reason:
 						name = message.guild.get_member(mention.id)
-						reasons.append((reason[0], name))
+						since = eval(since)
+						afk_time = dtime.utcnow() - since
+						reasons.append((reason[0], name, afk_time))
 			many = 'is' if len(mentions) == 1 else 'are'
 			s = '' if len(mentions) == 1 else 's'
 			reasons = "\n".join(f'{name}: {reason}' for name, reason in reasons)
