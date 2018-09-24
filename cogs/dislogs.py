@@ -56,12 +56,17 @@ class DisLogs:
             async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
                 count = entry.extra.count
                 async for entry in message.guild.audit_logs(limit=count, action=discord.AuditLogAction.message_delete):
-                    deleted.append((entry.user.display_name, entry.extra.channel.name, message.content, 
-                                    message.edited_at or message.created_at))
+                    deleted.append((entry.author.display_name,
+                                    entry.extra.channel.name,
+                                    entry.content, 
+                                    entry.edited_at or entry.created_at,
+                                    entry.user.display_name))
         except discord.Forbidden:
             pass
         if count >= 2:
-            url = await self.post("\n\n\n".join(f'{_[0]} in {_[1]} at {_[3]}\n  {_[2]}' for _ in deleted))
+            url = await self.post("\n\n\n".join(f'{_[0]} in {_[1]} at {_[3]}\n'\
+                                                f'  {_[2]}\n'\
+                                                f'  Deleted by {_[4]}' for _ in deleted))
             e = discord.Embed(description=f"Bulk message delete in {message.channel.mention}", color=discord.Color.red())
             e.add_field(name='Messages', value=f'[Click here to see the messages.]({url})')
             e.timestamp = datetime.datetime.utcnow()
