@@ -99,7 +99,6 @@ class Blacklist:
 				settings.words.append(word)
 				changes.append(f'Added `{word}`')
 
-		settings.words = eval(str(settings.words))
 		words = str(settings.words).replace('\'', '"')
 		await ctx.db.execute(f"update settings set blacklisted_words=\'str({words})\' where id={ctx.guild.id};")
 		await ctx.send(f'\n'.join(changes) or 'No changes.')
@@ -121,7 +120,6 @@ class Blacklist:
 				settings.words.remove(word)
 				changes.append(f'Removed `{word}`')
 
-		settings.words = eval(str(settings.words))
 		words = str(settings.words).replace('\'', '"')
 		await ctx.db.execute(f"update settings set blacklisted_words=\'str({words})\' where id={ctx.guild.id};")
 		await ctx.send(f'\n'.join(changes) or 'No changes.')
