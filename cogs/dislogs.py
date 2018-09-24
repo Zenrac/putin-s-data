@@ -62,6 +62,7 @@ class DisLogs:
         settings = await self.get_settings(message.guild.id)
         if not settings: return
         if not settings.message_delete: return
+        if not settings.logging_channel: return
         e = discord.Embed(description=f'{message.content}\n\nHas been deleted in {message.channel.mention}.', color=discord.Color.red())
         e.set_author(name=message.author.name, icon_url=message.author.avatar_url)
         try:
@@ -80,6 +81,7 @@ class DisLogs:
         settings = await self.get_settings(before.guild.id)
         if not settings: return
         if not settings.message_edit: return
+        if not settings.logging_channel: return
         e = discord.Embed(color=discord.Color.teal())
         e.set_author(name=before.author.display_name, icon_url=after.author.avatar_url)
         e.add_field(name="Before", value=before.content, inline=False)
@@ -94,6 +96,7 @@ class DisLogs:
         settings = await self.get_settings(member.guild.id)
         if not settings: return
         if not settings.leave: return
+        if not settings.logging_channel: return
         target = 'member' if not member.bot else 'bot'
         e = discord.Embed(title=f'A {target} has joined the guild.', color=member.top_role.color)
         e.add_field(name='Name:', value=member.display_name, inline=False)
@@ -107,6 +110,7 @@ class DisLogs:
         settings = await self.get_settings(member.guild.id)
         if not settings: return
         if not settings.kick: return
+        if not settings.logging_channel: return
         try:
             async for entry in member.guild.audit_logs(limit=1, action=discord.AuditLogAction.ban):
                 if entry.target.id == member.id:
@@ -133,6 +137,7 @@ class DisLogs:
         settings = await self.get_settings(member.guild.id)
         if not settings: return
         if not settings.ban: return
+        if not settings.logging_channel: return
         target = 'bot' if member.bot else 'member'
         e = discord.Embed(title=f'A {target} has been banned from the guild.', color=member.top_role.color)
         e.add_field(name='Name:', value='{}'.format(member.name), inline=False)
@@ -153,6 +158,7 @@ class DisLogs:
         settings = await self.get_settings(guild.id)
         if not settings: return
         if not settings.unban: return
+        if not settings.logging_channel: return
         target = 'bot' if user.bot else 'user'
         e = discord.Embed(title=f'A {target} has been unbanned from the guild.')
         e.add_field(name='Name:', value=user.name, inline=False)
@@ -172,6 +178,7 @@ class DisLogs:
         settings = await self.get_settings(ctx.guild.id)
         if not settings: return
         if not settings.commands: return
+        if not settings.logging_channel: return
         ch = ctx.guild.get_channel(settings.logging_channel)
         await ch.send(f'``{ctx.author}`` ran ``{ctx.prefix}{ctx.command}`` in {ctx.channel.mention}.')
         
