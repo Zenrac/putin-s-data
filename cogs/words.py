@@ -95,6 +95,8 @@ class Blacklist:
 		words = words.replace("'", "\'").split()
 		changes = []
 
+		await ctx.send(type(settings.words))
+
 		for word in words:
 			if not word in settings.words:
 				settings.words.append(word)
