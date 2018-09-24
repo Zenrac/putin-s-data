@@ -39,7 +39,7 @@ class AFK:
 						reasons.append((reason[0], name, afk_time))
 			many = 'is' if len(mentions) == 1 else 'are'
 			s = '' if len(mentions) == 1 else 's'
-			reasons = "\n".join(f'{name}: {reason}' for name, reason in reasons)
+			reasons = "\n".join(f'{name}: {reason} ({afk_time})' for name, reason, afk_time in reasons)
 			mentions = ", ".join(mentions)
 			if reasons:
 				try:
