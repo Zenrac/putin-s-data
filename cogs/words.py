@@ -9,7 +9,7 @@ class Settings:
 		self.id = record['id']
 		self.blacklist = record['blacklist'] or False
 
-		async def toggle_blacklist(self):
+	async def toggle_blacklist(self):
 		self.blacklist = not self.blacklist
 		await self.bot.pool.execute(f'update settings set blacklist={self.blacklist} where id={self.id};')
 
