@@ -93,11 +93,8 @@ class Blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
 
 		words = words.replace("'", "\'").split()
-		await ctx.send(words)
 		changes = []
 		_words = []
-
-		await ctx.send(type(settings.words))
 
 		for word in words:
 			if not word in settings.words:
@@ -105,7 +102,7 @@ class Blacklist:
 				changes.append(f'Added `{word}`')
 
 		_words = str(settings.words + _words).replace("'", "\'")
-		await ctx.send(_words)
+		await ctx.send(f"update settings set blacklisted_words=\'{_words}\' where id={ctx.guild.id};")
 		await ctx.db.execute(f"update settings set blacklisted_words=\'{_words}\' where id={ctx.guild.id};")
 		await ctx.send(f'\n'.join(changes) or 'No changes.')
 
