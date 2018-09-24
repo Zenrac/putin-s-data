@@ -1396,6 +1396,7 @@ class Profile():
                 winning_times = 1
             else:
                 winning_times = 0
+            profile.cash -= amount
 
             await ctx.send(f'{slot_machine}\n**{ctx.message.author.display_name}** bet ${amount} and won ${round(amount*int(winning_times/0.5))}')
             await profile.edit_field(ctx, cash=profile.cash+round(amount*int(winning_times/0.5)))

@@ -524,7 +524,7 @@ class Meta:
         await ctx.send(embed=e)
 
     @commands.command()
-    async def lyrics(self, ctx, artist_name=None):
+    async def lyrics(self, ctx, artist_name:str=None):
         """Gives you lyrics for a song from Google's Genius.com."""
         if artist_name == 'np':
             player = self.bot.lavalink.players.get(ctx.guild.id)
@@ -539,7 +539,7 @@ class Meta:
                 track_name = None
                 return await ctx.send(f'{ctx.tick(False)} Couldn\'t get lyrics for the current song...')
 
-        track_name = track_name or None
+
         if artist_name is None:
             await ctx.send('What is the artist\'s name?\nYou have 1 minute to say it.')
             def pred(m):
