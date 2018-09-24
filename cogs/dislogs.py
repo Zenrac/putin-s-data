@@ -19,13 +19,13 @@ class Settings:
         self.kick = record['kick'] or False
         self.ban = record['ban'] or False
         self.welcome = record['welcome_enabled'] or False
-        self.welcome_channel = record['welcome_channel']
+        self.welcome_channel = record['welcome_channel'] or None
         self.commands = record['log_commands']
         self.unban = record['unban']
         self.buy_roles = record['buy_roles']
         self.advert = record['advert']
         
-    async def edit_field(**fields):
+    async def edit_field(self, **fields):
         pass
 
 class DisLogs:
@@ -114,9 +114,10 @@ class DisLogs:
 
         settings = await self.get_settings(member.guild.id)
         if settings.welcome:
-            ch = get(member.guild.text_channels, id=welcome_channel)
+            ch = get(member.guild.text_channels, id=settings.welcome_channel)
             e = discord.Embed(title=f"Welcome {member.display_name}!", color=member.top_role.color)
             e.set_image(url=f'https://kaan.ga/api/welcome/{member.display_name}/{member.id}/{member.avatar}')
+            await ch.send(embed=e)
         
     async def on_member_leave(self, member):
         try:
