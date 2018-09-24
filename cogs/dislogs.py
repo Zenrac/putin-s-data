@@ -190,21 +190,23 @@ class DisLogs:
 
     @welcome.command(name='toggle')
     @checks.is_mod()
-    async def welcome_toggle(self, ctx, *, channel:discord.TextChannel=None):
+    async def welcome_toggle(self, ctx):
         """Toggles welcome messages."""
-        if not channel:
-            return await ctx.send(f'{ctx.tick(False)} You need to mention a channel to toggle.')
         settings = await self.get_settings(ctx.guild.id)
         settings.welcome = not settings.welcome
         state = 'enabled' if settings.welcome else 'disabled'
         await ctx.send(f'Welcome message is now {state}.')
+        if not settings.welcome:
+            await ctx.send(f'{ctx.tick(False)} Don\'t forget to set the channel with `{ctx.prefix}wecome channel`.')
 
     @welcome.command(name='channel')
     @checks.is_mod()
     async def welcome_channel(self, ctx, channel:discord.TextChannel=None):
+        settings = await self.get_settings(ctx.guild.id)
+        if not settings.welcome:
+            return await ctx.send(f'{ctx.tick(False)} Welcome messages are not enabled. Run `.welcome toggle` to enable them.')
         if not channel:
             return await ctx.send(f'{ctx.tick(False)} You forgot to mention the channel to send welcome messages.')
-        settings = await self.get_settings(ctx.guild.id)
         await settings.edit_field(welcome_channel=channel.id)
         await ctx.send(f'{ctx.tick(True)} Welcome channel edited. Now sending welcome messages to {channel}.')
 
