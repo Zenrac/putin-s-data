@@ -647,6 +647,55 @@ class Mod():
     @commands.command()
     @commands.guild_only()
     @checks.has_permissions(ban_members=True)
+    async def tempban(self, ctx, duration: time.FutureTime, member: MemberID, *, reason: ActionReason = None):
+        """Temporarily bans a member for the specified duration.
+        The duration can be a a short time form, e.g. 30d or a more human
+        duration such as "until thursday at 3PM" or a more concrete time
+        such as "2017-12-31".
+        Note that times are in UTC.
+        You can also ban from ID to ban regardless whether they're
+        in the server or not.
+        In order for this to work, the bot must have Ban Member permissions.
+        To use this command you must have Ban Members permission.
+        """
+
+        if reason is None:
+            reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
+
+        reminder = self.bot.get_cog('Reminder')
+        if reminder is None:
+            return await ctx.send('Sorry, this functionality is currently unavailable. Try again later?')
+
+        await ctx.guild.ban(discord.Object(id=member), reason=reason)
+        timer = await reminder.create_timer(duration.dt, 'tempban', ctx.guild.id, ctx.author.id, member, connection=ctx.db)
+        await ctx.send(f'Banned ID {member} for {time.human_timedelta(duration.dt)}.')
+
+    async def on_tempban_timer_complete(self, timer):
+        guild_id, mod_id, member_id = timer.args
+
+        guild = self.bot.get_guild(guild_id)
+        if guild is None:
+            # RIP
+            return
+
+        moderator = guild.get_member(mod_id)
+        if moderator is None:
+            try:
+                moderator = await self.bot.get_user_info(mod_id)
+            except:
+                # request failed somehow
+                moderator = f'Mod ID {mod_id}'
+            else:
+                moderator = f'{moderator} (ID: {mod_id})'
+        else:
+            moderator = f'{moderator} (ID: {mod_id})'
+
+        reason = f'Automatic unban from timer made on {timer.created_at} by {moderator}.'
+        await guild.unban(discord.Object(id=member_id), reason=reason)         
+                    
+    @commands.command()
+    @commands.guild_only()
+    @checks.has_permissions(ban_members=True)
     async def massban(self, ctx, reason: ActionReason, *members: MemberID):
         """Mass bans multiple members from the server.
         You can also ban from ID to ban regardless whether they're
