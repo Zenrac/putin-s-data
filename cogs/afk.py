@@ -32,18 +32,18 @@ class AFK:
 				if isinstance(mention, discord.Member):
 					mentions.append(mention.display_name)
 					reason = await self.bot.pool.fetchrow(f'select reason from afk where id={mention.id}')
-					if not reason:
-						continue
-					name = message.guild.get_member(mention.id)
-					reasons.append((reason[0], name))
+					if reason:
+						name = message.guild.get_member(mention.id)
+						reasons.append((reason[0], name))
 			many = 'is' if len(mentions) == 1 else 'are'
 			s = '' if len(mentions) == 1 else 's'
 			reasons = "\n".join(f'{name}: {reason}' for name, reason in reasons)
 			mentions = ", ".join(mentions)
-			try:
-				await message.channel.send(f'{mention} {many} afk.\nReason{s}:\n```{reasons}```')
-			except:
-				pass
+			if reasons:
+				try:
+					await message.channel.send(f'{mention} {many} afk.\nReason{s}:\n```{reasons}```')
+				except:
+					pass
 		record = await self.bot.pool.fetchrow(f'select * from afk where id={message.author.id};')
 		if not record: return
 		if not record[0]: return
