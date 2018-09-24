@@ -59,7 +59,7 @@ class Settings():
                 name="Logging",
                 value="Toggles a logging module.\n"\
                       "``logging <module>``\n"\
-                      "Valid modules are: ``kick``, ``ban``, ``join``, ``leave``, ``commands``, ``message_edit``, ``message_delete``"
+                      "Valid modules are: ``kick``, ``ban``, ``join``, ``leave``, ``commands``, ``message_edit``, ``message_delete``",
                        inline=True)
             embed.add_field(
                 name="Prefix",
