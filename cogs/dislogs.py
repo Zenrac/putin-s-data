@@ -53,7 +53,7 @@ class DisLogs:
                 return f"https://hastebin.com/{post['key']}"
 
     async def get_settings(self, id):
-        record = self.bot.pool.fetchrow(f'select * from settings where id={id}')
+        record = await self.bot.pool.fetchrow(f'select * from settings where id={id}')
         return Settings(self.bot, record)
 
     async def on_message_delete(self, message):
