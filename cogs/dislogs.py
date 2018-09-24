@@ -172,10 +172,8 @@ class DisLogs:
         settings = await self.get_settings(ctx.guild.id)
         if not settings: return
         if not settings.commands: return
-        await ctx.channel.send(f'``{ctx.author}`` ran ``{ctx.prefix}{ctx.command}`` in {ctx.channel.mention}.')
-        ch = guild.get_channel(settings.logging_channel)
-        if ch:
-            await ch.send(embed=e)
+        ch = ctx.guild.get_channel(settings.logging_channel)
+        await ch.send(f'``{ctx.author}`` ran ``{ctx.prefix}{ctx.command}`` in {ctx.channel.mention}.')
         
     @commands.group()
     @checks.is_mod()
