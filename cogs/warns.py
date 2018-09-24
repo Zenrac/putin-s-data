@@ -58,7 +58,7 @@ class Warns:
 
 			warn = await self.create_warn(ctx, member, warn)
 
-			await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Incident ``#{warn.id}``')
+			await ctx.send(f'{ctx.tick(True)} Warned {member.display_name}. Case ``{warn.id}``')
 
 	@commands.command(name='warnshow')
 	async def warn_show(self, ctx, id:str=None):
@@ -69,7 +69,7 @@ class Warns:
 			return await ctx.send(f'{ctx.tick(False)} Warn not found.')
 
 		if not warn.guild_id == ctx.guild.id:
-			return await ctx.send(f'{ctx.tick(False)} This warning was not set in this guild.')
+			return await ctx.send(f'{ctx.tick(False)} This warning was not given in this guild.')
 
 		warned = ctx.guild.get_member(warn.member_id)
 		if not warned:
@@ -81,10 +81,6 @@ class Warns:
 		e.set_footer(text=f'Warned by {warner.display_name}', icon_url=warner.avatar_url)
 
 		await ctx.send(embed=e)
-
-	@commands.command()
-	async def warns(self, ctx, member:discord.Member=None):
-		pass
 
 def setup(bot):
 	bot.add_cog(Warns(bot))
