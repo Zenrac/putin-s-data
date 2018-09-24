@@ -51,7 +51,8 @@ INITIAL_EXTENSIONS = [
     'cogs.config',
     'cogs.afk',
     'cogs.words',
-    'cogs.warns'
+    'cogs.warns',
+    'cogs.custom'
 ]
 
 def _prefix_callable(bot, msg):
