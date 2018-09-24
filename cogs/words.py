@@ -56,7 +56,6 @@ class Blacklist:
 		"""Shows the words that are currently in the blacklist."""
 		if ctx.invoked_subcommand is None:
 			settings = await self.get_settings(ctx.guild.id)
-			settings.words = eval(settings.words)
 
 			if not settings.blacklist:
 				return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
@@ -87,7 +86,6 @@ class Blacklist:
 	async def blacklist_add(self, ctx, *, words:str):
 		"""Adds a word to the blacklist."""
 		settings = await self.get_settings(ctx.guild.id)
-		settings.words = eval(str(settings.words))
 
 		if not settings.blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
@@ -110,7 +108,6 @@ class Blacklist:
 	async def blacklist_remove(self, ctx, *, words:str):
 		"""Removes words from the blacklist."""
 		settings = await self.get_settings(ctx.guild.id)
-		settings.words = eval(str(settings.words))
 
 		if not settings.blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
