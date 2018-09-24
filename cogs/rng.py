@@ -67,7 +67,7 @@ class Random:
     async def space(self, ctx):
         """Gives you a space image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/space') as res:
+            async with cs.get('https://api.chewey-bot.ga/space/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
             if res.status == 404:
                 await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
@@ -80,7 +80,7 @@ class Random:
     async def cat(self, ctx):
         """Gives you a cat image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/cat') as res:
+            async with cs.get('https://api.chewey-bot.ga/cat/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
             if res.status == 404:
                 await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
@@ -93,7 +93,7 @@ class Random:
     async def dog(self, ctx):
         """Gives you a dog image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/dog') as res:
+            async with cs.get('https://api.chewey-bot.ga/dog/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
             if res.status == 404:
                 await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
@@ -106,7 +106,7 @@ class Random:
     async def birb(self, ctx):
         """Gives you a birb image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/birb') as res:
+            async with cs.get('https://api.chewey-bot.ga/birb/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
             if res.status == 404:
                 await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
@@ -119,7 +119,7 @@ class Random:
     async def nature(self, ctx):
         """Gives you a nature image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/nature') as res:
+            async with cs.get('https://api.chewey-bot.ga/nature/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
             if res.status == 404:
                 await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
@@ -132,7 +132,7 @@ class Random:
     async def fantasy(self, ctx):
         """Gives you a fantasy art image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/fantasy-art') as res:
+            async with cs.get('https://api.chewey-bot.ga/fantasy-art/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
             if res.status == 404:
                 await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
@@ -145,7 +145,7 @@ class Random:
     async def plane(self, ctx):
         """Gives you a plane image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/plane') as res:
+            async with cs.get('https://api.chewey-bot.ga/plane/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
             if res.status == 404:
                 await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
@@ -158,7 +158,7 @@ class Random:
     async def otter(self, ctx):
         """Gives you a otter image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/otter') as res:
+            async with cs.get('https://api.chewey-bot.ga/otter/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
             if res.status == 404:
                 await ctx.send(f'{ctx.tick(False)} Sorry, something went wrong try again in a minute.')
@@ -182,7 +182,7 @@ class Random:
     async def snake(self, ctx):
         """Gives you a snake image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/snake') as res:
+            async with cs.get('https://api.chewey-bot.ga/snake/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
         e = discord.Embed(title="Snake", color=discord.Color.blue())
         e.set_image(url=r['data'])
@@ -193,7 +193,7 @@ class Random:
     async def car(self, ctx):
         """Gives you a snake image."""
         async with aiohttp.ClientSession() as cs:
-            async with cs.get('https://api.chewey-bot.ga/car') as res:
+            async with cs.get('https://api.chewey-bot.ga/car/?auth=dd159e25-268e-4b61-b49b-29fe6a209ccb') as res:
                 r = await res.json()
         e = discord.Embed(title="Car", color=discord.Color.blue())
         e.set_image(url=r['data'])
