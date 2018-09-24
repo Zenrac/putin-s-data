@@ -38,7 +38,6 @@ class Blacklist:
 		perms = await self.check_perms(ctx, message.author)
 		if perms: return
 		settings = await self.get_settings(ctx.guild.id)
-		settings.words = eval(settings.words)
 		if not settings.blacklist: return
 
 		words = message.content.split()
