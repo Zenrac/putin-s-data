@@ -51,7 +51,7 @@ class AFK:
 				seconds = f'{s} second'
 			hours = ''
 
-		return hours + mintues + seconds
+		return hours + minutes + seconds
 
 	@commands.command()
 	async def afk(self, ctx, *, reason=None):
@@ -81,7 +81,7 @@ class AFK:
 						name = message.guild.get_member(mention.id)
 						when = eval(record['when'])
 						afk_time = dtime.utcnow() - when
-						afk_time = seconds_to_string(afk_time.seconds)
+						afk_time = self.seconds_to_string(afk_time.seconds)
 						reasons.append((record['reason'], name, afk_time))
 			many = 'is' if len(mentions) == 1 else 'are'
 			s = '' if len(mentions) == 1 else 's'
@@ -98,7 +98,7 @@ class AFK:
 		when = eval(record[2])
 		afktime = dtime.utcnow() - when
 		if afktime.seconds == 0: return
-		afk_time = seconds_to_string(afktime.seconds)
+		afk_time = self.seconds_to_string(afktime.seconds)
 		await self.bot.pool.execute(f'delete from afk where id={message.author.id};')
 		await message.channel.send(
 			f'Good to see you again {message.author.display_name}!\n'
