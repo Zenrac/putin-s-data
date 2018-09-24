@@ -12,6 +12,7 @@ from .utils import checks, context
 class Settings:
     def __init__(self, bot, record):
         self.bot = bot
+        self.id = record['id']
         self.message_delete = record['message_delete'] or False
         self.message_edit = record['message_edit'] or False
         self.join = record['log_join'] or False
@@ -170,7 +171,7 @@ class DisLogs:
     async def on_command(self, ctx):
         settings = await self.get_settings(ctx.guild.id)
         if not settings: return
-        if not settings.command: return
+        if not settings.commands: return
         await ctx.channel.send(f'``{ctx.author}`` ran ``{ctx.prefix}{ctx.command}`` in {ctx.channel.mention}.')
         ch = guild.get_channel(settings.logging_channel)
         if ch:
