@@ -163,10 +163,10 @@ class Meta:
             results = await process.communicate()
             return "".join(x.decode("utf-8") for x in results)
 
-    @commands.command()
-    async def speedtest(self, ctx):
-        x = await self.run_cmd('speedtest-cli --simple --share')
-        await ctx.send(f'```\n{x}\n```')
+
+    
+        
+        
 
     @commands.command()
     async def doc(self, ctx, *, command:str=None):
