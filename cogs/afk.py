@@ -11,45 +11,45 @@ class AFK:
 	@staticmethod
 	def seconds_to_string(seconds):
 		m, s = divmod(seconds, 60)
-			h = None
-			if m >= 60:
-				h, m = divmod(m, 60)
-			if h:
-				if h >= 2:
-					hours = f'{h} hours '
-				elif h == 0:
-					hours = ''
-				else:
-					hours = f'{h} hour '
-				##########################
-				if m >= 2:
-					minutes = f'{m} minutes '
-				elif m == 0:
-					minutes = ''
-				else:
-					minutes = f'{m} minute '
-				##########################
-				if s >= 2:
-					seconds = f'{s} seconds'
-				elif s == 0:
-					seconds = ''
-				else:
-					seconds = f'{s} second'
-			else:
-				if m >= 2:
-					minutes = f'{m} minutes '
-				elif m == 0:
-					minutes = ''
-				else:
-					minutes = f'{m} minute '
-				##########################
-				if s >= 2:
-					seconds = f'{s} seconds'
-				elif s == 0:
-					seconds = ''
-				else:
-					seconds = f'{s} second'
+		h = None
+		if m >= 60:
+			h, m = divmod(m, 60)
+		if h:
+			if h >= 2:
+				hours = f'{h} hours '
+			elif h == 0:
 				hours = ''
+			else:
+				hours = f'{h} hour '
+			##########################
+			if m >= 2:
+				minutes = f'{m} minutes '
+			elif m == 0:
+				minutes = ''
+			else:
+				minutes = f'{m} minute '
+			##########################
+			if s >= 2:
+				seconds = f'{s} seconds'
+			elif s == 0:
+				seconds = ''
+			else:
+				seconds = f'{s} second'
+		else:
+			if m >= 2:
+				minutes = f'{m} minutes '
+			elif m == 0:
+				minutes = ''
+			else:
+				minutes = f'{m} minute '
+			##########################
+			if s >= 2:
+				seconds = f'{s} seconds'
+			elif s == 0:
+				seconds = ''
+			else:
+				seconds = f'{s} second'
+			hours = ''
 
 		return hours + mintues + seconds
 
