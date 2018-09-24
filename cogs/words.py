@@ -12,7 +12,7 @@ class Settings:
 
 	@property
 	def words(self):
-		return eval(self._words)
+		return eval(str(self._words))
 
 	async def toggle_blacklist(self):
 		self.blacklist = not self.blacklist
