@@ -8,6 +8,11 @@ class Settings:
 		self.bot = bot
 		self.id = record['id']
 		self.blacklist = record['blacklist'] or False
+		self._words = record['blacklisted_words'] or '[]'
+
+	@property
+	def words(self):
+		return eval(self._words)
 
 	async def toggle_blacklist(self):
 		self.blacklist = not self.blacklist
