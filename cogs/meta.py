@@ -1329,7 +1329,7 @@ class Meta:
                                                           'And [here](https://discord.gg/Ry4JQRf) you can join the support server.')
             await ctx.send(embed=e)
             return
-        e = discord.Embed(title="Invite", description=f'Here\'s the invite to [here]({invite}).\nYou can invite me to your server [here](https://discordapp.com/api/oauth2/authorize?client_id=460846291300122635&permissions=8&scope=bot).\n'\
+        e = discord.Embed(title="Invite", description=f'Here\'s the invite to [here]({invite}).\nYou can invite me to your server [here](https://w-bot.ml/invite).\n'\
                                                           'And [here](https://discord.gg/Ry4JQRf) you can join the support server.')
         await ctx.send(embed=e)
 
