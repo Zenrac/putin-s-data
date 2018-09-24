@@ -1578,6 +1578,7 @@ class Profile():
             profile = await self.get_profile(ctx, message.author.id)
             if not profile:
                 return
+            gg = 10/0
             await profile.increase_xp(ctx)
 
     @commands.command()
