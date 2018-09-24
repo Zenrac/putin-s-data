@@ -32,7 +32,7 @@ class AFK:
 				if isinstance(mention, discord.Member):
 					mentions.append(mention.display_name)
 					record = await self.bot.pool.fetchrow(f'select * from afk where id={mention.id}')
-					if reason:
+					if record:
 						name = message.guild.get_member(mention.id)
 						when = eval(record['when'])
 						afk_time = dtime.utcnow() - when
