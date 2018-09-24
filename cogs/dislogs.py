@@ -36,7 +36,7 @@ class DisLogs:
         async with aiohttp.ClientSession() as session:
             async with session.post("https://hastebin.com/documents",data=content.encode('utf-8')) as post:
                 post = await post.json()
-                return "https://hastebin.com/{}".format(post['key'])
+                return f"https://hastebin.com/{post['key']}"
 
     async def get_settings(self, id):
         record = self.bot.pool.fetchrow(f'select * from settings where id={id}')
@@ -51,21 +51,20 @@ class DisLogs:
         if send_channel is None: return
         data = await self.bot.pool.fetchrow(f'select message_delete from settings where id={message.guild.id}')
         if not data: return
-
+        deleted = []
         try:
-            deleted = []
             async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
                 count = entry.extra.count
                 deleted.append((entry.user.display_name, entry.extra.channel.name, message.content, 
                                 message.edited_at or message.created_at))
-            if count >= 2:
-                url = await self.post("\n\n\n".join(f'{_[0]} in {_[1]} at {_[3]}\n  {_[2]}' for _ in deleted))
-                e = discord.Embed(description=f"Bulk message delete in {message.channel.mention}", color=discord.Color.red())
-                e.add_field(name='Messages', value=f'[Click here to see the messages.]({url})')
-                e.timestamp = datetime.datetime.utcnow()
-                return await send_channel.send(embed=e)
         except discord.Forbidden:
             pass
+        if count >= 2:
+            url = await self.post("\n\n\n".join(f'{_[0]} in {_[1]} at {_[3]}\n  {_[2]}' for _ in deleted))
+            e = discord.Embed(description=f"Bulk message delete in {message.channel.mention}", color=discord.Color.red())
+            e.add_field(name='Messages', value=f'[Click here to see the messages.]({url})')
+            e.timestamp = datetime.datetime.utcnow()
+            return await send_channel.send(embed=e)
             
         e = discord.Embed(description=f'{message.content}\n\nHas been deleted in {message.channel.mention}.', color=discord.Color.red())
         e.set_author(name=message.author.name, icon_url=message.author.avatar_url)
