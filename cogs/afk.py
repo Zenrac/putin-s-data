@@ -9,7 +9,7 @@ class AFK:
 		self.bot = bot
 
 	@staticmethod
-	seconds_to_string(seconds):
+	def seconds_to_string(seconds):
 		m, s = divmod(seconds, 60)
 			h = None
 			if m >= 60:
