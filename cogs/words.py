@@ -50,6 +50,7 @@ class Blacklist:
 	@commands.group()
 	@checks.is_mod()
 	async def blacklist(self, ctx):
+		"""Shows the words that are currently in the blacklist."""
 		if ctx.invoked_subcommand is None:
 			settings = await self.get_settings(ctx.guild.id)
 			settings.words = eval(settings.words)
@@ -69,6 +70,7 @@ class Blacklist:
 	@blacklist.command(name='toggle')
 	@checks.is_mod()
 	async def blacklist_toggle(self, ctx):
+		"""Toggles backlist."""
 		settings = await self.get_settings(ctx.guild.id)
 
 		await settings.toggle_blacklist()
@@ -80,13 +82,14 @@ class Blacklist:
 	@blacklist.command(name='add')
 	@checks.is_mod()
 	async def blacklist_add(self, ctx, *, words:str):
+		"""Adds a word to the blacklist."""
 		settings = await self.get_settings(ctx.guild.id)
 		settings.words = eval(str(settings.words))
 
 		if not settings.blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
 
-		words = words.split()
+		words = words.replace("'", "\'").split()
 		changes = []
 
 		for word in words:
@@ -102,13 +105,14 @@ class Blacklist:
 	@blacklist.command(name='remove')
 	@checks.is_mod()
 	async def blacklist_remove(self, ctx, *, words:str):
+		"""Removes words from the blacklist."""
 		settings = await self.get_settings(ctx.guild.id)
 		settings.words = eval(str(settings.words))
 
 		if not settings.blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
 
-		words = words.split()
+		words = words.replace("'", "\'").split()
 		changes = []
 
 		for word in words:
