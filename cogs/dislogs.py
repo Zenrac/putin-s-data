@@ -56,8 +56,8 @@ class DisLogs:
             deleted = []
             async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
                 count = entry.extra.count
-                deleted.append(tuple(entry.user.display_name, entry.extra.channel.name, message.content, 
-                                message.edited_at if message.edited_at else message.created_at))
+                deleted.append((entry.user.display_name, entry.extra.channel.name, message.content, 
+                                message.edited_at or message.created_at))
             if count >= 2:
                 url = await self.post("\n\n\n".join(f'{_[0]} in {_[1]} at {_[3]}\n  {_[2]}' for _ in deleted))
                 e = discord.Embed(description=f"Bulk message delete in {message.channel.mention}", color=discord.Color.red())
