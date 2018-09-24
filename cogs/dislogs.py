@@ -55,8 +55,9 @@ class DisLogs:
         try:
             async for entry in message.guild.audit_logs(limit=1, action=discord.AuditLogAction.message_delete):
                 count = entry.extra.count
-                deleted.append((entry.user.display_name, entry.extra.channel.name, message.content, 
-                                message.edited_at or message.created_at))
+                async for entry in message.guild.audit_logs(limit=count, action=discord.AuditLogAction.message_delete):
+                    deleted.append((entry.user.display_name, entry.extra.channel.name, message.content, 
+                                    message.edited_at or message.created_at))
         except discord.Forbidden:
             pass
         if count >= 2:
