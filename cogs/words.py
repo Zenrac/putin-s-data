@@ -93,6 +93,7 @@ class Blacklist:
 			return await ctx.send(f'Blacklist is not enabled.\nUse `{ctx.prefix}blacklist toggle` to enable it.')
 
 		words = words.replace("'", "\'").split()
+		await ctx.send(words)
 		changes = []
 
 		await ctx.send(type(settings.words))
