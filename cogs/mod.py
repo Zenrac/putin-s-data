@@ -534,7 +534,7 @@ class Mod():
         except Exception as e:
             await ctx.send(f'{ctx.tick(False)} Error: {e}')
         else:
-            await ctx.send(f'{ctx.tick(True) Role {rolename} created.')
+            await ctx.send(f'{ctx.tick(True)} Role {rolename} created.')
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_channels=True)
