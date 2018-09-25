@@ -215,7 +215,7 @@ class DisLogs:
     async def on_member_join(self, member):
         settings = await self.get_settings(member.guild.id)
         if not settings: return
-        if settings.invite_logging settings.invite_logging_channel:
+        if settings.invite_logging and settings.invite_logging_channel:
             e = discord.Embed(title="Invite", color.ctx.me.top_role.color)
             try:
                 async for member.guild.audit_logs(limit=1, action=discord.AuditLogAction.invite):
