@@ -22,6 +22,7 @@ class SettingsConfig:
         self.advert = record['advert'] or False
         self.logging_channel = record['logging_channel'] or None
         self.enabled = record['enabled'] or False
+        self.advert_bypass = record['advert_bypass'] or None
 
     async def edit_field(self, **fields):
         keys = ', '.join(fields)
@@ -176,12 +177,16 @@ class Settings():
         await ctx.send(f'{ctx.tick(True)} Command logging is now {state}.')
 
     async def on_message(self, message):
+        if not message.guild: return
         ctx = await self.bot.get_context(message)
         settings = await self.get_settings(ctx.guild.id)
         if not settings: return
         if not settings.advert: return
         resolved = ctx.author.guild_permissions
         if getattr(resolved, 'manage_messages', None) == True: return
+        for role in ctx.author.roles:
+            if role.id in settings.advert_bypass
+                return
         if 'https://discord.gg/' in message.content:
             try:
                 await message.delete()
