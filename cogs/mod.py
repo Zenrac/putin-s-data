@@ -523,7 +523,14 @@ class Mod():
                        
     @commands.command()
     @checks.is_mod()
-    async def addrole(self, ctx, *, rolename:str=None, **options):
+    async def addrole(self, ctx, rolename:str=None, *, reason:AcrionReason=None, **options):
+        """Creates a role.
+        Optional arguments:
+        hoist
+        colour
+        mentionable
+        Example: addrole gg "why not" hoist=True
+        """
         try:
             hoist = options['hoist']
         except KeyError:
@@ -536,6 +543,13 @@ class Mod():
             mentionable = options['mentionable']
         except KeyError:
             mentionable = False
+                       
+        if not reason:
+            reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
+          
+        if not rolename
+            return await ctx.send(f'{ctx.tick(False)} You need to specify a rolename.')
+                       
         try:
             await ctx.guild.create_role(name=rolename, hoist=hoist, mentionable=mentionable, colour=colour, reason=reason)
         except discord.Forbidden:
