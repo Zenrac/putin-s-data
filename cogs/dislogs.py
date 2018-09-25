@@ -216,6 +216,7 @@ class DisLogs:
         settings = await self.get_settings(member.guild.id)
         if not settings: return
         if settings.invite_logging and settings.invite_logging_channel:
+            ch = member.guild.get_channel(settings.invite_logging_channel)
             e = discord.Embed(title="Invite", color=member.guild.me.top_role.color)
             try:
                 async for entry in member.guild.audit_logs(limit=1, action=discord.AuditLogAction.invite_update):
@@ -224,9 +225,10 @@ class DisLogs:
                     e.add_field(name="Invite uses", value=entry.target.uses or 1)
             except discord.Forbidden:
                 e.set_footer(text="I need audit log permissions to fetch invite data.")
-            
-            ch = member.guild.get_channel(settings.invite_logging_channel)
-            await ch.send(embed=e)
+            except Exception as e:
+                e.set_footer(text=e)
+            if ch:
+                await ch.send(embed=e)
         if not settings.welcome and settings.welcome_channel:
             return
         ch = member.guild.get_channel(settings.welcome_channel)
