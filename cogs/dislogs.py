@@ -216,7 +216,7 @@ class DisLogs:
         settings = await self.get_settings(member.guild.id)
         if not settings: return
         if settings.invite_logging and settings.invite_logging_channel:
-            e = discord.Embed(title="Invite", color=ctx.me.top_role.color)
+            e = discord.Embed(title="Invite", color=member.guild.me.top_role.color)
             try:
                 async for entry in member.guild.audit_logs(limit=1, action=discord.AuditLogAction.invite):
                     e.add_field(name="Invited by", value=entry.target.inviter or 'Could not get the inviter.')
@@ -227,7 +227,7 @@ class DisLogs:
             
             ch = member.guild.get_channel(settings.invite_logging_channel)
             await ch.send(embed=e)
-        if not settings.welcome and setting.welcome_channel:
+        if not settings.welcome and settings.welcome_channel:
             return
         ch = member.guild.get_channel(settings.welcome_channel)
         try:
