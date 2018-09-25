@@ -82,7 +82,8 @@ class Settings():
                       "``antiadvert``")
             embed.add_field(
                 name="Anti raid",
-                value=""
+                value="Enables anti raid options.\n"\
+                      "`raid <on|strict>`"
             )
             embed.set_footer(text="For more information search across the help menu.")
 
