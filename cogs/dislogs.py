@@ -134,7 +134,7 @@ class DisLogs:
             await ch.send(embed=e)
 
     async def on_member_ban(self, guild, member):
-        settings = await self.get_settings(member.guild.id)
+        settings = await self.get_settings(guild.id)
         if not settings: return
         if not settings.ban: return
         if not settings.logging_channel: return
@@ -215,10 +215,13 @@ class DisLogs:
         if not settings: return
         if not settings.welcome: return
         if not settings.welcome_channel: return
-        e = discord.Embed(title=f"Welcome {member.display_name}!", color=member.top_role.color)
-        e.set_image(url=f'https://kaan.ga/api/welcome/{member.display_name}/{member.id}/{member.avatar}')
         ch = member.guild.get_channel(settings.welcome_channel)
-        await ch.send(embed=e)
+        try:
+            e = discord.Embed(title=f"Welcome {member.display_name}!", color=member.top_role.color)
+            e.set_image(url=f'https://kaan.ga/api/welcome/{member.display_name}/{member.id}/{member.avatar}')
+            await ch.send(embed=e)
+        except discord.HTTPException:
+            await ch.send(f'Welcome to {member.guild} {member.display_name}!')
 
 def setup(bot):
     bot.add_cog(DisLogs(bot))
