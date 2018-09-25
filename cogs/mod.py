@@ -492,29 +492,35 @@ class Mod():
 
     @commands.command(aliases=['togglerole'])
     @checks.is_mod()
-    async def role(self, ctx, member:commands.Greedy[discord.Member=None], role:commands.Greedy[discord.Role=None], *, reason:str=None):
-        if not member:
+    async def role(self, ctx, members:commands.Greedy[discord.Member], roles:commands.Greedy[discord.Role], *, reason:str=None):
+        if not members:
             return await ctx.send(f'{ctx.tick(False)} You need to specify a member.')
 
-        if not role:
+        if not roles:
             return await ctx.send(f'{ctx.tick(False)} You need to specify a role.')
 
         if not reason:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
+                       
+        changes = []            
+                       
+        for member in members:
+            for role in roles:
+                if role in member.roles:
+                    try:
+                        await member.remove_roles(role, reason=reason)
+                    except discord.Forbidden:
+                        return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
+                    changes.append(f'{ctx.tick(True)} Removed {role.name} from {member.display_name}.')
 
-        if role in member.roles:
-            try:
-                await member.remove_roles(role, reason=reason)
-            except discord.Forbidden:
-                return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
-            return await ctx.send(f'{ctx.tick(True)} Removed {role.name} from {member.display_name}.')
+                try:
+                    await member.add_roles(role, reason=reason)
+                except discord.Forbidden:
+                    return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
+                changes.append(f'{ctx.tick(True)} Added {role.name} to {member.display_name}.')
 
-        try:
-            await member.add_roles(role, reason=reason)
-        except discord.Forbidden:
-            return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
-        await ctx.send(f'{ctx.tick(True)} Added {role.name} to {member.display_name}.')
-
+        await ctx.send('\n'.join(changes) or 'Failed   lol...')    
+                       
     @commands.command()
     @checks.is_mod()
     async def addrole(self, ctx, *, rolename:str=None):
