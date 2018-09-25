@@ -221,6 +221,8 @@ class DisLogs:
             try:
                 async for entry in member.guild.audit_logs(limit=1, action=discord.AuditLogAction.invite_update):
                     await ch.send(entry.target.inviter + str(entry.target.uses))
+                    await ch.send(dir(entry.target))
+                    await ctx.send(type(entry.target))
                     e.add_field(name="Invited by", value=entry.target.inviter or 'Could not get the inviter.')
                     
                     e.add_field(name="Invite uses", value=entry.target.uses or 1)
