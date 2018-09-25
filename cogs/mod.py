@@ -523,7 +523,7 @@ class Mod():
                        
     @commands.command()
     @checks.is_mod()
-    async def addrole(self, ctx, rolename:str=None, *, reason:AcrionReason=None, **options):
+    async def addrole(self, ctx, rolename:str=None, *, reason:ActionReason=None, **options):
         """Creates a role.
         Optional arguments:
         hoist
