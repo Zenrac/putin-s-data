@@ -226,7 +226,7 @@ class DisLogs:
             except discord.Forbidden:
                 e.set_footer(text="I need audit log permissions to fetch invite data.")
             except Exception as e:
-                e.set_footer(text=e)
+                await ch.send(e)
             if ch:
                 await ch.send(embed=e)
         if not settings.welcome and settings.welcome_channel:
