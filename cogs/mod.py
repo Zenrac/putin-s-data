@@ -524,9 +524,18 @@ class Mod():
     @commands.command()
     @checks.is_mod()
     async def addrole(self, ctx, *, rolename:str=None, **options):
-        hoist = options['hoist'] or False
-        colour = options['colour'] or None
-        mentionable = options['mentionable'] or False
+        try:
+            hoist = options['hoist']
+        except KeyError:
+            hoist = False
+        try:
+            colour = options['colour']
+        except KeyError:
+            colour = None
+        try:
+            mentionable = options['mentionable']
+        except KeyError:
+            mentionable = False
         try:
             await ctx.guild.create_role(name=rolename, hoist=hoist, mentionable=mentionable, colour=colour, reason=reason)
         except discord.Forbidden:
