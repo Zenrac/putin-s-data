@@ -524,32 +524,8 @@ class Mod():
     @commands.command()
     @checks.is_mod()
     async def addrole(self, ctx, rolename:str=None, reason:ActionReason=None, **options):
-        """Creates a role.
-        Optional arguments:
-        hoist
-        colour
-        mentionable
-        Example: addrole gg "why not" hoist=True
-        """
-        if not options:
-            options = {
-                'hoist': False,
-                'colour': None,
-                'mentionable': False
-            }
-        try:
-            hoist = options['hoist']
-        except KeyError:
-            hoist = False
-        try:
-            colour = options['colour']
-        except KeyError:
-            colour = None
-        try:
-            mentionable = options['mentionable']
-        except KeyError:
-            mentionable = False
-                       
+        """Creates a role."""
+        
         if not reason:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
           
@@ -557,7 +533,7 @@ class Mod():
             return await ctx.send(f'{ctx.tick(False)} You need to specify a rolename.')
                        
         try:
-            await ctx.guild.create_role(name=rolename, hoist=hoist, mentionable=mentionable, colour=colour, reason=reason)
+            await ctx.guild.create_role(name=rolename, hoist=False, mentionable=False, reason=reason)
         except discord.Forbidden:
             await ctx.send(f'{ctx.tick(False)} I do not have permissions to create roles!')
         except Exception as e:
