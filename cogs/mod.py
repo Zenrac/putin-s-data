@@ -531,6 +531,12 @@ class Mod():
         mentionable
         Example: addrole gg "why not" hoist=True
         """
+        if not options:
+            options = {
+                'hoist': False,
+                'colour': None,
+                'mentionable': False
+            }
         try:
             hoist = options['hoist']
         except KeyError:
