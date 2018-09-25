@@ -502,7 +502,7 @@ class Mod():
         if not reason:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
                        
-        changes = []            
+        changes = []
                        
         for member in members:
             for role in roles:
@@ -512,12 +512,12 @@ class Mod():
                     except discord.Forbidden:
                         return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
                     changes.append(f'{ctx.tick(True)} Removed {role.name} from {member.display_name}.')
-
-                try:
-                    await member.add_roles(role, reason=reason)
-                except discord.Forbidden:
-                    return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
-                changes.append(f'{ctx.tick(True)} Added {role.name} to {member.display_name}.')
+                else:
+                    try:
+                        await member.add_roles(role, reason=reason)
+                    except discord.Forbidden:
+                        return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
+                    changes.append(f'{ctx.tick(True)} Added {role.name} to {member.display_name}.')
 
         await ctx.send('\n'.join(changes) or 'Failed   lol...')    
                        
