@@ -523,8 +523,18 @@ class Mod():
                        
     @commands.command()
     @checks.is_mod()
-    async def addrole(self, ctx, *, rolename:str=None):
-        await ctx.guild.create_role(name=rolename)
+    async def addrole(self, ctx, *, rolename:str=None, **options):
+        hoist = options['hoist'] or False
+        colour = options['colour'] or None
+        mentionable = options['mentionable'] or False
+        try:
+            await ctx.guild.create_role(name=rolename, hoist=hoist, mentionable=mentionable, colour=colour, reason=reason)
+        except discord.Forbidden:
+            await ctx.send(f'{ctx.tick(False)} I do not have permissions to create roles!')
+        except Exception as e
+            await ctx.send(f'{ctx.tick(False)} Error: {e}')
+        else:
+            await ctx.send(f'{ctx.tick(True) Role {rolename} created.')
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_channels=True)
