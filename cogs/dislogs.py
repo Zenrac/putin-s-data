@@ -222,7 +222,7 @@ class DisLogs:
                     e.add_field(name="Invited by", value=entry.target.inviter or 'Could not get the inviter.')
                     
                     e.add_field(name="Invite uses", value=entry.target.uses or 1)
-            except discord.Forbidden
+            except discord.Forbidden:
                 e.set_footer(text="I need audit log permissions to fetch invite data.")
             
             ch = member.guild.get_channel(settings.invite_logging_channel)
