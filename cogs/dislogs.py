@@ -27,6 +27,8 @@ class Settings:
         self.advert = record['advert'] or False
         self.logging_channel = record['logging_channel'] or None
         self.enabled = record['enabled'] or False
+        self.invite_logging = record['invite_logging'] or False
+        self.invite_logging_channel = record['invite_logging_channel'] or None
 
     async def edit_field(self, **fields):
         keys = ', '.join(fields)
@@ -213,8 +215,20 @@ class DisLogs:
     async def on_member_join(self, member):
         settings = await self.get_settings(member.guild.id)
         if not settings: return
-        if not settings.welcome: return
-        if not settings.welcome_channel: return
+        if settings.invite_logging settings.invite_logging_channel:
+            e = discord.Embed(title="Invite", color.ctx.me.top_role.color)
+            try:
+                async for member.guild.audit_logs(limit=1, action=discord.AuditLogAction.invite):
+                    e.add_field(name="Invited by", value=entry.target.inviter or 'Could not get the inviter.')
+                    
+                    e.add_field(name="Invite uses", value=entry.target.uses or 1)
+            except discord.Forbidden
+                e.set_footer(text="I need audit log permissions to fetch invite data.")
+            
+            ch = member.guild.get_channel(settings.invite_logging_channel)
+            await ch.send(embed=e)
+        if not settings.welcome and setting.welcome_channel:
+            return
         ch = member.guild.get_channel(settings.welcome_channel)
         try:
             e = discord.Embed(title=f"Welcome {member.display_name}!", color=member.top_role.color)
