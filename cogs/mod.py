@@ -531,7 +531,7 @@ class Mod():
             await ctx.guild.create_role(name=rolename, hoist=hoist, mentionable=mentionable, colour=colour, reason=reason)
         except discord.Forbidden:
             await ctx.send(f'{ctx.tick(False)} I do not have permissions to create roles!')
-        except Exception as e
+        except Exception as e:
             await ctx.send(f'{ctx.tick(False)} Error: {e}')
         else:
             await ctx.send(f'{ctx.tick(True) Role {rolename} created.')
