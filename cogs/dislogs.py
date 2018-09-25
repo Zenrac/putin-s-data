@@ -141,7 +141,7 @@ class DisLogs:
         if not settings.ban: return
         if not settings.logging_channel: return
         target = 'bot' if member.bot else 'member'
-        e = discord.Embed(title=f'A {target} has been banned from the guild.', color=member.top_role.color)
+        e = discord.Embed(title=f'A {target} has been banned from the guild.', color=guild.me.top_role.color)
         e.add_field(name='Name:', value='{}'.format(member.name), inline=False)
         e.add_field(name="Members now:", value=len(member.guild.members), inline=False)
         try:
