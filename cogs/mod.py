@@ -492,7 +492,7 @@ class Mod():
 
     @commands.command(aliases=['togglerole'])
     @checks.is_mod()
-    async def role(self, ctx, member:discord.Member=None, role:discord.Role=None, *, reason:str=None):
+    async def role(self, ctx, member:commands.Greedy[discord.Member=None], role:commands.Greedy[discord.Role=None], *, reason:str=None):
         if not member:
             return await ctx.send(f'{ctx.tick(False)} You need to specify a member.')
 
