@@ -185,7 +185,7 @@ class Settings():
         resolved = ctx.author.guild_permissions
         if getattr(resolved, 'manage_messages', None) == True: return
         for role in ctx.author.roles:
-            if role.id in settings.advert_bypass:
+            if role.id == settings.advert_bypass:
                 return
         if 'https://discord.gg/' in message.content:
             try:
