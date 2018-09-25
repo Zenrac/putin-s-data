@@ -547,7 +547,7 @@ class Mod():
         if not reason:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
           
-        if not rolename
+        if not rolename:
             return await ctx.send(f'{ctx.tick(False)} You need to specify a rolename.')
                        
         try:
