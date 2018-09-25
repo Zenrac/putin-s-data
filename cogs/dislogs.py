@@ -218,7 +218,7 @@ class DisLogs:
         if settings.invite_logging and settings.invite_logging_channel:
             e = discord.Embed(title="Invite", color=member.guild.me.top_role.color)
             try:
-                async for entry in member.guild.audit_logs(limit=1, action=discord.AuditLogAction.invite):
+                async for entry in member.guild.audit_logs(limit=1, action=discord.AuditLogAction.invite_update):
                     e.add_field(name="Invited by", value=entry.target.inviter or 'Could not get the inviter.')
                     
                     e.add_field(name="Invite uses", value=entry.target.uses or 1)
