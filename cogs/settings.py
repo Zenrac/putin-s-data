@@ -55,35 +55,35 @@ class Settings():
     async def settings(self, ctx):
         if not ctx.invoked_subcommand:
             
-            embed = discord.Embed(color=discord.Color.dark_teal(), title='Settings', description='Configure this server\'s settings.')
+            embed = discord.Embed(color=ctx.author.top_role.color, title='Settings', description='Configure this server\'s settings.')
             embed.add_field(
                 name="Logging",
                 value="Toggles a logging module.\n"\
-                      "``logging <module>``\n"\
+                      f"``{ctx.prefix}logging <module>``\n"\
                       "Valid modules are: ``kick``, ``ban``, ``leave``, ``commands``, ``message_edit``, ``message_delete``",
                        inline=True)
             embed.add_field(
                 name="Prefix",
                 value="Configrues the prefix for this server.\n"\
-                      "``prefix <add|remove> <prefix>``\n"\
+                      f"``{ctx.prefix}prefix <add|remove> <prefix>``\n"\
                       "Put the prefix in \"quotes\" to make it have spaces.",
                       inline=True)
             embed.add_field(
                 name="Starboard",
                 value="Sets up a starboard.\n"\
-                      "``starboard [name of the starboard channel]``")
+                      f"``{ctx.prefix}starboard [name of the starboard channel]``")
             embed.add_field(
                 name="Buy roles",
                 value="Toggles role buying.\n"\
-                      "``buy_roles``")
+                      f"``{ctx.prefix}buy_roles``")
             embed.add_field(
                 name="Anti advertising",
                 value="Toggles anti advertising\n"\
-                      "``antiadvert``")
+                      f"``{ctx.prefix}antiadvert``")
             embed.add_field(
                 name="Anti raid",
                 value="Enables anti raid options.\n"\
-                      "`raid <on|strict>`"
+                      f"`{ctx.prefix}raid <on|strict>`"
             )
             embed.set_footer(text="For more information search across the help menu.")
 
