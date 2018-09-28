@@ -15,9 +15,6 @@ from discord.ext import commands
 time_rx = re.compile('[0-9]+')
 url_rx = re.compile('https?:\/\/(?:www\.)?.+')
 
-class Playlists(db.Table):
-    id = author_id = db.Column(db.Integer(big=True))
-
 class Music:
     def __init__(self, bot):
         self.bot = bot
