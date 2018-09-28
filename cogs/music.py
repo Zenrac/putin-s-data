@@ -63,6 +63,67 @@ class Music:
         return False
 
     @commands.command(aliases=['p', 'sing'])
+    async def addtop(self, ctx, *, query):
+        """Plays a song.
+        You can search from:
+          -youtube
+          -bandcamp
+          -soundcloud
+          -twitch
+          -vimeo
+          -mixer"""
+        # if not await check_role_or_perms(ctx):
+        #     return await ctx.send('You are not a DJ.')
+        player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not player.is_connected:
+            if not ctx.author.voice or not ctx.author.voice.channel:
+                return await ctx.send('Join a voice channel first!')
+
+            permissions = ctx.author.voice.channel.permissions_for(ctx.me)
+
+            if not permissions.connect or not permissions.speak:
+                return await ctx.send('Missing permissions `CONNECT` and/or `SPEAK`.')
+
+            player.store('channel', ctx.channel.id)
+            await player.connect(ctx.author.voice.channel.id)
+        else:
+            if not ctx.author.voice or not ctx.author.voice.channel or player.connected_channel.id != ctx.author.voice.channel.id:
+                return await ctx.send('Join my voice channel!')
+
+        query = query.strip('<>')
+
+        if not url_rx.match(query):
+            query = f'ytsearch:{query}'
+
+        results = await self.bot.lavalink.get_tracks(query)
+
+        if not results or not results['tracks']:
+            return await ctx.send('Nothing found!')
+
+        embed = discord.Embed(colour=ctx.guild.me.top_role.colour)
+
+        if results['loadType'] == "PLAYLIST_LOADED":
+            tracks = results['tracks']
+
+            for track in tracks:
+                player.add_to_top(requester=ctx.author.id, track=track)
+
+            embed.title = "Playlist Enqueued!"
+            embed.description = f"{results['playlistInfo']['name']} - {len(tracks)} tracks"
+            await ctx.send(embed=embed)
+        else:
+            if player.is_playing:
+                track = results['tracks'][0]
+                embed.title = "Song Enqueued"
+                embed.description = f'[{track["info"]["title"]}]({track["info"]["uri"]})'
+                await ctx.send(embed=embed)
+                player.add_to_top(requester=ctx.author.id, track=track)
+            else:
+                track = results['tracks'][0]
+                player.add_to_top(requester=ctx.author.id, track=track)
+
+    @commands.command(aliases=['p', 'sing'])
     async def play(self, ctx, *, query):
         """Plays a song.
         You can search from:
