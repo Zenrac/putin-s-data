@@ -67,7 +67,7 @@ class Music:
 
     async def check_karaoke(self, ctx, player):
         if player.karaoke:
-            return await check_dj()
+            return await self.check_dj()
         return False
 
     @commands.command()
@@ -349,10 +349,6 @@ class Music:
     async def now(self, ctx):
         """Shows what's playing right now."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
-
-        if not await self.check_karaoke(ctx, player):
-            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
-                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
         song = 'Nothing'
 
         if player.current:
@@ -374,10 +370,6 @@ class Music:
     async def queue(self, ctx):
         """Shows the queue."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
-
-        if not await self.check_karaoke(ctx, player):
-            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
-                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         if not player.queue:
             return await ctx.send('There\'s nothing in the queue! Why not queue something?')
