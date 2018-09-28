@@ -63,10 +63,11 @@ class Music:
 
         # if permissions.manage_channels or permissions.administrator:
         #     return True
-        
+
         return False
 
     async def check_karaoke(self, ctx, player):
+        await ctx.send(player.karaoke)
         if player.karaoke:
             if await self.check_dj(ctx):
                 return True
