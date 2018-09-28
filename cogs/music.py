@@ -53,7 +53,7 @@ class Music:
     async def check_role_or_perms(self, ctx):
         roles = ctx.author.roles
         for role in roles:
-            if role.name.lower() == 'dj' or 'music master:
+            if role.name.lower() == 'dj' or 'music master':
                 return True
 
         permissions = ctx.channel.permissions_for(ctx.author)
