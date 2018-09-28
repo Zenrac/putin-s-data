@@ -327,7 +327,7 @@ class Music:
         if not ctx.author.voice or not ctx.author.voice.channel or player.connected_channel.id != ctx.author.voice.channel.id:
                 return await ctx.send('Join my voice channel!')
 
-        await ctx.send('⏭ | Skipped.')
+        await ctx.send('⏭ Skipped.')
         await player.skip()
 
     @commands.command()
@@ -347,7 +347,7 @@ class Music:
 
         player.queue.clear()
         await player.stop()
-        await ctx.send('⏹ | Stopped.')
+        await ctx.send('⏹ Stopped.')
 
     @commands.command(aliases=['np', 'n'])
     async def now(self, ctx):
@@ -458,10 +458,10 @@ class Music:
 
         if player.paused:
             await player.set_pause(False)
-            await ctx.send('⏯ | Resumed')
+            await ctx.send('⏯ Resumed')
         else:
             await player.set_pause(True)
-            await ctx.send('⏯ | Paused')
+            await ctx.send('⏯ Paused')
 
     @commands.command(aliases=['vol'])
     async def volume(self, ctx, volume: int=None):
@@ -473,13 +473,13 @@ class Music:
                                   f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         if not volume:
-            return await ctx.send(f'🔈 | {player.volume}%')
+            return await ctx.send(f'🔈 {player.volume}%')
 
         if not ctx.author.voice or not ctx.author.voice.channel or player.connected_channel.id != ctx.author.voice.channel.id:
                 return await ctx.send('Join my voice channel!')
 
         await player.set_volume(volume)
-        await ctx.send(f'🔈 | Set to {player.volume}%')
+        await ctx.send(f'🔈 Set to {player.volume}%')
 
     @commands.command()
     async def shuffle(self, ctx):
@@ -498,7 +498,7 @@ class Music:
 
         player.shuffle = not player.shuffle
 
-        await ctx.send('🔀 | Shuffle ' + ('enabled' if player.shuffle else 'disabled'))
+        await ctx.send('🔀 Shuffle ' + ('enabled' if player.shuffle else 'disabled'))
 
     @commands.command()
     async def repeat(self, ctx):
@@ -517,7 +517,7 @@ class Music:
 
         player.repeat = not player.repeat
 
-        await ctx.send('🔁 | Repeat ' + ('enabled' if player.repeat else 'disabled'))
+        await ctx.send('🔁 Repeat ' + ('enabled' if player.repeat else 'disabled'))
 
     @commands.command()
     async def remove(self, ctx, index: int):
@@ -585,7 +585,7 @@ class Music:
 
         player.queue.clear()
         await player.disconnect()
-        await ctx.send('*⃣ | Disconnected.')
+        await ctx.send('*⃣  Disconnected.')
 
 
 def setup(bot):
