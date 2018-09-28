@@ -183,6 +183,7 @@ class Settings():
         settings = await self.get_settings(ctx.guild.id)
         if not settings: return
         if not settings.advert: return
+        if isinstance(ctx.author, discord.User): return
         resolved = ctx.author.guild_permissions
         if getattr(resolved, 'manage_messages', None) == True: return
         for role in ctx.author.roles:

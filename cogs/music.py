@@ -53,6 +53,18 @@ class Music:
                         return
                     await c.send('There is no more songs in the queue. Why not add some more?')
 
+    async def check_role_or_perms(self, ctx):
+        roles = ctx.author.roles
+        for role in roles:
+            if role.name.lower() == 'dj' or 'music master:
+                return True
+
+        permissions = ctx.channel.permissions_for(ctx.author)
+
+        if permissions.manage_channels or permissions.administrator:
+            return True
+        return False
+
     @commands.command(aliases=['p', 'sing'])
     async def play(self, ctx, *, query):
         """Plays a song.
