@@ -240,7 +240,8 @@ class DisLogs:
         try:
             e = discord.Embed(title=f"Welcome {member.display_name}!", color=member.top_role.color)
             e.set_image(url=f'https://kaan.ga/api/welcome/{member.display_name}/{member.id}/{member.avatar}')
-            await ch.send(embed=e)
+            if ch:
+                await ch.send(embed=e)
         except discord.HTTPException:
             await ch.send(f'Welcome to {member.guild} {member.display_name}!')
 
