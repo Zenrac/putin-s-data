@@ -63,6 +63,16 @@ class Music:
         return False
 
     @commands.command()
+    async def karaoke(self, ctx):
+        player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        player.toggle_karaoke()
+
+        state = 'enabled' if player.karaoke else 'disabled'
+
+        await ctx.send(f'{ctx.tick(True)} Karaoke mode is now {state}.')
+
+    @commands.command()
     async def addtop(self, ctx, *, query):
         """Plays a song.
         You can search from:
