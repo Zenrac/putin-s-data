@@ -62,7 +62,7 @@ class Music:
             return True
         return False
 
-    @commands.command(aliases=['p', 'sing'])
+    @commands.command()
     async def addtop(self, ctx, *, query):
         """Plays a song.
         You can search from:
