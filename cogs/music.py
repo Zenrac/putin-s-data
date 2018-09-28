@@ -63,24 +63,20 @@ class Music:
 
         # if permissions.manage_channels or permissions.administrator:
         #     return True
+        
         return False
 
     async def check_karaoke(self, ctx, player):
-        try:
-            if player.karaoke:
-                await ctx.send(await self.check_dj(ctx))
-                return await self.check_dj(ctx)
-        except Exception as e:
-            await ctx.send(e)
+        if player.karaoke:
+            if await self.check_dj(ctx):
+                return True
+            else:
+                return False
         return True
 
     @commands.command()
     async def karaoke(self, ctx):
         player = self.bot.lavalink.players.get(ctx.guild.id)
-
-        perms = await self.check_karaoke(ctx, player)
-
-        await ctx.send(perms)
 
         if not await self.check_karaoke(ctx, player):
             return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
