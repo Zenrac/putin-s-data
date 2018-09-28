@@ -54,10 +54,10 @@ class Music:
         if ctx.author.id == self.bot.owner_id:
             return True
 
-        roles = ctx.author.roles
-        for role in roles:
-            if role.name.lower() == 'dj' or 'music master':
-                return True
+        # roles = ctx.author.roles
+        # for role in roles:
+        #     if role.name.lower() == 'dj' or 'music master':
+        #         return True
 
         # permissions = ctx.channel.permissions_for(ctx.author)
 
