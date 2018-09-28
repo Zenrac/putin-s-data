@@ -59,17 +59,15 @@ class Music:
         #     if role.name.lower() == 'dj' or 'music master':
         #         return True
 
-        # permissions = ctx.channel.permissions_for(ctx.author)
+        permissions = ctx.channel.permissions_for(ctx.author)
 
-        # if permissions.manage_channels or permissions.administrator:
-        #     return True
+        if permissions.manage_channels or permissions.administrator:
+            return True
 
         return False
 
     async def check_karaoke(self, ctx, player):
         if player.karaoke:
-            await ctx.send(await self.check_dj(ctx) is True)
-            await ctx.send(player.karaoke)
             return await self.check_dj(ctx) is True
         return True
 
