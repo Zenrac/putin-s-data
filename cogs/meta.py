@@ -524,9 +524,9 @@ class Meta:
         await ctx.send(embed=e)
 
     @commands.command()
-    async def lyrics(self, ctx, np:str=None):
+    async def lyrics(self, ctx, track_name:str=None):
         """Gives you lyrics for a song from Google's Genius.com."""
-        if np == 'np':
+        if track_name == 'np':
             player = self.bot.lavalink.players.get(ctx.guild.id)
             if not player.current:
                 return await ctx.send(f'{ctx.tick(False)} Nothing playing at the moment.')
