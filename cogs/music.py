@@ -50,7 +50,10 @@ class Music:
                         return
                     await c.send('There is no more songs in the queue. Why not add some more?')
 
-    async def check_role_or_perms(self, ctx):
+    async def check_dj(self, ctx):
+        if ctx.author.id == self.bot.owner_id:
+            return True
+
         roles = ctx.author.roles
         for role in roles:
             if role.name.lower() == 'dj' or 'music master':
@@ -62,9 +65,18 @@ class Music:
             return True
         return False
 
+    async def check_karaoke(self, ctx, player):
+        if player.karaoke:
+            return await check_dj()
+        return False
+
     @commands.command()
     async def karaoke(self, ctx):
         player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         player.toggle_karaoke()
 
@@ -85,6 +97,10 @@ class Music:
         # if not await check_role_or_perms(ctx):
         #     return await ctx.send('You are not a DJ.')
         player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         if not player.is_connected:
             if not ctx.author.voice or not ctx.author.voice.channel:
@@ -145,6 +161,10 @@ class Music:
           -mixer"""
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
+
         if not player.is_connected:
             if not ctx.author.voice or not ctx.author.voice.channel:
                 return await ctx.send('Join a voice channel first!')
@@ -199,6 +219,10 @@ class Music:
     async def radio(self, ctx):
         """Plays music from random radio playlist."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         if not player.is_connected:
             if not ctx.author.voice or not ctx.author.voice.channel:
@@ -258,6 +282,10 @@ class Music:
         """Seeks the track."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
+
         if not player.is_playing:
             return await ctx.send('Not playing.')
 
@@ -285,6 +313,10 @@ class Music:
         """Skips the song."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
+
         if not player.is_playing:
             return await ctx.send('Not playing.')
 
@@ -298,6 +330,10 @@ class Music:
     async def stop(self, ctx):
         """Stops the player and clears the queue."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         if not player.is_playing:
             return await ctx.send('Not playing.')
@@ -313,6 +349,10 @@ class Music:
     async def now(self, ctx):
         """Shows what's playing right now."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
         song = 'Nothing'
 
         if player.current:
@@ -334,6 +374,10 @@ class Music:
     async def queue(self, ctx):
         """Shows the queue."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         if not player.queue:
             return await ctx.send('There\'s nothing in the queue! Why not queue something?')
@@ -406,6 +450,10 @@ class Music:
         """Pauses or resumes the track."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
+
         if not player.is_playing:
             return await ctx.send('Not playing.')
 
@@ -424,6 +472,10 @@ class Music:
         """Sets the volume."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
+
         if not volume:
             return await ctx.send(f'🔈 | {player.volume}%')
 
@@ -437,6 +489,10 @@ class Music:
     async def shuffle(self, ctx):
         """Shuffles the queue."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         if not player.is_playing:
             return await ctx.send('Nothing playing.')
@@ -453,6 +509,10 @@ class Music:
         """Repeats the current queue."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
+
         if not player.is_playing:
             return await ctx.send('Nothing playing.')
 
@@ -467,6 +527,10 @@ class Music:
     async def remove(self, ctx, index: int):
         """Removes a song from the queue."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         if not player.queue:
             return await ctx.send('Nothing queued.')
@@ -512,6 +576,10 @@ class Music:
     async def leave(self, ctx):
         """Disconnects from the voice channel."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
         if not player.is_connected:
             return await ctx.send('Not connected.')
