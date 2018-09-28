@@ -72,6 +72,10 @@ class Music:
 
     @commands.command()
     async def karaoke(self, ctx):
+        """Toggles the karaoke mode of the player.
+        If karaoke mode is enabled only users
+        with role name `DJ` or `Music Master`
+        can control music."""
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not await self.check_karaoke(ctx, player):
