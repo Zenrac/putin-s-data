@@ -67,7 +67,7 @@ class Music:
 
     async def check_karaoke(self, ctx, player):
         if player.karaoke:
-            return await self.check_dj()
+            return await self.check_dj(ctx)
         return True
 
     @commands.command()
