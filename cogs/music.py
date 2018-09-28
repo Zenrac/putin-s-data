@@ -73,7 +73,7 @@ class Music:
                 return True
             else:
                 return False
-        return True
+        return False
 
     @commands.command()
     async def karaoke(self, ctx):
