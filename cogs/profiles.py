@@ -1474,7 +1474,7 @@ class Profile():
         await ctx.send(f'Now quickly say ``{word}``')
 
         def pred(m):
-            return m.author == member or ctx.author and m.channel == ctx.channel
+            return m.author == member or m.author == ctx.author and m.channel == ctx.channel
 
         answer = await self.bot.wait_for('message', check=pred)
 

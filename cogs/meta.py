@@ -524,9 +524,9 @@ class Meta:
         await ctx.send(embed=e)
 
     @commands.command()
-    async def lyrics(self, ctx, track_name:str=None):
+    async def lyrics(self, ctx, artist_name:str=None):
         """Gives you lyrics for a song from Google's Genius.com."""
-        if track_name == 'np':
+        if artist_name == 'np':
             player = self.bot.lavalink.players.get(ctx.guild.id)
             if not player.current:
                 return await ctx.send(f'{ctx.tick(False)} Nothing playing at the moment.')
@@ -538,6 +538,19 @@ class Meta:
             except KeyError:
                 track_name = None
                 return await ctx.send(f'{ctx.tick(False)} Couldn\'t get lyrics for the current song...')
+
+
+        if artist_name is None:
+            await ctx.send('What is the artist\'s name?\nYou have 1 minute to say it.')
+            def pred(m):
+                return m.author == ctx.message.author and m.channel == ctx.message.channel
+
+            artist = await self.bot.wait_for('message', timeout=60.0, check=pred)
+            try:
+                artist_name = artist.content
+            except asyncio.TimeoutError:
+                await ctx.send('You took too long. Cya :wave:')
+                
         if track_name is None:
             await ctx.send('Alright, what\'s the song\'s name?\nYou have 1 minute to say it.')
             def pred(m):
@@ -553,7 +566,7 @@ class Meta:
             base_url = 'https://api.genius.com'
             headers = {'Authorization': 'Bearer ' + 'obiZ5OI5scEi2vupO_VyKfm99Jos1-zMUrv44pXVOxy7oVlDAdCrZUR-PpPCKD0H'}
             search_url = base_url + '/search'
-            data = {'q': song_title}
+            data = {'q': song_title + ' ' + artist_name}
             async with aiohttp.ClientSession() as cs:
                 async with cs.get(search_url, data=data, headers=headers) as res:
                     response = await res.json()
