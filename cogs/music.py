@@ -74,6 +74,10 @@ class Music:
     async def karaoke(self, ctx):
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
+        perms = await self.check_karaoke(ctx, player)
+
+        await ctx.send(perms)
+
         if not await self.check_karaoke(ctx, player):
             return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
                                   f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
