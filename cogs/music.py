@@ -109,13 +109,13 @@ class Music:
             for track in tracks:
                 player.add_to_top(requester=ctx.author.id, track=track)
 
-            embed.title = "Playlist Enqueued!"
+            embed.title = "Playlist added to the top of the queue!"
             embed.description = f"{results['playlistInfo']['name']} - {len(tracks)} tracks"
             await ctx.send(embed=embed)
         else:
             if player.is_playing:
                 track = results['tracks'][0]
-                embed.title = "Song Enqueued"
+                embed.title = "Song added to the top of the queue"
                 embed.description = f'[{track["info"]["title"]}]({track["info"]["uri"]})'
                 await ctx.send(embed=embed)
                 player.add_to_top(requester=ctx.author.id, track=track)
