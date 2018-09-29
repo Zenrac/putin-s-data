@@ -236,7 +236,7 @@ class Music:
           -mixer
           The default serach is youtube.
           For example if you want to search from soundcloud you say
-          ``.play scsearch:music``"""
+          ``.play scsearch:music``
         """
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
