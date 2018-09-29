@@ -305,7 +305,8 @@ class Admin:
         msg.content = ctx.prefix + command
         new_ctx = await self.bot.get_context(msg, cls=context.Context)
         new_ctx.bot.pool = self.bot.pool
-        await self.bot.invoke(new_ctx)
+        async with ctx.acquire():
+            await self.bot.invoke(new_ctx)
 
 def setup(bot):
     bot.add_cog(Admin(bot))
