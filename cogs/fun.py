@@ -14,12 +14,15 @@ class Fun():
         self.bot = bot
 
     @commands.command()
-    async def gayify(self, ctx, member:discord.Member=None):
+    async def gayify(self, ctx, member:discord.Member=None, member2:discord.Member=None):
         if not member:
             return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to gayify.')
 
+        if not member2:
+            member2 = ctx.author
+
         e = discord.Embed()
-        e.set_image(url=f'https://kaan.ga/iWeeti/gayify/{ctx.author.id}/{ctx.author.avatar}/{member.id}/{member.avatar}/')
+        e.set_image(url=f'https://kaan.ga/iWeeti/gayify/{member2.id}/{member2.avatar}/{member.id}/{member.avatar}/')
 
         await ctx.send(embed=e)
 
