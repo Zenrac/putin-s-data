@@ -150,7 +150,7 @@ class Admin:
                     fmt = f'```py\n{value}\n```'
                 if len(fmt) > 2000:
                     fp = io.BytesIO(fmt.encode('utf-8'))
-                    await ctx.send('Too many results...', file=discord.File(fp, 'results.txt'))
+                    await ctx.send('Too long to output...', file=discord.File(fp, 'eval.txt'))
                 else:
                     await ctx.send(fmt)
             else:
@@ -158,7 +158,7 @@ class Admin:
                 fmt = f'```py\n{value}{ret}\n```'
                 if len(fmt) > 2000:
                     fp = io.BytesIO(fmt.encode('utf-8'))
-                    await ctx.send('Too many results...', file=discord.File(fp, 'results.txt'))
+                    await ctx.send('Too long to output...', file=discord.File(fp, 'eval.txt'))
                 else:
                     await ctx.send(fmt)
 
