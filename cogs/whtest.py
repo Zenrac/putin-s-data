@@ -49,7 +49,7 @@ class Suggestion:
 	async def suggest_enable(self, ctx, channel:TextChannel=None):
 		if not channel:
 			overwrites = {
-			guild.default_role: PermissionOverwrite(send_messages=False)
+			ctx.guild.default_role: PermissionOverwrite(send_messages=False)
 			}
 			channel = await ctx.guild.create_text_channel('suggestions', overwrites=overwrites)
 
