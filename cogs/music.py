@@ -202,7 +202,7 @@ class Music:
             track = results['tracks'][0]
             player.playnow(requester=ctx.author.id, track=track)
 
-    @commands.command(aliases=['p', 'sing'])
+    @commands.command(aliases=['pnow', 'singnow'])
     async def play(self, ctx, *, query):
         """Plays a song.
         You can search from:
