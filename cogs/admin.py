@@ -148,11 +148,11 @@ class Admin:
             if ret is None:
                 if value:
                     fmt = f'```py\n{value}\n```'
-                if len(fmt) > 2000:
-                    fp = io.BytesIO(fmt.encode('utf-8'))
-                    await ctx.send('Too long to output...', file=discord.File(fp, 'eval.txt'))
-                else:
-                    await ctx.send(fmt)
+                    if len(fmt) > 2000:
+                        fp = io.BytesIO(fmt.encode('utf-8'))
+                        await ctx.send('Too long to output...', file=discord.File(fp, 'eval.txt'))
+                    else:
+                        await ctx.send(fmt)
             else:
                 self._last_result = ret
                 fmt = f'```py\n{value}{ret}\n```'
