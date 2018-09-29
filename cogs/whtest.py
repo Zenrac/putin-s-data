@@ -18,10 +18,7 @@ class SuggestionConfig:
 			webhook._adapter.store_user = webhook._adapter._store_user
 			e = Embed(title="Suggestion", description=suggestion, color=ctx.author.top_role.color)
 			msg = await webhook.send(embed=e, username=ctx.author.display_name, avatar_url=ctx.author.avatar_url, wait=True)
-			yes = self.bot.get_emoji(491575309045465089)
-			no = self.bot.get_emoji(491575308944932866)
-			await msg.add_reaction(yes)
-			await msg.add_reaction(no)
+		return msg
 
 		# _ch = self.bot.get_guild(self.id).get_channel(self.channel)
 		# self._webhook = await _ch.create_webhook('suggestion-webhook')
@@ -46,9 +43,14 @@ class Suggestion:
 		if not text:
 			return await ctx.send(f'{ctx.tick(False)} You forgot the actual suggestion.')
 
-		await config.send(ctx, text)
+		msg = await config.send(ctx, text)
 
 		await ctx.send(f'{ctx.tick(True)} Suggestion sent.')
+
+		yes = self.bot.get_emoji(491575309045465089)
+		no = self.bot.get_emoji(491575308944932866)
+		await msg.add_reaction(yes)
+		await msg.add_reaction(no)
 
 	@commands.command()
 	@checks.is_mod()
