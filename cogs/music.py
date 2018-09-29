@@ -99,7 +99,7 @@ class Music:
 
     @commands.command()
     async def addtop(self, ctx, *, query):
-        """Plays a song.
+        """Adds a song to the top of the queue.
         You can search from:
           -youtube
           -bandcamp
@@ -107,8 +107,6 @@ class Music:
           -twitch
           -vimeo
           -mixer"""
-        # if not await check_role_or_perms(ctx):
-        #     return await ctx.send('You are not a DJ.')
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not await self.check_karaoke(ctx, player):
