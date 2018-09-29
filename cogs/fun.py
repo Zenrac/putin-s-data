@@ -32,12 +32,12 @@ class Fun():
             member2 = ctx.author
 
         if len(member.display_name.split()) == 1:
-            name_1 = member.display_name[0:len(member.display_name)/2]
+            name_1 = member.display_name[0:len(member.display_name) / 2]
         else:
             name_1 = member.display_name.split()[0]
 
         if len(member2.display_name.split()) == 1:
-            name_2 = member2.display_name[len(member2.display_name)/2:len(member2.display_name)]
+            name_2 = member2.display_name[len(member2.display_name) / 2:len(member2.display_name)]
         else:
             name_2 = member2.display_name.split()[1]
 
