@@ -1,6 +1,7 @@
 from discord.ext import commands
 from discord import Embed, Webhook, AsyncWebhookAdapter
 import asyncio
+import aiohttp
 
 from .utils import checks
 
