@@ -47,13 +47,15 @@ class Suggestion:
 
 		await ctx.send(f'{ctx.tick(True)} Suggestion sent.')
 
-		yes = self.bot.get_emoji(491575309045465089)
-		no = self.bot.get_emoji(491575308944932866)
+		# This is commented since the wrapper is having bugs with this.
 
-		msg = self.bot.get_guild(msg.guild.id).get_channel(msg.channel.id).get_message(msg.id)
+		# yes = self.bot.get_emoji(491575309045465089)
+		# no = self.bot.get_emoji(491575308944932866)
 
-		await msg.add_reaction(yes)
-		await msg.add_reaction(no)
+		# msg = self.bot.get_guild(msg.guild.id).get_channel(msg.channel.id).get_message(msg.id)
+
+		# await msg.add_reaction(yes)
+		# await msg.add_reaction(no)
 
 	@commands.command()
 	@checks.is_mod()
