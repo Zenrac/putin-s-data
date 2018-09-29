@@ -180,6 +180,7 @@ class Settings():
     async def on_message(self, message):
         if not message.guild: return
         ctx = await self.bot.get_context(message)
+        if not ctx.guild: return
         settings = await self.get_settings(ctx.guild.id)
         if not settings: return
         if not settings.advert: return
