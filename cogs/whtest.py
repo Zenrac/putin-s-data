@@ -49,6 +49,9 @@ class Suggestion:
 
 		yes = self.bot.get_emoji(491575309045465089)
 		no = self.bot.get_emoji(491575308944932866)
+
+		msg = self.bot.get_guild(msg.guild.id).get_channel(msg.channel.id).get_message(msg.id)
+
 		await msg.add_reaction(yes)
 		await msg.add_reaction(no)
 
