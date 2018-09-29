@@ -36,9 +36,11 @@ class Suggestion:
 
 	@commands.command()
 	async def suggest(self, ctx, *, text:str=None):
+		"""Sends a suggest message to a suggestions channel."""
 		config = await self.get_config(ctx.guild.id)
 		if not config:
-			return await ctx.send(f'{ctx.tick(False)} This server does not have suggestions enabled.')
+			return await ctx.send(f'{ctx.tick(False)} This server does not have suggestions enabled.\n'\
+								  f'If you are a moderator you can use ``{ctx.prefix}suggest_enable`` to enable suggestions.')
 
 		if not text:
 			return await ctx.send(f'{ctx.tick(False)} You forgot the actual suggestion.')
@@ -60,6 +62,7 @@ class Suggestion:
 	@commands.command()
 	@checks.is_mod()
 	async def suggest_enable(self, ctx, channel:TextChannel=None):
+		"""Creates a suggestion channel and webhook for server specific suggestions."""
 		if not channel:
 			overwrites = {
 			ctx.guild.default_role: PermissionOverwrite(send_messages=False)
