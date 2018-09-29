@@ -31,21 +31,7 @@ class Suggestion:
 			return None
 		return SuggestionConfig(self.bot, record)
 
-	@commands.command()
-	@checks.is_mod()
-	async def suggest-enable(self, ctx, channel:discord.TextChannel=None):
-		if not channel:
-			overwrites = {
-			guild.default_role: PermissionOverwrite(send_messages=False)
-			}
-			channel = await ctx.guild.create_text_channel('suggestions', overwrites=overwrites)
-
-		webhook = await channel.create_webhook('suggestion-webhook')
-		await ctx.db.execute('INSERT INTO suggestions VALUES ($1)', webhook.url)
-
-		await ctx.send(f'{ctx.tick(True)} Suggestions are now enabled.')
-
-	@commands.command()
+	@commands.group()
 	async def suggest(self, ctx, *, text:str=None):
 		config = await self.get_config(ctx.guild.id)
 		if not config:
@@ -57,6 +43,20 @@ class Suggestion:
 		await config.send(ctx, text)
 
 		await ctx.send(f'{ctx.tick(True)} Suggestion sent.')
+
+	@suggest.command(name='enable')
+	@checks.is_mod()
+	async def suggest_enable(self, ctx, channel:discord.TextChannel=None):
+		if not channel:
+			overwrites = {
+			guild.default_role: PermissionOverwrite(send_messages=False)
+			}
+			channel = await ctx.guild.create_text_channel('suggestions', overwrites=overwrites)
+
+		webhook = await channel.create_webhook('suggestion-webhook')
+		await ctx.db.execute('INSERT INTO suggestions VALUES ($1)', webhook.url)
+
+		await ctx.send(f'{ctx.tick(True)} Suggestions are now enabled.')
 
 def setup(bot):
 	bot.add_cog(Suggestion(bot))
