@@ -18,7 +18,7 @@ class WHTest:
 	@checks.is_mod()
 	async def wh(self, ctx):
 		await self.whsend(
-			'https://discordapp.com/api/webhooks/495654255470968842/gJge2raRFT6AKa1jInJCliZPJ1RwxdqR20XRogM_LK-VByZUQYywvcKiWOenzn3a35n0',
+			'https://discordapp.com/api/webhooks/495658670693154816/7XrwT81R5BXGKn2IUIafEi795fXUBs19YY_1VAylzudcIvqBKZr_5HS7sE8ywuKBZsO3',
 			ctx.author.display_name,
 			ctx.message.clean_content,
 			ctx.author.avatar_url)
