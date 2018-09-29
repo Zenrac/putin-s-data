@@ -49,7 +49,7 @@ class Suggestion:
 
 		yes = self.bot.get_emoji(491575309045465089)
 		no = self.bot.get_emoji(491575308944932866)
-		await msg.add_reaction('👍')
+		await ctx.message.add_reaction(yes)
 		await msg.add_reaction(no)
 
 	@commands.command()
