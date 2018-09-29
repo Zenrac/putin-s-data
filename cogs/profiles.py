@@ -375,6 +375,20 @@ class Profile():
         await ctx.send('Alright! Your profile is all ready now.')
 
     @commands.command()
+    @commands.cooldown(1, 1800, commands.BucketType.user)
+    async def work(self, ctx):
+        profile = await self.get_profile(ctx)
+        
+        amount = random.randint(100, 300)
+
+        responses = [
+            'You went to work and got {amount}.',
+            'You were going to work, but you got {amount} from a stranger and decided to head back to home.',
+        ]
+
+        await ctx.send(random.choice(responses).format(amount=amount))
+
+    @commands.command()
     @commands.cooldown(1, 300, commands.BucketType.user)
     async def mine(self, ctx):
         """Mines with a chance of getting money and or diamond."""
