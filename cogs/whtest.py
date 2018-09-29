@@ -46,7 +46,7 @@ class Suggestion:
 
 	@suggest.command(name='enable')
 	@checks.is_mod()
-	async def suggest_enable(self, ctx, discord.TextChannel=None):
+	async def suggest_enable(self, ctx, channel:TextChannel=None):
 		if not channel:
 			overwrites = {
 			guild.default_role: PermissionOverwrite(send_messages=False)
