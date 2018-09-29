@@ -36,6 +36,7 @@ class Blacklist:
 
 	async def on_message(self, message):
 		if message.author.bot: return
+		if isinstance(message.channel, discord.DMChannel): return
 		ctx = await self.bot.get_context(message)
 		perms = await self.check_perms(ctx, message.author)
 		if perms: return
