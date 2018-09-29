@@ -1,5 +1,5 @@
 from discord.ext import commands
-from discord import Embed, Webhook, AsyncWebhookAdapter, PermissionOverwrite
+from discord import Embed, Webhook, AsyncWebhookAdapter, PermissionOverwrite, TextChannel
 import asyncio
 import aiohttp
 
@@ -46,7 +46,7 @@ class Suggestion:
 
 	@suggest.command(name='enable')
 	@checks.is_mod()
-	async def suggest_enable(self, ctx, channel:discord.TextChannel=None):
+	async def suggest_enable(self, ctx, discord.TextChannel=None):
 		if not channel:
 			overwrites = {
 			guild.default_role: PermissionOverwrite(send_messages=False)
