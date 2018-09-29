@@ -147,10 +147,20 @@ class Admin:
 
             if ret is None:
                 if value:
-                    await ctx.send(f'```py\n{value}\n```')
+                    fmt = f'```py\n{value}\n```'
+                if len(fmt) > 2000:
+                    fp = io.BytesIO(fmt.encode('utf-8'))
+                    await ctx.send('Too many results...', file=discord.File(fp, 'results.txt'))
+                else:
+                    await ctx.send(fmt)
             else:
                 self._last_result = ret
-                await ctx.send(f'```py\n{value}{ret}\n```')
+                fmt = f'```py\n{value}{ret}\n```'
+                if len(fmt) > 2000:
+                    fp = io.BytesIO(fmt.encode('utf-8'))
+                    await ctx.send('Too many results...', file=discord.File(fp, 'results.txt'))
+                else:
+                    await ctx.send(fmt)
 
     @commands.command(pass_context=True, hidden=True)
     @commands.is_owner()
