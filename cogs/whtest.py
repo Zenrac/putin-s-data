@@ -50,11 +50,6 @@ class Suggestion:
 		yes = self.bot.get_emoji(491575309045465089)
 		no = self.bot.get_emoji(491575308944932866)
 
-		await ctx.send(dir(msg))
-		await ctx.send(msg.guild.id)
-		await ctx.send(msg.channel.id)
-		await ctx.send(msg.id)
-
 		msg = self.bot.get_guild(msg.guild.id).get_channel(msg.channel.id).get_message(msg.id)
 
 		await msg.add_reaction(yes)
