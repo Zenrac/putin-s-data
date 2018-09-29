@@ -17,11 +17,12 @@ class WHTest:
 	@commands.command()
 	@checks.is_mod()
 	async def wh(self, ctx):
+		user = await self.bot.get_user_info(257262778602094593)
 		await self.whsend(
 			'https://discordapp.com/api/webhooks/495658670693154816/7XrwT81R5BXGKn2IUIafEi795fXUBs19YY_1VAylzudcIvqBKZr_5HS7sE8ywuKBZsO3',
-			ctx.author.display_name,
-			ctx.message.clean_content,
-			ctx.author.avatar_url)
+			user.display_name,
+			user.clean_content,
+			user.avatar_url)
 
 def setup(bot):
 	bot.add_cog(WHTest(bot))
