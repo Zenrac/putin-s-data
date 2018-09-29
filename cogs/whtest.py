@@ -31,7 +31,7 @@ class Suggestion:
 			return None
 		return SuggestionConfig(self.bot, record)
 
-	@commands.commands()
+	@commands.command()
 	async def suggest(self, ctx, *, text:str=None):
 		config = await self.get_config(ctx.guild.id)
 		if not config:
