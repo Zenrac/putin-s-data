@@ -146,7 +146,7 @@ class Music:
             tracks = results['tracks']
 
             for track in tracks:
-                player.add_to_top(requester=ctx.author.id, track=track)
+                player.add_next(requester=ctx.author.id, track=track)
 
             embed.title = "Playlist added to the top of the queue!"
             embed.description = f"{results['playlistInfo']['name']} - {len(tracks)} tracks"
@@ -157,10 +157,10 @@ class Music:
                 embed.title = "Song added to the top of the queue"
                 embed.description = f'[{track["info"]["title"]}]({track["info"]["uri"]})'
                 await ctx.send(embed=embed)
-                player.add_to_top(requester=ctx.author.id, track=track)
+                player.add_next(requester=ctx.author.id, track=track)
             else:
                 track = results['tracks'][0]
-                player.add_to_top(requester=ctx.author.id, track=track)
+                player.add_next(requester=ctx.author.id, track=track)
 
     @commands.command(aliases=['pnow', 'singnow'])
     async def playnow(self, ctx, *, query):
