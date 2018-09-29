@@ -60,7 +60,7 @@ class Suggestion:
 			return await ctx.send(f'{ctx.tick(False)} Couldn\'t create the webhook for the suggestions.\n'\
 								  f'Are you sure that I have enough permissions to do it?')
 		
-		await ctx.db.execute('INSERT INTO suggestions VALUES ($1)', webhook.url)
+		await ctx.db.execute('INSERT INTO suggestions VALUES ($1, $2)', ctx.guild.id, webhook.url)
 
 		await ctx.send(f'{ctx.tick(True)} Suggestions are now enabled.')
 
