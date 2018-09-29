@@ -1,4 +1,4 @@
-"""Discord bot made by iWeeti"""
+"""Discord bot made by iWeeti#8031"""
 import datetime
 import json
 import copy
@@ -67,7 +67,7 @@ def _prefix_callable(bot, msg):
     return base
 
 class WBot(commands.AutoShardedBot):
-    """Discord bot made by iWeeti#4990."""
+    """Discord bot made by iWeeti#8031."""
     def __init__(self):
         super().__init__(command_prefix=_prefix_callable,
                          description=DESCRIPTION,
@@ -157,11 +157,13 @@ class WBot(commands.AutoShardedBot):
 
     @property
     def error_ch(self):
+        """Returns the error logging channel."""
         ch = self.get_channel(491609962821451776)
         return ch
 
     @property
     def guild_ch(self):
+        """Returns the guild logging channel."""
         ch = self.get_channel(493774827610439690)
         return ch
 
