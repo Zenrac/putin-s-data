@@ -61,7 +61,7 @@ class Admin:
         x = x.replace('From https://github.com/iWeeti/putin-s-data', '')
         await msg.edit(content=f'```bash\n{x}\n```')
         modules = re.search('\w*\.py', x)
-        if modules:
+        if modules is not None:
             await ctx.invoke(self.reload, module=modules.group())
         
     @commands.command(hidden=True)
