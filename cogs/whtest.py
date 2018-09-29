@@ -55,7 +55,7 @@ class Suggestion:
 			channel = await ctx.guild.create_text_channel('suggestions', overwrites=overwrites)
 
 		try:
-			webhook = await channel.create_webhook('suggestion-webhook')
+			webhook = await channel.create_webhook(name='suggestion-webhook')
 		except discord.Forbidden:
 			return await ctx.send(f'{ctx.tick(False)} Couldn\'t create the webhook for the suggestions.\n'\
 								  f'Are you sure that I have enough permissions to do it?')
