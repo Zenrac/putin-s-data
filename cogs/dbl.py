@@ -59,7 +59,10 @@ class DBL():
             has_support = True if bot_support else False
             bot_website = data['website']
             has_website = True if bot_website else False
-            bot_github = data['github']
+            try:
+                bot_github = data['github']
+            except KeyError:
+                bot_github = None
             has_github = True if bot_github else False
             bot_owners_raw = data['owners']
             has_many_owners = True if len(bot_owners_raw) > 1 else False
