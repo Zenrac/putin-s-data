@@ -31,7 +31,7 @@ class Suggestion:
 			return None
 		return SuggestionConfig(self.bot, record)
 
-	@commands.group()
+	@commands.commands()
 	async def suggest(self, ctx, *, text:str=None):
 		config = await self.get_config(ctx.guild.id)
 		if not config:
@@ -44,7 +44,7 @@ class Suggestion:
 
 		await ctx.send(f'{ctx.tick(True)} Suggestion sent.')
 
-	@suggest.command(name='enable')
+	@commands.command()
 	@checks.is_mod()
 	async def suggest_enable(self, ctx, channel:TextChannel=None):
 		if not channel:
