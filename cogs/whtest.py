@@ -17,6 +17,7 @@ class SuggestionConfig:
 			webhook = Webhook.from_url(self.wh_url, adapter=AsyncWebhookAdapter(cs))
 			e = Embed(title="Suggestion", description=suggestion, color=ctx.author.top_role.color)
 			msg = await webhook.send(embed=e, username=ctx.author.display_name, avatar_url=ctx.author.avatar_url)
+			await ctx.send(msg)
 			yes = self.bot.get_emoji(491575309045465089)
 			no = self.bot.get_emoji(491575308944932866)
 			await msg.add_reaction(yes)
