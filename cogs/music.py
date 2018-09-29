@@ -200,7 +200,7 @@ class Music:
             return await ctx.send(f'{ctx.tick(False)} You can\'t use playlists with this.')
         else:
             track = results['tracks'][0]
-            player.playnow(requester=ctx.author.id, track=track)
+            await player.playnow(requester=ctx.author.id, track=track)
 
     @commands.command(aliases=['pnow', 'singnow'])
     async def play(self, ctx, *, query):
