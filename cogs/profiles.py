@@ -1194,7 +1194,7 @@ class Profile():
             return await ctx.invoke(self.make)
         if profile.married != 'Nobody...':
             return await ctx.send(f'{ctx.tick(False)} You\'re already married with {profile.married}.')
-        m_profile = await self.get_profile(ctx, ctx.author.id)
+        m_profile = await self.get_profile(ctx, member.id)
         if m_profile is None:
             await ctx.send(f'{ctx.tick(False)} That user does not have a profile.')
         if m_profile.married != 'Nobody...':
@@ -1213,7 +1213,7 @@ class Profile():
         if answer.content.lower() in 'yes':
             await profile.edit_field(ctx, rings=profile.rings - 2)
             await profile.edit_field(ctx, married=member.id)
-            await m_profile.edit_field(ctx, married=ctx.message.author.id)
+            await m_profile.edit_field(ctx, married=ctx.author.id)
             await ctx.send(f':heart: {ctx.author.display_name} is now married with {member.display_name}')
         else:
             await ctx.send('I\'ll take that as a no.')
