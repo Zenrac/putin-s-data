@@ -821,11 +821,13 @@ class Mod():
         if len(to_send) > 2000:
             await ctx.send(f'{ctx.tick(True)} Successfully purged {deleted} messages.', delete_after=10)
             await asyncio.sleep(10)
-            await ctx.message.delete()
+            if ctx.message:
+                await ctx.message.delete()
         else:
             await ctx.send(to_send, delete_after=10)
-            await ctx.message.delete()
             await asyncio.sleep(10)
+            if ctx.message:
+                await ctx.message.delete()
 
     @purge.command()
     async def embeds(self, ctx, search=100):

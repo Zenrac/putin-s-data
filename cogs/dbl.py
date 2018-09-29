@@ -52,7 +52,10 @@ class DBL():
             # has_longdesc = True if bot_longdesc else False
             bot_tags_raw = data['tags']
             bot_tags = ', '.join(bot_tags_raw)
-            bot_support = data['support']
+            try:
+                bot_support = data['support']
+            except KeyError:
+                bot_support = None
             has_support = True if bot_support else False
             bot_website = data['website']
             has_website = True if bot_website else False
