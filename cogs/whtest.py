@@ -9,7 +9,7 @@ class WHTest:
 	def __init__(self, bot):
 		self.bot = bot
 
-	async def whsend(_url, _msg, _username, _avatar_url=None, tts=False, file=None, embed=None):
+	async def whsend(_url, _msg, _username, _avatar_url, tts=False, file=None, embed=None):
 		async with aiohttp.ClientSession() as cs:
 			webhook = Webhook.from_url(_url, adapter=AsyncWebhookAdapter(cs))
 			await webhook.send(_msg, username=_username, avatar_url=_avatar_url, tts=tts, file=file, embed=embed)
