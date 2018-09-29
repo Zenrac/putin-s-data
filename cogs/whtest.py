@@ -27,7 +27,7 @@ class Suggestion:
 		self.bot = bot
 
 	async def get_config(self, guild_id):
-		record = await self.bot.pool.fetchrow('SELECT * FROM suggestions WHERE id=$1;', id)
+		record = await self.bot.pool.fetchrow('SELECT * FROM suggestions WHERE id=$1;', guild_id)
 		if not record:
 			return None
 		return SuggestionConfig(self.bot, record)
