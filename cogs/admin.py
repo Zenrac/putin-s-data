@@ -62,7 +62,7 @@ class Admin:
         await msg.edit(content=f'```bash\n{x}\n```')
         modules = re.search('\w*\.py', x)
         if modules is not None:
-            await ctx.invoke(self.reload, module=modules.group())
+            await ctx.invoke(self._reload, module=modules.group().lower())
         
     @commands.command(hidden=True)
     async def load(self, ctx, *, module):
