@@ -280,6 +280,7 @@ class WBot(commands.AutoShardedBot):
     async def on_command(self, ctx):
         """This triggers when a command is invoked."""
         self.commands_executed += 1
+        if isinstance(ctx.channel, discord.DMChannel): return
         message = ctx.message
         destination = '#{0.channel.name} ({0.guild.name})'.format(message)
         if isinstance(message.channel, discord.DMChannel):

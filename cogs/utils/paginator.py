@@ -40,7 +40,7 @@ class Pages:
         if left_over:
             pages += 1
         self.maximum_pages = pages
-        self.embed = discord.Embed(colour=ctx.author.top_role.color)
+        self.embed = discord.Embed(colour=ctx.author.top_role.color if ctx.author.top_role else 0x047069)
         self.paginating = len(entries) > per_page
         self.show_entry_count = show_entry_count
         self.reaction_emojis = [
