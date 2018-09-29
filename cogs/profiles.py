@@ -149,7 +149,7 @@ class Profile():
             level += 1
         return level
 
-    async def get_profile(self, ctx, id):
+    async def get_profile(self, ctx, id=None):
         if not id:
             id = ctx.author.id
         record = await self.bot.pool.fetchrow(f'select * from profiles where id={id}')
