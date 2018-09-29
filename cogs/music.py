@@ -162,6 +162,18 @@ class Music:
                 track = results['tracks'][0]
                 player.add_next(requester=ctx.author.id, track=track)
 
+    @commands.command()
+    async def playfromqueue(self, ctx, index:int=None):
+        """Plays a song from the queue right away."""
+        player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        if not await self.check_karaoke(ctx, player):
+            return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
+                                  f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
+
+        await player.play_now_from_queue(index)
+
+
     @commands.command(aliases=['pnow', 'singnow'])
     async def playnow(self, ctx, *, query):
         """Plays a song.
@@ -209,7 +221,7 @@ class Music:
             return await ctx.send(f'{ctx.tick(False)} You can\'t use playlists with this.')
         else:
             track = results['tracks'][0]
-            await player.playnow(requester=ctx.author.id, track=track)
+            await player.play_now(requester=ctx.author.id, track=track)
 
     @commands.command(aliases=['p', 'sing'])
     async def play(self, ctx, *, query):
