@@ -378,15 +378,36 @@ class Profile():
     @commands.cooldown(1, 1800, commands.BucketType.user)
     async def work(self, ctx):
         profile = await self.get_profile(ctx)
-        
-        amount = random.randint(100, 300)
 
         responses = [
-            'You went to work and got ${amount}.',
-            'You were going to work, but you got ${amount} from a stranger and decided to head back to home.',
+            {
+                'response': 'You went to work and got ${amount}.',
+                'get_money': True,
+                'min': 100,
+                'max': 300
+            },
+            {
+                'response': 'You were going to work, but you got ${amount} from a stranger and decided to head back to home.',
+                'get_money': True,
+                'min': 100,
+                'max': 300
+            },
+            {
+                'response': 'You are working at chocolate factory and ate chocolate for you whole salary so you get nothing..',
+                'get_money': False,
+                'min': 100,
+                'max': 300
+            },
         ]
 
-        await ctx.send(random.choice(responses).format(amount=amount))
+        response = random.choice(responses)
+
+        if response['get_money']:
+            amount = random.randint(response['min'], response['max'])
+            await profile.edit_field(cash=profile.cash + amount)
+            await ctx.send(response['response'].format(amount=amount))
+        else:
+            await ctx.send(response['response'])
 
     @commands.command()
     @commands.cooldown(1, 300, commands.BucketType.user)
