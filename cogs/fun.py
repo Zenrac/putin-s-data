@@ -12,6 +12,39 @@ import datetime
 class Fun():
     def __init__(self, bot):
         self.bot = bot
+
+    @commands.command()
+    async def gayify(self, ctx, member:discord.Member=None):
+        if not member:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to gayify.')
+
+        e = discord.Embed()
+        e.set_image(url=f'https://kaan.ga/iWeeti/gayify/{ctx.author.id}/{ctx.author.avatar}/{member.id}/{member.avatar}/')
+
+        await ctx.send(embed=e)
+
+    @commands.command()
+    async def ship(self, ctx, member:discord.Member=None, member2:discord.Member=None):
+        if not member:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to ship with.')
+
+        if not member2:
+            member2 = ctx.author
+
+        if len(member.display_name.split()) == 1:
+            name_1 = member.display_name[0:len(member.display_name)/2]
+        else:
+            name_1 = member.display_name.split()[0]
+
+        if len(member2.display_name.split()) == 1:
+            name_2 = member2.display_name[len(member2.display_name)/2:len(member2.display_name)]
+        else:
+            name_2 = member2.display_name.split()[1]
+
+        e = discord.Embed(title=name_1 + name_2)
+        e.set_image(url=f'https://kaan.ga/iWeeti/loveify/{member2.id}/{member2.avatar}/{member.id}/{member.avatar}/')
+
+        await ctx.send(embed=e)
         
     @commands.command(hidden=False, aliases=['reee'])
     async def ree(self, ctx):
