@@ -176,14 +176,17 @@ class Music:
 
     @commands.command(aliases=['pnow', 'singnow'])
     async def playnow(self, ctx, *, query):
-        """Plays a song.
+        f"""Plays a song righ away.
         You can search from:
           -youtube
           -bandcamp
           -soundcloud
           -twitch
           -vimeo
-          -mixer"""
+          -mixer
+          The default serach is youtube.
+          For example if you want to search from soundcloud you say
+          {ctx.prefix}playnow scsearch:music"""
         player = self.bot.lavalink.players.get(ctx.guild.id)
 
         if not await self.check_karaoke(ctx, player):
