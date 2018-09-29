@@ -71,6 +71,15 @@ class Music:
         return True
 
     @commands.command()
+    async def clear(self, ctx):
+        """Clears the current queue."""
+        player = self.bot.lavalink.players.get(ctx.guild.id)
+
+        player.queue.clear()
+
+        await ctx.send(f'{ctx.tick(True)} Queue cleared.')
+
+    @commands.command()
     async def karaoke(self, ctx):
         """Toggles the karaoke mode of the player.
         If karaoke mode is enabled only users
