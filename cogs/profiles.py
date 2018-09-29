@@ -382,8 +382,8 @@ class Profile():
         amount = random.randint(100, 300)
 
         responses = [
-            'You went to work and got {amount}.',
-            'You were going to work, but you got {amount} from a stranger and decided to head back to home.',
+            'You went to work and got ${amount}.',
+            'You were going to work, but you got ${amount} from a stranger and decided to head back to home.',
         ]
 
         await ctx.send(random.choice(responses).format(amount=amount))
