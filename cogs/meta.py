@@ -1173,7 +1173,6 @@ class Meta:
     async def vote(self, ctx):
         """Gives you the discordbots.org vote link."""
         await ctx.send(f'You can upvote me here: https://discordbots.org/bot/{self.bot.user.id}/vote')
-            await ctx.send('Command suggestion sent.')
 
     @commands.command()
     async def encode(self, ctx, *, text = None):
