@@ -59,6 +59,8 @@ class Admin:
         #modules = re.match(r'cogs/.*\.py$', x)
         x = x.replace('Merge made by the \'recursive\' strategy.', '')
         x = x.replace('From https://github.com/iWeeti/putin-s-data', '')
+        modules = re.search(' .*\.py ', x)
+        await ctx.send(modules.group(0))
         await msg.edit(content=f'```bash\n{x}\n```')
         
     @commands.command(hidden=True)
