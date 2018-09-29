@@ -171,7 +171,7 @@ class Music:
             return await ctx.send(f'{ctx.tick(False)} Sorry, but this player is currently on karaoke mode.\n'\
                                   f'Karaoke mode means that only people with `DJ` or `Music Master` named role can control music.')
 
-        await player.play_now_from_queue(index)
+        await player.play_now_from_queue(index - 1)
 
 
     @commands.command(aliases=['pnow', 'singnow'])
