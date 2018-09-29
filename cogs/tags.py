@@ -379,7 +379,7 @@ class Tags:
         # I'm not sure on how to do this with a single query
         # so I'm splitting it up into different queries
 
-        e = discord.Embed(colour=discord.Colour.blurple(), title='Tag Stats')
+        e = discord.Embed(colour=ctx.me.top_role.color, title='Tag Stats')
         e.set_footer(text='These statistics are server-specific.')
 
         # top 3 commands
@@ -462,7 +462,7 @@ class Tags:
         await ctx.send(embed=e)
 
     async def member_tag_stats(self, ctx, member):
-        e = discord.Embed(colour=discord.Colour.blurple())
+        e = discord.Embed(colour=ctx.me.top_role.color)
         e.set_author(name=str(member), icon_url=member.avatar_url)
         e.set_footer(text='These statistics are server-specific.')
 
@@ -586,7 +586,7 @@ class Tags:
             await ctx.send('Tag and corresponding aliases successfully deleted.')
 
     async def _send_alias_info(self, ctx, record):
-        embed = discord.Embed(colour=discord.Colour.blurple())
+        embed = discord.Embed(colour=ctx.me.top_role.color)
 
         owner_id = record['lookup_owner_id']
         embed.title = record['lookup_name']
@@ -601,7 +601,7 @@ class Tags:
         await ctx.send(embed=embed)
 
     async def _send_tag_info(self, ctx, record):
-        embed = discord.Embed(colour=discord.Colour.blurple())
+        embed = discord.Embed(colour=ctx.me.top_role.color)
 
         owner_id = record['owner_id']
         embed.title = record['name']
@@ -952,7 +952,7 @@ class Tags:
         if data is None or data['name'] is None:
             return await ctx.send('This tag is not in the box.')
 
-        embed = discord.Embed(colour=discord.Colour.blurple())
+        embed = discord.Embed(colour=ctx.me.top_role.color)
 
         owner_id = data['owner_id']
         embed.title = data['name']
@@ -1030,7 +1030,7 @@ class Tags:
 
         top_tags = await ctx.db.fetch(query)
 
-        embed = discord.Embed(colour=discord.Colour.blurple(), title='Tag Box Stats')
+        embed = discord.Embed(colour=ctx.me.top_role.color, title='Tag Box Stats')
 
         embed.add_field(name='Total Tags', value=top_tags[0]['Total Tags'])
         embed.add_field(name='Total Uses', value=top_tags[0]['Total Uses'])

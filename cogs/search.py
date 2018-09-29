@@ -20,7 +20,7 @@ class Search():
             print(j)
 
     def parse_google_card(self, node):
-        e = discord.Embed(colour=discord.Colour.blurple())
+        e = discord.Embed(colour=ctx.me.top_role.color)
 
         # check if it's a calculator card:
         calculator = node.find(".//span[@class='cwclet']")

@@ -242,7 +242,7 @@ class Emoji:
         await ctx.send(file=discord.File(fp, 'blob_posts.txt'))
 
     async def get_guild_stats(self, ctx):
-        e = discord.Embed(title='Emoji Leaderboard', colour=discord.Colour.blurple())
+        e = discord.Embed(title='Emoji Leaderboard', colour=ctx.me.top_role.color)
 
         query = """SELECT
                        COALESCE(SUM(total), 0) AS "Count",

@@ -146,7 +146,7 @@ class Stats:
         embed = discord.Embed(description='Latest Changes:\n' + revision)
         embed.title = 'Support Server Invite'
         embed.url = 'https://discord.gg/tVjAuU'
-        embed.colour = discord.Colour.blurple()
+        embed.colour = ctx.me.top_role.color
 
         owner = await self.bot.get_user_info(self.bot.owner_id)
         embed.set_author(name=str(owner), icon_url=owner.avatar_url)
@@ -188,7 +188,7 @@ class Stats:
             '\N{SPORTS MEDAL}'
         )
 
-        embed = discord.Embed(title='Server Command Stats', colour=discord.Colour.blurple())
+        embed = discord.Embed(title='Server Command Stats', colour=ctx.me.top_role.color)
 
         # total command uses
         query = "SELECT COUNT(*), MIN(used) FROM commands WHERE guild_id=$1;"
@@ -337,7 +337,7 @@ class Stats:
         query = "SELECT COUNT(*) FROM commands;"
         total = await self.bot.pool.fetchrow(query)
 
-        e = discord.Embed(title='Command Stats', colour=discord.Colour.blurple())
+        e = discord.Embed(title='Command Stats', colour=ctx.me.top_role.color)
         e.description = f'{total[0]} commands used.'
 
         lookup = (
@@ -403,7 +403,7 @@ class Stats:
         query = "SELECT COUNT(*) FROM commands WHERE used > (CURRENT_TIMESTAMP - INTERVAL '1 day');"
         total = await self.bot.pool.fetchrow(query)
 
-        e = discord.Embed(title='Last 24 Hour Command Stats', colour=discord.Colour.blurple())
+        e = discord.Embed(title='Last 24 Hour Command Stats', colour=ctx.me.top_role.color)
         e.description = f'{total[0]} commands used today.'
 
         lookup = (

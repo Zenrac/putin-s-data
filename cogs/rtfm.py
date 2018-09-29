@@ -175,7 +175,7 @@ class API:
 
         matches = fuzzy.finder(obj, cache, key=lambda t: t[0], lazy=False)[:5]
 
-        e = discord.Embed(colour=discord.Colour.blurple())
+        e = discord.Embed(colour=ctx.me.top_role.color)
         if len(matches) == 0:
             return await ctx.send('Could not find anything. Sorry.')
 
@@ -213,7 +213,7 @@ class API:
 
         e.add_field(name='Uses', value=count)
         e.add_field(name='Percentage', value=f'{count/total_uses:.2%} out of {total_uses}')
-        e.colour = discord.Colour.blurple()
+        e.colour = ctx.me.top_role.color()
         await ctx.send(embed=e)
 
     @rtfm.command()

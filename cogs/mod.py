@@ -279,7 +279,7 @@ class Mod():
 
         members = sorted(ctx.guild.members, key=lambda m: m.joined_at, reverse=True)[:count]
 
-        e = discord.Embed(title='New Members', colour=discord.Colour.green())
+        e = discord.Embed(title='New Members', colour=ctx.me.top_role.color)
 
         for member in members:
             body = f'joined {time.human_timedelta(member.joined_at)}, created {time.human_timedelta(member.created_at)}'

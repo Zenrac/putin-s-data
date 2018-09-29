@@ -321,7 +321,7 @@ class Fun():
             'It is impossible',
             'It is so scray that even the 8ball does not want to answer'
             ]
-        eight_ball_embed = discord.Embed(name="", description="", colour=discord.Colour.green())
+        eight_ball_embed = discord.Embed(name="", description="", colour=discord.me.top_role.color)
         eight_ball_embed.add_field(name="Question:", value="\"{}\", by {}.".format(question, ctx.message.author.nick), inline=True)
         eight_ball_embed.add_field(name="The 8-ball answers: ", value=random.choice(possible_responses) + ", " + ctx.message.author.nick, inline=True)
         await ctx.send(embed=eight_ball_embed)
@@ -355,7 +355,7 @@ class Fun():
                         return await ctx.send(f'{ctx.tick(False)} I couldn\'t get a meme try again...')
                     posts = resp['data']['children']
                     memes = [x['data']['url'] for x in posts if 'url' in x['data']]
-                    embed = discord.Embed(colour=0xff6a00)
+                    embed = discord.Embed(colour=ctx.me.top_role.color)
                     embed.set_image(url=random.choice(memes))
                     embed.set_author(name="Here is a meme for you {}.".format(ctx.message.author.name), icon_url="https://vignette.wikia.nocookie.net/chronicon/images/a/a2/Reddit-flat.png/revision/latest?cb=20170223050238")
                     embed.set_footer(text="r/{}".format(acc).replace('https://api.reddit.com/r/', '')) #thehoodmemes #https://twitter.com/search?q=thehoodmemes&src=typd

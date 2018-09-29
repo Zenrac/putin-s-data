@@ -212,7 +212,7 @@ class Reminder:
         if len(records) == 0:
             return await ctx.send('No currently running reminders.')
 
-        e = discord.Embed(colour=discord.Colour.blurple(), title='Reminders')
+        e = discord.Embed(colour=ctx.me.top_role.color, title='Reminders')
 
         if len(records) == 10:
             e.set_footer(text='Only showing up to 10 reminders.')

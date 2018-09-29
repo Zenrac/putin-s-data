@@ -74,7 +74,7 @@ class SpoilerCache:
         return self.attachments and self.attachments[0].filename.lower().endswith(('.gif', '.png', '.jpg', '.jpeg'))
 
     def to_embed(self, bot):
-        embed = discord.Embed(title=f'{self.title} Spoiler', colour=0x01AEEE)
+        embed = discord.Embed(title=f'{self.title} Spoiler', colour=ctx.me.top_role.color)
         if self.text:
             embed.description = self.text
 
@@ -103,7 +103,7 @@ class SpoilerCache:
             embed.title = f'{self.title} Spoiler Image'
 
         embed.set_footer(text=storage_message.id)
-        embed.colour = 0x01AEEE
+        embed.colour = ctx.me.top_role.color
         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url_as(format='png'))
         return embed
 
@@ -320,7 +320,7 @@ class Meta:
         if not content:
             return await ctx.show_help('feedback')
 
-        e = discord.Embed(title='Feedback', colour=0x738bd7)
+        e = discord.Embed(title='Feedback', colour=ctx.me.top_role.color)
         channel = self.bot.get_channel(config.feedback)
         if channel is None:
             return
@@ -635,7 +635,7 @@ class Meta:
         # mention is there twice
         del prefixes[1]
 
-        e = discord.Embed(title='Prefixes:', colour=discord.Colour.blurple())
+        e = discord.Embed(title='Prefixes:', colour=ctx.me.top_role.color)
         e.set_footer(text=f'{len(prefixes)} prefixes on this server.')
         e.description = '\n'.join(f'{index}. {elem}' for index, elem in enumerate(prefixes, 1))
         await ctx.send(embed=e)

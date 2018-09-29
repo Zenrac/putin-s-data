@@ -877,7 +877,7 @@ class Stars:
                                    f'Updated {updated} entries to the new format ({bad_data} failures).\n' \
                                    f'Took {delta:.2f}s.')
 
-                e = discord.Embed(title='Starboard Migration', colour=discord.Colour.gold())
+                e = discord.Embed(title='Starboard Migration', colour=ctx.me.top_role.color)
                 e.add_field(name='Deleted', value=deleted)
                 e.add_field(name='Updated', value=updated)
                 e.add_field(name='Requests', value=needed_requests)
@@ -977,7 +977,7 @@ class Stars:
         total_stars = record[0]
 
         e.description = f'{Plural(message=total_messages)} starred with a total of {total_stars} stars.'
-        e.colour = discord.Colour.gold()
+        e.colour = ctx.me.top_role.color
 
         # this big query fetches 3 things:
         # top 3 starred posts (Type 3)
@@ -1038,7 +1038,7 @@ class Stars:
         await ctx.send(embed=e)
 
     async def star_member_stats(self, ctx, member):
-        e = discord.Embed(colour=discord.Colour.gold())
+        e = discord.Embed(colour=ctx.me.top_role.color)
         e.set_author(name=member.display_name, icon_url=member.avatar_url_as(format='png'))
 
         # this query calculates
