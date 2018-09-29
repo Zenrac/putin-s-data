@@ -404,7 +404,7 @@ class Profile():
 
         if response['get_money']:
             amount = random.randint(response['min'], response['max'])
-            await profile.edit_field(cash=profile.cash + amount)
+            await profile.edit_field(ctx, cash=profile.cash + amount)
             await ctx.send(response['response'].format(amount=amount))
         else:
             await ctx.send(response['response'])
