@@ -353,6 +353,9 @@ class WBot(commands.AutoShardedBot):
         async with ctx.acquire():
             await self.invoke(ctx)
 
+    async def on_message_edit(self, before, after):
+        await self.process_commands(after)
+
     async def close(self):
         await super().close()
         await self.session.close()
