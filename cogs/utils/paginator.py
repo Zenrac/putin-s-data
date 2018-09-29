@@ -479,7 +479,7 @@ class HelpPaginator(Pages):
             ('[A|B]', 'This means the it can be __**either A or B**__.'),
             ('[argument...]', 'This means you can have multiple arguments.\n' \
                               'Now that you know the basics, it should be noted that...\n' \
-                              '__**You do not type in the brackets!**__')
+                              '__**You do not type in the brackets!**__'),
             ('Tip', 'Most of the embeds use the bot\'s top role\'s colour.')
         )
 
