@@ -480,6 +480,7 @@ class HelpPaginator(Pages):
             ('[argument...]', 'This means you can have multiple arguments.\n' \
                               'Now that you know the basics, it should be noted that...\n' \
                               '__**You do not type in the brackets!**__')
+            ('Tip', 'Most of the embeds use the bot\'s top role\'s colour.')
         )
 
         self.embed.add_field(name='How do I use this bot?', value='Reading the bot signature is pretty simple.')
