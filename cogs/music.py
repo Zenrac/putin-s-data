@@ -153,7 +153,7 @@ class Music:
                 track = results['tracks'][0]
                 player.add_to_top(requester=ctx.author.id, track=track)
 
-    @commands.command(aliases=['p', 'sing'])
+    @commands.command(aliases=['pnow', 'singnow'])
     async def playnow(self, ctx, *, query):
         """Plays a song.
         You can search from:
@@ -202,7 +202,7 @@ class Music:
             track = results['tracks'][0]
             await player.playnow(requester=ctx.author.id, track=track)
 
-    @commands.command(aliases=['pnow', 'singnow'])
+    @commands.command(aliases=['p', 'sing'])
     async def play(self, ctx, *, query):
         """Plays a song.
         You can search from:
