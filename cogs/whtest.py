@@ -16,7 +16,6 @@ class SuggestionConfig:
 		async with aiohttp.ClientSession() as cs:
 			webhook = Webhook.from_url(self.wh_url, adapter=AsyncWebhookAdapter(cs))
 			webhook._adapter.store_user = webhook._adapter._store_user
-			webhook._adapter.http = webhook._adapter._http
 			e = Embed(title="Suggestion", description=suggestion, color=ctx.author.top_role.color)
 			msg = await webhook.send(embed=e, username=ctx.author.display_name, avatar_url=ctx.author.avatar_url, wait=True)
 			yes = self.bot.get_emoji(491575309045465089)
