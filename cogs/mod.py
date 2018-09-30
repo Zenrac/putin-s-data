@@ -564,7 +564,7 @@ class Mod():
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_channels=True)
-    async def mute(self, ctx, *, members:commands.Greedy[discord.Member]=None):
+    async def mute(self, ctx, members:commands.Greedy[discord.Member]=None):
         """Mutes a user."""
         if not members:
             return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to mute.')
@@ -595,7 +595,7 @@ class Mod():
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_guild=True)
-    async def unmute(self, ctx, *, members:commands.Greedy[discord.Member]=None):
+    async def unmute(self, ctx, members:commands.Greedy[discord.Member]=None):
         """Unmutes a user."""
         if not members:
             return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to unmute.')
