@@ -712,16 +712,13 @@ class Mod():
     @commands.command()
     @commands.guild_only()
     @checks.is_mod()
-    async def tempmute(self, ctx, members:commands.Greedy[discord.Member], duration:time.FutureTime=None, *, reason:ActionReason=None):
+    async def tempmute(self, ctx, members:commands.Greedy[discord.Member], duration:time.UserFriendlyTime(commands.clean_content, default='\u2026')=None):
         """Temporarily mutes the members specified.
         The duration can be a a short time form, e.g. 30d or a more human
         duration such as "until thursday at 3PM" or a more concrete time
         such as "2017-12-31".
         Note that times are in UTC.
         """
-
-        if reason is None:
-            reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
 
         if not duration:
             return await ctx.send(f'{ctx.tick(False)} You forgot the duration.')
