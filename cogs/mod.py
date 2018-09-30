@@ -519,8 +519,29 @@ class Mod():
                         return await ctx.send(f'{ctx.tick(False)} I don\'t have permissions to change roles.')
                     changes.append(f'{ctx.tick(True)} Added {role.name} to {member.display_name}.')
 
-        await ctx.send('\n'.join(changes) or 'Failed   lol...')    
-                       
+        await ctx.send('\n'.join(changes) or 'Failed   lol...')
+
+    @commands.command()
+    @checks.is_mod()
+    async def delrole(self, ctx, roles:commands.Greedy[discord.Role]=None, reason:ActionReason=None):
+        """Removes the roles which were mentioned."""
+        if not roles:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify at least one role.')
+
+        if not reason:
+            reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
+
+        delete = []
+
+        for role in roles:
+            try:
+                await role.delete()
+                deleted.append(role.name)
+            except discord.Forbidden:
+                return await ctx.send(f'{ctx.tick(False)} I do not have permissions to delete roles.')
+
+        await ctx.send(f'{ctx.tick(True)} The following roles were deleted, {", ".join(deleted)}.')
+
     @commands.command()
     @checks.is_mod()
     async def addrole(self, ctx, rolename:str=None, reason:ActionReason=None, **options):
