@@ -1,5 +1,5 @@
 from discord.ext import commands
-from .utils import checks, db, time, cache
+from .utils import checks, db, time, cache, context
 from collections import Counter, defaultdict
 from inspect import cleandoc
 
@@ -711,6 +711,74 @@ class Mod():
 
     @commands.command()
     @commands.guild_only()
+    @checks.is_mod()
+    async def tempmute(self, ctx, members:commands.Greedy[discord.Member], duration:time.FutureTime=None, *, reason:ActionReason=None):
+        """Temporarily mutes the members specified.
+        The duration can be a a short time form, e.g. 30d or a more human
+        duration such as "until thursday at 3PM" or a more concrete time
+        such as "2017-12-31".
+        Note that times are in UTC.
+        """
+
+        if reason is None:
+            reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
+
+        if not duration:
+            return await ctx.send(f'{ctx.tick(False)} You forgot the duration.')
+
+        reminder = self.bot.get_cog('Reminder')
+        if reminder is None:
+            return await ctx.send('Sorry, this functionality is currently unavailable. Try again later?')
+
+        for member in members:
+            await ctx.invoke(self.mute, members=members)
+            timer = await reminder.create_timer(duration.dt, 'tempmute', ctx.guild.id, ctx.author.id, member.id, ctx.channel.id, ctx.message.id, connection=ctx.db)
+            await ctx.send(f'The members are muted for {time.human_timedelta(duration.dt)}.')
+
+    async def on_tempmute_timer_complete(self, timer):
+        guild_id, mod_id, member_id, channel_id, message_id = timer.args
+
+        guild = self.bot.get_guild(guild_id)
+        if not guild:
+            return
+
+        channel = guild.get_channel(channel_id)
+        if not channel:
+            return
+
+        message = channel.get_message(message_id)
+        if not message:
+            return
+
+        ctx = await self.bot.get_context(message, cls=context.Context)
+        if not ctx:
+            #Sorry pal, no can do.
+            return
+
+        moderator = guild.get_member(mod_id)
+        if moderator is None:
+            try:
+                moderator = await self.bot.get_user_info(mod_id)
+            except:
+                moderator = f'Mod ID {mod_id}'
+            else:
+                moderator = f'{moderator} (ID: {mod_id})'
+
+        else:
+            moderator = f'{moderator} (ID: {mod_id})'
+
+        member = guild.get_member(mod_id)
+        if member is None:
+            try:
+                member = await self.bot.get_user_info(mod_id)
+            except:
+                return
+
+        reason = f'Automatic unmute from timer made on {timer.created_at} by {moderator}.'
+        await ctx.invoke(self.unmute(members=member))
+
+    @commands.command()
+    @commands.guild_only()
     @checks.has_permissions(ban_members=True)
     async def tempban(self, ctx, duration: time.FutureTime, member: MemberID, *, reason: ActionReason = None):
         """Temporarily bans a member for the specified duration.
@@ -736,7 +804,7 @@ class Mod():
         await ctx.send(f'Banned ID {member} for {time.human_timedelta(duration.dt)}.')
 
     async def on_tempban_timer_complete(self, timer):
-        guild_id, mod_id, member_id = timer.args
+        guild_id, mod_id, member_id= timer.args
 
         guild = self.bot.get_guild(guild_id)
         if guild is None:
