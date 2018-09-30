@@ -60,7 +60,7 @@ class Store():
         if store.items:
             listings = []
             for record in store.items():
-                _seller = ctx.guild.get_member(record['seller_id'])
+                _seller = ctx.guild.get_member(record['seller_id']) or self.bot.get_user(record['seller_id'])
                 seller = _seller.display_name
 
                 price = record['price']
