@@ -98,7 +98,7 @@ class Store():
             return await ctx.send('Valid items are ``pickaxe``, ``ring``, ``diamond``, ``rose``, ``alcohol``.')
 
         if quantity <= 0:
-            return await ctx.send('You can\'t sell negative amounts.')
+            return await ctx.send(f'{ctx.tick(False)} You can\'t sell negative amounts.')
 
         item = item.lower()
 
@@ -111,12 +111,15 @@ class Store():
 
         item_quantity = await ctx.db.fetchrow(f'select {item_name} from profiles where id={ctx.author.id};')
 
+        if not item_quantity[0]:
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have any {item_name}s.')
+
         if item_quantity[0] < quantity:
-            return await ctx.send('You don\'t have that much.')
+            return await ctx.send(f'{ctx.tick(False)} You don\'t have that much.')
 
         await ctx.db.execute(f'update profiles set {item_name}={item_name} - {quantity} where id={ctx.author.id}')
 
-        await ctx.send('Added listing.')
+        await ctx.send(f'{ctx.tick(True)} Added listing.')
 
     @store.command()
     async def buy(self, ctx, selling_id:int=None, quantity:int=1):
@@ -126,7 +129,7 @@ class Store():
         listing = await ctx.db.fetchrow(f'select * from store where selling_id={selling_id};')
 
         if listing is None:
-            return await ctx.send('This listing was not found.')
+            return await ctx.send(f'{ctx.tick(False)} This listing was not found.')
 
         listing_quantity = listing['quantity']
         price = listing['price']
@@ -136,12 +139,12 @@ class Store():
         cash = await ctx.db.fetchrow(f'select cash from profiles where id={ctx.author.id}')
 
         if cash[0] < price*quantity:
-            return await ctx.send('You can\'t afford to buy that many.')
+            return await ctx.send(f'{ctx.tick(False)} You can\'t afford to buy that many.')
 
         if quantity > listing_quantity:
-            return await ctx.send('There is not that many for sale.')
+            return await ctx.send(f'{ctx.tick(False)} There is not that many for sale.')
         elif quantity < 1:
-            return await ctx.send('You can\'t buy negative amounts.')
+            return await ctx.send(f'{ctx.tick(False)} You can\'t buy negative amounts.')
         elif quantity == listing_quantity:
             await ctx.db.execute(f'delete from store where selling_id={selling_id}')
         else:
@@ -165,7 +168,7 @@ class Store():
                     5: ':champagne: Alcohol'
                 }
 
-        await ctx.send(f'Bought {quantity}x {items[item_id]} for ${price*quantity}.')
+        await ctx.send(f'{ctx.tick(True)} Bought {quantity}x {items[item_id]} for ${price*quantity}.')
 
 def setup(bot):
     bot.add_cog(Store(bot))
