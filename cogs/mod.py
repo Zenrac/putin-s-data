@@ -531,7 +531,7 @@ class Mod():
         if not reason:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
 
-        delete = []
+        deleted = []
 
         for role in roles:
             try:
