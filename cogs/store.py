@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from .utils.paginator import Pages
 
 class StoreConfig():
     __slots__ = ['bot', 'id', '_items']
@@ -79,12 +80,15 @@ class Store():
                 selling_id = record['selling_id']
 
                 listings.append(f'{selling_id}: {quantity}x {item} ${price} {seller}')
-
-            e = discord.Embed(title=f"Listings for {ctx.guild.name}", color=ctx.me.top_role.color)
-
-            e.description = "\n".join(listings)
-
-            await ctx.send(embed=e)
+            
+            try:
+                p = Pages(ctx, entries=listings, per_page=10, show_entry_count=False)
+                # p.embed.title = str(base)
+                p.embed.timestamp = datetime.datetime.utcnow()
+                p.embed.title=f'{len(listings)} items listed now.'
+                await p.paginate()
+            except Exception as e:
+                await ctx.send(e)
         else:
             await ctx.send('Nothing listed at the moment.')
 

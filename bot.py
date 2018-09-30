@@ -53,7 +53,8 @@ INITIAL_EXTENSIONS = [
     'cogs.words',
     'cogs.warns',
     'cogs.custom',
-    'cogs.suggestions'
+    'cogs.suggestions',
+    'cogs.store'
 ]
 
 def _prefix_callable(bot, msg):
