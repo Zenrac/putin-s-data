@@ -1388,7 +1388,9 @@ class Profile():
         """Gives the amount you specify from your money to the member you specify."""      
         profile = await self.get_profile(ctx, ctx.author.id)
         if not profile:
-            return await ctx.invoke(self.make)        
+            return await ctx.invoke(self.make)
+        if not member:
+            return await ctx.send(f'{ctx.tick(False)} You forgot to tell who to give the cash.')     
         if ctx.author.id == member.id:
             return await ctx.send('Na ah..')
         if not amount or amount < 0:
