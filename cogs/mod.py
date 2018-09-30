@@ -712,7 +712,7 @@ class Mod():
     @commands.command()
     @commands.guild_only()
     @checks.is_mod()
-    async def tempmute(self, ctx, members:commands.Greedy[discord.Member], duration:time.UserFriendlyTime(commands.clean_content, default='\u2026')=None, *, reason:ActionReason=None):
+    async def tempmute(self, ctx, members:commands.Greedy[discord.Member], duration:time.FutureTime=None, *, reason:ActionReason=None):
         """Temporarily mutes the members specified.
         The duration can be a a short time form, e.g. 30d or a more human
         duration such as "until thursday at 3PM" or a more concrete time
@@ -847,7 +847,7 @@ class Mod():
     @commands.command()
     @commands.guild_only()
     @checks.has_permissions(kick_members=True)
-    async def softban(self, ctx, member: MemberID, *, reason: ActionReason = None):
+    async def softban(self, ctx, members:commands.Greedy[MemberID]=None, *, reason: ActionReason = None):
         """Soft bans a member from the server.
         A softban is basically banning the member from the server but
         then unbanning the member as well. This allows you to essentially
@@ -856,18 +856,22 @@ class Mod():
         To use this command you must have Kick Members permissions.
         """
 
+        if not members:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to softban.')
+
         if reason is None:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
 
-        obj = discord.Object(id=member)
-        await ctx.guild.ban(obj, reason=reason)
-        await ctx.guild.unban(obj, reason=reason)
+        for member in members:
+            obj = discord.Object(id=member)
+            await ctx.guild.ban(obj, reason=reason)
+            await ctx.guild.unban(obj, reason=reason)
         await ctx.send(ctx.tick(True))
 
     @commands.command()
     @commands.guild_only()
     @checks.has_permissions(ban_members=True)
-    async def unban(self, ctx, member: BannedMember, *, reason: ActionReason = None):
+    async def unban(self, ctx, users:commands.Greedy[BannedMember]=None, *, reason: ActionReason = None):
         """Unbans a member from the server.
         You can pass either the ID of the banned member or the Name#Discrim
         combination of the member. Typically the ID is easiest to use.
@@ -875,14 +879,18 @@ class Mod():
         To use this command you must have Ban Members permissions.
         """
 
+        if not users:
+            return await ctx.send(f'{ctx.tick(False)} You need to spcify at least one member to unban.')
+
         if reason is None:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
 
-        await ctx.guild.unban(member.user, reason=reason)
-        if member.reason:
-            await ctx.send(f'{ctx.tick(True)} Unbanned {member.user} (ID: {member.user.id}), previously banned for {member.reason}.')
-        else:
-            await ctx.send(f'{ctx.tick(True)} Unbanned {member.user} (ID: {member.user.id}).')
+        for member in users:
+            await ctx.guild.unban(member.user, reason=reason)
+            if member.reason:
+                await ctx.send(f'{ctx.tick(True)} Unbanned {member.user} (ID: {member.user.id}), previously banned for {member.reason}.')
+            else:
+                await ctx.send(f'{ctx.tick(True)} Unbanned {member.user} (ID: {member.user.id}).')
 
 
     @commands.group()
@@ -1107,7 +1115,7 @@ class Mod():
 
     @commands.command(no_pm = True, aliases=['setnickname', 'setname'])
     @checks.has_permissions(manage_nicknames=True)
-    async def setnick(self, ctx, user : discord.Member = None, *, nick: str = None):
+    async def setnick(self, ctx, members:commands.Greedy[discord.Member]=None, *, nick: str = None):
         """Changes the nickname of a user
 
         To use this command you must have the Managae Nicknames permissions.
@@ -1115,19 +1123,20 @@ class Mod():
 
         This command cannot be used in a private message."""
 
-        if member is None:
-            return await ctx.send(f'{ctx.tick(False)} You did not tell me whose nickname to change.')
+        if not members:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to rename.')
 
         if nick is None:
             return await ctx.send(f'{ctx.tick(false)} You did not tell me what to change the {member.display_name}\'s nickname.')
 
-        try:
-            await member.edit(nick=nick)
-            await ctx.send(f"{ctx.tick(True)} Changed ``{member.display_name}``\'s username.")
-        except discord.Forbidden:
-            await ctx.send(f'{ctx.tick(False)} I do not have permissions to change nicknames.')
-        except discord.HTTPException:
-            await ctx.send(f'{ctx.tick(False)} Changing nickname failed.')
+        for member in members:
+            try:
+                await member.edit(nick=nick)
+                await ctx.send(f"{ctx.tick(True)} Changed ``{member.display_name}``\'s username.")
+            except discord.Forbidden:
+                await ctx.send(f'{ctx.tick(False)} I do not have permissions to change nicknames.')
+            except discord.HTTPException:
+                await ctx.send(f'{ctx.tick(False)} Changing nickname failed.')
 
 def setup(bot):
     m = Mod(bot)
