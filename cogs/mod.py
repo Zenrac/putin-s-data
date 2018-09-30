@@ -536,7 +536,7 @@ class Mod():
         for role in roles:
             try:
                 await role.delete()
-                deleted.append(role.name)
+                deleted.append(f'``{role.name}``')
             except discord.Forbidden:
                 return await ctx.send(f'{ctx.tick(False)} I do not have permissions to delete roles.')
 
