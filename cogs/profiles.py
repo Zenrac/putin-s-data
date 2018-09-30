@@ -879,7 +879,7 @@ class Profile():
         if profile.cash < amount * 100:
             return await ctx.send(f'{ctx.tick(False)} You don\'t have enough cash.')
         await ctx.send(f'{ctx.tick(True)} Bought {amount}x :pick:')
-        await profile.edit_field(ctx, cash=profile.cash + amount * 100)
+        await profile.edit_field(ctx, cash=profile.cash - amount * 100)
         await profile.edit_field(ctx, picks=profile.picks + amount)
 
     @buy.command()
