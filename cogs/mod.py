@@ -662,44 +662,51 @@ class Mod():
     @commands.command()
     @commands.guild_only()
     @checks.has_permissions(kick_members=True)
-    async def kick(self, ctx, member: discord.Member, *, reason: ActionReason = None):
+    async def kick(self, ctx, members:commands.Greedy[discord.Member]=None, *, reason:ActionReason=None):
         """Kicks a member from the server.
         In order for this to work, the bot must have Kick Member permissions.
         To use this command you must have Kick Members permission.
         """
-        if isinstance(member, discord.Member):
-            _perms = ctx.channel.permissions_for(member)
-            if _perms.manage_guild or _perms.administrator:
-                return await ctx.send(f'{ctx.tick(False)}This member has manage server or administrator permissions.\n'\
-                                      'I can\'t kick this member.')
-        if member is None:
-            cmd = self.bot.get_command('help')
-            return await ctx.invoke(cmd, command=ctx.command)
-        if reason is None:
-            reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
+        if not members:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to kick.')
+        kicked = []
 
-        await member.kick(reason=reason)
-        await ctx.send(ctx.tick(True))
+        for member in members:
+            if isinstance(member, discord.Member):
+                _perms = ctx.channel.permissions_for(member)
+                if _perms.manage_guild or _perms.administrator:
+                    return await ctx.send(f'{ctx.tick(False)}This member has manage server or administrator permissions.\n'\
+                                          'I can\'t kick this member.')
+            if member is None:
+                cmd = self.bot.get_command('help')
+                return await ctx.invoke(cmd, command=ctx.command)
+            if reason is None:
+                reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
+
+            await member.kick(reason=reason)
+            kicked.append(f'`{member.display_name}`')
+
+        await ctx.send(f'{ctx.tick(True)}' The following members were kicked, {", ".join(kicked)}.)
 
     @commands.command()
     @commands.guild_only()
     @checks.has_permissions(ban_members=True)
-    async def ban(self, ctx, member: MemberID, *, reason: ActionReason = None):
+    async def ban(self, ctx, members:commands.Greedy[MemberID]=None, *, reason: ActionReason = None):
         """Bans a member from the server.
         You can also ban from ID to ban regardless whether they're
         in the server or not.
         In order for this to work, the bot must have Ban Member permissions.
         To use this command you must have Ban Members permission.
         """
-        if isinstance(member, discord.Member):
-            _perms = ctx.channel.permissions_for(member)
-            if _perms.manage_guild or _perms.administrator:
-                return await ctx.send(f'{ctx.tick(False)} This member has manage server or administrator permissions.\n'\
-                                      'I can\'t ban this member.')
+        if not members:
+            return await ctx.send(f'{ctx.tick(False)} You need to specifty at least one user to ban.')
+
         if reason is None:
             reason = f'Action done by {ctx.author} (ID: {ctx.author.id})'
 
-        await ctx.guild.ban(discord.Object(id=member), reason=reason)
+        for member in members:
+            await ctx.guild.ban(discord.Object(id=member), reason=reason)
+
         await ctx.send(ctx.tick(True))
 
     @commands.command()
