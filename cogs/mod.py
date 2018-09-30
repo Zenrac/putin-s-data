@@ -564,40 +564,56 @@ class Mod():
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_channels=True)
-    async def mute(self, ctx, *, user : discord.Member):
+    async def mute(self, ctx, *, members:commands.Greedy[discord.Member]=None):
         """Mutes a user."""
-        try:
-            role = discord.utils.get(ctx.guild.roles, name='Muted')
-            if not role:
-                permissions = discord.PermissionOverwrite()
-                permissions.send_messages = False
-                permissions.send_tts_messages = False
-                permissions.speak = False
-                await ctx.send(permissions)
-                role = await ctx.guild.create_role(name='Muted', mentionable=False, hoist=False)
-                for channel in ctx.guild.channels:
-                    await channel.set_permissions(role, overwrite=permissions)
-            if role in user.roles:
-                return await ctx.send(f'{ctx.tick(False)} This member is already muted.')
-            await user.edit(mute=True)
-            await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
-            await ctx.send(f'{ctx.tick(True)} Muted {user.display_name}.')
-        except discord.Forbidden:
-            await ctx.send(f'{ctx.tick(False)} The bot does not have proper permissions.')
+        if not members:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to mute.')
+
+        muted = []
+
+        for user in members:
+            try:
+                role = discord.utils.get(ctx.guild.roles, name='Muted')
+                if not role:
+                    permissions = discord.PermissionOverwrite()
+                    permissions.send_messages = False
+                    permissions.send_tts_messages = False
+                    permissions.speak = False
+                    await ctx.send(permissions)
+                    role = await ctx.guild.create_role(name='Muted', mentionable=False, hoist=False)
+                    for channel in ctx.guild.channels:
+                        await channel.set_permissions(role, overwrite=permissions)
+                if role in user.roles:
+                    continue
+                await user.edit(mute=True)
+                await user.add_roles(role, reason=f"Muted by {ctx.author.display_name}(ID:{ctx.author.id})")
+                muted.append(f'``{user.display_name}``')
+            except discord.Forbidden:
+                await ctx.send(f'{ctx.tick(False)} I not have proper permissions.')
+
+        await ctx.send(f'{ctx.tick(True)} The following members were muted, {", ".join(muted)}.')
 
     @commands.command(no_pm = True)
     @checks.has_permissions(manage_guild=True)
-    async def unmute(self, ctx, *, user : discord.Member):
+    async def unmute(self, ctx, *, members:commands.Greedy[discord.Member]=None):
         """Unmutes a user."""
-        try:
-            role = discord.utils.get(ctx.guild.roles, name='Muted')
-            if not role in user.roles:
-                return await ctx.send(f'{ctx.tick(False)} This member was not muted in the first place.')
-            await user.edit(mute=False)
-            await user.remove_roles(role, reason=f"Unmuted by {ctx.author.display_name}(ID:{ctx.author.id})")
-            await ctx.send(f'{ctx.tick(True)} Unmuted {user.display_name}.')
-        except discord.Forbidden:
-            await ctx.send(f'{ctx.tick(False)} The bot does not have proper permissions.')
+        if not members:
+            return await ctx.send(f'{ctx.tick(False)} You need to specify at least one member to unmute.')
+
+        unmuted = []
+
+        for user in members:
+            try:
+                role = discord.utils.get(ctx.guild.roles, name='Muted')
+                if not role in user.roles:
+                    return await ctx.send(f'{ctx.tick(False)} This member was not muted in the first place.')
+                await user.edit(mute=False)
+                await user.remove_roles(role, reason=f"Unmuted by {ctx.author.display_name}(ID:{ctx.author.id})")
+                unmuted.append(f'``{user.display_name}``')
+            except discord.Forbidden:
+                await ctx.send(f'{ctx.tick(False)} I not have proper permissions.')
+
+        await ctx.send(f'{ctx.tick(True)} The following members were unmuted, {", ".join(unmuted)}.')
 
     async def _basic_cleanup_strategy(self, ctx, search):
         count = 0
