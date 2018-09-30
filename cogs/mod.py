@@ -686,7 +686,7 @@ class Mod():
             await member.kick(reason=reason)
             kicked.append(f'`{member.display_name}`')
 
-        await ctx.send(f'{ctx.tick(True)}' The following members were kicked, {", ".join(kicked)}.)
+        await ctx.send(f'{ctx.tick(True)} The following members were kicked, {", ".join(kicked)}.')
 
     @commands.command()
     @commands.guild_only()
