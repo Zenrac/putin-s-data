@@ -550,7 +550,7 @@ class Meta:
                 artist_name = artist.content
             except asyncio.TimeoutError:
                 await ctx.send('You took too long. Cya :wave:')
-                
+        track_name = None
         if track_name is None:
             await ctx.send('Alright, what\'s the song\'s name?\nYou have 1 minute to say it.')
             def pred(m):
