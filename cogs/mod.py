@@ -935,7 +935,7 @@ class Mod():
             if ctx.message:
                 await ctx.message.delete()
 
-    @commands.group()
+    @commands.group(invoke_without_command=True)
     @commands.guild_only()
     @checks.has_permissions(manage_messages=True)
     async def purge(self, ctx, search:int=None):
