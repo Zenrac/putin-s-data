@@ -938,7 +938,7 @@ class Mod():
     @commands.group()
     @commands.guild_only()
     @checks.has_permissions(manage_messages=True)
-    async def purge(self, ctx, search:int=100):
+    async def purge(self, ctx, search:int=None):
         """Purges messages that meet a criteria.
         In order to use this command, you must have Manage Messages permissions.
         Note that the bot needs Manage Messages as well. These commands cannot
@@ -948,6 +948,8 @@ class Mod():
         """
 
         if ctx.invoked_subcommand is None:
+            if not search:
+                await ctx.show_help('purge')
             await self.do_removal(ctx, search, lambda e: True)                
                     
     @purge.command()
