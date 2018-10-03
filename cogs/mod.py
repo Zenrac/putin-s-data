@@ -893,21 +893,7 @@ class Mod():
                 await ctx.send(f'{ctx.tick(True)} Unbanned {member.user} (ID: {member.user.id}).')
 
 
-    @commands.group()
-    @commands.guild_only()
-    @checks.has_permissions(manage_messages=True)
-    async def purge(self, ctx):
-        """Purges messages that meet a criteria.
-        In order to use this command, you must have Manage Messages permissions.
-        Note that the bot needs Manage Messages as well. These commands cannot
-        be used in a private message.
-        When the command is done doing its work, you will get a message
-        detailing which users got purged and how many messages got purged.
-        """
-
-        if ctx.invoked_subcommand is None:
-            help_cmd = self.bot.get_command('help')
-            await ctx.invoke(help_cmd, command='purge')
+    
 
     async def do_removal(self, ctx, limit, predicate, *, before=None, after=None):
         if limit > 2000:
@@ -949,6 +935,21 @@ class Mod():
             if ctx.message:
                 await ctx.message.delete()
 
+    @commands.group()
+    @commands.guild_only()
+    @checks.has_permissions(manage_messages=True)
+    async def purge(self, ctx, search:int=100):
+        """Purges messages that meet a criteria.
+        In order to use this command, you must have Manage Messages permissions.
+        Note that the bot needs Manage Messages as well. These commands cannot
+        be used in a private message.
+        When the command is done doing its work, you will get a message
+        detailing which users got purged and how many messages got purged.
+        """
+
+        if ctx.invoked_subcommand is None:
+            await self.do_removal(ctx, search, lambda e: True)                
+                    
     @purge.command()
     async def embeds(self, ctx, search=100):
         """Purges messages that have embeds in them."""
@@ -964,10 +965,8 @@ class Mod():
         """Purges messages that have embeds or attachments."""
         await self.do_removal(ctx, search, lambda e: len(e.embeds) or len(e.attachments))
 
-    @purge.command(name='all')
-    async def _purge_all(self, ctx, search=100):
-        """Purges all messages."""
-        await self.do_removal(ctx, search, lambda e: True)
+    
+        
 
     @purge.command()
     async def user(self, ctx, member: discord.Member, search=100):
